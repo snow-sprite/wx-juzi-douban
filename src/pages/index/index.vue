@@ -125,11 +125,6 @@ export default {
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()
     this.getBanner()
-    const ctx = wx.createCanvasContext('myCanvas')
-    ctx.setFillStyle('red')
-    ctx.setShadow(10, 50, 50, 'blue')
-    ctx.fillRect(10, 10, 150, 75)
-    ctx.draw()
   }
 }
 </script>
@@ -167,13 +162,16 @@ page {
   margin-top: 30rpx;
   min-height: 364rpx;
   .main-swiper {
-    min-height: 364rpx;
-    box-sizing: border-box;
-    padding: 0 8px;
+    min-height: 380rpx;
+    margin: 0 auto;
+    width: 98%;
+    /* box-shadow: 0 10px 20px 2px rgba(41,41,59,.4); */
     image {
-      width: 100%;
-      height: 364rpx;
+      display: block;
+      width: 98%;
       border-radius: 8px;
+      height: 364rpx;
+      margin: 0 1%;
       box-shadow: 0 3px 10px 0 rgba(41,41,59,.4);
     }
   }
