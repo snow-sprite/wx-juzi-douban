@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <!-- <div class="userinfo">
       <img class="userinfo-avatar" v-if="userInfo && userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <div class="userinfo-nickname">
@@ -9,67 +9,45 @@
     <!-- <a href="/pages/market/main">market</a> -->
     <div class="swiper-tab">
       <div
-        class="tab-list-left"
-        :class="isActiveLive"
+        class="tab-list-box"
+        :class="currentPage === 0 ? 'tab-active' : ''"
         data-current-tab="0"
-        @click="switchSwiper">
-        行情
+        @click="switchPage(0)">
+        快讯
       </div>
       <div
-        class="tab-list-right"
-        :class="isActiveMarket"
+        class="tab-list-box"
+        :class="currentPage === 1 ? 'tab-active' : ''"
         data-current-tab="1"
-        @click="switchSwiper">
-        快讯
+        @click="switchPage(1)">
+        行情
       </div>
     </div>
     <div class="main">
-      <swiper
-      class="main-swiper"
-      :current="currentTab"
-      :circular = "circular"
-      @change="exchangeSwiperPage">
-        <swiper-item v-for="(item, index) in swiperArray" :key="index">
-          <div><image :src="item.pic_url" id="myCanvas" /></div>
-        </swiper-item>
-      </swiper>
-    </div>
-    <div>
-      <image
-        class="img-refresh"
-        src="../../static/img/me_refresh.png"
-        :hidden="!isShowRefresh"
-        @click="refresh"/>
+      <Live v-if="currentPage === 0" />
+      <Market v-else />
     </div>
   </div>
 </template>
 
 <script>
-import store from '@/store'
-import wxApi from '@/utils/request'
-import {
-  BANNER_LIST
-} from '@/utils/apiList'
+import Live from './Live.vue'
+import Market from './Market.vue'
 export default {
-  name: 'Live',
+  name: 'Home',
   data () {
     return {
       motto: 'Hello World',
       userInfo: {},
-      swiperArray: [],
-      livesList: [1, 2, 3, 4, 5],
-      currentTab: 0,
+      // 当前页
+      currentPage: 0,
+      tabs: ['快讯', '行情'],
       circular: true
     }
   },
-  computed: {
-    isActiveLive () {
-      return this.currentTab === 0 ? 'tab-active' : ''
-    },
-    isActiveMarket () {
-      return this.currentTab === 1 ? 'tab-active' : ''
-    },
-    isShowRefresh: _ => store.getters.isShowRefresh
+  components: {
+    Live,
+    Market
   },
   methods: {
     getUserInfo () {
@@ -86,16 +64,15 @@ export default {
         }
       })
     },
-    switchSwiper (e) {
-      if (this.currentTab === e.target.dataset.currentTab) {
-        return false
-      } else {
-        this.currentTab = e.target.dataset.currentTab
-      }
+    // 切换tab选项
+    switchPage (page) {
+      if (this.currentPage === page) return
+      this.currentPage = page
     },
-    exchangeSwiperPage (e) {
-      this.currentTab = e.target.current
+    exchangeSwiperPage (val) {
+      console.log(val)
     },
+    // 分享当前页
     onShareAppMessage () {
       return {
         title: '巴拉巴拉1',
@@ -107,29 +84,19 @@ export default {
           console.log(22, err)
         }
       }
-    },
-    refresh () { // 首页刷新按钮
-      console.log('刷新了')
-    },
-    getBanner () {
-      wxApi.get(BANNER_LIST, {
-        position: 'app_index_top'
-      })
-        .then(res => {
-          console.log(1, res)
-          if (res.statusCode === 200) this.swiperArray = res.data
-        })
     }
   },
   created () {
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()
-    this.getBanner()
   }
 }
 </script>
 
 <style lang=scss scoped>
+.app {
+  /* background: #333; */
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -161,33 +128,14 @@ page {
 .main {
   margin-top: 30rpx;
   min-height: 364rpx;
-  .main-swiper {
-    min-height: 380rpx;
-    margin: 0 auto;
-    width: 98%;
-    /* box-shadow: 0 10px 20px 2px rgba(41,41,59,.4); */
-    image {
-      display: block;
-      width: 98%;
-      border-radius: 8px;
-      height: 364rpx;
-      margin: 0 1%;
-      box-shadow: 0 3px 10px 0 rgba(41,41,59,.4);
-    }
-  }
 }
 .swiper-tab {
   display: flex;
   justify-content: center;
-  padding-bottom: 30rpx;
+  padding: 30rpx 0;
   border-bottom: 1rpx solid #eee;
 }
-.tab-list-left {
-  margin-right: 30rpx;
-  font-size: 36rpx;
-  font-weight: bold;
-}
-.tab-list-right {
+.tab-list-box {
   margin-left: 30rpx;
   font-size: 36rpx;
   font-weight: bold;
@@ -195,12 +143,5 @@ page {
 .tab-active {
   color: #ffd700;
 }
-.img-refresh {
-  width:80rpx;
-  height:80rpx;
-  border-radius:50%;
-  position:absolute;
-  right: 100rpx;
-  bottom: 260rpx;
-}
+
 </style>
