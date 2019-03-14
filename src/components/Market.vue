@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    第二页
+    行情列表
   </div>
 </template>
 

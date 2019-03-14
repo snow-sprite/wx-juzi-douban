@@ -24,6 +24,7 @@
       </div>
     </div>
     <div class="main">
+      <Swiper v-if="currentPage === 0" />
       <Live v-if="currentPage === 0" />
       <Market v-else />
     </div>
@@ -31,13 +32,13 @@
 </template>
 
 <script>
-import Live from './Live.vue'
-import Market from './Market.vue'
+import Swiper from '../../components/Swiper'
+import Live from '../../components/Live'
+import Market from '../../components/Market'
 export default {
   name: 'Home',
   data () {
     return {
-      motto: 'Hello World',
       userInfo: {},
       // 当前页
       currentPage: 0,
@@ -46,6 +47,7 @@ export default {
     }
   },
   components: {
+    Swiper,
     Live,
     Market
   },

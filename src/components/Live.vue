@@ -1,37 +1,6 @@
 <template>
   <div>
-    <swiper
-    class="main-swiper"
-    :current="currentTab"
-    :circular = "circular"
-    @change="exchangeSwiperPage">
-      <swiper-item v-for="(item, index) in swiperArray" :key="index">
-          <div><image :src="item.pic_url" /></div>
-      </swiper-item>
-    </swiper>
-    <image
-      class="img-refresh"
-      src="../../static/img/me_refresh.png"
-      :hidden="!isShowRefresh"
-      @click="refresh"/>
-    <div v-for="(item, ind) in livesList" :key="ind">
-      <div class="js-live-title" v-if="ind !== 0" id="live-title">
-          <div class="date" v-if="item.date">
-              <ul class="tc">
-                  <span class="font12 month">{{item.date | getMonth}}月</span>
-                  <span class="font18 day">{{item.date | getDate}}</span>
-              </ul>
-              <ol>
-                  <li class="week">{{item.date | getDay}}</li>
-                  <li>{{item.date | getWeek}}</li>
-              </ol>
-          </div>
-      </div>
-      <div class="main">
-        <!-- 单条组件:key="live.id" -->
-        <LiveSingle v-for="(live, index) in item.lives" :key="index" :content="live" />
-      </div>
-    </div>
+    快讯列表
   </div>
 </template>
 
@@ -45,8 +14,7 @@ import {
   BANNER_LIST,
   MAIN_NEWS,
   LIVES_LIST
-} from '@/utils/apiList'
-import LiveSingle from './commen/singleLive'
+} from '@/api/apiList'
 export default {
   name: 'Live',
   data () {
@@ -64,9 +32,6 @@ export default {
   computed: {
     // 是否显示首页刷新按钮
     isShowRefresh: _ => store.getters.isShowRefresh
-  },
-  components: {
-    LiveSingle
   },
   created () {
     // 获取banner列表数据

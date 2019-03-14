@@ -1,15 +1,31 @@
 // import wx from 'wx'
 const baseUrl = 'https://api.jinse.com'
+
+// 请求参数 重构
+const paramsSpliceUrl = (url, params) => {
+  if (params) {
+    let paramsArray = []
+    Object.keys(params).forEach(key => paramsArray.push(key + '=' + params[key]))
+    if (url.search(/\?/) === -1) {
+      url += '?' + paramsArray.join('&')
+    } else {
+      url += '&' + paramsArray.join('&')
+    }
+  }
+  return url
+}
+
 const wxApi = {
+  // get
   get (url, data) {
     return new Promise((resolve, reject) => {
       wx.showLoading({
         title: 'loading...',
         mask: true
       })
+      url = paramsSpliceUrl(url, data)
       wx.request({
         url: `${baseUrl}${url}`,
-        data,
         header: {
           'Content-Type': 'application/json'
         },
@@ -20,6 +36,7 @@ const wxApi = {
           resolve(res)
         },
         fail: err => {
+          console.warn('err', err)
           wx.hideLoading()
           reject(err)
         },
@@ -29,6 +46,7 @@ const wxApi = {
       })
     })
   },
+  // post
   post (url, data) {
     return new Promise((resolve, reject) => {
       wx.showLoading({
@@ -49,7 +67,7 @@ const wxApi = {
           wx.hideLoading()
         },
         fail: err => {
-          console.log('err', err)
+          console.warn('err', err)
           reject(err)
           wx.hideLoading()
         },
