@@ -11,17 +11,12 @@
 export default {
   name: 'Market',
   data () {
-    return {
-      // 早新闻
-      newsList: []
-    }
+    return {}
   },
-  methods: {
-    // TODO:
-  }
+  methods: {}
 }
 </script>
 
 <style lang=scss scoped>
-@import '../assets/css/rpx';
+@import '../assets/rpx';
 </style>

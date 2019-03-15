@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang=scss scoped>
-@import '../assets/css/rpx';
+@import '../assets/rpx';
 .main-swiper {
   @include rpx(min-height, 189px);
   margin: 0 auto;

@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang=scss>
-@import './assets/css/rpx';
+@import './assets/rpx';
 .container {
   height: 100%;
   display: flex;

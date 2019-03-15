@@ -87,5 +87,5 @@
 </script>
 
 <style lang=scss scoped>
-@import '../assets/css/rpx';
+@import '../assets/rpx';
 </style>

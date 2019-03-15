@@ -24,11 +24,19 @@
       </div>
     </div>
     <div class="main">
+      <!-- 轮播组件 -->
       <Swiper
         v-if="currentPage === 0 && swiperData && swiperData.length > 0"
         :swiperData="swiperData"
       />
+      <!-- 早新闻组件 -->
+      <MoringNews
+        v-if="currentPage === 0 && newsData && newsData.length > 0"
+        :newsData="newsData"
+      />
+      <!-- 快讯组件 -->
       <Live v-if="currentPage === 0" />
+      <!-- 行情组件 -->
       <Market v-else />
     </div>
   </div>
@@ -38,9 +46,11 @@
 import Swiper from '../../components/Swiper'
 import Live from '../../components/Live'
 import Market from '../../components/Market'
+import MoringNews from '@/components/MoringNews'
 import wxApi from '@/utils/request'
 import {
-  BANNER_LIST
+  BANNER_LIST,
+  MAIN_NEWS
 } from '@/api/apiList'
 
 export default {
@@ -53,19 +63,24 @@ export default {
       tabs: ['快讯', '行情'],
       circular: true,
       // banner集合
-      swiperData: []
+      swiperData: [],
+      // 早新闻
+      newsData: []
     }
   },
   components: {
     Swiper,
     Live,
-    Market
+    Market,
+    MoringNews
   },
   mounted () {
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()
     // 获取轮播数据
     this.getBanner()
+    // 获取早新闻
+    this.getMorningNews()
   },
   methods: {
     getUserInfo () {
@@ -87,7 +102,6 @@ export default {
       if (this.currentPage === page) return
       this.currentPage = page
     },
-    // 获取轮播图
     getBanner () {
       wxApi.get(BANNER_LIST, {
         position: 'app_index_top'
@@ -95,6 +109,18 @@ export default {
         .then(res => {
           console.log(1, res)
           if (res.statusCode === 200) this.swiperData = res.data
+        })
+    },
+    getMorningNews () {
+      wxApi.get(MAIN_NEWS, {
+        tag: '金色9：30',
+        limit: 1,
+        topic_id: 0,
+        flag: 'down'
+      })
+        .then(res => {
+          console.log(2, res)
+          if (res.statusCode === 200) this.newsData = res.data
         })
     },
     // 分享当前页
@@ -115,7 +141,7 @@ export default {
 </script>
 
 <style lang=scss scoped>
-@import '../../assets/css/rpx';
+@import '../../assets/rpx';
 /* .userinfo {
   display: flex;
   flex-direction: column;
