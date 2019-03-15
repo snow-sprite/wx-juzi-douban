@@ -1,0 +1,9 @@
+@import './var.scss';
+/*
+ * 这里放一些公共样式
+ */
+page {
+  background: $default-head-color;
+  font-family: "open sans","PingFang SC","Lantinghei SC","Helvetica Neue",Helvetica,Arial,"Microsoft YaHei","sans-serif";
+  height: 100%;
+}

@@ -24,7 +24,10 @@
       </div>
     </div>
     <div class="main">
-      <Swiper v-if="currentPage === 0" />
+      <Swiper
+        v-if="currentPage === 0 && swiperData && swiperData.length > 0"
+        :swiperData="swiperData"
+      />
       <Live v-if="currentPage === 0" />
       <Market v-else />
     </div>
@@ -35,6 +38,11 @@
 import Swiper from '../../components/Swiper'
 import Live from '../../components/Live'
 import Market from '../../components/Market'
+import wxApi from '@/utils/request'
+import {
+  BANNER_LIST
+} from '@/api/apiList'
+
 export default {
   name: 'Home',
   data () {
@@ -43,13 +51,21 @@ export default {
       // 当前页
       currentPage: 0,
       tabs: ['快讯', '行情'],
-      circular: true
+      circular: true,
+      // banner集合
+      swiperData: []
     }
   },
   components: {
     Swiper,
     Live,
     Market
+  },
+  mounted () {
+    // 调用应用实例的方法获取全局数据
+    this.getUserInfo()
+    // 获取轮播数据
+    this.getBanner()
   },
   methods: {
     getUserInfo () {
@@ -71,8 +87,15 @@ export default {
       if (this.currentPage === page) return
       this.currentPage = page
     },
-    exchangeSwiperPage (val) {
-      console.log(val)
+    // 获取轮播图
+    getBanner () {
+      wxApi.get(BANNER_LIST, {
+        position: 'app_index_top'
+      })
+        .then(res => {
+          console.log(1, res)
+          if (res.statusCode === 200) this.swiperData = res.data
+        })
     },
     // 分享当前页
     onShareAppMessage () {
@@ -87,19 +110,13 @@ export default {
         }
       }
     }
-  },
-  created () {
-    // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
   }
 }
 </script>
 
 <style lang=scss scoped>
-.app {
-  /* background: #333; */
-}
-.userinfo {
+@import '../../assets/css/rpx';
+/* .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,29 +135,26 @@ export default {
 
 .usermotto {
   margin-top: 150px;
-}
-
-page {
-  background: #faf9fe;
-  font-family: "open sans","PingFang SC","Lantinghei SC","Helvetica Neue",Helvetica,Arial,"Microsoft YaHei","sans-serif";
-}
-.container {
-  background: #faf9fe;
-}
+} */
 .main {
-  margin-top: 30rpx;
-  min-height: 364rpx;
+  @include rpx((
+    margin-top: 15px,
+    min-height: 182px
+  ))
 }
 .swiper-tab {
   display: flex;
   justify-content: center;
-  padding: 30rpx 0;
-  border-bottom: 1rpx solid #eee;
+  @include rpx((
+    padding: 15px 0,
+    border-bottom: 1px solid #eee
+  ))
 }
 .tab-list-box {
-  margin-left: 30rpx;
-  font-size: 36rpx;
-  font-weight: bold;
+  @include rpx((
+    margin-left: 15px,
+    font-size: 18px
+  ))
 }
 .tab-active {
   color: #ffd700;

@@ -62,7 +62,6 @@ const wxApi = {
         method: 'POST',
         dataType: 'json',
         success: (res) => {
-          console.log('res', res)
           resolve(res)
           wx.hideLoading()
         },

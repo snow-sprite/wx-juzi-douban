@@ -118,27 +118,27 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
-  page {
-    background: #faf9fe;
-    font-family: "open sans","PingFang SC","Lantinghei SC","Helvetica Neue",Helvetica,Arial,"Microsoft YaHei","sans-serif";
-    height: 100%;
-  }
+<style lang=scss scoped>
+@import '../../assets/css/rpx';
   .me-setting {
     display: flex;
     flex-direction: column;
   }
   .single-setting {
-    padding: 0 10rpx 0 10rpx;
-    height: 100rpx;
-    line-height: 100rpx;
-    font-size: 36rpx;
-    border-bottom: 2rpx solid #eee;
+    @include rpx((
+      padding: 0 5px 0 5px,
+      height: 50px,
+      line-height: 50px,
+      font-size: 18px,
+      border-bottom: 1px solid #eee
+    ))
   }
   .fr {
     float: right;
   }
   .pr10 {
-    padding-right: 10rpx;
+    @include rpx((
+      padding-right: 10rpx
+    ))
   }
 </style>
