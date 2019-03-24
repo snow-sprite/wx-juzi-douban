@@ -1,0 +1,89 @@
+// 全局公用变量
+$browser-default-font-size: 37.5px !default;
+$--box-width: 1170px !default;
+
+/* Transition 过渡变量
+-------------------------- */
+
+/* Colors 色值变量
+-------------------------- */
+$default-head-color: '#faf9fe';
+$--color-sup: #f29700 !default;
+$--color-white: #fff !default;
+$--color-white-1: #fafafa !default;
+$--color-black: #000 !default;
+$--color-black-1: #2D2D35 !default;
+$--color-black-2: #4a4a4a !default;
+$--color-primary: #409EFF !default;
+$--color-primary-1: #438FED !default;
+$--color-success: #67c23a !default;
+$--color-warning: #e6a23c !default;
+$--color-danger: #f56c6c !default;
+$--color-info: #909099 !default;
+$--color-default: #eaeaef !default;
+$--color-important: #ea3e3e !default;
+$--color-999: #999 !default;
+$--color-gray: #EAEAEF !default;
+$-color-3CB838: #3CB838 !default;
+$--color-gray-1: #F5F5F5 !default;
+
+$--color-text-primary: #303133 !default;
+
+/* Font Size 文字变量
+-------------------------- */
+$--font-size-base: 14px !default;
+$--font-size-small: 12px !default;
+$--font-size-medium: 16px !default;
+$--font-size-large: 18px !default;
+$--font-size-big: 20px !default;
+$--font-size-24: 24px !default;
+$--font-size-maximum: 30px !default;
+
+/* Background 背景变量
+-------------------------- */
+$--background-color-base: $--color-white !default;
+$--background-color-gray: $--color-default !default;
+$--background-color-important: radial-gradient(#ed6560, #ee8076);
+$--background-color-normal: radial-gradient(#eca226, #f0b45a);
+$--background-color-default: radial-gradient(#c2c2ca, #cbcbd2);
+/* Border
+-------------------------- */
+$--border-radius-base: 4px !default;
+$--border-radius-small: 2px !default;
+$--border-radius-circle: 100% !default;
+
+/* Box-shadow 盒子阴影变量
+-------------------------- */
+
+/* Message
+-------------------------- */
+$--message-success-color: $--color-success !default;
+$--message-info-color: $--color-info !default;
+$--message-warning-color: $--color-warning !default;
+$--message-danger-color: $--color-danger !default;
+
+/* Break-point 断点变量
+--------------------------*/
+$--sm: 768px !default;
+$--md: 992px !default;
+$--lg: 1200px !default;
+$--xl: 1920px !default;
+
+$--breakpoints: ('xs' : (max-width: $--sm - 1),
+'sm' : (min-width: $--sm),
+'md' : (min-width: $--md),
+'lg' : (min-width: $--lg),
+'xl' : (min-width: $--xl));
+
+$--breakpoints-spec: ('xs-only' : (max-width: $--sm - 1),
+'sm-and-up' : (min-width: $--sm),
+'sm-only': "(min-width: #{$--sm}) and (max-width: #{$--md} - 1)",
+'sm-and-down': (max-width: $--md - 1),
+'md-and-up' : (min-width: $--md),
+'md-only': "(min-width: #{$--md}) and (max-width: #{$--lg } - 1)",
+'md-and-down': (max-width: $--lg - 1),
+'lg-and-up' : (min-width: $--lg),
+'lg-only': "(min-width: #{$--lg}) and (max-width: #{$--xl } - 1)",
+'lg-and-down': (max-width: $--xl - 1),
+'xl-only' : (min-width: $--xl),
+);

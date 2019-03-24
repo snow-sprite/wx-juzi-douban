@@ -164,7 +164,6 @@ export default {
 } */
 .main {
   @include rpx((
-    margin-top: 15px,
     min-height: 182px
   ))
 }
