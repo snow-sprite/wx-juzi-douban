@@ -159,9 +159,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/mixins';
 @include b(coin-box) {
-  // height: 80%;
-  // TODO: scroll-view 必须得设置高度，这里暂时写哥500高，以后再改
-  height: 500px;
+  height: 100vh;
 }
 @include b(coin) {
   border-bottom: 1px solid $--color-default;
@@ -174,8 +172,8 @@ export default {
     font-family: PingFangSC-Regular;
     font-weight: 400;
     & li {
-      height: r(65px);
-      line-height: r(65px);
+      height: r(50px);
+      line-height: r(50px);
     }
   }
   @include e(name) {
@@ -184,8 +182,8 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
     & img {
-      width: r(36px);
-      height: r(36px);
+      width: r(28px);
+      height: r(28px);
       border-radius: 50%;
       vertical-align: middle;
     }
@@ -211,12 +209,12 @@ export default {
   }
   @include e(info) {
     width: 100%;
-    height: r(114px);
+    height: r(100px);
     display: flex;
     flex-direction: column;
     background: $--color-white-1;
-    margin-bottom: r(15px);
-    padding: r(15px);
+    margin-bottom: r(8px);
+    padding: r(8px) r(15px);
     box-sizing: border-box;
     @include m(box) {
       display: flex;

@@ -13,7 +13,7 @@
 <script>
 export default {
   // warn: vue组件名不能与小程序组件名同名，包括大小写
-  name: 'Swipers',
+  name: 'MySwiper',
   props: {
     swiperData: {
       type: Array,

@@ -1,12 +1,5 @@
 <template>
-  <div class="app">
-    <!-- <div class="userinfo">
-      <img class="userinfo-avatar" v-if="userInfo && userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
-    </div> -->
-    <!-- <a href="/pages/market/main">market</a> -->
+  <div>
     <div class="swiper-tab">
       <div
         class="tab-list-box"
@@ -23,27 +16,43 @@
         行情
       </div>
     </div>
-    <div class="main">
-      <!-- 轮播组件 -->
-      <Swiper
-        v-if="currentPage === 0 && swiperData && swiperData.length > 0"
-        :swiperData="swiperData"
-      />
-      <!-- 早新闻组件 -->
-      <MoringNews
-        v-if="currentPage === 0 && newsData && newsData.length > 0"
-        :newsData="newsData"
-      />
-      <!-- 快讯组件 -->
-      <Live v-if="currentPage === 0" />
-      <!-- 行情组件 -->
-      <Market v-else />
-    </div>
+    <swiper
+      :current="currentPage"
+      :duration="300"
+      @change="changePage"
+      class="app"
+    >
+      <!-- <div class="userinfo">
+        <img class="userinfo-avatar" v-if="userInfo && userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
+        <div class="userinfo-nickname">
+          <card :text="userInfo.nickName"></card>
+        </div>
+      </div> -->
+      <!-- <a href="/pages/market/main">market</a> -->
+      <swiper-item class="main">
+        <!-- 轮播组件 -->
+        <MySwiper
+          v-if="swiperData && swiperData.length > 0"
+          :swiperData="swiperData"
+        />
+        <!-- 早新闻组件 -->
+        <MoringNews
+          v-if="newsData && newsData.length > 0"
+          :newsData="newsData"
+        />
+        <!-- 快讯组件 -->
+        <Live />
+      </swiper-item>
+      <swiper-item>
+        <!-- 行情组件 -->
+        <Market />
+      </swiper-item>
+    </swiper>
   </div>
 </template>
 
 <script>
-import Swiper from '../../components/Swiper'
+import MySwiper from '../../components/Swipers'
 import Live from '../../components/Live'
 import Market from '../../components/Market'
 import MoringNews from '@/components/MoringNews'
@@ -69,7 +78,7 @@ export default {
     }
   },
   components: {
-    Swiper,
+    MySwiper,
     Live,
     Market,
     MoringNews
@@ -120,7 +129,12 @@ export default {
       })
         .then(res => {
           console.log(2, res)
-          if (res.statusCode === 200) this.newsData = res.data
+          if (res.statusCode === 200) {
+            res.data.forEach(resp => {
+              resp.title = resp.title.replace(/金色/g, '今日')
+            })
+            this.newsData = res.data
+          }
         })
     },
     // 分享当前页
@@ -135,6 +149,9 @@ export default {
           console.log(22, err)
         }
       }
+    },
+    changePage (e) {
+      this.currentPage = e.target.current
     }
   }
 }
@@ -162,6 +179,9 @@ export default {
 .usermotto {
   margin-top: 150px;
 } */
+.app {
+  height: 100vh;
+}
 .main {
   @include rpx((
     min-height: 182px
