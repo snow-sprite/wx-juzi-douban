@@ -1,5 +1,8 @@
 <template>
   <div class="zl-app">
+    <div class="zl-refresh-tip" ref="refreshTip" v-show="refreshLoading">
+      <span>{{ refreshText }}</span>
+    </div>
     <div class="swiper-tab">
       <div
         class="tab-list-box"
@@ -41,14 +44,14 @@
           :newsData="newsData"
         />
         <!-- 快讯组件 -->
-        <Live :livesList="livesList" />
+        <Live v-if="livesList && livesList.length > 0" :livesList="livesList" />
       </swiper-item>
       <swiper-item>
         <!-- 行情组件 -->
         <Market />
       </swiper-item>
     </swiper>
-    <div class="zl-refresh" v-show="isShowRefresh" @click="refreshLiveList">
+    <div class="zl-refresh" v-show="isShowRefresh && currentPage === 0" @click="refreshLiveList">
       <img src="../../../static/img/fresh.svg" alt="">
     </div>
   </div>
@@ -76,6 +79,9 @@ export default {
       currentPage: 0,
       tabs: ['快讯', '行情'],
       circular: true,
+      refreshLoading: true,
+      refreshText: '',
+      timer: null,
       // banner集合
       swiperData: [],
       // 早新闻
@@ -128,7 +134,6 @@ export default {
         position: 'app_index_top'
       })
         .then(res => {
-          console.log(1, res)
           if (res.statusCode === 200) this.swiperData = res.data
         })
     },
@@ -140,7 +145,6 @@ export default {
         flag: 'down'
       })
         .then(res => {
-          console.log(2, res)
           if (res.statusCode === 200) {
             res.data.forEach(resp => {
               resp.title = resp.title.replace(/金色/g, '今日')
@@ -151,14 +155,22 @@ export default {
     },
     async getLives () {
       try {
-        let { data } = await wxApi.get(LIVES_LIST, {
+        let that = this
+        this.refreshText = '正在刷新'
+        let data = await wxApi.get(LIVES_LIST, {
           reading: false,
           limit: 10
         })
-        this.livesList = data
-        console.log('data', data)
+        this.livesList = data.data.list
+        this.refreshText = '快讯刷新完成'
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
+          that.refreshLoading = false
+        }, 1000)
       } catch (e) {
         this.livesList = []
+        this.refreshLoading = false
+        this.refreshText = '网络错误'
       }
     },
     // 分享当前页
@@ -179,6 +191,7 @@ export default {
     },
     // click refresh button
     refreshLiveList () {
+      this.refreshLoading = true
       this.getLives()
     }
   }
@@ -253,7 +266,23 @@ export default {
   ))
 }
 .tab-active {
-  color: #ffd700;
+  color: #dbc858;
 }
-
+.zl-refresh-tip {
+  width: 100%;
+  background: #f3e593;
+  text-align: center;
+  transition: height 2s;
+  @include rpx((
+    height: 40px,
+    line-height: 40px
+  ));
+  span {
+    font-weight: bold;
+    @include rpx((
+      font-size: 16px,
+      color: #e69b37
+    ))
+  }
+}
 </style>

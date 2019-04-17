@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style lang=scss scoped>
-@import '../assets/rpx';
+@import '../assets/rpx.scss';
 .moring-news-box {
   box-sizing: border-box;
   width: 96%;
@@ -52,7 +52,7 @@ export default {
     padding-top: 10px,
     border-radius: 4px,
     box-shadow: 0 3px 10px 0 rgba(41,41,59,.12)
-  ))
+  ));
   header {
     position: relative;
     .bg-line {
