@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="zl-app">
     <div class="swiper-tab">
       <div
         class="tab-list-box"
@@ -41,25 +41,30 @@
           :newsData="newsData"
         />
         <!-- 快讯组件 -->
-        <Live />
+        <Live :livesList="livesList" />
       </swiper-item>
       <swiper-item>
         <!-- 行情组件 -->
         <Market />
       </swiper-item>
     </swiper>
+    <div class="zl-refresh" v-show="isShowRefresh" @click="refreshLiveList">
+      <img src="../../../static/img/fresh.svg" alt="">
+    </div>
   </div>
 </template>
 
 <script>
-import MySwiper from '../../components/Swipers'
-import Live from '../../components/Live'
-import Market from '../../components/Market'
+import MySwiper from '@/components/Swipers'
+import Live from '@/components/Live'
+import Market from '@/components/Market'
 import MoringNews from '@/components/MoringNews'
+import store from '@/store'
 import wxApi from '@/utils/request'
 import {
   BANNER_LIST,
-  MAIN_NEWS
+  MAIN_NEWS,
+  LIVES_LIST
 } from '@/api/apiList'
 
 export default {
@@ -74,7 +79,9 @@ export default {
       // banner集合
       swiperData: [],
       // 早新闻
-      newsData: []
+      newsData: [],
+      // 快讯列表
+      livesList: []
     }
   },
   components: {
@@ -83,6 +90,9 @@ export default {
     Market,
     MoringNews
   },
+  computed: {
+    isShowRefresh: _ => store.getters.isShowRefresh
+  },
   mounted () {
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()
@@ -90,6 +100,8 @@ export default {
     this.getBanner()
     // 获取早新闻
     this.getMorningNews()
+    // 获取快讯
+    this.getLives()
   },
   methods: {
     getUserInfo () {
@@ -137,6 +149,18 @@ export default {
           }
         })
     },
+    async getLives () {
+      try {
+        let { data } = await wxApi.get(LIVES_LIST, {
+          reading: false,
+          limit: 10
+        })
+        this.livesList = data
+        console.log('data', data)
+      } catch (e) {
+        this.livesList = []
+      }
+    },
     // 分享当前页
     onShareAppMessage () {
       return {
@@ -152,6 +176,10 @@ export default {
     },
     changePage (e) {
       this.currentPage = e.target.current
+    },
+    // click refresh button
+    refreshLiveList () {
+      this.getLives()
     }
   }
 }
@@ -186,6 +214,29 @@ export default {
   @include rpx((
     min-height: 182px
   ))
+}
+.zl-app {
+  position: relative;
+  .zl-refresh {
+    position: fixed;
+    background: #fff;
+    border-radius: 50%;
+    @include rpx((
+      width: 45px,
+      height: 45px,
+      bottom: 60px,
+      right: 50px
+    ));
+    img {
+      margin: 0 auto;
+      display: block;
+      @include rpx((
+        width: 25px,
+        height: 25px,
+        margin-top: 10px
+      ))
+    }
+  }
 }
 .swiper-tab {
   display: flex;

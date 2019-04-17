@@ -24,6 +24,12 @@
 </template>
 
 <script>
+/*
+ * @Description: 早新闻
+ * @Author: zhiozhou
+ * @Date: 2019-04-17 15:08:20
+ * @LastEditTime: 2019-04-17 15:08:20
+ */
 export default {
   name: 'MoringNews',
   props: {
