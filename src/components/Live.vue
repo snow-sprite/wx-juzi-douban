@@ -28,7 +28,6 @@ export default {
 </script>
 
 <style lang=scss scoped>
-@import '../assets/rpx';
 @import '../assets/mixins';
 @include b(live) {
   width: 100%;

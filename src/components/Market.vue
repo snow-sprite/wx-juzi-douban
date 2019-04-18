@@ -88,7 +88,7 @@ export default {
     return {
       param: {
         page: 1,
-        limit: 10,
+        limit: 15,
         offset: 0,
         currency: '',
         sortby: 'market_cap',

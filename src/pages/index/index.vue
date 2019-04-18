@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="zl-app">
     <div class="zl-refresh-tip" ref="refreshTip" v-show="refreshLoading">
       <span>{{ refreshText }}</span>
@@ -55,6 +56,7 @@
       <img src="../../../static/img/fresh.svg" alt="">
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -199,6 +201,7 @@ export default {
 </script>
 
 <style lang=scss scoped>
+@import '../../assets/mixins';
 @import '../../assets/rpx';
 /* .userinfo {
   display: flex;
@@ -220,6 +223,9 @@ export default {
 .usermotto {
   margin-top: 150px;
 } */
+@include b(coin-box) {
+  height: 100%;
+}
 .app {
   height: 100vh;
 }
@@ -278,7 +284,7 @@ export default {
     line-height: 40px
   ));
   span {
-    font-weight: bold;
+    font-weight: 400;
     @include rpx((
       font-size: 16px,
       color: #e69b37
