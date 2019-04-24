@@ -1,7 +1,7 @@
 <template>
   <article class="zl-live">
     <div
-      v-for="(val, ind) in [1, 2, 3, 4, 5, 6]"
+      v-for="(val, ind) in [1]"
       :key="ind"
     >
       <aside class="zl-live__time">
@@ -28,7 +28,7 @@
       </aside>
       <!-- v-for="(value, index) in val.arrs" -->
       <div
-        v-for="(value, index) in [1, 2, 3, 4, 5, 6]"
+        v-for="(value, index) in [1]"
         :key="index"
         class="zl-live__content"
       >
@@ -65,7 +65,7 @@
                 src="../../static/img/live/liveup.svg"
               >
               <img
-                v-if="value.bull_num<value.bear_num || value.bull_num==value.bear_num"
+                v-if="value.bull_num < value.bear_num || value.bull_num === value.bear_num"
                 src="../../static/img/live/noliveup.svg"
               >
               <span class="zl-bull_num">

@@ -52,6 +52,7 @@
         <Market />
       </swiper-item>
     </swiper>
+    <!-- 首页刷新按钮 -->
     <div class="zl-refresh" v-show="isShowRefresh && currentPage === 0" @click="refreshLiveList">
       <img src="../../../static/img/fresh.svg" alt="">
     </div>
@@ -227,7 +228,7 @@ export default {
   height: 100%;
 }
 .app {
-  height: 100vh;
+  min-height: 100vh;
 }
 .main {
   @include rpx((

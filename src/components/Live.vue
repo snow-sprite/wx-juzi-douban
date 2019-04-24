@@ -1,9 +1,16 @@
 <template>
-  <article class="js-drawer-container js-live ">
-    <section class="js-lives">
-      <LiveSingle />
-    </section>
-  </article>
+  <scroll-view
+    class="zl-coin-box"
+    scroll-y
+    lower-threshold="50"
+    enable-back-to-top="true"
+  >
+    <article class="js-drawer-container js-live ">
+      <section class="js-lives">
+        <LiveSingle />
+      </section>
+    </article>
+  </scroll-view>
 </template>
 <script>
 /*
@@ -31,6 +38,9 @@ export default {
 @import '../assets/mixins';
 @include b(live) {
   width: 100%;
+}
+@include b(coin-box) {
+  height: 100vh;
 }
 @include b(lives) {
   box-sizing: border-box;
