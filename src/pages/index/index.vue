@@ -115,7 +115,7 @@ export default {
         this.refreshText = '正在刷新快讯列表'
         let data = await wxApi.get(LIVES_LIST, {
           reading: false,
-          limit: 200
+          limit: 10
         })
         this.livesList = data.data.list
         this.refreshText = '快讯刷新完成'

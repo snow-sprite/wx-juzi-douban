@@ -16,8 +16,8 @@
       :newsData="newsData"
     />
     <article class="js-drawer-container js-live">
-      <section class="js-lives" v-if="livesList && livesList.length > 0">
-        <LiveSingle />
+      <section class="js-lives">
+        <LiveItem v-if="newLiveData && newLiveData.length > 0" :liveData="newLiveData" />
       </section>
     </article>
   </scroll-view>
@@ -28,7 +28,7 @@
  */
 import MySwiper from '@/components/Swipers'
 import MoringNews from '@/components/MoringNews'
-import LiveSingle from './LiveSingle'
+import LiveItem from './LiveItem'
 import wxApi from '@/utils/request'
 import {
   BANNER_LIST,
@@ -56,7 +56,7 @@ export default {
   components: {
     MySwiper,
     MoringNews,
-    LiveSingle
+    LiveItem
   },
   mounted () {
     console.log(100, this.livesList)
