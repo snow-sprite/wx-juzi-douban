@@ -48,7 +48,9 @@ export default {
       // banner集合
       swiperData: [],
       // 早新闻
-      newsData: []
+      newsData: [],
+      // 自定义快讯数据
+      newLiveData: []
     }
   },
   components: {
@@ -62,8 +64,26 @@ export default {
     this.getBanner()
     // 获取早新闻
     this.getMorningNews()
+    // 处理快讯数据 方便使用
+    this.handleLiveData()
   },
   methods: {
+    handleLiveData () {
+      let tmpDate = ''
+      this.livesList.forEach((live, ind) => {
+        // 数组中时间相同
+        if (live.date === tmpDate) {
+          this.newLiveData[ind].lives.push(live)
+        } else {
+          // 数组中有不相同时间数据
+          this.newLiveData.push({
+            date: live.date,
+            lives: live.lives
+          })
+        }
+        tmpDate = live.date
+      })
+    },
     getBanner () {
       wxApi.get(BANNER_LIST, {
         position: 'app_index_top'

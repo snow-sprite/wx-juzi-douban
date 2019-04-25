@@ -1,7 +1,7 @@
 <template>
   <swiper
   class="main-swiper"
-  :current="currentTab"
+  :current="true"
   :circular = "circular"
   :autoplay="true"
   :interval="5000"
@@ -30,8 +30,7 @@ export default {
   },
   data () {
     return {
-      currentTab: 0,
-      circular: true
+      currentTab: 0
     }
   },
   methods: {

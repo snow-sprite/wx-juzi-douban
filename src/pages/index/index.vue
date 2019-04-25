@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="zl-app">
-    <div class="zl-refresh-tip" ref="refreshTip" v-show="refreshLoading">
+    <div class="zl-refresh-tip" ref="refreshTip" v-show="refreshLoading && isBtnCommit">
       <span>{{ refreshText }}</span>
     </div>
     <div class="swiper-tab">
@@ -35,7 +35,7 @@
       <!-- <a href="/pages/market/main">market</a> -->
       <swiper-item class="main">
         <!-- 快讯组件 -->
-        <Live :livesList="livesList" />
+        <Live v-if="livesList.length > 0" :livesList="livesList" />
       </swiper-item>
       <swiper-item>
         <!-- 行情组件 -->
@@ -72,7 +72,8 @@ export default {
       refreshText: '',
       timer: null,
       // 快讯列表
-      livesList: []
+      livesList: [],
+      isBtnCommit: false
     }
   },
   components: {
@@ -111,10 +112,10 @@ export default {
     async getLives () {
       try {
         let that = this
-        this.refreshText = '正在刷新'
+        this.refreshText = '正在刷新快讯列表'
         let data = await wxApi.get(LIVES_LIST, {
           reading: false,
-          limit: 10
+          limit: 200
         })
         this.livesList = data.data.list
         this.refreshText = '快讯刷新完成'
@@ -122,10 +123,12 @@ export default {
         this.timer = setTimeout(() => {
           that.refreshLoading = false
         }, 1000)
+        this.isBtnCommit = false
       } catch (e) {
         this.livesList = []
         this.refreshLoading = false
         this.refreshText = '网络错误'
+        this.isBtnCommit = false
       }
     },
     // 分享当前页
@@ -146,6 +149,7 @@ export default {
     },
     // click refresh button
     refreshLiveList () {
+      this.isBtnCommit = true
       this.refreshLoading = true
       this.getLives()
     }
