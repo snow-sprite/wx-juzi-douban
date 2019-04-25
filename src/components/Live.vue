@@ -5,8 +5,18 @@
     lower-threshold="50"
     enable-back-to-top="true"
   >
-    <article class="js-drawer-container js-live ">
-      <section class="js-lives">
+    <!-- 轮播组件 -->
+    <MySwiper
+      v-if="swiperData && swiperData.length > 0"
+      :swiperData="swiperData"
+    />
+    <!-- 早新闻组件 -->
+    <MoringNews
+      v-if="newsData && newsData.length > 0"
+      :newsData="newsData"
+    />
+    <article class="js-drawer-container js-live">
+      <section class="js-lives" v-if="livesList && livesList.length > 0">
         <LiveSingle />
       </section>
     </article>
@@ -16,20 +26,68 @@
 /*
  * 快讯模块
  */
+import MySwiper from '@/components/Swipers'
+import MoringNews from '@/components/MoringNews'
 import LiveSingle from './LiveSingle'
+import wxApi from '@/utils/request'
+import {
+  BANNER_LIST,
+  MAIN_NEWS
+} from '@/api/apiList'
 export default {
   name: 'Live',
   props: {
     livesList: {
       required: true,
-      type: Array
+      type: Array,
+      default: () => []
+    }
+  },
+  data () {
+    return {
+      // banner集合
+      swiperData: [],
+      // 早新闻
+      newsData: []
     }
   },
   components: {
+    MySwiper,
+    MoringNews,
     LiveSingle
   },
   mounted () {
     console.log(100, this.livesList)
+    // 获取轮播数据
+    this.getBanner()
+    // 获取早新闻
+    this.getMorningNews()
+  },
+  methods: {
+    getBanner () {
+      wxApi.get(BANNER_LIST, {
+        position: 'app_index_top'
+      })
+        .then(res => {
+          if (res.statusCode === 200) this.swiperData = res.data
+        })
+    },
+    getMorningNews () {
+      wxApi.get(MAIN_NEWS, {
+        tag: '金色9：30',
+        limit: 1,
+        topic_id: 0,
+        flag: 'down'
+      })
+        .then(res => {
+          if (res.statusCode === 200) {
+            res.data.forEach(resp => {
+              resp.title = resp.title.replace(/金色/g, '今日')
+            })
+            this.newsData = res.data
+          }
+        })
+    }
   }
 }
 </script>

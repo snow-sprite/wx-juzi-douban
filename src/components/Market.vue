@@ -3,9 +3,11 @@
     <scroll-view
       class="zl-coin-box"
       scroll-y
+      upper-threshold="50"
       lower-threshold="50"
       enable-back-to-top="true"
       @scrolltolower="loadMore"
+      @scrolltoupper="getCurrencyList"
     >
       <div>
         <div
@@ -109,7 +111,7 @@ export default {
     }
   },
   mounted () {
-    this.currencyList()
+    this.getCurrencyList()
   },
   methods: {
     // 显示详情
@@ -125,7 +127,7 @@ export default {
       this.coinDetail.market_cap = item.market_cap
     },
     // 获取列表
-    currencyList () {
+    getCurrencyList () {
       this.isLoading = true
       this.busy = true
       wxApi.get(COINS_LIST, this.param)
@@ -150,7 +152,7 @@ export default {
     loadMore () {
       this.param.page++
       this.param.offset += this.param.limit
-      this.currencyList()
+      this.getCurrencyList()
     }
   }
 }

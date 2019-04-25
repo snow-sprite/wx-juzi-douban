@@ -34,18 +34,8 @@
       </div> -->
       <!-- <a href="/pages/market/main">market</a> -->
       <swiper-item class="main">
-        <!-- 轮播组件 -->
-        <MySwiper
-          v-if="swiperData && swiperData.length > 0"
-          :swiperData="swiperData"
-        />
-        <!-- 早新闻组件 -->
-        <MoringNews
-          v-if="newsData && newsData.length > 0"
-          :newsData="newsData"
-        />
         <!-- 快讯组件 -->
-        <Live v-if="livesList && livesList.length > 0" :livesList="livesList" />
+        <Live :livesList="livesList" />
       </swiper-item>
       <swiper-item>
         <!-- 行情组件 -->
@@ -61,15 +51,11 @@
 </template>
 
 <script>
-import MySwiper from '@/components/Swipers'
 import Live from '@/components/Live'
 import Market from '@/components/Market'
-import MoringNews from '@/components/MoringNews'
 import store from '@/store'
 import wxApi from '@/utils/request'
 import {
-  BANNER_LIST,
-  MAIN_NEWS,
   LIVES_LIST
 } from '@/api/apiList'
 
@@ -85,19 +71,13 @@ export default {
       refreshLoading: true,
       refreshText: '',
       timer: null,
-      // banner集合
-      swiperData: [],
-      // 早新闻
-      newsData: [],
       // 快讯列表
       livesList: []
     }
   },
   components: {
-    MySwiper,
     Live,
-    Market,
-    MoringNews
+    Market
   },
   computed: {
     isShowRefresh: _ => store.getters.isShowRefresh
@@ -105,10 +85,6 @@ export default {
   mounted () {
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()
-    // 获取轮播数据
-    this.getBanner()
-    // 获取早新闻
-    this.getMorningNews()
     // 获取快讯
     this.getLives()
   },
@@ -131,30 +107,6 @@ export default {
     switchPage (page) {
       if (this.currentPage === page) return
       this.currentPage = page
-    },
-    getBanner () {
-      wxApi.get(BANNER_LIST, {
-        position: 'app_index_top'
-      })
-        .then(res => {
-          if (res.statusCode === 200) this.swiperData = res.data
-        })
-    },
-    getMorningNews () {
-      wxApi.get(MAIN_NEWS, {
-        tag: '金色9：30',
-        limit: 1,
-        topic_id: 0,
-        flag: 'down'
-      })
-        .then(res => {
-          if (res.statusCode === 200) {
-            res.data.forEach(resp => {
-              resp.title = resp.title.replace(/金色/g, '今日')
-            })
-            this.newsData = res.data
-          }
-        })
     },
     async getLives () {
       try {

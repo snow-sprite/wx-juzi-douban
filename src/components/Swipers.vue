@@ -3,6 +3,8 @@
   class="main-swiper"
   :current="currentTab"
   :circular = "circular"
+  :autoplay="true"
+  :interval="5000"
   @change="exchangeSwiperPage">
     <swiper-item v-for="(item, index) in swiperData" :key="index">
         <div><image :src="item.pic_url" /></div>
