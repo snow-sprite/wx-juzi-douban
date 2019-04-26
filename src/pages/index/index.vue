@@ -35,7 +35,7 @@
       <!-- <a href="/pages/market/main">market</a> -->
       <swiper-item class="main">
         <!-- 快讯组件 -->
-        <Live v-if="livesList.length > 0" :livesList="livesList" />
+        <Live v-if="livesList.length > 0" :livesList="livesList" @handleLive="getLives" />
       </swiper-item>
       <swiper-item>
         <!-- 行情组件 -->
@@ -61,6 +61,13 @@ import {
 
 export default {
   name: 'Home',
+  components: {
+    Live,
+    Market
+  },
+  computed: {
+    isShowRefresh: _ => store.getters.isShowRefresh
+  },
   data () {
     return {
       userInfo: {},
@@ -75,13 +82,6 @@ export default {
       livesList: [],
       isBtnCommit: false
     }
-  },
-  components: {
-    Live,
-    Market
-  },
-  computed: {
-    isShowRefresh: _ => store.getters.isShowRefresh
   },
   mounted () {
     // 调用应用实例的方法获取全局数据
@@ -113,11 +113,15 @@ export default {
       try {
         let that = this
         this.refreshText = '正在刷新快讯列表'
-        let data = await wxApi.get(LIVES_LIST, {
+        let { data } = await wxApi.get(LIVES_LIST, {
           reading: false,
-          limit: 10
+          limit: 66,
+          flag: 'down'
         })
-        this.livesList = data.data.list
+        // this.livesList.push(data.data.list)
+        data.list.forEach(list => {
+          this.livesList.push(list)
+        })
         this.refreshText = '快讯刷新完成'
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
@@ -149,6 +153,7 @@ export default {
     },
     // click refresh button
     refreshLiveList () {
+      this.livesList = []
       this.isBtnCommit = true
       this.refreshLoading = true
       this.getLives()

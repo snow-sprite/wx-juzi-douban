@@ -1,26 +1,29 @@
 <template>
-  <scroll-view
-    class="zl-coin-box"
-    scroll-y
-    lower-threshold="50"
-    enable-back-to-top="true"
-  >
-    <!-- 轮播组件 -->
-    <MySwiper
-      v-if="swiperData && swiperData.length > 0"
-      :swiperData="swiperData"
-    />
-    <!-- 早新闻组件 -->
-    <MoringNews
-      v-if="newsData && newsData.length > 0"
-      :newsData="newsData"
-    />
-    <article class="js-drawer-container js-live">
-      <section class="js-lives">
-        <LiveItem v-if="newLiveData && newLiveData.length > 0" :liveData="newLiveData" />
-      </section>
-    </article>
-  </scroll-view>
+  <div>
+    <scroll-view
+      class="zl-coin-box"
+      scroll-y
+      lower-threshold="50"
+      enable-back-to-top="true"
+      @scrolltolower="loadMore"
+    >
+      <!-- 轮播组件 -->
+      <MySwiper
+        v-if="swiperData && swiperData.length > 0"
+        :swiperData="swiperData"
+      />
+      <!-- 早新闻组件 -->
+      <MoringNews
+        v-if="newsData && newsData.length > 0"
+        :newsData="newsData"
+      />
+      <article class="js-drawer-container js-live">
+        <section class="js-lives">
+          <LiveItem v-if="newLiveData && newLiveData.length > 0" :liveData="newLiveData" />
+        </section>
+      </article>
+    </scroll-view>
+  </div>
 </template>
 <script>
 /*
@@ -107,6 +110,10 @@ export default {
             this.newsData = res.data
           }
         })
+    },
+    loadMore () {
+      // todo 获取下一条快讯需要上次的bottom_id 目前id未传过来 待修复
+      // this.$emit('handleLive')
     }
   }
 }
@@ -122,6 +129,11 @@ export default {
 }
 @include b(lives) {
   box-sizing: border-box;
+}
+@include b(back-btn) {
+  position: fixed;
+  right: r(20px);
+  bottom: r(60px);
 }
 .js-no-mores {
   margin: r(30px) 0;
