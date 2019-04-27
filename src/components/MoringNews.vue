@@ -11,11 +11,15 @@
           alt="logo"
           class="logo"
           >
-        <span>区块链早讯</span>
+        <span
+          :class="{'zl-mini-info': fontsize === 0, 'zl-default-info': fontsize === 1, 'zl-large-info': fontsize === 2}"
+        >区块链早讯</span>
         <!-- <span class="bg-line"></span> -->
       </header>
       <article>
-        <section>
+        <section
+          :class="{'zl-mini-title': fontsize === 0, 'zl-default-title': fontsize === 1, 'zl-large-title': fontsize === 2}"
+        >
           {{ item.title }}
         </section>
       </article>
@@ -30,6 +34,7 @@
  * @Date: 2019-04-17 15:08:20
  * @LastEditTime: 2019-04-17 15:08:20
  */
+import store from '@/store'
 export default {
   name: 'MoringNews',
   props: {
@@ -37,12 +42,16 @@ export default {
       require: true,
       type: Array
     }
+  },
+  computed: {
+    fontsize: _ => Number(store.getters.textIndex)
   }
 }
 </script>
 
 <style lang=scss scoped>
 @import '../assets/rpx.scss';
+@import '../assets/mixins';
 .moring-news-box {
   box-sizing: border-box;
   width: 96%;
@@ -98,5 +107,23 @@ export default {
       margin-top: 10px
     ))
   }
+}
+.zl-mini-info {
+  font-size: 14px !important;
+}
+.zl-default-info {
+  font-size: 16px !important;
+}
+.zl-large-info {
+font-size: 22px !important;
+}
+.zl-mini-title {
+  font-size: $--mini-font-size;
+}
+.zl-default-title {
+  font-size: $--default-font-size;
+}
+.zl-large-title {
+  font-size: $--large-font-size;
 }
 </style>

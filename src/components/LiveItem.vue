@@ -6,7 +6,17 @@
     >
       <aside class="zl-live__time">
         <ul class="zl-live__time--calendar">
-          <li class="month">
+          <li
+            class="month"
+            :class="{
+              'zl-mini-fontsize': fontsize === 0,
+              'zl-default-fontsize': fontsize === 1,
+              'zl-large-fontsize': fontsize === 2,
+              'zl-mini-date': fontsize === 0,
+              'zl-default-date': fontsize === 1,
+              'zl-large-date': fontsize === 2
+            }"
+          >
             {{ val.date }}
           </li>
         </ul>
@@ -28,41 +38,74 @@
           v-if="value.grade ==1 || value.grade ==2"
           class="zl-default"
         />
-        <aside class="zl-live__publishtime">
+        <aside 
+          class="zl-live__publishtime"
+          :class="{'zl-mini-fontsize': fontsize === 0, 'zl-default-fontsize': fontsize === 1, 'zl-large-fontsize': fontsize === 2}"
+        >
           {{ value.created_at_new }}
         </aside>
-        <aside class="zl-live__title">
+        <aside
+          class="zl-live__title"
+          :class="{'zl-mini-title-gaps': fontsize === 0, 'zl-default-title-gaps': fontsize === 1, 'zl-large-title-gaps': fontsize === 2}"
+        >
           <span class="zl-live__title--tag" />
-          {{ value.title }}
+          <span
+            v-if="value.grade ==5"
+            style="color: #ea3e3e;"
+            :class="{'zl-mini-title': fontsize === 0, 'zl-default-title': fontsize === 1, 'zl-large-title': fontsize === 2}"
+          >{{ value.title }}</span>
+          <span
+            v-else
+            style="color: #333;"
+            :class="{'zl-mini-title': fontsize === 0, 'zl-default-title': fontsize === 1, 'zl-large-title': fontsize === 2}"
+          >{{ value.title }}</span>
         </aside>
-        <section class="zl-live__contents">
+        <section
+          class="zl-live__contents"
+          :class="{'zl-mini-fontsize': fontsize === 0, 'zl-default-fontsize': fontsize === 1, 'zl-large-fontsize': fontsize === 2}"
+        >
           {{ value.content }}
         </section>
-        <div class="zl-live__operate">
+        <div
+          class="zl-live__operate"
+          :class="{'zl-mini-operate': fontsize === 0, 'zl-default-operate': fontsize === 1, 'zl-large-operate': fontsize === 2}"
+        >
           <ul>
-            <li @click="bullBtn(value.id, ind, index)">
+            <!-- <li @click="bullBtn(value.id, ind, index)"> -->
+            <li>
               <img
                 v-if="value.up_counts > value.down_counts"
                 src="../../static/img/live/liveup.svg"
+                :class="{'zl-mini-up-img': fontsize === 0, 'zl-default-up-img': fontsize === 1, 'zl-large-up-img': fontsize === 2}"
               >
               <img
                 v-if="value.up_counts < value.down_counts || value.up_counts == value.down_counts"
                 src="../../static/img/live/noliveup.svg"
+                :class="{'zl-mini-up-img': fontsize === 0, 'zl-default-up-img': fontsize === 1, 'zl-large-up-img': fontsize === 2}"
               >
-              <span class="zl-bull_num">
+              <span
+                class="zl-bull_num"
+                :class="{'zl-mini-fontsize': fontsize === 0, 'zl-default-fontsize': fontsize === 1, 'zl-large-fontsize': fontsize === 2}" 
+              >
                 {{ value.up_counts }}
               </span>
             </li>
-            <li @click="bearBtn(value.id, ind, index)">
+            <!-- <li @click="bearBtn(value.id, ind, index)"> -->
+            <li>
               <img
                 v-if="value.up_counts < value.down_counts"
                 src="../../static/img/live/livedown.svg"
+                :class="{'zl-mini-down-img': fontsize === 0, 'zl-default-down-img': fontsize === 1, 'zl-large-down-img': fontsize === 2}"
               >
               <img
                 v-if="value.up_counts > value.down_counts || value.up_counts == value.down_counts"
                 src="../../static/img/live/nolivedown.svg"
+                :class="{'zl-mini-down-img': fontsize === 0, 'zl-default-down-img': fontsize === 1, 'zl-large-down-img': fontsize === 2}"
               >
-              <span class="zl-bull_num">
+              <span
+                class="zl-bull_num"
+                :class="{'zl-mini-fontsize': fontsize === 0, 'zl-default-fontsize': fontsize === 1, 'zl-large-fontsize': fontsize === 2}"
+              >
                 {{ value.down_counts }}
               </span>
             </li>
@@ -74,6 +117,7 @@
 </template>
 <script>
 import formatObj from '@/utils/formatTime.js'
+import store from '@/store'
 export default {
   name: 'LiveItem',
   props: {
@@ -83,6 +127,9 @@ export default {
         return []
       }
     }
+  },
+  computed: {
+    fontsize: _ => Number(store.getters.textIndex)
   },
   data () {
     return {
@@ -112,7 +159,7 @@ export default {
   position: relative;
   box-sizing: border-box;
   @include e(publishtime) {
-    font-size: r(16px);
+    /* font-size: r(16px); */
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: $--color-black-1;
@@ -120,13 +167,13 @@ export default {
   }
   @include e(title) {
     margin: r(15px) 0;
-    font-size: r(18px);
+    /* font-size: r(18px); */
     font-family: PingFangSC-Medium;
     font-weight: 500;
     color: $--color-important;
   }
   @include e(content) {
-    font-size: r(16px);
+    /* font-size: r(16px); */
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: $--color-black-1;
@@ -137,7 +184,7 @@ export default {
     margin: 0 r(15px) 0 r(19px);
   }
   @include e(contents) {
-    font-size: r(16px);
+    /* font-size: r(16px); */
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: $--color-black-1;
@@ -150,7 +197,7 @@ export default {
     padding-bottom: r(15px);
     & li {
       margin-right: r(27px);
-      font-size: r(12px);
+      /* font-size: r(12px); */
       font-family: PingFangSC-Regular;
       font-weight: 400;
       color: $--color-999;
@@ -214,7 +261,7 @@ export default {
         height: r(26px);
         color: #fff;
         line-height: r(26px);
-        font-size: r(12px);
+        /* font-size: r(12px); */
         font-family: OpenSans-SemiBold;
         font-weight: 600;
         border-radius: 4px;
@@ -223,7 +270,7 @@ export default {
       & .day {
         width: r(38px);
         height: r(24px);
-        font-size: r(18px);
+        /* font-size: r(18px); */
         font-family: PingFangSC-Medium;
         font-weight: 500;
         color: rgba(45, 45, 53, 1);
@@ -234,13 +281,13 @@ export default {
     @include m(date) {
       margin-left: r(10px);
       & .today {
-        font-size: r(14px);
+        /* font-size: r(14px); */
         font-family: PingFangSC-Medium;
         font-weight: 500;
         color: rgba(45, 45, 53, 1);
       }
       & .week {
-        font-size: r(14px);
+        /* font-size: r(14px); */
         font-family: PingFangSC-Regular;
         font-weight: 400;
         color: rgba(144, 144, 153, 1);
@@ -259,5 +306,53 @@ export default {
 }
 .zl-bull_num {
   vertical-align: inherit;
+}
+/* 关于快讯的内容：选择了不同字体 */
+.zl-mini-fontsize {
+  font-size: $--mini-font-size;
+}
+.zl-default-fontsize {
+  font-size: $--default-font-size;
+}
+.zl-large-fontsize {
+  font-size: $--large-font-size;
+}
+/* 日期标题 */
+.zl-mini-date {
+  width: r(60px) !important;
+}
+.zl-large-date {
+  width: r(100px) !important;
+}
+/* 标题部分 */
+.zl-mini-title {
+  font-size: 14px;
+}
+.zl-default-title {
+  font-size: 18px;
+}
+.zl-large-title {
+  font-size: 22px;
+}
+/* 标题上下间隙 */
+.zl-mini-title-gaps {
+  margin: 6px 0 !important;
+}
+.zl-default-title-gaps {
+  margin: r(10px) 0 !important;
+}
+/* 操作上线间隔 */
+.zl-mini-operate {
+  margin-top: 0 !important;
+}
+.zl-default-operate {
+  margin-top: r(10px) !important;
+}
+/* 看涨看跌图片大小 */
+.zl-mini-up-img {
+  height: r(8px) !important;
+}
+.zl-mini-down-img {
+  height: r(8px) !important;
 }
 </style>
