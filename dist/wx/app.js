@@ -1,0 +1,3 @@
+require("./common/manifest.js");
+require("./common/vendor.js");
+global.webpackJsonpMpvue([3],{"7TWk":function(n,e){},M93x:function(n,e,t){"use strict";var o=t("Mw+1");var a=function(n){t("MwEw")},c=t("ybqe")(o.a,null,a,null,null);e.a=c.exports},"Mw+1":function(n,e,t){"use strict";e.a={created:function(){var n=wx.getStorageSync("logs")||[];n.unshift(Date.now()),wx.setStorageSync("logs",n),console.log("app created and cache logs by setStorageSync")}}},MwEw:function(n,e){},NHnr:function(n,e,t){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=t("5nAL"),a=t.n(o),c=t("M93x"),u=t("7TWk");t.n(u);a.a.config.productionTip=!1,c.a.mpType="app",new a.a(c.a).$mount()}},["NHnr"]);
