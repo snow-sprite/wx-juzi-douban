@@ -27,7 +27,10 @@
         v-for="(value, index) in val.lives"
         :key="index"
         class="zl-live__content"
-        :class="{'night-text': isNightMode}"
+        :class="{
+          'night-text': isNightMode,
+          'night-border-left': isNightMode
+        }"
       >
         <p
           v-if="value.grade ==5"
@@ -398,5 +401,8 @@ export default {
 }
 .night-text-date {
   background: linear-gradient(to right, #ffb6c1, #ffc0cb, #ff7172);
+}
+.night-border-left {
+  border-left: 1px solid #666;
 }
 </style>

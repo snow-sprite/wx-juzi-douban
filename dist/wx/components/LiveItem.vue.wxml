@@ -8,7 +8,7 @@
           </view>
         </view>
       </view>
-      <view wx:key="index" key="{{index}}" class="_div data-v-14f97b3d zl-live__content {{[isNightMode ? 'night-text' : '']}}" wx:for="{{val.lives}}" wx:for-index="index" wx:for-item="value">
+      <view wx:key="index" key="{{index}}" class="_div data-v-14f97b3d zl-live__content {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-border-left' : '']}}" wx:for="{{val.lives}}" wx:for-index="index" wx:for-item="value">
         <view wx:if="{{value.grade ==5}}" class="_p data-v-14f97b3d zl-important"></view>
         <view wx:if="{{value.grade ==4 || value.grade ==3}}" class="_p data-v-14f97b3d zl-normal"></view>
         <view wx:if="{{value.grade ==1 || value.grade ==2}}" class="_p data-v-14f97b3d zl-default"></view>

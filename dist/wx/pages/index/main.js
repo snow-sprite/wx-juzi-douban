@@ -327,6 +327,9 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 
 
@@ -407,7 +410,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         key: index,
         staticClass: "zl-live__content",
         class: {
-          'night-text': _vm.isNightMode
+          'night-text': _vm.isNightMode,
+          'night-border-left': _vm.isNightMode
         }
       }, [(value.grade == 5) ? _c('p', {
         staticClass: "zl-important"
@@ -1030,12 +1034,13 @@ var utils = {
     }
     // 获取详细时间
     var myDate = new Date(value);
-    var Y = myDate.getFullYear();
-    var M = myDate.getMonth() + 1 < 10 ? '0' + (myDate.getMonth() + 1) : myDate.getMonth() + 1;
-    var D = myDate.getDate() < 10 ? '0' + myDate.getDate() : myDate.getDate();
+    // let Y = myDate.getFullYear()
+    // let M = (myDate.getMonth() + 1 < 10 ? '0' + (myDate.getMonth() + 1) : myDate.getMonth() + 1)
+    // let D = (myDate.getDate() < 10 ? '0' + (myDate.getDate()) : myDate.getDate())
     var h = myDate.getHours() < 10 ? '0' + myDate.getHours() : myDate.getHours();
     var m = myDate.getMinutes() < 10 ? '0' + myDate.getMinutes() : myDate.getMinutes();
-    var detailDate = Y + '/' + M + '/' + D + ' ' + h + ':' + m;
+    // let detailDate = Y + '/' + M + '/' + D + ' ' + h + ':' + m
+    var detailDate = h + ':' + m;
     return detailDate;
   }
 };

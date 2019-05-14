@@ -244,6 +244,6 @@ export default {
   color: #666;
 }
 .night-bg {
-  background: #232323;
+  background: #dcdcdc;
 }
 </style>

@@ -359,6 +359,9 @@
 .night-text-date.data-v-14f97b3d {
   background: linear-gradient(to right, #ffb6c1, #ffc0cb, #ff7172);
 }
+.night-border-left.data-v-14f97b3d {
+  border-left: 2rpx solid #666;
+}
 @charset "UTF-8";
 .zl-coin-box.data-v-60e78f4c {
   height: 100vh;
@@ -436,5 +439,5 @@
   color: #666;
 }
 .night-bg.data-v-60e78f4c {
-  background: #232323;
+  background: #dcdcdc;
 }
