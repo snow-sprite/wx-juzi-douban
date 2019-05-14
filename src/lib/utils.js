@@ -1,7 +1,9 @@
-const formatObj = {
+const utils = {
   getTime (value) {
     if (typeof value === 'string' && value.indexOf('-') > 0) {
       value = value.replace(/-/g, '/')
+    } else {
+      value = value * 1000
     }
     // 获取详细时间
     let myDate = new Date(value)
@@ -15,4 +17,4 @@ const formatObj = {
   }
 }
 
-export default formatObj
+export default utils

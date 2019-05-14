@@ -12,7 +12,7 @@
         <view wx:if="{{value.grade ==5}}" class="_p data-v-14f97b3d zl-important"></view>
         <view wx:if="{{value.grade ==4 || value.grade ==3}}" class="_p data-v-14f97b3d zl-normal"></view>
         <view wx:if="{{value.grade ==1 || value.grade ==2}}" class="_p data-v-14f97b3d zl-default"></view>
-        <view class="_aside data-v-14f97b3d zl-live__publishtime {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '']}}">
+        <view class="_aside data-v-14f97b3d zl-live__publishtime {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  isNightMode ? 'night-text' : '']}}">
           {{ value.created_at_new }}
         </view>
         <view class="_aside data-v-14f97b3d zl-live__title {{[  fontsize === 0 ? 'zl-mini-title-gaps' : '',  fontsize === 1 ? 'zl-default-title-gaps' : '',  fontsize === 2 ? 'zl-large-title-gaps' : '',  isNightMode ? 'night-text' : '']}}"><label class="_span data-v-14f97b3d zl-live__title--tag"></label> <label wx:if="{{value.grade ==5}}" style="color: #ea3e3e;" class="_span data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-title' : '',  fontsize === 1 ? 'zl-default-title' : '',  fontsize === 2 ? 'zl-large-title' : '']}}">{{ value.title }}</label><label wx:else class="_span data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-title' : '',  fontsize === 1 ? 'zl-default-title' : '',  fontsize === 2 ? 'zl-large-title' : '',  isNightMode ? 'night-text' : '']}}">{{ value.title }}</label></view>

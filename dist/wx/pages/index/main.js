@@ -176,8 +176,13 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_formatTime_js__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_utils_js__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(16);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -358,38 +363,13 @@ if (false) {(function () {
       this.newLiveData = this.liveData;
       this.newLiveData.forEach(function (live) {
         live.lives.forEach(function (val) {
-          val.created_at_new = __WEBPACK_IMPORTED_MODULE_0__utils_formatTime_js__["a" /* default */].getTime(val.created_at);
+          val.created_at_new = __WEBPACK_IMPORTED_MODULE_0__lib_utils_js__["a" /* default */].getTime(val.created_at);
           val.title = val.content.match(/【(.+)?】/) ? val.content.slice(val.content.indexOf('【') + 1, val.content.indexOf('】')) : '';
         });
       });
     }
   }
 });
-
-/***/ }),
-
-/***/ 106:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var formatObj = {
-  getTime: function getTime(value) {
-    if (typeof value === 'string' && value.indexOf('-') > 0) {
-      value = value.replace(/-/g, '/');
-    }
-    // 获取详细时间
-    var myDate = new Date(value);
-    var Y = myDate.getFullYear();
-    var M = myDate.getMonth() + 1 < 10 ? '0' + (myDate.getMonth() + 1) : myDate.getMonth() + 1;
-    var D = myDate.getDate() < 10 ? '0' + myDate.getDate() : myDate.getDate();
-    var h = myDate.getHours() < 10 ? '0' + myDate.getHours() : myDate.getHours();
-    var m = myDate.getMinutes() < 10 ? '0' + myDate.getMinutes() : myDate.getMinutes();
-    var detailDate = Y + '/' + M + '/' + D + ' ' + h + ':' + m;
-    return detailDate;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (formatObj);
 
 /***/ }),
 
@@ -438,7 +418,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }) : _vm._e(), _vm._v(" "), _c('aside', {
         staticClass: "zl-live__publishtime",
         class: {
-          'zl-mini-fontsize': _vm.fontsize === 0, 'zl-default-fontsize': _vm.fontsize === 1, 'zl-large-fontsize': _vm.fontsize === 2
+          'zl-mini-fontsize': _vm.fontsize === 0,
+            'zl-default-fontsize': _vm.fontsize === 1,
+            'zl-large-fontsize': _vm.fontsize === 2,
+            'night-text': _vm.isNightMode
         }
       }, [_vm._v("\n        " + _vm._s(value.created_at_new) + "\n      ")]), _vm._v(" "), _c('aside', {
         staticClass: "zl-live__title",
@@ -1031,6 +1014,33 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-86b97822", esExports)
   }
 }
+
+/***/ }),
+
+/***/ 137:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var utils = {
+  getTime: function getTime(value) {
+    if (typeof value === 'string' && value.indexOf('-') > 0) {
+      value = value.replace(/-/g, '/');
+    } else {
+      value = value * 1000;
+    }
+    // 获取详细时间
+    var myDate = new Date(value);
+    var Y = myDate.getFullYear();
+    var M = myDate.getMonth() + 1 < 10 ? '0' + (myDate.getMonth() + 1) : myDate.getMonth() + 1;
+    var D = myDate.getDate() < 10 ? '0' + myDate.getDate() : myDate.getDate();
+    var h = myDate.getHours() < 10 ? '0' + myDate.getHours() : myDate.getHours();
+    var m = myDate.getMinutes() < 10 ? '0' + myDate.getMinutes() : myDate.getMinutes();
+    var detailDate = Y + '/' + M + '/' + D + ' ' + h + ':' + m;
+    return detailDate;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (utils);
 
 /***/ }),
 

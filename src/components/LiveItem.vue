@@ -43,7 +43,12 @@
         />
         <aside 
           class="zl-live__publishtime"
-          :class="{'zl-mini-fontsize': fontsize === 0, 'zl-default-fontsize': fontsize === 1, 'zl-large-fontsize': fontsize === 2}"
+          :class="{
+            'zl-mini-fontsize': fontsize === 0,
+            'zl-default-fontsize': fontsize === 1,
+            'zl-large-fontsize': fontsize === 2,
+            'night-text': isNightMode
+          }"
         >
           {{ value.created_at_new }}
         </aside>
@@ -143,7 +148,7 @@
   </article>
 </template>
 <script>
-import formatObj from '@/utils/formatTime.js'
+import utils from '@/lib/utils.js'
 import store from '@/store'
 export default {
   name: 'LiveItem',
@@ -173,7 +178,7 @@ export default {
       this.newLiveData = this.liveData
       this.newLiveData.forEach(live => {
         live.lives.forEach(val => {
-          val.created_at_new = formatObj.getTime(val.created_at)
+          val.created_at_new = utils.getTime(val.created_at)
           val.title = val.content.match(/【(.+)?】/) ? val.content.slice(val.content.indexOf('【') + 1, val.content.indexOf('】')) : ''
         })
       })
