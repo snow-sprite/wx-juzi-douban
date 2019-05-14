@@ -12,7 +12,12 @@
           class="logo"
           >
         <span
-          :class="{'zl-mini-info': fontsize === 0, 'zl-default-info': fontsize === 1, 'zl-large-info': fontsize === 2}"
+          :class="{
+            'zl-mini-info': fontsize === 0,
+            'zl-default-info': fontsize === 1,
+            'zl-large-info': fontsize === 2,
+            'night-text': isNightMode
+          }"
         >区块链早讯</span>
         <!-- <span class="bg-line"></span> -->
       </header>
@@ -44,7 +49,8 @@ export default {
     }
   },
   computed: {
-    fontsize: _ => Number(store.getters.textIndex)
+    fontsize: _ => Number(store.getters.textIndex),
+    isNightMode: _ => store.getters.isNightMode // 夜间模式
   }
 }
 </script>
@@ -125,5 +131,9 @@ font-size: 22px !important;
 }
 .zl-large-title {
   font-size: $--large-font-size;
+}
+/* 夜间模式 */
+.night-text {
+  color: #666 !important;
 }
 </style>

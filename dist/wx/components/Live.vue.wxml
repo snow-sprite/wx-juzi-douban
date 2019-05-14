@@ -1,1 +1,11 @@
-<import src="/components/Swipers.vue.wxml" /><import src="/components/MoringNews.vue.wxml" /><import src="/components/LiveItem.vue.wxml" /><template name="6c8f25a9"><view class="_div data-v-3612b2ec"><scroll-view class="_scroll-view data-v-3612b2ec zl-coin-box" scroll-y lower-threshold="50" enable-back-to-top="true" bindscrolltolower="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"><template wx:if="{{swiperData && swiperData.length > 0}}" data="{{...$root[$kk+'0'], $root}}" is="4bd04464"></template> <template wx:if="{{newsData && newsData.length > 0}}" data="{{...$root[$kk+'1'], $root}}" is="73bee57c"></template> <view class="_article data-v-3612b2ec js-drawer-container js-live"><view class="_section data-v-3612b2ec js-lives"><template wx:if="{{newLiveData && newLiveData.length > 0}}" data="{{...$root[$kk+'2'], $root}}" is="0fef52dc"></template></view></view></scroll-view></view></template>
+<import src="/components/Swipers.vue.wxml" />
+<import src="/components/MoringNews.vue.wxml" />
+<import src="/components/LiveItem.vue.wxml" /><template name="6c8f25a9">
+  <view class="_div data-v-3612b2ec">
+    <scroll-view class="_scroll-view data-v-3612b2ec zl-coin-box" scroll-y lower-threshold="50" enable-back-to-top="true" bindscrolltolower="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"><template wx:if="{{swiperData && swiperData.length > 0}}" data="{{...$root[$kk+'0'], $root}}" is="4bd04464"></template> <template wx:if="{{newsData && newsData.length > 0}}" data="{{...$root[$kk+'1'], $root}}" is="73bee57c"></template>
+      <view class="_article data-v-3612b2ec js-drawer-container js-live">
+        <view class="_section data-v-3612b2ec js-lives"><template wx:if="{{newLiveData && newLiveData.length > 0}}" data="{{...$root[$kk+'2'], $root}}" is="0fef52dc"></template></view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

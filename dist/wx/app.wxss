@@ -1,1 +1,16 @@
-.container{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:200rpx 0;box-sizing:border-box}page{background:"#faf9fe";font-family:open sans,PingFang SC,Lantinghei SC,Helvetica Neue,Helvetica,Arial,Microsoft YaHei,"sans-serif";height:100%}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}@charset "UTF-8";
+
+page {
+  background: "#faf9fe";
+  font-family: "open sans","PingFang SC","Lantinghei SC","Helvetica Neue",Helvetica,Arial,"Microsoft YaHei","sans-serif";
+  height: 100%;
+}

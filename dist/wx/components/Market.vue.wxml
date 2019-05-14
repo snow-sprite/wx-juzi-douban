@@ -1,3 +1,23 @@
-<template name="59fd288e"><view class="_div data-v-60e78f4c"><scroll-view class="_scroll-view data-v-60e78f4c zl-coin-box" scroll-y upper-threshold="50" lower-threshold="50" enable-back-to-top="true" bindscrolltolower="handleProxy" bindscrolltoupper="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"><view class="_div data-v-60e78f4c"><view wx:key="ind" key="{{ind}}" class="_div data-v-60e78f4c zl-coin" wx:for="{{list}}" wx:for-index="ind" wx:for-item="item"><view class="_ul data-v-60e78f4c zl-coin__simp" bindtap="handleProxy" data-eventid="{{'0-'+ind}}" data-comkey="{{$k}}"><view class="_li data-v-60e78f4c zl-coin__name"><image src="{{item.icon_url}}" alt="{{item.symbol}}" class="_img data-v-60e78f4c"></image>
-            {{ item.symbol }}
-          </view> <view class="_li data-v-60e78f4c zl-coin__price">{{ item.price }}</view> <view class="_li data-v-60e78f4c zl-coin__gd"><label wx:if="{{item.change > 0}}" class="_span data-v-60e78f4c zl-coin__gd--gorw">+{{ item.change | formatPoint }}%</label><label wx:elif="{{item.change < 0}}" class="_span data-v-60e78f4c zl-coin__gd--fall">{{ item.change | formatPoint }}%</label><label wx:else class="_span data-v-60e78f4c">+0.00%</label></view></view> <view wx:if="{{isShowInfo && currentSymbol == item.symbol}}" class="_ul data-v-60e78f4c zl-coin__info"><view class="_li data-v-60e78f4c zl-coin__info--box"><label class="_span data-v-60e78f4c">流通量：</label> <label class="_span data-v-60e78f4c">{{ coinDetail.supply }}</label></view> <view class="_li data-v-60e78f4c zl-coin__info--box"><label class="_span data-v-60e78f4c">24小时成交额：</label> <label class="_span data-v-60e78f4c">¥ {{ coinDetail.vol }}</label></view> <view class="_li data-v-60e78f4c zl-coin__info--box"><label class="_span data-v-60e78f4c">市值：</label> <label class="_span data-v-60e78f4c">¥ {{ coinDetail.market_cap }}</label></view></view></view></view></scroll-view></view></template>
+<template name="59fd288e">
+  <view class="_div data-v-60e78f4c">
+    <scroll-view class="_scroll-view data-v-60e78f4c zl-coin-box" scroll-y upper-threshold="50" lower-threshold="50" enable-back-to-top="true" bindscrolltolower="handleProxy" bindscrolltoupper="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-60e78f4c">
+        <view wx:key="ind" key="{{ind}}" class="_div data-v-60e78f4c zl-coin {{[isNightMode ? 'night-line-color' : '']}}" wx:for="{{list}}" wx:for-index="ind" wx:for-item="item">
+          <view class="_ul data-v-60e78f4c zl-coin__simp" bindtap="handleProxy" data-eventid="{{'0-'+ind}}" data-comkey="{{$k}}">
+            <view class="_li data-v-60e78f4c zl-coin__name {{[isNightMode ? 'night-text' : '']}}">
+              <image src="{{item.icon_url}}" alt="{{item.symbol}}" class="_img data-v-60e78f4c"></image>
+              {{ item.symbol }}
+            </view>
+            <view class="_li data-v-60e78f4c zl-coin__price {{[isNightMode ? 'night-text' : '']}}">{{ item.price }}</view>
+            <view class="_li data-v-60e78f4c zl-coin__gd"><label wx:if="{{item.change > 0}}" class="_span data-v-60e78f4c zl-coin__gd--gorw">+{{ item.change | formatPoint }}%</label><label wx:elif="{{item.change < 0}}" class="_span data-v-60e78f4c zl-coin__gd--fall">{{ item.change | formatPoint }}%</label><label wx:else class="_span data-v-60e78f4c">+0.00%</label></view>
+          </view>
+          <view wx:if="{{isShowInfo && currentSymbol == item.symbol}}" class="_ul data-v-60e78f4c zl-coin__info {{[isNightMode ? 'night-bg' : '']}}">
+            <view class="_li data-v-60e78f4c zl-coin__info--box {{[isNightMode ? 'night-text' : '']}}"><label class="_span data-v-60e78f4c">流通量：</label> <label class="_span data-v-60e78f4c">{{ coinDetail.supply }}</label></view>
+            <view class="_li data-v-60e78f4c zl-coin__info--box {{[isNightMode ? 'night-text' : '']}}"><label class="_span data-v-60e78f4c">24小时成交额：</label> <label class="_span data-v-60e78f4c">¥ {{ coinDetail.vol }}</label></view>
+            <view class="_li data-v-60e78f4c zl-coin__info--box {{[isNightMode ? 'night-text' : '']}}"><label class="_span data-v-60e78f4c">市值：</label> <label class="_span data-v-60e78f4c">¥ {{ coinDetail.market_cap }}</label></view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

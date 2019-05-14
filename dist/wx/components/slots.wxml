@@ -1,3 +1,5 @@
-<import src="/components/Live.vue.wxml" /><import src="/components/Market.vue.wxml" />
-
-<import src="/components/Swipers.vue.wxml" /><import src="/components/MoringNews.vue.wxml" /><import src="/components/LiveItem.vue.wxml" />
+<import src="/components/Live.vue.wxml" />
+<import src="/components/Market.vue.wxml" />
+<import src="/components/Swipers.vue.wxml" />
+<import src="/components/MoringNews.vue.wxml" />
+<import src="/components/LiveItem.vue.wxml" />

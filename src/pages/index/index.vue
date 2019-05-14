@@ -1,13 +1,18 @@
 <template>
 <div>
-  <div class="zl-app">
+  <div class="zl-app" :class="isNightMode ? 'night' : ''">
     <div class="zl-refresh-tip" ref="refreshTip" v-show="refreshLoading && isBtnCommit">
       <span>{{ refreshText }}</span>
     </div>
-    <div class="swiper-tab">
+    <div class="swiper-tab" :class="{
+      'night-text': isNightMode,
+      'night-line-color': isNightMode  
+    }">
       <div
         class="tab-list-box"
-        :class="currentPage === 0 ? 'tab-active' : ''"
+        :class="{
+          'tab-active': currentPage === 0
+        }"
         data-current-tab="0"
         @click="switchPage(0)">
         快讯
@@ -66,7 +71,8 @@ export default {
     Market
   },
   computed: {
-    isShowRefresh: _ => store.getters.isShowRefresh
+    isShowRefresh: _ => store.getters.isShowRefresh,
+    isNightMode: _ => store.getters.isNightMode // 夜间模式
   },
   data () {
     return {
@@ -88,8 +94,40 @@ export default {
     this.getUserInfo()
     // 获取快讯
     this.getLives()
+    this.setNavigationBarStyle()
+  },
+  watch: {
+    'isNightMode': (newVal) => {
+      if (newVal) {
+        // 顶部导航夜间模式
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#232323'
+        })
+      } else {
+        // 顶部导航非夜间
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#ffffff'
+        })
+      }
+    }
   },
   methods: {
+    setNavigationBarStyle () {
+      if (this.isNightMode) {
+        // 顶部导航夜间模式
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#232323'
+        })
+      } else {
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#ffffff'
+        })
+      }
+    },
     getUserInfo () {
       // 调用登录接口
       let that = this
@@ -197,6 +235,7 @@ export default {
   ))
 }
 .zl-app {
+  height: 100vh;
   position: relative;
   .zl-refresh {
     position: fixed;
@@ -253,4 +292,16 @@ export default {
     ))
   }
 }
+/* 夜间模式 */
+.night {
+  background: #232323;
+  color: #fff;
+}
+.night-text {
+  color: #666 !important;
+}
+.night-line-color {
+  border-bottom: 1px solid #2c2c2c !important;
+}
+/* end夜间模式 */
 </style>

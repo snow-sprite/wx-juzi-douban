@@ -30,8 +30,33 @@ export default new Vuex.Store({
     toggleAutoNightMode (state) { // 设置自动夜间模式
       state.isAutoNightMode = !state.isAutoNightMode
     },
-    toggleNightMode (state) { // 设置夜间模式
-      state.isNightMode = !state.isNightMode
+    toggleNightMode (state, value) { // 设置夜间模式
+      state.isNightMode = value
+      if (value) {
+        // 设置夜间模式下头部背景
+        wx.setNavigationBarColor({
+          frontColor: '#666',
+          backgroundColor: '#232323'
+        })
+        // 底部tabbar夜间模式
+        wx.setTabBarStyle({
+          color: '#a5a5a5',
+          backgroundColor: '#232323',
+          selectedColor: '#ffd700'
+        })
+      } else {
+        // 设置非夜间模式下的头部背景
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#ffffff'
+        })
+        // 底部tabbar非夜间模式
+        wx.setTabBarStyle({
+          color: '#a5a5a5',
+          backgroundColor: '#ffffff',
+          selectedColor: '#ffd700'
+        })
+      }
     }
   }
 })

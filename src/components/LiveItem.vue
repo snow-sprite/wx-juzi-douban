@@ -4,7 +4,7 @@
       v-for="(val, ind) in liveData"
       :key="ind"
     >
-      <aside class="zl-live__time">
+      <aside class="zl-live__time" :class="{'night-bg': isNightMode}">
         <ul class="zl-live__time--calendar">
           <li
             class="month"
@@ -14,7 +14,9 @@
               'zl-large-fontsize': fontsize === 2,
               'zl-mini-date': fontsize === 0,
               'zl-default-date': fontsize === 1,
-              'zl-large-date': fontsize === 2
+              'zl-large-date': fontsize === 2,
+              'night-text': isNightMode,
+              'night-text-date': isNightMode
             }"
           >
             {{ val.date }}
@@ -25,6 +27,7 @@
         v-for="(value, index) in val.lives"
         :key="index"
         class="zl-live__content"
+        :class="{'night-text': isNightMode}"
       >
         <p
           v-if="value.grade ==5"
@@ -46,7 +49,12 @@
         </aside>
         <aside
           class="zl-live__title"
-          :class="{'zl-mini-title-gaps': fontsize === 0, 'zl-default-title-gaps': fontsize === 1, 'zl-large-title-gaps': fontsize === 2}"
+          :class="{
+            'zl-mini-title-gaps': fontsize === 0,
+            'zl-default-title-gaps': fontsize === 1,
+            'zl-large-title-gaps': fontsize === 2,
+            'night-text': isNightMode
+          }"
         >
           <span class="zl-live__title--tag" />
           <span
@@ -56,13 +64,22 @@
           >{{ value.title }}</span>
           <span
             v-else
-            style="color: #333;"
-            :class="{'zl-mini-title': fontsize === 0, 'zl-default-title': fontsize === 1, 'zl-large-title': fontsize === 2}"
+            :class="{
+              'zl-mini-title': fontsize === 0,
+              'zl-default-title': fontsize === 1,
+              'zl-large-title': fontsize === 2,
+              'night-text': isNightMode
+            }"
           >{{ value.title }}</span>
         </aside>
         <section
           class="zl-live__contents"
-          :class="{'zl-mini-fontsize': fontsize === 0, 'zl-default-fontsize': fontsize === 1, 'zl-large-fontsize': fontsize === 2}"
+          :class="{
+            'zl-mini-fontsize': fontsize === 0,
+            'zl-default-fontsize': fontsize === 1,
+            'zl-large-fontsize': fontsize === 2,
+            'night-text': isNightMode
+          }"
         >
           {{ value.content }}
         </section>
@@ -85,7 +102,12 @@
               >
               <span
                 class="zl-bull_num"
-                :class="{'zl-mini-fontsize': fontsize === 0, 'zl-default-fontsize': fontsize === 1, 'zl-large-fontsize': fontsize === 2}" 
+                :class="{
+                  'zl-mini-fontsize': fontsize === 0,
+                  'zl-default-fontsize': fontsize === 1,
+                  'zl-large-fontsize': fontsize === 2,
+                  'night-text': isNightMode
+                }" 
               >
                 {{ value.up_counts }}
               </span>
@@ -104,7 +126,12 @@
               >
               <span
                 class="zl-bull_num"
-                :class="{'zl-mini-fontsize': fontsize === 0, 'zl-default-fontsize': fontsize === 1, 'zl-large-fontsize': fontsize === 2}"
+                :class="{
+                  'zl-mini-fontsize': fontsize === 0,
+                  'zl-default-fontsize': fontsize === 1,
+                  'zl-large-fontsize': fontsize === 2,
+                  'night-text': isNightMode
+                }"
               >
                 {{ value.down_counts }}
               </span>
@@ -129,7 +156,8 @@ export default {
     }
   },
   computed: {
-    fontsize: _ => Number(store.getters.textIndex)
+    fontsize: _ => Number(store.getters.textIndex),
+    isNightMode: _ => store.getters.isNightMode // 夜间模式
   },
   data () {
     return {
@@ -354,5 +382,16 @@ export default {
 }
 .zl-mini-down-img {
   height: r(8px) !important;
+}
+/* 夜间模式 */
+.night-bg {
+  background: #232323;
+  color: #666 !important;
+}
+.night-text {
+  color: #666 !important;
+}
+.night-text-date {
+  background: linear-gradient(to right, #ffb6c1, #ffc0cb, #ff7172);
 }
 </style>

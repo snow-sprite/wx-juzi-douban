@@ -14,6 +14,7 @@
           v-for="(item, ind) in list"
           :key="ind"
           class="zl-coin"
+          :class="{'night-line-color': isNightMode}"
         >
           <ul
             class="zl-coin__simp"
@@ -21,6 +22,7 @@
           >
             <li
               class="zl-coin__name"
+              :class="{'night-text': isNightMode}"
             >
               <img
                 :src="item.icon_url"
@@ -28,7 +30,7 @@
               >
               {{ item.symbol }}
             </li>
-            <li class="zl-coin__price">{{ item.price }}</li>
+            <li class="zl-coin__price" :class="{'night-text': isNightMode}">{{ item.price }}</li>
             <li class="zl-coin__gd">
               <span
                 v-if="item.change > 0"
@@ -44,18 +46,19 @@
           <ul
             v-if="isShowInfo && currentSymbol == item.symbol"
             class="zl-coin__info"
+            :class="{'night-bg': isNightMode}"
           >
-            <li class="zl-coin__info--box">
+            <li class="zl-coin__info--box" :class="{'night-text': isNightMode}">
               <!-- 流通量 -->
               <span>流通量：</span>
               <span>{{ coinDetail.supply }}</span>
             </li>
-            <li class="zl-coin__info--box">
+            <li class="zl-coin__info--box" :class="{'night-text': isNightMode}">
               <!-- 24小时成交额 -->
               <span>24小时成交额：</span>
               <span>¥&nbsp;{{ coinDetail.vol }}</span>
             </li>
-            <li class="zl-coin__info--box">
+            <li class="zl-coin__info--box" :class="{'night-text': isNightMode}">
               <!--  -->
               <span>市值：</span>
               <span>¥&nbsp;{{ coinDetail.market_cap }}</span>
@@ -75,6 +78,7 @@
  * @LastEditTime: 2019-3-24 15:08:20
  */
 import wxApi from '@/utils/request'
+import store from '@/store'
 import {
   COINS_LIST
 } from '@/api/apiList'
@@ -109,6 +113,9 @@ export default {
       busy: true,
       state: 1
     }
+  },
+  computed: {
+    isNightMode: _ => store.getters.isNightMode // 夜间模式
   },
   mounted () {
     this.getCurrencyList()
@@ -158,7 +165,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang=scss scoped>
 @import '../assets/mixins';
 @include b(coin-box) {
   height: 100vh;
@@ -228,5 +235,15 @@ export default {
       line-height: r(28px);
     }
   }
+}
+/* 夜间模式 */
+.night-line-color {
+  border-bottom: 1px solid #2c2c2c !important;
+}
+.night-text {
+  color: #666;
+}
+.night-bg {
+  background: #232323;
 }
 </style>
