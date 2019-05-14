@@ -77,7 +77,7 @@
  * @Date: 2019-03-24 15:08:20
  * @LastEditTime: 2019-3-24 15:08:20
  */
-import wxApi from '@/utils/request'
+import wxApi from '@/lib/request'
 import store from '@/store'
 import {
   COINS_LIST

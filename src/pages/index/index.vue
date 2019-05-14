@@ -59,7 +59,7 @@
 import Live from '@/components/Live'
 import Market from '@/components/Market'
 import store from '@/store'
-import wxApi from '@/utils/request'
+import wxApi from '@/lib/request'
 import {
   LIVES_LIST
 } from '@/api/apiList'

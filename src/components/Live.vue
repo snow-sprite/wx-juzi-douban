@@ -32,7 +32,7 @@
 import MySwiper from '@/components/Swipers'
 import MoringNews from '@/components/MoringNews'
 import LiveItem from './LiveItem'
-import wxApi from '@/utils/request'
+import wxApi from '@/lib/request'
 import {
   BANNER_LIST,
   MAIN_NEWS

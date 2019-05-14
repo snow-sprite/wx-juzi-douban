@@ -6,7 +6,7 @@ global.webpackJsonpMpvue([1],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(10);
 //
 //
 //
@@ -176,8 +176,8 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_utils_js__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_utils_js__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(10);
 //
 //
 //
@@ -373,6 +373,34 @@ if (false) {(function () {
     }
   }
 });
+
+/***/ }),
+
+/***/ 106:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var utils = {
+  getTime: function getTime(value) {
+    if (typeof value === 'string' && value.indexOf('-') > 0) {
+      value = value.replace(/-/g, '/');
+    } else {
+      value = value * 1000;
+    }
+    // 获取详细时间
+    var myDate = new Date(value);
+    // let Y = myDate.getFullYear()
+    // let M = (myDate.getMonth() + 1 < 10 ? '0' + (myDate.getMonth() + 1) : myDate.getMonth() + 1)
+    // let D = (myDate.getDate() < 10 ? '0' + (myDate.getDate()) : myDate.getDate())
+    var h = myDate.getHours() < 10 ? '0' + myDate.getHours() : myDate.getHours();
+    var m = myDate.getMinutes() < 10 ? '0' + myDate.getMinutes() : myDate.getMinutes();
+    // let detailDate = Y + '/' + M + '/' + D + ' ' + h + ':' + m
+    var detailDate = h + ':' + m;
+    return detailDate;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (utils);
 
 /***/ }),
 
@@ -640,8 +668,8 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_request__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_request__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_apiList__ = __webpack_require__(27);
 //
 //
@@ -787,7 +815,7 @@ if (false) {(function () {
 
       this.isLoading = true;
       this.busy = true;
-      __WEBPACK_IMPORTED_MODULE_0__utils_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_2__api_apiList__["b" /* COINS_LIST */], this.param).then(function (res) {
+      __WEBPACK_IMPORTED_MODULE_0__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_2__api_apiList__["b" /* COINS_LIST */], this.param).then(function (res) {
         if (res.statusCode === 200) {
           // this.list = res.data
           _this.list = _this.list.concat(res.data);
@@ -1021,34 +1049,6 @@ if (false) {
 
 /***/ }),
 
-/***/ 137:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var utils = {
-  getTime: function getTime(value) {
-    if (typeof value === 'string' && value.indexOf('-') > 0) {
-      value = value.replace(/-/g, '/');
-    } else {
-      value = value * 1000;
-    }
-    // 获取详细时间
-    var myDate = new Date(value);
-    // let Y = myDate.getFullYear()
-    // let M = (myDate.getMonth() + 1 < 10 ? '0' + (myDate.getMonth() + 1) : myDate.getMonth() + 1)
-    // let D = (myDate.getDate() < 10 ? '0' + (myDate.getDate()) : myDate.getDate())
-    var h = myDate.getHours() < 10 ? '0' + myDate.getHours() : myDate.getHours();
-    var m = myDate.getMinutes() < 10 ? '0' + myDate.getMinutes() : myDate.getMinutes();
-    // let detailDate = Y + '/' + M + '/' + D + ' ' + h + ':' + m
-    var detailDate = h + ':' + m;
-    return detailDate;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (utils);
-
-/***/ }),
-
 /***/ 26:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1173,14 +1173,14 @@ var COINS_LIST = '/v3/coin';
 
 /***/ }),
 
-/***/ 50:
+/***/ 49:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(50);
 
 
 
@@ -1189,16 +1189,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 51:
+/***/ 50:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(117);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(52)
+  __webpack_require__(51)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -1243,25 +1243,25 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 52:
+/***/ 51:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 53:
+/***/ 52:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Live__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Live__ = __webpack_require__(90);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Market__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_request__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_request__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__api_apiList__ = __webpack_require__(27);
 
 
@@ -1433,7 +1433,7 @@ if (false) {(function () {
 
                 _this.refreshText = '正在刷新快讯列表';
                 _context.next = 5;
-                return __WEBPACK_IMPORTED_MODULE_5__utils_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_6__api_apiList__["c" /* LIVES_LIST */], {
+                return __WEBPACK_IMPORTED_MODULE_5__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_6__api_apiList__["c" /* LIVES_LIST */], {
                   reading: false,
                   limit: 66,
                   flag: 'down'
@@ -1503,7 +1503,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 91:
+/***/ 90:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1512,7 +1512,7 @@ if (false) {(function () {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(92)
+  __webpack_require__(91)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -1557,7 +1557,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 92:
+/***/ 91:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -1571,7 +1571,7 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Swipers__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_MoringNews__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LiveItem__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_request__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_request__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_apiList__ = __webpack_require__(27);
 //
 //
@@ -1668,7 +1668,7 @@ if (false) {(function () {
     getBanner: function getBanner() {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_3__utils_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_4__api_apiList__["a" /* BANNER_LIST */], {
+      __WEBPACK_IMPORTED_MODULE_3__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_4__api_apiList__["a" /* BANNER_LIST */], {
         position: 'app_index_top'
       }).then(function (res) {
         if (res.statusCode === 200) _this2.swiperData = res.data;
@@ -1677,7 +1677,7 @@ if (false) {(function () {
     getMorningNews: function getMorningNews() {
       var _this3 = this;
 
-      __WEBPACK_IMPORTED_MODULE_3__utils_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_4__api_apiList__["d" /* MAIN_NEWS */], {
+      __WEBPACK_IMPORTED_MODULE_3__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_4__api_apiList__["d" /* MAIN_NEWS */], {
         tag: '金色9：30',
         limit: 1,
         topic_id: 0,
@@ -1914,5 +1914,5 @@ if (false) {(function () {
 
 /***/ })
 
-},[50]);
+},[49]);
 //# sourceMappingURL=main.js.map

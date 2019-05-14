@@ -35,7 +35,7 @@ export default new Vuex.Store({
       if (value) {
         // 设置夜间模式下头部背景
         wx.setNavigationBarColor({
-          frontColor: '#666',
+          frontColor: '#ffffff',
           backgroundColor: '#232323'
         })
         // 底部tabbar夜间模式
