@@ -123,6 +123,39 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -149,6 +182,12 @@ if (false) {(function () {
     isAutoNightMode: function isAutoNightMode(_) {
       return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.isAutoNightMode;
     }, // 自动夜间模式
+    globalAutoNightStartTime: function globalAutoNightStartTime(_) {
+      return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.globalAutoNightStartTime;
+    },
+    globalAutoNightEndTime: function globalAutoNightEndTime(_) {
+      return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.globalAutoNightEndTime;
+    },
     isNightMode: function isNightMode(_) {
       return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.isNightMode;
     } // 夜间模式
@@ -212,18 +251,72 @@ if (false) {(function () {
       wx.setStorageSync('globalFontSize', fontsizeIndex);
     },
     pickerThemeChange: function pickerThemeChange(e) {
+      // 主题选择
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('pickerThemeChange', e.target.value || 0);
       var themeIndex = e.target.value;
       wx.setStorageSync('globalTheme', themeIndex);
     },
     toggleAutoNightMode: function toggleAutoNightMode(e) {
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleAutoNightMode', e.target.value);
+      if (e.target.value) {
+        this.setAutoNightModel();
+      }
       if (this.isAutoNightMode) {
         // 本地存储
         wx.setStorageSync('isAutoNightModeInGlobal', true);
+        // 设置自动夜间模式
+        // if (this.isNightMode) {
+        // }
       } else {
         wx.setStorageSync('isAutoNightModeInGlobal', false);
       }
+    },
+    setAutoNightModel: function setAutoNightModel() {
+      var timer = new Date();
+      var hour = Number(timer.getHours());
+      var minutes = Number(timer.getMinutes());
+      var startGaps = this.globalAutoNightStartTime.indexOf(':');
+      var endGaps = this.globalAutoNightEndTime.indexOf(':');
+      var settingStartHour = Number(this.globalAutoNightStartTime.slice(0, startGaps));
+      var settingStartMinutes = Number(this.globalAutoNightStartTime.slice(startGaps + 1));
+
+      var settingEndHour = Number(this.globalAutoNightEndTime.slice(0, endGaps));
+      var settingEndtMinutes = Number(this.globalAutoNightEndTime.slice(endGaps + 1));
+
+      if (hour === settingStartHour) {
+        if (minutes >= settingStartMinutes) {
+          console.log(1);
+          __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
+        }
+      }
+      if (hour > settingStartHour) {
+        console.log('3');
+        __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
+      }
+
+      if (hour === settingEndHour) {
+        if (minutes <= settingEndtMinutes) {
+          console.log('5');
+          __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
+        }
+      }
+      if (hour < settingEndHour) {
+        console.log('7');
+        __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
+      }
+    },
+    pickerAutoNightStartTime: function pickerAutoNightStartTime(e) {
+      console.log(e);
+      // TODO
+      __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('pickerAutoNightStartTime', e.target.value || '00:00');
+      var timeIndex = e.target.value;
+      wx.setStorageSync('globalAutoNightStartTime', timeIndex);
+    },
+    pickerAutoNightEndTime: function pickerAutoNightEndTime(e) {
+      // TODO
+      __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('pickerAutoNightEndTime', e.target.value || '00:00');
+      var timeIndex = e.target.value;
+      wx.setStorageSync('globalAutoNightEndTime', timeIndex);
     },
     toggleNightMode: function toggleNightMode(e) {
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', e.target.value);
@@ -319,12 +412,58 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("自动夜间模式")]), _vm._v(" "), _c('switch', {
     staticClass: "fr",
     attrs: {
+      "checked": _vm.isAutoNightMode,
       "eventid": '3'
     },
     on: {
       "change": _vm.toggleAutoNightMode
     }
-  })]), _vm._v(" "), _c('div', {
+  })]), _vm._v(" "), (_vm.isAutoNightMode) ? _c('div', {
+    staticClass: "auto-timer"
+  }, [_c('picker', {
+    attrs: {
+      "mode": "time",
+      "start": "00:00",
+      "value": _vm.globalAutoNightStartTime,
+      "eventid": '5'
+    },
+    on: {
+      "change": _vm.pickerAutoNightStartTime
+    }
+  }, [_c('text', {
+    staticClass: "auto-start-time auto-time",
+    class: {
+      'night-text': _vm.isNightMode,
+      'night-border': _vm.isNightMode
+    },
+    attrs: {
+      "eventid": '4'
+    },
+    on: {
+      "click": function($event) {}
+    }
+  }, [_vm._v(_vm._s(_vm.globalAutoNightStartTime))])]), _vm._v(" "), _c('text', {
+    staticStyle: {
+      "margin-left": "15px",
+      "padding-top": "3px"
+    }
+  }, [_vm._v("-")]), _vm._v(" "), _c('picker', {
+    attrs: {
+      "mode": "time",
+      "start": "00:00",
+      "value": _vm.globalAutoNightEndTime,
+      "eventid": '6'
+    },
+    on: {
+      "change": _vm.pickerAutoNightEndTime
+    }
+  }, [_c('text', {
+    staticClass: "auto-end-time auto-time",
+    class: {
+      'night-text': _vm.isNightMode,
+      'night-border': _vm.isNightMode
+    }
+  }, [_vm._v(_vm._s(_vm.globalAutoNightEndTime))])])], 1) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "single-setting",
     class: _vm.isNightMode ? 'line-color' : ''
   }, [_c('text', {
@@ -335,7 +474,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "fr",
     attrs: {
       "checked": _vm.isNightMode,
-      "eventid": '4'
+      "eventid": '7'
     },
     on: {
       "change": _vm.toggleNightMode

@@ -17,13 +17,34 @@
 .pr10.data-v-fc19b91e {
   padding-right: 10rpx;
 }
+.auto-timer.data-v-fc19b91e {
+  height: 100rpx;
+  display: flex;
+  justify-content: flex-start;
+  padding: 20rpx 0 0 10rpx;
+  box-sizing: border-box;
+}
+.auto-time.data-v-fc19b91e {
+  width: 110rpx;
+  height: 70rpx;
+  display: block;
+  border: 2rpx solid #ccc;
+  text-align: center;
+  line-height: 70rpx;
+}
+.auto-end-time.data-v-fc19b91e {
+  margin-left: 30rpx;
+}
 .night.data-v-fc19b91e {
   background: #232323;
-  color: #fff;
+  color: #666;
 }
 .line-color.data-v-fc19b91e {
   border-bottom: 2rpx solid #2c2c2c !important;
 }
 .night-text.data-v-fc19b91e {
   color: #666 !important;
+}
+.night-border.data-v-fc19b91e {
+  border: 2rpx solid #999;
 }

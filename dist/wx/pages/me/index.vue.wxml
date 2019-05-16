@@ -12,10 +12,14 @@
       <picker bindchange="handleProxy" value="{{themeIndex}}" range="{{themeModeList}}" range-key="theme" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">主题模式</text> <text class="_text data-v-fc19b91e fr pr10 {{[isNightMode ? 'night-text' : '']}}">{{themeModeList[themeIndex].theme}}</text></picker>
     </view>
     <view class="_div data-v-fc19b91e single-setting {{isNightMode ? 'line-color' : ''}}"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">自动夜间模式</text>
-      <switch class="_switch data-v-fc19b91e fr" bindchange="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" />
+      <switch class="_switch data-v-fc19b91e fr" checked="{{isAutoNightMode}}" bindchange="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" />
+    </view>
+    <view class="_div data-v-fc19b91e auto-timer" wx:if="{{isAutoNightMode}}">
+      <picker bindchange="handleProxy" mode="time" start="00:00" value="{{globalAutoNightStartTime}}" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e"><text class="_text data-v-fc19b91e auto-start-time auto-time {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-border' : '']}}" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">{{ globalAutoNightStartTime }}</text></picker> <text style="margin-left: 15px;padding-top: 3px;" class="_text data-v-fc19b91e">-</text>
+      <picker mode="time" bindchange="handleProxy" start="00:00" value="{{globalAutoNightEndTime}}" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e"><text class="_text data-v-fc19b91e auto-end-time auto-time {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-border' : '']}}">{{ globalAutoNightEndTime }}</text></picker>
     </view>
     <view class="_div data-v-fc19b91e single-setting {{isNightMode ? 'line-color' : ''}}"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">夜间模式</text>
-      <switch class="_switch data-v-fc19b91e fr" checked="{{isNightMode}}" bindchange="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" />
+      <switch class="_switch data-v-fc19b91e fr" checked="{{isNightMode}}" bindchange="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" />
     </view>
   </view>
 </template>

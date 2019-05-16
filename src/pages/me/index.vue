@@ -25,12 +25,45 @@
   			<text :class="{'night-text': isNightMode}">主题模式</text>
         <text :class="{'night-text': isNightMode}" class="fr pr10">{{themeModeList[themeIndex].theme}}</text>
   		</picker>
-
   	</div>
   	<div class="single-setting" :class="isNightMode ? 'line-color' : ''">
   		<text :class="{'night-text': isNightMode}">自动夜间模式</text>
-  		<switch class="fr" @change="toggleAutoNightMode" />
+  		<switch class="fr" :checked="isAutoNightMode" @change="toggleAutoNightMode" />
   	</div>
+    <div class="auto-timer" v-if="isAutoNightMode">
+      <!-- 开始时间 -->
+      <picker
+        @change="pickerAutoNightStartTime"
+        mode="time"
+        start="00:00"
+        :value="globalAutoNightStartTime"
+      >
+        <text
+          class="auto-start-time auto-time"
+          :class="{
+            'night-text': isNightMode,
+            'night-border': isNightMode
+          }"
+          @click=""
+        >{{ globalAutoNightStartTime }}</text>
+  		</picker>
+      <!-- 结束时间 -->
+      <text style="margin-left: 15px;padding-top: 3px;">-</text>
+      <picker
+        mode="time"
+        @change="pickerAutoNightEndTime"
+        start="00:00"
+        :value="globalAutoNightEndTime"
+      >
+        <text
+          class="auto-end-time auto-time"
+          :class="{
+            'night-text': isNightMode,
+            'night-border': isNightMode
+          }"
+        >{{ globalAutoNightEndTime }}</text>
+      </picker>
+    </div>
   	<div class="single-setting" :class="isNightMode ? 'line-color' : ''">
   		<text :class="{'night-text': isNightMode}">夜间模式</text>
   		<switch class="fr" :checked="isNightMode" @change="toggleNightMode" />
@@ -67,6 +100,8 @@ export default {
     textIndex: _ => store.getters.textIndex, // 字体
     themeIndex: _ => store.getters.themeIndex, // 主题
     isAutoNightMode: _ => store.getters.isAutoNightMode, // 自动夜间模式
+    globalAutoNightStartTime: _ => store.getters.globalAutoNightStartTime,
+    globalAutoNightEndTime: _ => store.getters.globalAutoNightEndTime,
     isNightMode: _ => store.getters.isNightMode // 夜间模式
   },
   mounted () {
@@ -122,18 +157,72 @@ export default {
       let fontsizeIndex = e.target.value
       wx.setStorageSync('globalFontSize', fontsizeIndex)
     },
-    pickerThemeChange (e) {
+    pickerThemeChange (e) { // 主题选择
       store.commit('pickerThemeChange', e.target.value || 0)
       let themeIndex = e.target.value
       wx.setStorageSync('globalTheme', themeIndex)
     },
     toggleAutoNightMode (e) {
       store.commit('toggleAutoNightMode', e.target.value)
-      if (this.isAutoNightMode) { // 本地存储
+      if (e.target.value) {
+        this.setAutoNightModel()
+      }
+      if (this.isAutoNightMode) {
+        // 本地存储
         wx.setStorageSync('isAutoNightModeInGlobal', true)
+        // 设置自动夜间模式
+        // if (this.isNightMode) {
+        // }
       } else {
         wx.setStorageSync('isAutoNightModeInGlobal', false)
       }
+    },
+    setAutoNightModel () {
+      let timer = new Date()
+      let hour = Number(timer.getHours())
+      let minutes = Number(timer.getMinutes())
+      let startGaps = this.globalAutoNightStartTime.indexOf(':')
+      let endGaps = this.globalAutoNightEndTime.indexOf(':')
+      let settingStartHour = Number(this.globalAutoNightStartTime.slice(0, startGaps))
+      let settingStartMinutes = Number(this.globalAutoNightStartTime.slice(startGaps + 1))
+
+      let settingEndHour = Number(this.globalAutoNightEndTime.slice(0, endGaps))
+      let settingEndtMinutes = Number(this.globalAutoNightEndTime.slice(endGaps + 1))
+
+      if (hour === settingStartHour) {
+        if (minutes >= settingStartMinutes) {
+          console.log(1)
+          store.commit('toggleNightMode', true)
+        }
+      }
+      if (hour > settingStartHour) {
+        console.log('3')
+        store.commit('toggleNightMode', true)
+      }
+
+      if (hour === settingEndHour) {
+        if (minutes <= settingEndtMinutes) {
+          console.log('5')
+          store.commit('toggleNightMode', true)
+        }
+      }
+      if (hour < settingEndHour) {
+        console.log('7')
+        store.commit('toggleNightMode', true)
+      }
+    },
+    pickerAutoNightStartTime (e) {
+      console.log(e)
+      // TODO
+      store.commit('pickerAutoNightStartTime', e.target.value || '00:00')
+      let timeIndex = e.target.value
+      wx.setStorageSync('globalAutoNightStartTime', timeIndex)
+    },
+    pickerAutoNightEndTime (e) {
+      // TODO
+      store.commit('pickerAutoNightEndTime', e.target.value || '00:00')
+      let timeIndex = e.target.value
+      wx.setStorageSync('globalAutoNightEndTime', timeIndex)
     },
     toggleNightMode (e) {
       store.commit('toggleNightMode', e.target.value)
@@ -170,16 +259,38 @@ export default {
     padding-right: 10rpx
   ))
 }
+.auto-timer {
+  height: 50px;
+  /* line-height: 50px; */
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 0 0 5px;
+  box-sizing: border-box;
+}
+.auto-time {
+  width: 55px;
+  height: 35px;
+  display: block;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 35px;
+}
+.auto-end-time {
+  margin-left: 15px;
+}
 /* 夜间模式 */
 .night {
   background: #232323;
-  color: #fff;
+  color: #666;
 }
 .line-color {
   border-bottom: 1px solid #2c2c2c !important;
 }
 .night-text {
   color: #666 !important;
+}
+.night-border {
+  border: 1px solid #999;
 }
 /* 夜间模式结束 */
 </style>

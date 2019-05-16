@@ -8,6 +8,8 @@ export default new Vuex.Store({
     textIndex: wx.getStorageSync('globalFontSize') || 1,
     themeIndex: wx.getStorageSync('globalTheme') || 0,
     isAutoNightMode: wx.getStorageSync('isAutoNightModeInGlobal') || false,
+    globalAutoNightStartTime: wx.getStorageSync('globalAutoNightStartTime') || '20:00', // start time
+    globalAutoNightEndTime: wx.getStorageSync('globalAutoNightEndTime') || '06:00', // end time
     isNightMode: wx.getStorageSync('isNightModeInGlobal') || false
   },
   getters: {
@@ -15,6 +17,8 @@ export default new Vuex.Store({
     textIndex: state => state.textIndex,
     themeIndex: state => state.themeIndex,
     isAutoNightMode: state => state.isAutoNightMode,
+    globalAutoNightStartTime: state => state.globalAutoNightStartTime,
+    globalAutoNightEndTime: state => state.globalAutoNightEndTime,
     isNightMode: state => state.isNightMode
   },
   mutations: {
@@ -27,8 +31,14 @@ export default new Vuex.Store({
     pickerThemeChange (state, val) { // 设置主题模式
       state.themeIndex = val
     },
-    toggleAutoNightMode (state) { // 设置自动夜间模式
-      state.isAutoNightMode = !state.isAutoNightMode
+    toggleAutoNightMode (state, val) { // 设置自动夜间模式
+      state.isAutoNightMode = val
+    },
+    pickerAutoNightStartTime (state, startTime) { // 设置start时间
+      state.globalAutoNightStartTime = startTime
+    },
+    pickerAutoNightEndTime (state, endTime) { // 设置end时间
+      state.globalAutoNightEndTime = endTime
     },
     toggleNightMode (state, value) { // 设置夜间模式
       state.isNightMode = value
