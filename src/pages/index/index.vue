@@ -97,7 +97,7 @@ export default {
     this.setNavigationBarStyle()
   },
   watch: {
-    'isNightMode': (newVal) => {
+    'isNightMode': (newVal, oldVal) => {
       if (newVal) {
         // 顶部导航夜间模式
         wx.setNavigationBarColor({
@@ -107,7 +107,7 @@ export default {
       } else {
         // 顶部导航非夜间
         wx.setNavigationBarColor({
-          frontColor: '#000000',
+          frontColor: '#232323',
           backgroundColor: '#ffffff'
         })
       }

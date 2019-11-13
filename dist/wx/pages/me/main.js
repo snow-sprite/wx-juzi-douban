@@ -164,7 +164,7 @@ if (false) {(function () {
     return {
       textSizeList: [{ size: '小' }, { size: '中' }, { size: '大' }],
       themeModeList: [{ theme: '简约白' }, { theme: '之家红' }, { theme: '石榴粉' }, { theme: '芒果橙' }, { theme: '旗鱼蓝' }, { theme: '西瓜绿' }, { theme: '葡萄紫' }],
-      themeIndex: 0, // 默认主题 index
+      // themeIndex: 0, // 默认主题 index
       test: !getApp().globalData.isShowIndexRefresh
     };
   },
@@ -252,9 +252,60 @@ if (false) {(function () {
     },
     pickerThemeChange: function pickerThemeChange(e) {
       // 主题选择
-      __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('pickerThemeChange', e.target.value || 0);
-      var themeIndex = e.target.value;
+      var themeIndex = Number(e.target.value);
+      __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('pickerThemeChange', themeIndex || 0);
       wx.setStorageSync('globalTheme', themeIndex);
+      switch (themeIndex) {
+        case 1:
+          // 设置之家红主题
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#C2362D'
+          });
+          break;
+        case 2:
+          // 设置石榴粉主题
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#ED7C98'
+          });
+          break;
+        case 3:
+          // 设置芒果橙主题
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#F09D39'
+          });
+          break;
+        case 4:
+          // 设置旗鱼蓝主题
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#4892E7'
+          });
+          break;
+        case 5:
+          // 设置西瓜绿主题
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#62A47E'
+          });
+          break;
+        case 6:
+          // 设置葡萄紫主题
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '##613FB0'
+          });
+          break;
+        default:
+          // 简约白
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#fff'
+          });
+          console.log('我是default');
+      }
     },
     toggleAutoNightMode: function toggleAutoNightMode(e) {
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleAutoNightMode', e.target.value);
@@ -290,18 +341,15 @@ if (false) {(function () {
         }
       }
       if (hour > settingStartHour) {
-        console.log('3');
         __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
       }
 
       if (hour === settingEndHour) {
         if (minutes <= settingEndtMinutes) {
-          console.log('5');
           __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
         }
       }
       if (hour < settingEndHour) {
-        console.log('7');
         __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
       }
     },
@@ -326,6 +374,9 @@ if (false) {(function () {
       } else {
         wx.setStorageSync('isNightModeInGlobal', false);
       }
+    },
+    setTheme: function setTheme(val) {
+      // dd
     }
   }
 });

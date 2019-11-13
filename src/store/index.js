@@ -15,7 +15,7 @@ export default new Vuex.Store({
   getters: {
     isShowRefresh: state => state.isShowRefresh,
     textIndex: state => state.textIndex,
-    themeIndex: state => state.themeIndex,
+    themeIndex: state => Number(state.themeIndex),
     isAutoNightMode: state => state.isAutoNightMode,
     globalAutoNightStartTime: state => state.globalAutoNightStartTime,
     globalAutoNightEndTime: state => state.globalAutoNightEndTime,
@@ -29,7 +29,9 @@ export default new Vuex.Store({
       state.textIndex = val
     },
     pickerThemeChange (state, val) { // 设置主题模式
+      val = Number(val)
       state.themeIndex = val
+      console.log(typeof val)
     },
     toggleAutoNightMode (state, val) { // 设置自动夜间模式
       state.isAutoNightMode = val
