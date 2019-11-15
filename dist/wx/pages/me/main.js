@@ -165,7 +165,8 @@ if (false) {(function () {
       textSizeList: [{ size: '小' }, { size: '中' }, { size: '大' }],
       themeModeList: [{ theme: '简约白' }, { theme: '之家红' }, { theme: '石榴粉' }, { theme: '芒果橙' }, { theme: '旗鱼蓝' }, { theme: '西瓜绿' }, { theme: '葡萄紫' }],
       // themeIndex: 0, // 默认主题 index
-      test: !getApp().globalData.isShowIndexRefresh
+      test: !getApp().globalData.isShowIndexRefresh,
+      timer: null
     };
   },
 
@@ -193,6 +194,7 @@ if (false) {(function () {
     } // 夜间模式
   },
   mounted: function mounted() {
+    // 默认先设置一下主题
     if (this.isNightMode) {
       // 顶部导航夜间模式
       wx.setNavigationBarColor({
@@ -206,11 +208,13 @@ if (false) {(function () {
         selectedColor: '#ffd700'
       });
     } else {
+      // 非夜间模式可以先设置主题皮肤
+      this.setTheme(this.themeIndex);
       // 顶部导航非夜间
-      wx.setNavigationBarColor({
-        frontColor: '#000000',
-        backgroundColor: '#ffffff'
-      });
+      // wx.setNavigationBarColor({
+      //   frontColor: '#000000',
+      //   backgroundColor: '#ffffff'
+      // })
       // 底部tabbar非夜间模式
       wx.setTabBarStyle({
         color: '#a5a5a5',
@@ -226,11 +230,9 @@ if (false) {(function () {
       return {
         title: '我的2',
         imageUrl: '../index/img/banner.png',
-        success: function success(res) {
-          console.log(11, res);
-        },
+        success: function success(res) {},
         fail: function fail(err) {
-          console.log(22, err);
+          console.err(err);
         }
       };
     },
@@ -255,57 +257,6 @@ if (false) {(function () {
       var themeIndex = Number(e.target.value);
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('pickerThemeChange', themeIndex || 0);
       wx.setStorageSync('globalTheme', themeIndex);
-      switch (themeIndex) {
-        case 1:
-          // 设置之家红主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#C2362D'
-          });
-          break;
-        case 2:
-          // 设置石榴粉主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#ED7C98'
-          });
-          break;
-        case 3:
-          // 设置芒果橙主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#F09D39'
-          });
-          break;
-        case 4:
-          // 设置旗鱼蓝主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#4892E7'
-          });
-          break;
-        case 5:
-          // 设置西瓜绿主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#62A47E'
-          });
-          break;
-        case 6:
-          // 设置葡萄紫主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '##613FB0'
-          });
-          break;
-        default:
-          // 简约白
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#fff'
-          });
-          console.log('我是default');
-      }
     },
     toggleAutoNightMode: function toggleAutoNightMode(e) {
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleAutoNightMode', e.target.value);
@@ -336,7 +287,6 @@ if (false) {(function () {
 
       if (hour === settingStartHour) {
         if (minutes >= settingStartMinutes) {
-          console.log(1);
           __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
         }
       }
@@ -354,7 +304,6 @@ if (false) {(function () {
       }
     },
     pickerAutoNightStartTime: function pickerAutoNightStartTime(e) {
-      console.log(e);
       // TODO
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('pickerAutoNightStartTime', e.target.value || '00:00');
       var timeIndex = e.target.value;
@@ -372,11 +321,21 @@ if (false) {(function () {
         // 本地存储
         wx.setStorageSync('isNightModeInGlobal', true);
       } else {
+        // 关闭夜间模式先设置默认主题皮肤
+        this.setTheme(this.themeIndex);
         wx.setStorageSync('isNightModeInGlobal', false);
       }
     },
-    setTheme: function setTheme(val) {
-      // dd
+    setTheme: function setTheme(ind) {
+      /*
+        这里直接使用store.commit('pickerThemeChange', ind)并不会生效
+        可能是因为小程序有限制，禁止了程序的自动触发改变主题皮肤
+        想不到其他的原因了
+        wxsb！！！😡
+      */
+      this.timer = setTimeout(function () {
+        __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('pickerThemeChange', ind);
+      }, 0);
     }
   }
 });

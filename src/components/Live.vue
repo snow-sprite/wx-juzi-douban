@@ -62,7 +62,6 @@ export default {
     LiveItem
   },
   mounted () {
-    console.log(100, this.livesList)
     // 获取轮播数据
     this.getBanner()
     // 获取早新闻

@@ -72,7 +72,8 @@ export default {
   },
   computed: {
     isShowRefresh: _ => store.getters.isShowRefresh,
-    isNightMode: _ => store.getters.isNightMode // 夜间模式
+    isNightMode: _ => store.getters.isNightMode, // 夜间模式
+    themeIndex: _ => store.getters.themeIndex
   },
   data () {
     return {
@@ -96,37 +97,46 @@ export default {
     this.getLives()
     this.setNavigationBarStyle()
   },
-  watch: {
-    'isNightMode': (newVal, oldVal) => {
-      if (newVal) {
-        // 顶部导航夜间模式
-        wx.setNavigationBarColor({
-          frontColor: '#ffffff',
-          backgroundColor: '#232323'
-        })
-      } else {
-        // 顶部导航非夜间
-        wx.setNavigationBarColor({
-          frontColor: '#232323',
-          backgroundColor: '#ffffff'
-        })
-      }
-    }
-  },
+  // watch: {
+  //   'isNightMode': (newVal, oldVal) => {
+  //     if (newVal) {
+  //       // 顶部导航夜间模式
+  //       wx.setNavigationBarColor({
+  //         frontColor: '#ffffff',
+  //         backgroundColor: '#232323'
+  //       })
+  //     } else {
+  //       // 顶部导航非夜间
+  //       wx.setNavigationBarColor({
+  //         frontColor: '#000000',
+  //         backgroundColor: '#ffffff'
+  //       })
+  //     }
+  //   },
+  //   // 'themeIndex': (newState) => {
+  //   //   // console.log('new', newState)
+  //   //   // if (newState)
+  //   // }
+  // },
   methods: {
     setNavigationBarStyle () {
-      if (this.isNightMode) {
+      const that = this
+      this.timer = setTimeout(function () {
+        if (that.isNightMode) {
         // 顶部导航夜间模式
-        wx.setNavigationBarColor({
-          frontColor: '#ffffff',
-          backgroundColor: '#232323'
-        })
-      } else {
-        wx.setNavigationBarColor({
-          frontColor: '#000000',
-          backgroundColor: '#ffffff'
-        })
-      }
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#232323'
+          })
+        } else {
+          // 非夜间模式可以先设置主题皮肤
+          that.setTheme(that.themeIndex)
+          // wx.setNavigationBarColor({
+          //   frontColor: '#000000',
+          //   backgroundColor: '#ffffff'
+          // })
+        }
+      }, 0)
     },
     getUserInfo () {
       // 调用登录接口
@@ -135,7 +145,6 @@ export default {
         success: (res) => {
           wx.getUserInfo({
             success: (response) => {
-              console.log('response', response)
               that.userInfo = response.userInfo
             }
           })
@@ -179,10 +188,9 @@ export default {
         title: '巴拉巴拉1',
         imageUrl: '../../static/img/banner.png',
         success (res) {
-          console.log(11, res)
         },
         fail (err) {
-          console.log(22, err)
+          console.err(err)
         }
       }
     },
@@ -191,10 +199,22 @@ export default {
     },
     // click refresh button
     refreshLiveList () {
+      // 刷新按钮
       this.livesList = []
       this.isBtnCommit = true
       this.refreshLoading = true
       this.getLives()
+    },
+    setTheme (ind) {
+      /*
+        这里直接使用store.commit('pickerThemeChange', ind)并不会生效
+        可能是因为小程序有限制，禁止了程序的自动触发改变主题皮肤
+        想不到其他的原因了
+        wxsb！！！😡
+      */
+      this.timer = setTimeout(function () {
+        store.commit('pickerThemeChange', ind)
+      }, 0)
     }
   }
 }

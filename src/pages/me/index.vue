@@ -92,7 +92,8 @@ export default {
         {theme: '葡萄紫'}
       ],
       // themeIndex: 0, // 默认主题 index
-      test: !getApp().globalData.isShowIndexRefresh
+      test: !getApp().globalData.isShowIndexRefresh,
+      timer: null
     }
   },
   computed: {
@@ -105,6 +106,7 @@ export default {
     isNightMode: _ => store.getters.isNightMode // 夜间模式
   },
   mounted () {
+    // 默认先设置一下主题
     if (this.isNightMode) {
       // 顶部导航夜间模式
       wx.setNavigationBarColor({
@@ -118,11 +120,13 @@ export default {
         selectedColor: '#ffd700'
       })
     } else {
+      // 非夜间模式可以先设置主题皮肤
+      this.setTheme(this.themeIndex)
       // 顶部导航非夜间
-      wx.setNavigationBarColor({
-        frontColor: '#000000',
-        backgroundColor: '#ffffff'
-      })
+      // wx.setNavigationBarColor({
+      //   frontColor: '#000000',
+      //   backgroundColor: '#ffffff'
+      // })
       // 底部tabbar非夜间模式
       wx.setTabBarStyle({
         color: '#a5a5a5',
@@ -137,10 +141,9 @@ export default {
         title: '我的2',
         imageUrl: '../index/img/banner.png',
         success (res) {
-          console.log(11, res)
         },
         fail (err) {
-          console.log(22, err)
+          console.err(err)
         }
       }
     },
@@ -161,57 +164,6 @@ export default {
       let themeIndex = Number(e.target.value)
       store.commit('pickerThemeChange', themeIndex || 0)
       wx.setStorageSync('globalTheme', themeIndex)
-      switch (themeIndex) {
-        case 1:
-          // 设置之家红主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#C2362D'
-          })
-          break
-        case 2:
-          // 设置石榴粉主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#ED7C98'
-          })
-          break
-        case 3:
-          // 设置芒果橙主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#F09D39'
-          })
-          break
-        case 4:
-          // 设置旗鱼蓝主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#4892E7'
-          })
-          break
-        case 5:
-          // 设置西瓜绿主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#62A47E'
-          })
-          break
-        case 6:
-          // 设置葡萄紫主题
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '##613FB0'
-          })
-          break
-        default:
-          // 简约白
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#fff'
-          })
-          console.log('我是default')
-      }
     },
     toggleAutoNightMode (e) {
       store.commit('toggleAutoNightMode', e.target.value)
@@ -242,7 +194,6 @@ export default {
 
       if (hour === settingStartHour) {
         if (minutes >= settingStartMinutes) {
-          console.log(1)
           store.commit('toggleNightMode', true)
         }
       }
@@ -260,7 +211,6 @@ export default {
       }
     },
     pickerAutoNightStartTime (e) {
-      console.log(e)
       // TODO
       store.commit('pickerAutoNightStartTime', e.target.value || '00:00')
       let timeIndex = e.target.value
@@ -277,11 +227,21 @@ export default {
       if (this.isNightMode) { // 本地存储
         wx.setStorageSync('isNightModeInGlobal', true)
       } else {
+        // 关闭夜间模式先设置默认主题皮肤
+        this.setTheme(this.themeIndex)
         wx.setStorageSync('isNightModeInGlobal', false)
       }
     },
-    setTheme (val) {
-      // dd
+    setTheme (ind) {
+      /*
+        这里直接使用store.commit('pickerThemeChange', ind)并不会生效
+        可能是因为小程序有限制，禁止了程序的自动触发改变主题皮肤
+        想不到其他的原因了
+        wxsb！！！😡
+      */
+      this.timer = setTimeout(function () {
+        store.commit('pickerThemeChange', ind)
+      }, 0)
     }
   }
 }

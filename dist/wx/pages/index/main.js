@@ -1341,7 +1341,10 @@ if (false) {(function () {
     },
     isNightMode: function isNightMode(_) {
       return __WEBPACK_IMPORTED_MODULE_4__store__["a" /* default */].getters.isNightMode;
-    } // 夜间模式
+    }, // 夜间模式
+    themeIndex: function themeIndex(_) {
+      return __WEBPACK_IMPORTED_MODULE_4__store__["a" /* default */].getters.themeIndex;
+    }
   },
   data: function data() {
     return {
@@ -1366,37 +1369,46 @@ if (false) {(function () {
     this.setNavigationBarStyle();
   },
 
-  watch: {
-    'isNightMode': function isNightMode(newVal, oldVal) {
-      if (newVal) {
-        // 顶部导航夜间模式
-        wx.setNavigationBarColor({
-          frontColor: '#ffffff',
-          backgroundColor: '#232323'
-        });
-      } else {
-        // 顶部导航非夜间
-        wx.setNavigationBarColor({
-          frontColor: '#232323',
-          backgroundColor: '#ffffff'
-        });
-      }
-    }
-  },
+  // watch: {
+  //   'isNightMode': (newVal, oldVal) => {
+  //     if (newVal) {
+  //       // 顶部导航夜间模式
+  //       wx.setNavigationBarColor({
+  //         frontColor: '#ffffff',
+  //         backgroundColor: '#232323'
+  //       })
+  //     } else {
+  //       // 顶部导航非夜间
+  //       wx.setNavigationBarColor({
+  //         frontColor: '#000000',
+  //         backgroundColor: '#ffffff'
+  //       })
+  //     }
+  //   },
+  //   // 'themeIndex': (newState) => {
+  //   //   // console.log('new', newState)
+  //   //   // if (newState)
+  //   // }
+  // },
   methods: {
     setNavigationBarStyle: function setNavigationBarStyle() {
-      if (this.isNightMode) {
-        // 顶部导航夜间模式
-        wx.setNavigationBarColor({
-          frontColor: '#ffffff',
-          backgroundColor: '#232323'
-        });
-      } else {
-        wx.setNavigationBarColor({
-          frontColor: '#000000',
-          backgroundColor: '#ffffff'
-        });
-      }
+      var that = this;
+      this.timer = setTimeout(function () {
+        if (that.isNightMode) {
+          // 顶部导航夜间模式
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#232323'
+          });
+        } else {
+          // 非夜间模式可以先设置主题皮肤
+          that.setTheme(that.themeIndex);
+          // wx.setNavigationBarColor({
+          //   frontColor: '#000000',
+          //   backgroundColor: '#ffffff'
+          // })
+        }
+      }, 0);
     },
     getUserInfo: function getUserInfo() {
       // 调用登录接口
@@ -1405,7 +1417,6 @@ if (false) {(function () {
         success: function success(res) {
           wx.getUserInfo({
             success: function success(response) {
-              console.log('response', response);
               that.userInfo = response.userInfo;
             }
           });
@@ -1479,11 +1490,9 @@ if (false) {(function () {
       return {
         title: '巴拉巴拉1',
         imageUrl: '../../static/img/banner.png',
-        success: function success(res) {
-          console.log(11, res);
-        },
+        success: function success(res) {},
         fail: function fail(err) {
-          console.log(22, err);
+          console.err(err);
         }
       };
     },
@@ -1493,10 +1502,22 @@ if (false) {(function () {
 
     // click refresh button
     refreshLiveList: function refreshLiveList() {
+      // 刷新按钮
       this.livesList = [];
       this.isBtnCommit = true;
       this.refreshLoading = true;
       this.getLives();
+    },
+    setTheme: function setTheme(ind) {
+      /*
+        这里直接使用store.commit('pickerThemeChange', ind)并不会生效
+        可能是因为小程序有限制，禁止了程序的自动触发改变主题皮肤
+        想不到其他的原因了
+        wxsb！！！😡
+      */
+      this.timer = setTimeout(function () {
+        __WEBPACK_IMPORTED_MODULE_4__store__["a" /* default */].commit('pickerThemeChange', ind);
+      }, 0);
     }
   }
 });
@@ -1637,7 +1658,6 @@ if (false) {(function () {
     LiveItem: __WEBPACK_IMPORTED_MODULE_2__LiveItem__["a" /* default */]
   },
   mounted: function mounted() {
-    console.log(100, this.livesList);
     // 获取轮播数据
     this.getBanner();
     // 获取早新闻
