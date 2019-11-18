@@ -1385,10 +1385,11 @@ if (false) {(function () {
   //       })
   //     }
   //   },
-  //   // 'themeIndex': (newState) => {
-  //   //   // console.log('new', newState)
-  //   //   // if (newState)
-  //   // }
+  //   'themeIndex': function (newState) {
+  //     if (newState) {
+  //       this.setTheme(newState)
+  //     }
+  //   }
   // },
   methods: {
     setNavigationBarStyle: function setNavigationBarStyle() {
@@ -1403,10 +1404,6 @@ if (false) {(function () {
         } else {
           // 非夜间模式可以先设置主题皮肤
           that.setTheme(that.themeIndex);
-          // wx.setNavigationBarColor({
-          //   frontColor: '#000000',
-          //   backgroundColor: '#ffffff'
-          // })
         }
       }, 0);
     },

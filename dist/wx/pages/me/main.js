@@ -166,7 +166,11 @@ if (false) {(function () {
       themeModeList: [{ theme: '简约白' }, { theme: '之家红' }, { theme: '石榴粉' }, { theme: '芒果橙' }, { theme: '旗鱼蓝' }, { theme: '西瓜绿' }, { theme: '葡萄紫' }],
       // themeIndex: 0, // 默认主题 index
       test: !getApp().globalData.isShowIndexRefresh,
-      timer: null
+      // 解决bug的
+      timer: null,
+      // 设置时间戳
+      timer2: null,
+      linearTime: null
     };
   },
 
@@ -191,39 +195,18 @@ if (false) {(function () {
     },
     isNightMode: function isNightMode(_) {
       return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.isNightMode;
-    } // 夜间模式
+    } // 夜间模式,
   },
   mounted: function mounted() {
-    // 默认先设置一下主题
-    if (this.isNightMode) {
-      // 顶部导航夜间模式
-      wx.setNavigationBarColor({
-        frontColor: '#ffffff',
-        backgroundColor: '#232323'
-      });
-      // 底部tabbar夜间模式
-      wx.setTabBarStyle({
-        color: '#a5a5a5',
-        backgroundColor: '#232323',
-        selectedColor: '#ffd700'
-      });
-    } else {
-      // 非夜间模式可以先设置主题皮肤
-      this.setTheme(this.themeIndex);
-      // 顶部导航非夜间
-      // wx.setNavigationBarColor({
-      //   frontColor: '#000000',
-      //   backgroundColor: '#ffffff'
-      // })
-      // 底部tabbar非夜间模式
-      wx.setTabBarStyle({
-        color: '#a5a5a5',
-        backgroundColor: '#ffffff',
-        selectedColor: '#ffd700'
-      });
-    }
+    this.linearTime = new Date().getTime();
+    this.setNightMoode();
   },
 
+  watch: {
+    'linearTime': function linearTime(newTime) {
+      if (newTime) this.setAutoNightModel();
+    }
+  },
   methods: {
     onShareAppMessage: function onShareAppMessage() {
       // 我的页的转发
@@ -261,7 +244,13 @@ if (false) {(function () {
     toggleAutoNightMode: function toggleAutoNightMode(e) {
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleAutoNightMode', e.target.value);
       if (e.target.value) {
+        // 打开自动夜间模式 设置计时
+        this.setLinearTime();
+        // 触发主题设置
         this.setAutoNightModel();
+      } else {
+        // 关闭自动夜间模式 则关闭计时器
+        this.clearLinearTime();
       }
       if (this.isAutoNightMode) {
         // 本地存储
@@ -274,9 +263,10 @@ if (false) {(function () {
       }
     },
     setAutoNightModel: function setAutoNightModel() {
-      var timer = new Date();
-      var hour = Number(timer.getHours());
-      var minutes = Number(timer.getMinutes());
+      // TODO 有bug待解决
+      // 如果条件true，wach一直触发这个事件 会造成闪屏
+      var hour = Number(new Date(this.linearTime).getHours());
+      var minutes = Number(new Date(this.linearTime).getMinutes());
       var startGaps = this.globalAutoNightStartTime.indexOf(':');
       var endGaps = this.globalAutoNightEndTime.indexOf(':');
       var settingStartHour = Number(this.globalAutoNightStartTime.slice(0, startGaps));
@@ -284,22 +274,29 @@ if (false) {(function () {
 
       var settingEndHour = Number(this.globalAutoNightEndTime.slice(0, endGaps));
       var settingEndtMinutes = Number(this.globalAutoNightEndTime.slice(endGaps + 1));
-
+      // 如果小时一样 当前分钟比设置的开始时间大 那么触发夜间模式
       if (hour === settingStartHour) {
         if (minutes >= settingStartMinutes) {
           __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
+        } else {
+          __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', false);
         }
       }
-      if (hour > settingStartHour) {
+      // 如果当前小时已经比设置的开始时间大了 直接触发夜间模式
+      if (hour > settingStartHour && hour < settingEndHour) {
         __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
       }
-
+      // 如果当前小时跟设置的结束时间一致
       if (hour === settingEndHour) {
-        if (minutes <= settingEndtMinutes) {
+        // 如果当前分钟比设置的小 触发夜间模式
+        if (minutes < settingEndtMinutes) {
           __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
+        } else {
+          __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', false);
         }
       }
-      if (hour < settingEndHour) {
+      // 如果当前时间比设置的结束时间小了  触发夜间模式
+      if (hour < settingEndHour && hour > settingStartHour) {
         __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
       }
     },
@@ -336,7 +333,50 @@ if (false) {(function () {
       this.timer = setTimeout(function () {
         __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('pickerThemeChange', ind);
       }, 0);
+    },
+    setNightMoode: function setNightMoode() {
+      // 默认先设置一下主题
+      if (this.isNightMode) {
+        // 顶部导航夜间模式
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#232323'
+        });
+        // 底部tabbar夜间模式
+        wx.setTabBarStyle({
+          color: '#a5a5a5',
+          backgroundColor: '#232323',
+          selectedColor: '#ffd700'
+        });
+      } else {
+        // 非夜间模式可以先设置主题皮肤
+        this.setTheme(this.themeIndex);
+        // 顶部导航非夜间
+        // wx.setNavigationBarColor({
+        //   frontColor: '#000000',
+        //   backgroundColor: '#ffffff'
+        // })
+        // 底部tabbar非夜间模式
+        wx.setTabBarStyle({
+          color: '#a5a5a5',
+          backgroundColor: '#ffffff',
+          selectedColor: '#ffd700'
+        });
+      }
+    },
+    setLinearTime: function setLinearTime() {
+      var that = this;
+      this.timer2 = setInterval(function () {
+        that.linearTime += 1000;
+      }, 1000);
+    },
+    clearLinearTime: function clearLinearTime() {
+      this.timer2 = clearInterval(this.timer2);
     }
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.timer = clearTimeout(this.timer);
+    this.timer2 = clearInterval(this.timer2);
   }
 });
 

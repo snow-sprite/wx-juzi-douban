@@ -311,6 +311,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
       state.themeIndex = val;
       switch (state.themeIndex) {
         case 1:
+          // test github workflow CI: 2019 年11月15日 星期五 23:5348
           // 设置之家红主题
           wx.setNavigationBarColor({
             frontColor: '#ffffff',
