@@ -115,7 +115,11 @@ export default {
   },
   watch: {
     'linearTime': function (newTime) {
-      if (newTime) this.setAutoNightModel()
+      if (newTime && this.setAutoNightModelTime()) {
+        this.setAutoNightModeTheme()
+      } else {
+        this.resetAutoNightModeTheme()
+      }
     }
   },
   methods: {
@@ -148,13 +152,17 @@ export default {
       store.commit('pickerThemeChange', themeIndex || 0)
       wx.setStorageSync('globalTheme', themeIndex)
     },
-    toggleAutoNightMode (e) {
+    toggleAutoNightMode (e) { // 自动夜间模式按钮
       store.commit('toggleAutoNightMode', e.target.value)
       if (e.target.value) {
         // 打开自动夜间模式 设置计时
         this.setLinearTime()
         // 触发主题设置
-        this.setAutoNightModel()
+        if (this.setAutoNightModelTime()) {
+          this.setAutoNightModeTheme()
+        } else {
+          this.resetAutoNightModeTheme()
+        }
       } else {
         // 关闭自动夜间模式 则关闭计时器
         this.clearLinearTime()
@@ -169,54 +177,54 @@ export default {
         wx.setStorageSync('isAutoNightModeInGlobal', false)
       }
     },
-    setAutoNightModel () {
-      // TODO 有bug待解决
-      // 如果条件true，wach一直触发这个事件 会造成闪屏
-      let hour = Number(new Date(this.linearTime).getHours())
-      let minutes = Number(new Date(this.linearTime).getMinutes())
-      let startGaps = this.globalAutoNightStartTime.indexOf(':')
-      let endGaps = this.globalAutoNightEndTime.indexOf(':')
-      let settingStartHour = Number(this.globalAutoNightStartTime.slice(0, startGaps))
-      let settingStartMinutes = Number(this.globalAutoNightStartTime.slice(startGaps + 1))
+    // 设置时间对比当前系统时间，匹配则返回true
+    setAutoNightModelTime () {
+      let year = new Date(this.linearTime).getFullYear()
+      let month = new Date(this.linearTime).getMonth() + 1
+      let day = new Date(this.linearTime).getDate()
 
-      let settingEndHour = Number(this.globalAutoNightEndTime.slice(0, endGaps))
-      let settingEndtMinutes = Number(this.globalAutoNightEndTime.slice(endGaps + 1))
-      // 如果小时一样 当前分钟比设置的开始时间大 那么触发夜间模式
-      if (hour === settingStartHour) {
-        if (minutes >= settingStartMinutes) {
-          store.commit('toggleNightMode', true)
-        } else {
-          store.commit('toggleNightMode', false)
+      let startTime = new Date(`${year}/${month}/${day} ${this.globalAutoNightStartTime}`)
+      let endTime = new Date(`${year}/${month}/${day} ${this.globalAutoNightEndTime}`)
+
+      // 起始时间戳
+      let startTimestamp = startTime.getTime()
+      // 终止时间戳
+      let endTImestamp = endTime.getTime()
+      // 1.起始时间小于终止时间 是同一天
+      // 设置的时间正好在起始时间和结束时间之间
+      if (startTimestamp <= endTImestamp) {
+        if (this.linearTime < startTimestamp || this.linearTime > endTImestamp) {
+          return false
+        }
+      } else {
+        // 2.起始时间大于终止时间 说明不是同一天了
+        if (this.linearTime < startTimestamp) {
+          return false
+        }
+        if (this.linearTime > endTImestamp) {
+          return false
         }
       }
-      // 如果当前小时已经比设置的开始时间大了 直接触发夜间模式
-      if (hour > settingStartHour && hour < settingEndHour) {
-        store.commit('toggleNightMode', true)
-      }
-      // 如果当前小时跟设置的结束时间一致
-      if (hour === settingEndHour) {
-        // 如果当前分钟比设置的小 触发夜间模式
-        if (minutes < settingEndtMinutes) {
-          store.commit('toggleNightMode', true)
-        } else {
-          store.commit('toggleNightMode', false)
-        }
-      }
-      // 如果当前时间比设置的结束时间小了  触发夜间模式
-      if (hour < settingEndHour && hour > settingStartHour) {
-        store.commit('toggleNightMode', true)
-      }
+      return true
+    },
+    // 系统调制夜间模式
+    setAutoNightModeTheme () {
+      store.commit('toggleNightMode', true)
+    },
+    // 还原正常模式
+    resetAutoNightModeTheme () {
+      store.commit('toggleNightMode', false)
     },
     pickerAutoNightStartTime (e) {
       // TODO
-      store.commit('pickerAutoNightStartTime', e.target.value || '00:00')
       let timeIndex = e.target.value
+      store.commit('pickerAutoNightStartTime', timeIndex || '00:00')
       wx.setStorageSync('globalAutoNightStartTime', timeIndex)
     },
     pickerAutoNightEndTime (e) {
       // TODO
-      store.commit('pickerAutoNightEndTime', e.target.value || '00:00')
       let timeIndex = e.target.value
+      store.commit('pickerAutoNightEndTime', timeIndex || '00:00')
       wx.setStorageSync('globalAutoNightEndTime', timeIndex)
     },
     toggleNightMode (e) {
@@ -257,11 +265,6 @@ export default {
       } else {
         // 非夜间模式可以先设置主题皮肤
         this.setTheme(this.themeIndex)
-        // 顶部导航非夜间
-        // wx.setNavigationBarColor({
-        //   frontColor: '#000000',
-        //   backgroundColor: '#ffffff'
-        // })
         // 底部tabbar非夜间模式
         wx.setTabBarStyle({
           color: '#a5a5a5',
@@ -270,12 +273,14 @@ export default {
         })
       }
     },
+    // 计时器开始工作
     setLinearTime () {
       let that = this
       this.timer2 = setInterval(function () {
         that.linearTime += 1000
       }, 1000)
     },
+    // 停止计时器
     clearLinearTime () {
       this.timer2 = clearInterval(this.timer2)
     }

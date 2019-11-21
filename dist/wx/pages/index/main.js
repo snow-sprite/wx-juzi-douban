@@ -1369,28 +1369,28 @@ if (false) {(function () {
     this.setNavigationBarStyle();
   },
 
-  // watch: {
-  //   'isNightMode': (newVal, oldVal) => {
-  //     if (newVal) {
-  //       // 顶部导航夜间模式
-  //       wx.setNavigationBarColor({
-  //         frontColor: '#ffffff',
-  //         backgroundColor: '#232323'
-  //       })
-  //     } else {
-  //       // 顶部导航非夜间
-  //       wx.setNavigationBarColor({
-  //         frontColor: '#000000',
-  //         backgroundColor: '#ffffff'
-  //       })
-  //     }
-  //   },
-  //   'themeIndex': function (newState) {
-  //     if (newState) {
-  //       this.setTheme(newState)
-  //     }
-  //   }
-  // },
+  watch: {
+    'isNightMode': function isNightMode(newVal, oldVal) {
+      if (newVal) {
+        // 顶部导航夜间模式
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#232323'
+        });
+      } else {
+        // 顶部导航非夜间
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#ffffff'
+        });
+      }
+    },
+    'themeIndex': function themeIndex(newState) {
+      if (newState) {
+        this.setTheme(newState);
+      }
+    }
+  },
   methods: {
     setNavigationBarStyle: function setNavigationBarStyle() {
       var that = this;
