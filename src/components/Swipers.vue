@@ -2,7 +2,7 @@
   <swiper
   class="main-swiper"
   :current="true"
-  :circular = "circular"
+  :circular = "true"
   :autoplay="true"
   :interval="5000"
   @change="exchangeSwiperPage">

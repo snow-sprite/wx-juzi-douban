@@ -100,8 +100,6 @@ export default {
   watch: {
     'isNightMode': (newVal, oldVal) => {
       if (newVal) {
-        console.log('newval', newVal)
-        console.log('wx', wx)
         // 顶部导航夜间模式
         wx.setNavigationBarColor({
           frontColor: '#ffffff',
@@ -127,7 +125,10 @@ export default {
       this.timer = setTimeout(function () {
         if (that.isNightMode) {
         // 顶部导航夜间模式
-          store.commit('toggleNightMode', true)
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#232323'
+          })
         } else {
           // 非夜间模式可以先设置主题皮肤
           that.setTheme(that.themeIndex)
