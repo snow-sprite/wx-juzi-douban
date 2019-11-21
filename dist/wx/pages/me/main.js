@@ -198,7 +198,6 @@ if (false) {(function () {
     } // 夜间模式,
   },
   mounted: function mounted() {
-    this.linearTime = new Date().getTime();
     this.setNightMoode();
   },
 
@@ -249,6 +248,7 @@ if (false) {(function () {
       // 自动夜间模式按钮
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleAutoNightMode', e.target.value);
       if (e.target.value) {
+        this.linearTime = new Date().getTime();
         // 打开自动夜间模式 设置计时
         this.setLinearTime();
         // 触发主题设置
@@ -258,6 +258,7 @@ if (false) {(function () {
           this.resetAutoNightModeTheme();
         }
       } else {
+        this.linearTime = null;
         // 关闭自动夜间模式 则关闭计时器
         this.clearLinearTime();
       }
@@ -293,10 +294,10 @@ if (false) {(function () {
         }
       } else {
         // 2.起始时间大于终止时间 说明不是同一天了
-        if (this.linearTime < startTimestamp) {
+        if (this.linearTime > endTImestamp) {
           return false;
         }
-        if (this.linearTime > endTImestamp) {
+        if (this.linearTime < startTimestamp - 1000 * 3600 * 24) {
           return false;
         }
       }
@@ -349,26 +350,10 @@ if (false) {(function () {
     setNightMoode: function setNightMoode() {
       // 默认先设置一下主题
       if (this.isNightMode) {
-        // 顶部导航夜间模式
-        wx.setNavigationBarColor({
-          frontColor: '#ffffff',
-          backgroundColor: '#232323'
-        });
-        // 底部tabbar夜间模式
-        wx.setTabBarStyle({
-          color: '#a5a5a5',
-          backgroundColor: '#232323',
-          selectedColor: '#ffd700'
-        });
+        __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
       } else {
         // 非夜间模式可以先设置主题皮肤
-        this.setTheme(this.themeIndex);
-        // 底部tabbar非夜间模式
-        wx.setTabBarStyle({
-          color: '#a5a5a5',
-          backgroundColor: '#ffffff',
-          selectedColor: '#ffd700'
-        });
+        __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', false);
       }
     },
 

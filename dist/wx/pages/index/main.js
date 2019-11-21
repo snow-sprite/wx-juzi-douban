@@ -1372,6 +1372,8 @@ if (false) {(function () {
   watch: {
     'isNightMode': function isNightMode(newVal, oldVal) {
       if (newVal) {
+        console.log('newval', newVal);
+        console.log('wx', wx);
         // 顶部导航夜间模式
         wx.setNavigationBarColor({
           frontColor: '#ffffff',
@@ -1397,10 +1399,7 @@ if (false) {(function () {
       this.timer = setTimeout(function () {
         if (that.isNightMode) {
           // 顶部导航夜间模式
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#232323'
-          });
+          __WEBPACK_IMPORTED_MODULE_4__store__["a" /* default */].commit('toggleNightMode', true);
         } else {
           // 非夜间模式可以先设置主题皮肤
           that.setTheme(that.themeIndex);
