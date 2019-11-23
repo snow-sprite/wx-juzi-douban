@@ -101,6 +101,7 @@ export default {
     'isNightMode': (newVal, oldVal) => {
       if (newVal) {
         // 顶部导航夜间模式
+        // 2019-11-23 15:33:12
         wx.setNavigationBarColor({
           frontColor: '#ffffff',
           backgroundColor: '#232323'
