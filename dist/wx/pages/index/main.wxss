@@ -85,19 +85,6 @@
   text-align: center;
   font-size: 42.667rpx !important;
 }
-.main-swiper.data-v-6ee6a54d {
-  min-height: 378rpx;
-  margin: 0 auto;
-  width: 98%;
-}
-.main-swiper image.data-v-6ee6a54d {
-  display: block;
-  width: 98%;
-  margin: 0 1%;
-  border-radius: 16rpx;
-  height: 364rpx;
-  box-shadow: 0 6rpx 20rpx 0 rgba(41, 41, 59, 0.4);
-}
 @charset "UTF-8";
 .moring-news-box.data-v-9d7bbd3a {
   box-sizing: border-box;

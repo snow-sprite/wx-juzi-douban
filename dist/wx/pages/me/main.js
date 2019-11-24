@@ -208,6 +208,11 @@ if (false) {(function () {
       } else {
         this.resetAutoNightModeTheme();
       }
+    },
+    'themeIndex': function themeIndex(newState) {
+      if (newState) {
+        this.setTheme(newState);
+      }
     }
   },
   methods: {
@@ -353,7 +358,8 @@ if (false) {(function () {
         __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', true);
       } else {
         // 非夜间模式可以先设置主题皮肤
-        __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleNightMode', false);
+        // store.commit('toggleNightMode', false)
+        this.setTheme(this.themeIndex);
       }
     },
 

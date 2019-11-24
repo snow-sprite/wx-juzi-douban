@@ -163,16 +163,18 @@ export default {
           limit: 66,
           flag: 'down'
         })
+        if (data) {
+          this.refreshText = '快讯刷新完成'
+        }
         // this.livesList.push(data.data.list)
         data.list.forEach(list => {
           this.livesList.push(list)
         })
-        this.refreshText = '快讯刷新完成'
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
           that.refreshLoading = false
+          this.isBtnCommit = false
         }, 1000)
-        this.isBtnCommit = false
       } catch (e) {
         this.livesList = []
         this.refreshLoading = false

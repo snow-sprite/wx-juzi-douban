@@ -8,10 +8,10 @@
       @scrolltolower="loadMore"
     >
       <!-- 轮播组件 -->
-      <MySwiper
+      <!-- <MySwiper
         v-if="swiperData && swiperData.length > 0"
         :swiperData="swiperData"
-      />
+      /> -->
       <!-- 早新闻组件 -->
       <MoringNews
         v-if="newsData && newsData.length > 0"
@@ -29,7 +29,7 @@
 /*
  * 快讯模块
  */
-import MySwiper from '@/components/Swipers'
+// import MySwiper from '@/components/Swipers'
 import MoringNews from '@/components/MoringNews'
 import LiveItem from './LiveItem'
 import wxApi from '@/lib/request'
@@ -57,7 +57,7 @@ export default {
     }
   },
   components: {
-    MySwiper,
+    // MySwiper,
     MoringNews,
     LiveItem
   },

@@ -31,7 +31,7 @@ export default new Vuex.Store({
     pickerThemeChange (state, val) { // 设置主题模式
       val = Number(val)
       state.themeIndex = val
-      switch (state.themeIndex) {
+      switch (val) {
         case 1:
           // test github workflow CI: 2019 年11月15日 星期五 23:5348
           // 设置之家红主题

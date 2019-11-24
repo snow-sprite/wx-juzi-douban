@@ -569,15 +569,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "scrolltolower": _vm.loadMore
     }
-  }, [(_vm.swiperData && _vm.swiperData.length > 0) ? _c('MySwiper', {
-    attrs: {
-      "swiperData": _vm.swiperData,
-      "mpcomid": '0'
-    }
-  }) : _vm._e(), _vm._v(" "), (_vm.newsData && _vm.newsData.length > 0) ? _c('MoringNews', {
+  }, [(_vm.newsData && _vm.newsData.length > 0) ? _c('MoringNews', {
     attrs: {
       "newsData": _vm.newsData,
-      "mpcomid": '1'
+      "mpcomid": '0'
     }
   }) : _vm._e(), _vm._v(" "), _c('article', {
     staticClass: "js-drawer-container js-live"
@@ -586,7 +581,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [(_vm.newLiveData && _vm.newLiveData.length > 0) ? _c('LiveItem', {
     attrs: {
       "liveData": _vm.newLiveData,
-      "mpcomid": '2'
+      "mpcomid": '1'
     }
   }) : _vm._e()], 1)], 1)], 1)], 1)
 }
@@ -1173,68 +1168,14 @@ var COINS_LIST = '/v3/coin';
 
 /***/ }),
 
-/***/ 43:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Swipers_vue__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_6ee6a54d_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Swipers_vue__ = __webpack_require__(94);
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(92)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-6ee6a54d"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Swipers_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_6ee6a54d_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Swipers_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "src/components/Swipers.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Swipers.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6ee6a54d", Component.options)
-  } else {
-    hotAPI.reload("data-v-6ee6a54d", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-
-/***/ 51:
+/***/ 50:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(51);
 
 
 
@@ -1243,16 +1184,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 52:
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(117);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(53)
+  __webpack_require__(52)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -1297,22 +1238,22 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 53:
+/***/ 52:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 54:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Live__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Live__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Market__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__store__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_request__ = __webpack_require__(26);
@@ -1427,6 +1368,7 @@ if (false) {(function () {
     'isNightMode': function isNightMode(newVal, oldVal) {
       if (newVal) {
         // 顶部导航夜间模式
+        // 2019-11-23 15:33:12
         wx.setNavigationBarColor({
           frontColor: '#ffffff',
           backgroundColor: '#232323'
@@ -1505,21 +1447,23 @@ if (false) {(function () {
                 _ref = _context.sent;
                 data = _ref.data;
 
+                if (data) {
+                  _this.refreshText = '快讯刷新完成';
+                }
                 // this.livesList.push(data.data.list)
                 data.list.forEach(function (list) {
                   _this.livesList.push(list);
                 });
-                _this.refreshText = '快讯刷新完成';
                 clearTimeout(_this.timer);
                 _this.timer = setTimeout(function () {
                   that.refreshLoading = false;
+                  _this.isBtnCommit = false;
                 }, 1000);
-                _this.isBtnCommit = false;
-                _context.next = 20;
+                _context.next = 19;
                 break;
 
-              case 14:
-                _context.prev = 14;
+              case 13:
+                _context.prev = 13;
                 _context.t0 = _context['catch'](0);
 
                 _this.livesList = [];
@@ -1527,12 +1471,12 @@ if (false) {(function () {
                 _this.refreshText = '网络错误';
                 _this.isBtnCommit = false;
 
-              case 20:
+              case 19:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, _this, [[0, 14]]);
+        }, _callee, _this, [[0, 13]]);
       }))();
     },
 
@@ -1575,115 +1519,16 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 92:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 93:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/*
- * @Description: 轮播图
- * @Author: zhiozhou
- * @Date: 2019-04-17 15:08:20
- * @LastEditTime: 2019-04-17 15:08:20
- */
-/* harmony default export */ __webpack_exports__["a"] = ({
-  // warn: vue组件名不能与小程序组件名同名，包括大小写
-  name: 'MySwiper',
-  props: {
-    swiperData: {
-      type: Array,
-      required: true
-    }
-  },
-  data: function data() {
-    return {
-      currentTab: 0
-    };
-  },
-
-  methods: {
-    exchangeSwiperPage: function exchangeSwiperPage() {
-      // TODO: 轮播图事件
-    }
-  }
-});
-
-/***/ }),
-
-/***/ 94:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('swiper', {
-    staticClass: "main-swiper",
-    attrs: {
-      "current": true,
-      "circular": true,
-      "autoplay": true,
-      "interval": 5000,
-      "eventid": '0'
-    },
-    on: {
-      "change": _vm.exchangeSwiperPage
-    }
-  }, _vm._l((_vm.swiperData), function(item, index) {
-    return _c('swiper-item', {
-      key: index,
-      attrs: {
-        "mpcomid": '0-' + index
-      }
-    }, [_c('div', [_c('image', {
-      attrs: {
-        "src": item.pic_url
-      }
-    })])])
-  }))
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-6ee6a54d", esExports)
-  }
-}
-
-/***/ }),
-
-/***/ 95:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Live_vue__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Live_vue__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_3612b2ec_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Live_vue__ = __webpack_require__(112);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(96)
+  __webpack_require__(92)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -1728,22 +1573,21 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 96:
+/***/ 92:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 97:
+/***/ 93:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Swipers__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_MoringNews__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LiveItem__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_request__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_apiList__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_MoringNews__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__LiveItem__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_request__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_apiList__ = __webpack_require__(27);
 //
 //
 //
@@ -1775,7 +1619,7 @@ if (false) {(function () {
 /*
  * 快讯模块
  */
-
+// import MySwiper from '@/components/Swipers'
 
 
 
@@ -1803,9 +1647,9 @@ if (false) {(function () {
   },
 
   components: {
-    MySwiper: __WEBPACK_IMPORTED_MODULE_0__components_Swipers__["a" /* default */],
-    MoringNews: __WEBPACK_IMPORTED_MODULE_1__components_MoringNews__["a" /* default */],
-    LiveItem: __WEBPACK_IMPORTED_MODULE_2__LiveItem__["a" /* default */]
+    // MySwiper,
+    MoringNews: __WEBPACK_IMPORTED_MODULE_0__components_MoringNews__["a" /* default */],
+    LiveItem: __WEBPACK_IMPORTED_MODULE_1__LiveItem__["a" /* default */]
   },
   mounted: function mounted() {
     // 获取轮播数据
@@ -1838,7 +1682,7 @@ if (false) {(function () {
     getBanner: function getBanner() {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_3__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_4__api_apiList__["a" /* BANNER_LIST */], {
+      __WEBPACK_IMPORTED_MODULE_2__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_3__api_apiList__["a" /* BANNER_LIST */], {
         position: 'app_index_top'
       }).then(function (res) {
         if (res.statusCode === 200) _this2.swiperData = res.data;
@@ -1847,7 +1691,7 @@ if (false) {(function () {
     getMorningNews: function getMorningNews() {
       var _this3 = this;
 
-      __WEBPACK_IMPORTED_MODULE_3__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_4__api_apiList__["d" /* MAIN_NEWS */], {
+      __WEBPACK_IMPORTED_MODULE_2__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_3__api_apiList__["d" /* MAIN_NEWS */], {
         tag: '金色9：30',
         limit: 1,
         topic_id: 0,
@@ -1931,5 +1775,5 @@ if (false) {(function () {
 
 /***/ })
 
-},[51]);
+},[50]);
 //# sourceMappingURL=main.js.map

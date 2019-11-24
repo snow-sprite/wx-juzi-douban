@@ -119,6 +119,11 @@ export default {
       } else {
         this.resetAutoNightModeTheme()
       }
+    },
+    'themeIndex': function (newState) {
+      if (newState) {
+        this.setTheme(newState)
+      }
     }
   },
   methods: {
@@ -255,7 +260,8 @@ export default {
         store.commit('toggleNightMode', true)
       } else {
         // 非夜间模式可以先设置主题皮肤
-        store.commit('toggleNightMode', false)
+        // store.commit('toggleNightMode', false)
+        this.setTheme(this.themeIndex)
       }
     },
     // 计时器开始工作
