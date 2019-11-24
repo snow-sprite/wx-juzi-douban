@@ -1,5 +1,10 @@
 <template lang="html">
   <div :class="isNightMode ? 'night' : ''" style="height: 100vh;">
+    <div class="avatar-box">
+      <div class="avatar">
+        <img src="../../../static/img/avatar.jpg"/>
+      </div>
+    </div>
     <div :class="isNightMode ? 'line-color' : ''" class="single-setting">
   		<text :class="{'night-text': isNightMode}">显示首页刷新按钮</text>
   		<switch class="fr" :checked="isShowRefresh" @change="toggleRefresh" />
@@ -111,6 +116,10 @@ export default {
   },
   mounted () {
     this.setNightMoode()
+    // 可被转发
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   },
   watch: {
     'linearTime': function (newTime) {
@@ -130,12 +139,9 @@ export default {
     onShareAppMessage () { // 我的页的转发
       return {
         title: '我的2',
-        imageUrl: '../index/img/banner.png',
-        success (res) {
-        },
-        fail (err) {
-          console.err(err)
-        }
+        imageUrl: '../../../static/img/avatar.png',
+        success (res) {},
+        fail () {}
       }
     },
     toggleRefresh (e) { // 切换首页刷新按钮
@@ -324,6 +330,23 @@ export default {
 }
 .auto-end-time {
   margin-left: 15px;
+}
+.avatar-box {
+  width: 100%;
+  height: 120px;
+}
+.avatar {
+  width: 85px;
+  height: 85px;
+  position: relative;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
 }
 /* 夜间模式 */
 .night {

@@ -2,14 +2,14 @@ require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonpMpvue([2],{
 
-/***/ 118:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(114);
 
 
 
@@ -17,16 +17,16 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__ind
 
 /***/ }),
 
-/***/ 119:
+/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_fc19b91e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_fc19b91e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(118);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(120)
+  __webpack_require__(115)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -71,18 +71,23 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 120:
+/***/ 115:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 121:
+/***/ 117:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(10);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -199,6 +204,10 @@ if (false) {(function () {
   },
   mounted: function mounted() {
     this.setNightMoode();
+    // 可被转发
+    wx.showShareMenu({
+      withShareTicket: true
+    });
   },
 
   watch: {
@@ -220,11 +229,9 @@ if (false) {(function () {
       // 我的页的转发
       return {
         title: '我的2',
-        imageUrl: '../index/img/banner.png',
+        imageUrl: '../../../static/img/avatar.png',
         success: function success(res) {},
-        fail: function fail(err) {
-          console.err(err);
-        }
+        fail: function fail() {}
       };
     },
     toggleRefresh: function toggleRefresh(e) {
@@ -384,7 +391,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 122:
+/***/ 118:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -394,7 +401,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "height": "100vh"
     }
-  }, [_c('div', {
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "single-setting",
     class: _vm.isNightMode ? 'line-color' : ''
   }, [_c('text', {
@@ -533,7 +540,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })])])
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "avatar-box"
+  }, [_c('div', {
+    staticClass: "avatar"
+  }, [_c('img', {
+    attrs: {
+      "src": "../../../static/img/avatar.jpg"
+    }
+  })])])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -546,5 +563,5 @@ if (false) {
 
 /***/ })
 
-},[118]);
+},[113]);
 //# sourceMappingURL=main.js.map

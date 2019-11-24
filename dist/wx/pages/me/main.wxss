@@ -35,6 +35,23 @@
 .auto-end-time.data-v-fc19b91e {
   margin-left: 30rpx;
 }
+.avatar-box.data-v-fc19b91e {
+  width: 100%;
+  height: 240rpx;
+}
+.avatar.data-v-fc19b91e {
+  width: 170rpx;
+  height: 170rpx;
+  position: relative;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.avatar ._img.data-v-fc19b91e {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
 .night.data-v-fc19b91e {
   background: #232323;
   color: #666;

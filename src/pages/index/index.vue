@@ -91,11 +91,17 @@ export default {
     }
   },
   mounted () {
+    // TODO 微信api修改 获取用户信息或地址信息需要授权：
+    // https://developers.weixin.qq.com/community/develop/doc/0000a26e1aca6012e896a517556c01
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()
     // 获取快讯
     this.getLives()
     this.setNavigationBarStyle()
+    // 当前页可被转发
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   },
   watch: {
     'isNightMode': (newVal, oldVal) => {
@@ -186,12 +192,9 @@ export default {
     onShareAppMessage () {
       return {
         title: '巴拉巴拉1',
-        imageUrl: '../../static/img/banner.png',
-        success (res) {
-        },
-        fail (err) {
-          console.err(err)
-        }
+        imageUrl: '../../../static/img/avatar.png',
+        success (res) {},
+        fail () {}
       }
     },
     changePage (e) {

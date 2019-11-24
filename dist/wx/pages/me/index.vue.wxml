@@ -1,5 +1,10 @@
 <template name="75cec472">
   <view style="height: 100vh;" class="_div data-v-fc19b91e {{isNightMode ? 'night' : ''}}">
+    <view class="_div data-v-fc19b91e avatar-box">
+      <view class="_div data-v-fc19b91e avatar">
+        <image src="/static/img/avatar.jpg" class="_img data-v-fc19b91e"></image>
+      </view>
+    </view>
     <view class="_div data-v-fc19b91e single-setting {{isNightMode ? 'line-color' : ''}}"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">显示首页刷新按钮</text>
       <switch class="_switch data-v-fc19b91e fr" checked="{{isShowRefresh}}" bindchange="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" />
     </view>

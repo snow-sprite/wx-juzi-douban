@@ -102,7 +102,7 @@ export default new Vuex.Store({
         default:
           // 简约白
           wx.setNavigationBarColor({
-            frontColor: '#ffffff',
+            frontColor: '#000000',
             backgroundColor: '#fff',
             animation: {
               duration: 400,
