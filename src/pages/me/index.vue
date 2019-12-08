@@ -1,11 +1,22 @@
 <template lang="html">
   <div :class="isNightMode ? 'night' : ''" style="height: 100vh;">
     <div class="avatar-box">
-      <div class="avatar">
-        <img src="../../../static/img/avatar.jpg"/>
-      </div>
+        <button class="avatar"
+          open-type="getUserInfo"
+          lang="zh_CN"
+          @getuserinfo="login"
+        >
+          <img v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl">
+          <div v-else class="default-avatar-box">
+            <text class="default-avatar-login">点击登录</text>
+          </div>
+        </button>
+        <div v-if="userInfo.nickName" class="nickname-box">
+          <text class="nickname">{{userInfo.nickName}}</text>
+        </div>
     </div>
-    <div :class="isNightMode ? 'line-color' : ''" class="single-setting">
+    <!-- :class="isNightMode ? 'line-color' : ''" -->
+    <div :class="{'line-color': isNightMode, 'nickname-top': userInfo.nickName}"  class="single-setting">
   		<text :class="{'night-text': isNightMode}">显示首页刷新按钮</text>
   		<switch class="fr" :checked="isShowRefresh" @change="toggleRefresh" />
   	</div>
@@ -112,7 +123,8 @@ export default {
     isAutoNightMode: _ => store.getters.isAutoNightMode, // 自动夜间模式
     globalAutoNightStartTime: _ => store.getters.globalAutoNightStartTime,
     globalAutoNightEndTime: _ => store.getters.globalAutoNightEndTime,
-    isNightMode: _ => store.getters.isNightMode // 夜间模式,
+    isNightMode: _ => store.getters.isNightMode, // 夜间模式,
+    userInfo: _ => store.getters.userInfo
   },
   mounted () {
     this.setNightMoode()
@@ -136,6 +148,31 @@ export default {
     }
   },
   methods: {
+    login (e) {
+      // let that = this
+      wx.getSetting({
+        success: result => {
+          this.setUser(result)
+        }
+      })
+    },
+    setUser (result) {
+      if (result.authSetting['scope.userInfo']) {
+        wx.login({
+          success: res => {
+            if (res && res.code) this.getUserInfo(res.code)
+          }
+        })
+      } else {
+        wx.authorize({
+          scope: 'scope.userInfo',
+          success () {}
+        })
+      }
+    },
+    getUserInfo (code) {
+      store.dispatch('getUserInfo')
+    },
     onShareAppMessage () { // 我的页的转发
       return {
         title: '我的2',
@@ -338,16 +375,54 @@ export default {
 .avatar {
   width: 85px;
   height: 85px;
+  border-radius: 50%;
   position: relative;
   margin: 0 auto;
   top: 50%;
   transform: translateY(-50%);
+  padding: 0;
+  .default-avatar-box {
+    width: 100%;
+    height: 100%;
+    background: url(../../../static/img/default-avatar.svg) no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    .default-avatar-login {
+      font-size: 16px;
+      line-height: 130px;
+      color: #333;
+      display: inline-block;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 85px;
+      height: 36px;
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      left: 0;
+      bottom: 0px;
+    }
+  }
   img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
   }
 }
+.nickname-top {
+  margin-top: 25px;
+}
+.nickname-box {
+  margin-top: 25px;
+  text-align: center;
+}
+/* .nickname {
+  margin: 0 auto;
+  text-align: center;
+} */
 /* 夜间模式 */
 .night {
   background: #232323;

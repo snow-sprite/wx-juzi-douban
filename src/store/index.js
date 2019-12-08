@@ -10,7 +10,11 @@ export default new Vuex.Store({
     isAutoNightMode: wx.getStorageSync('isAutoNightModeInGlobal') || false,
     globalAutoNightStartTime: wx.getStorageSync('globalAutoNightStartTime') || '20:00', // start time
     globalAutoNightEndTime: wx.getStorageSync('globalAutoNightEndTime') || '06:00', // end time
-    isNightMode: wx.getStorageSync('isNightModeInGlobal') || false
+    isNightMode: wx.getStorageSync('isNightModeInGlobal') || false,
+    userInfo: {
+      nickName: '',
+      avatarUrl: ''
+    }
   },
   getters: {
     isShowRefresh: state => state.isShowRefresh,
@@ -19,7 +23,8 @@ export default new Vuex.Store({
     isAutoNightMode: state => state.isAutoNightMode,
     globalAutoNightStartTime: state => state.globalAutoNightStartTime,
     globalAutoNightEndTime: state => state.globalAutoNightEndTime,
-    isNightMode: state => state.isNightMode
+    isNightMode: state => state.isNightMode,
+    userInfo: state => state.userInfo
   },
   mutations: {
     toggleRefresh (state) { // 设置首页是否有刷新
@@ -147,6 +152,16 @@ export default new Vuex.Store({
           selectedColor: '#ffd700'
         })
       }
+    }
+  },
+  actions: {
+    getUserInfo ({ state }) {
+      wx.getUserInfo({
+        success: res => {
+          state.userInfo.avatarUrl = res.userInfo.avatarUrl
+          state.userInfo.nickName = res.userInfo.nickName
+        }
+      })
     }
   }
 })

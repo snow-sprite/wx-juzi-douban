@@ -11,6 +11,8 @@
 	"compileType": "miniprogram",
 	"appid": "wx91998a5ee9727213",
 	"projectname": "wx-live-market",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

@@ -1,6 +1,9 @@
 <script>
+import store from '@/store'
 export default {
   created () {
+    // 先获取以下用户信息
+    store.dispatch('getUserInfo')
     // 调用API从本地缓存中获取数据
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

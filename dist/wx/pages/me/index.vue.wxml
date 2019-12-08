@@ -1,30 +1,31 @@
 <template name="75cec472">
   <view style="height: 100vh;" class="_div data-v-fc19b91e {{isNightMode ? 'night' : ''}}">
-    <view class="_div data-v-fc19b91e avatar-box">
-      <view class="_div data-v-fc19b91e avatar">
-        <image src="/static/img/avatar.jpg" class="_img data-v-fc19b91e"></image>
-      </view>
+    <view class="_div data-v-fc19b91e avatar-box"><button class="_button data-v-fc19b91e avatar" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <image wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" class="_img data-v-fc19b91e"></image>
+        <view wx:else class="_div data-v-fc19b91e default-avatar-box"><text class="_text data-v-fc19b91e default-avatar-login">点击登录</text></view>
+      </button>
+      <view wx:if="{{userInfo.nickName}}" class="_div data-v-fc19b91e nickname-box"><text class="_text data-v-fc19b91e nickname">{{userInfo.nickName}}</text></view>
     </view>
-    <view class="_div data-v-fc19b91e single-setting {{isNightMode ? 'line-color' : ''}}"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">显示首页刷新按钮</text>
-      <switch class="_switch data-v-fc19b91e fr" checked="{{isShowRefresh}}" bindchange="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" />
+    <view class="_div data-v-fc19b91e single-setting {{[isNightMode ? 'line-color' : '', userInfo.nickName ? 'nickname-top' : '']}}"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">显示首页刷新按钮</text>
+      <switch class="_switch data-v-fc19b91e fr" checked="{{isShowRefresh}}" bindchange="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" />
     </view>
     <view class="_div data-v-fc19b91e single-setting {{isNightMode ? 'line-color' : ''}}">
-      <picker bindchange="handleProxy" value="{{textIndex}}" range="{{textSizeList}}" range-key="size" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e">
+      <picker bindchange="handleProxy" value="{{textIndex}}" range="{{textSizeList}}" range-key="size" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e">
         <view class="_div data-v-fc19b91e"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">列表/正文字体大小</text> <text class="_text data-v-fc19b91e fr pr10 {{[isNightMode ? 'night-text' : '']}}">{{textSizeList[textIndex].size}}</text></view>
       </picker>
     </view>
     <view class="_div data-v-fc19b91e single-setting {{isNightMode ? 'line-color' : ''}}">
-      <picker bindchange="handleProxy" value="{{themeIndex}}" range="{{themeModeList}}" range-key="theme" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">主题模式</text> <text class="_text data-v-fc19b91e fr pr10 {{[isNightMode ? 'night-text' : '']}}">{{themeModeList[themeIndex].theme}}</text></picker>
+      <picker bindchange="handleProxy" value="{{themeIndex}}" range="{{themeModeList}}" range-key="theme" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">主题模式</text> <text class="_text data-v-fc19b91e fr pr10 {{[isNightMode ? 'night-text' : '']}}">{{themeModeList[themeIndex].theme}}</text></picker>
     </view>
     <view class="_div data-v-fc19b91e single-setting {{isNightMode ? 'line-color' : ''}}"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">自动夜间模式</text>
-      <switch class="_switch data-v-fc19b91e fr" checked="{{isAutoNightMode}}" bindchange="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" />
+      <switch class="_switch data-v-fc19b91e fr" checked="{{isAutoNightMode}}" bindchange="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" />
     </view>
     <view class="_div data-v-fc19b91e auto-timer" wx:if="{{isAutoNightMode}}">
-      <picker bindchange="handleProxy" mode="time" start="00:00" value="{{globalAutoNightStartTime}}" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e"><text class="_text data-v-fc19b91e auto-start-time auto-time {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-border' : '']}}" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">{{ globalAutoNightStartTime }}</text></picker> <text style="margin-left: 15px;padding-top: 3px;" class="_text data-v-fc19b91e">-</text>
-      <picker mode="time" bindchange="handleProxy" start="00:00" value="{{globalAutoNightEndTime}}" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e"><text class="_text data-v-fc19b91e auto-end-time auto-time {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-border' : '']}}">{{ globalAutoNightEndTime }}</text></picker>
+      <picker bindchange="handleProxy" mode="time" start="00:00" value="{{globalAutoNightStartTime}}" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e"><text class="_text data-v-fc19b91e auto-start-time auto-time {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-border' : '']}}" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">{{ globalAutoNightStartTime }}</text></picker> <text style="margin-left: 15px;padding-top: 3px;" class="_text data-v-fc19b91e">-</text>
+      <picker mode="time" bindchange="handleProxy" start="00:00" value="{{globalAutoNightEndTime}}" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_picker data-v-fc19b91e"><text class="_text data-v-fc19b91e auto-end-time auto-time {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-border' : '']}}">{{ globalAutoNightEndTime }}</text></picker>
     </view>
     <view class="_div data-v-fc19b91e single-setting {{isNightMode ? 'line-color' : ''}}"><text class="_text data-v-fc19b91e {{[isNightMode ? 'night-text' : '']}}">夜间模式</text>
-      <switch class="_switch data-v-fc19b91e fr" checked="{{isNightMode}}" bindchange="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" />
+      <switch class="_switch data-v-fc19b91e fr" checked="{{isNightMode}}" bindchange="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}" />
     </view>
   </view>
 </template>

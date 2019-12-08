@@ -2,14 +2,14 @@ require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonpMpvue([2],{
 
-/***/ 113:
+/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(115);
 
 
 
@@ -17,7 +17,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__ind
 
 /***/ }),
 
-/***/ 114:
+/***/ 115:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26,7 +26,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__ind
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(115)
+  __webpack_require__(116)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -71,7 +71,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 115:
+/***/ 116:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -82,7 +82,18 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(5);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -200,7 +211,10 @@ if (false) {(function () {
     },
     isNightMode: function isNightMode(_) {
       return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.isNightMode;
-    } // 夜间模式,
+    }, // 夜间模式,
+    userInfo: function userInfo(_) {
+      return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.userInfo;
+    }
   },
   mounted: function mounted() {
     this.setNightMoode();
@@ -225,6 +239,35 @@ if (false) {(function () {
     }
   },
   methods: {
+    login: function login(e) {
+      var _this = this;
+
+      // let that = this
+      wx.getSetting({
+        success: function success(result) {
+          _this.setUser(result);
+        }
+      });
+    },
+    setUser: function setUser(result) {
+      var _this2 = this;
+
+      if (result.authSetting['scope.userInfo']) {
+        wx.login({
+          success: function success(res) {
+            if (res && res.code) _this2.getUserInfo(res.code);
+          }
+        });
+      } else {
+        wx.authorize({
+          scope: 'scope.userInfo',
+          success: function success() {}
+        });
+      }
+    },
+    getUserInfo: function getUserInfo(code) {
+      __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].dispatch('getUserInfo');
+    },
     onShareAppMessage: function onShareAppMessage() {
       // 我的页的转发
       return {
@@ -401,9 +444,35 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticStyle: {
       "height": "100vh"
     }
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "avatar-box"
+  }, [_c('button', {
+    staticClass: "avatar",
+    attrs: {
+      "open-type": "getUserInfo",
+      "lang": "zh_CN",
+      "eventid": '0'
+    },
+    on: {
+      "getuserinfo": _vm.login
+    }
+  }, [(_vm.userInfo.avatarUrl) ? _c('img', {
+    attrs: {
+      "src": _vm.userInfo.avatarUrl
+    }
+  }) : _c('div', {
+    staticClass: "default-avatar-box"
+  }, [_c('text', {
+    staticClass: "default-avatar-login"
+  }, [_vm._v("点击登录")])])]), _vm._v(" "), (_vm.userInfo.nickName) ? _c('div', {
+    staticClass: "nickname-box"
+  }, [_c('text', {
+    staticClass: "nickname"
+  }, [_vm._v(_vm._s(_vm.userInfo.nickName))])]) : _vm._e()], 1), _vm._v(" "), _c('div', {
     staticClass: "single-setting",
-    class: _vm.isNightMode ? 'line-color' : ''
+    class: {
+      'line-color': _vm.isNightMode, 'nickname-top': _vm.userInfo.nickName
+    }
   }, [_c('text', {
     class: {
       'night-text': _vm.isNightMode
@@ -412,7 +481,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "fr",
     attrs: {
       "checked": _vm.isShowRefresh,
-      "eventid": '0'
+      "eventid": '1'
     },
     on: {
       "change": _vm.toggleRefresh
@@ -425,7 +494,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "value": _vm.textIndex,
       "range": _vm.textSizeList,
       "range-key": "size",
-      "eventid": '1'
+      "eventid": '2'
     },
     on: {
       "change": _vm.pickerTextSizeChange
@@ -447,7 +516,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "value": _vm.themeIndex,
       "range": _vm.themeModeList,
       "range-key": "theme",
-      "eventid": '2'
+      "eventid": '3'
     },
     on: {
       "change": _vm.pickerThemeChange
@@ -472,7 +541,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "fr",
     attrs: {
       "checked": _vm.isAutoNightMode,
-      "eventid": '3'
+      "eventid": '4'
     },
     on: {
       "change": _vm.toggleAutoNightMode
@@ -484,7 +553,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "mode": "time",
       "start": "00:00",
       "value": _vm.globalAutoNightStartTime,
-      "eventid": '5'
+      "eventid": '6'
     },
     on: {
       "change": _vm.pickerAutoNightStartTime
@@ -496,7 +565,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       'night-border': _vm.isNightMode
     },
     attrs: {
-      "eventid": '4'
+      "eventid": '5'
     },
     on: {
       "click": function($event) {}
@@ -511,7 +580,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "mode": "time",
       "start": "00:00",
       "value": _vm.globalAutoNightEndTime,
-      "eventid": '6'
+      "eventid": '7'
     },
     on: {
       "change": _vm.pickerAutoNightEndTime
@@ -533,24 +602,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "fr",
     attrs: {
       "checked": _vm.isNightMode,
-      "eventid": '7'
+      "eventid": '8'
     },
     on: {
       "change": _vm.toggleNightMode
     }
   })])])
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "avatar-box"
-  }, [_c('div', {
-    staticClass: "avatar"
-  }, [_c('img', {
-    attrs: {
-      "src": "../../../static/img/avatar.jpg"
-    }
-  })])])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -563,5 +622,5 @@ if (false) {
 
 /***/ })
 
-},[113]);
+},[114]);
 //# sourceMappingURL=main.js.map
