@@ -3,6 +3,11 @@
     "pages/index/main",
     "pages/me/main"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于展示天气信息"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

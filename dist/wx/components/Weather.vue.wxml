@@ -1,0 +1,19 @@
+<template name="f350eb72">
+  <view class="_div data-v-1b2651c6 weather-box">
+    <view class="_div data-v-1b2651c6 weather-left">
+      <image src="/static/img/weather/qingtian.svg" hidden="{{!(weatherIcon === 'qing')}}" class="_img data-v-1b2651c6"></image>
+      <image src="/static/img/weather/yintian.svg" hidden="{{!(weatherIcon === 'ying')}}" class="_img data-v-1b2651c6"></image>
+      <image src="/static/img/weather/shuiwutian.svg" hidden="{{!(weatherIcon === 'wi')}}" class="_img data-v-1b2651c6"></image>
+      <image src="/static/img/weather/yutian.svg" hidden="{{!(weatherIcon === 'yu')}}" class="_img data-v-1b2651c6"></image>
+      <image src="/static/img/weather/xuetian.svg" hidden="{{!(weatherIcon === 'xue')}}" class="_img data-v-1b2651c6"></image>
+      <image src="/static/img/weather/unknow.svg" hidden="{{!(weatherIcon === 'unknow')}}" class="_img data-v-1b2651c6"></image>
+    </view>
+    <view class="_div data-v-1b2651c6 weather-right">
+      <view class="_div data-v-1b2651c6 weather-address">
+        <image src="/static/img/weather/address.svg" class="_img data-v-1b2651c6"></image> <label class="_span data-v-1b2651c6">{{ weatherInfo.address }}</label>
+      </view>
+      <view class="_div data-v-1b2651c6 weather-temp-box"><label class="_span data-v-1b2651c6 weather-temp">{{ weatherInfo.temp }}</label> <label class="_span data-v-1b2651c6 weather-content">{{ weatherInfo.weather }}</label></view>
+      <view class="_div data-v-1b2651c6 weather-detail-box"><label style="margin-right: 10px;" class="_span data-v-1b2651c6">{{weatherInfo.windDirection}}风{{ weatherInfo.windPower }}</label> <label class="_span data-v-1b2651c6">湿度{{ weatherInfo.humidity }}</label></view>
+    </view>
+  </view>
+</template>

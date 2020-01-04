@@ -1,5 +1,5 @@
 // import wx from 'wx'
-const baseUrl = 'https://api.jinse.com'
+// const baseUrl = 'https://api.jinse.com/'
 
 // 请求参数 重构
 const paramsSpliceUrl = (url, params) => {
@@ -25,7 +25,7 @@ const wxApi = {
       })
       url = paramsSpliceUrl(url, data)
       wx.request({
-        url: `${baseUrl}${url}`,
+        url: `${url}`,
         header: {
           'Content-Type': 'application/json'
         },
@@ -54,7 +54,7 @@ const wxApi = {
         mask: true
       })
       wx.request({
-        url: `${baseUrl}${url}`,
+        url: `${url}`,
         data,
         header: {
           'Content-Type': 'application/json'

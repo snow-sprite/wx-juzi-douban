@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import QQMapWX from '../../static/js/qqmap-wx-jssdk'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -14,7 +15,8 @@ export default new Vuex.Store({
     userInfo: {
       nickName: '',
       avatarUrl: ''
-    }
+    },
+    userLocation: {}
   },
   getters: {
     isShowRefresh: state => state.isShowRefresh,
@@ -24,7 +26,8 @@ export default new Vuex.Store({
     globalAutoNightStartTime: state => state.globalAutoNightStartTime,
     globalAutoNightEndTime: state => state.globalAutoNightEndTime,
     isNightMode: state => state.isNightMode,
-    userInfo: state => state.userInfo
+    userInfo: state => state.userInfo,
+    userLocation: state => state.userLocation
   },
   mutations: {
     toggleRefresh (state) { // 设置首页是否有刷新
@@ -161,6 +164,34 @@ export default new Vuex.Store({
           state.userInfo.avatarUrl = res.userInfo.avatarUrl
           state.userInfo.nickName = res.userInfo.nickName
         }
+      })
+    },
+    getLocation ({ state }) {
+      return new Promise(resolve => {
+        wx.getLocation({
+          success: res => {
+            if (res.errMsg === 'getLocation:ok') {
+              var qqmapsdk = new QQMapWX({
+                key: '4UDBZ-RR5CU-LPRVY-2LERT-PYPAS-OJB7H'
+              })
+              qqmapsdk.reverseGeocoder({
+                location: {
+                  latitude: res.latitude,
+                  longitude: res.longitude
+                },
+                success: result => {
+                  if (result.status === 0 && result.message === 'query ok') {
+                    let addressObj = Object.assign({}, result.result.address_component)
+                    Object.keys(addressObj).forEach(key => {
+                      state.userLocation[key] = addressObj[key]
+                    })
+                  }
+                  resolve(state.userLocation)
+                }
+              })
+            }
+          }
+        })
       })
     }
   }

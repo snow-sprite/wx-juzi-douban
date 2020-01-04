@@ -428,3 +428,45 @@
 .night-bg.data-v-60e78f4c {
   background: #dcdcdc;
 }
+@charset "UTF-8";
+.weather-box.data-v-1b2651c6 {
+  width: 100%;
+  font-size: 32rpx;
+  text-align: left;
+  display: flex;
+}
+.weather-box .weather-left.data-v-1b2651c6 {
+  width: 50%;
+  height: 200rpx;
+  box-sizing: border-box;
+  padding-left: 80rpx;
+}
+.weather-box .weather-left ._img.data-v-1b2651c6 {
+  width: 80%;
+  height: 100%;
+}
+.weather-box .weather-right.data-v-1b2651c6 {
+  width: 50%;
+}
+.weather-box .weather-address.data-v-1b2651c6 {
+  font-size: 26.667rpx;
+}
+.weather-box .weather-address ._span.data-v-1b2651c6 {
+  display: inline-block;
+  vertical-align: middle;
+  color: #666;
+}
+.weather-box .weather-address ._img.data-v-1b2651c6 {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  margin-right: 8rpx;
+}
+.weather-box .weather-temp-box .weather-temp.data-v-1b2651c6 {
+  font-size: 85.333rpx;
+  margin-right: 26.667rpx;
+}
+.weather-box .weather-detail-box.data-v-1b2651c6 {
+  display: flex;
+  color: #666;
+}

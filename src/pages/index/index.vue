@@ -4,6 +4,7 @@
     <div class="zl-refresh-tip" ref="refreshTip" v-show="refreshLoading && isBtnCommit">
       <span>{{ refreshText }}</span>
     </div>
+    <Weather v-if="weatherInfo && weatherInfo.cityCode" :weatherInfo="weatherInfo"></Weather>
     <div class="swiper-tab" :class="{
       'night-text': isNightMode,
       'night-line-color': isNightMode  
@@ -15,14 +16,14 @@
         }"
         data-current-tab="0"
         @click="switchPage(0)">
-        快讯
+        行情
       </div>
       <div
         class="tab-list-box"
         :class="currentPage === 1 ? 'tab-active' : ''"
         data-current-tab="1"
         @click="switchPage(1)">
-        行情
+        资讯
       </div>
     </div>
     <swiper
@@ -31,20 +32,13 @@
       @change="changePage"
       class="app"
     >
-      <!-- <div class="userinfo">
-        <img class="userinfo-avatar" v-if="userInfo && userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-        <div class="userinfo-nickname">
-          <card :text="userInfo.nickName"></card>
-        </div>
-      </div> -->
-      <!-- <a href="/pages/market/main">market</a> -->
       <swiper-item class="main">
-        <!-- 快讯组件 -->
-        <Live v-if="livesList.length > 0" :livesList="livesList" @handleLive="getLives" />
-      </swiper-item>
-      <swiper-item>
         <!-- 行情组件 -->
         <Market />
+      </swiper-item>
+      <swiper-item>
+        <!-- 快讯组件 -->
+        <Live v-if="livesList.length > 0" :livesList="livesList" @handleLive="getLives" />
       </swiper-item>
     </swiper>
     <!-- 首页刷新按钮 -->
@@ -58,26 +52,29 @@
 <script>
 import Live from '@/components/Live'
 import Market from '@/components/Market'
+import Weather from '@/components/Weather'
 import store from '@/store'
 import wxApi from '@/lib/request'
 import {
-  LIVES_LIST
+  LIVES_LIST,
+  POST_WEATHER
 } from '@/api/apiList'
 
 export default {
   name: 'Home',
   components: {
     Live,
-    Market
+    Market,
+    Weather
   },
   computed: {
     isShowRefresh: _ => store.getters.isShowRefresh,
     isNightMode: _ => store.getters.isNightMode, // 夜间模式
-    themeIndex: _ => store.getters.themeIndex
+    themeIndex: _ => store.getters.themeIndex,
+    userLocation: _ => store.getters.userLocation
   },
   data () {
     return {
-      userInfo: {},
       // 当前页
       currentPage: 0,
       tabs: ['快讯', '行情'],
@@ -87,14 +84,12 @@ export default {
       timer: null,
       // 快讯列表
       livesList: [],
-      isBtnCommit: false
+      isBtnCommit: false,
+      weatherInfo: {}
     }
   },
   mounted () {
-    // TODO 微信api修改 获取用户信息或地址信息需要授权：
-    // https://developers.weixin.qq.com/community/develop/doc/0000a26e1aca6012e896a517556c01
-    // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
+    this.getLocation()
     // 获取快讯
     this.getLives()
     this.setNavigationBarStyle()
@@ -120,7 +115,7 @@ export default {
         })
       }
     },
-    'themeIndex': function (newState) {
+    'themeIndex': newState => {
       if (newState) {
         this.setTheme(newState)
       }
@@ -142,18 +137,11 @@ export default {
         }
       }, 0)
     },
-    getUserInfo () {
-      // 调用登录接口
-      let that = this
-      wx.login({
-        success: (res) => {
-          wx.getUserInfo({
-            success: (response) => {
-              that.userInfo = response.userInfo
-            }
-          })
-        }
-      })
+    getLocation () {
+      store.dispatch('getLocation')
+        .then(data => {
+          this.postWeather(data)
+        })
     },
     // 切换tab选项
     switchPage (page) {
@@ -218,6 +206,11 @@ export default {
       this.timer = setTimeout(function () {
         store.commit('pickerThemeChange', ind)
       }, 0)
+    },
+    async postWeather (info) {
+      let city = info.city
+      let { data } = await wxApi.get(`${POST_WEATHER}/${city}`)
+      this.weatherInfo = data.data
     }
   }
 }
@@ -226,26 +219,6 @@ export default {
 <style lang=scss scoped>
 @import '../../assets/mixins';
 @import '../../assets/rpx';
-/* .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 150px;
-} */
 @include b(coin-box) {
   height: 100%;
 }
