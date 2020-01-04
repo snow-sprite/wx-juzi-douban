@@ -1477,7 +1477,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.switchPage(0)
       }
     }
-  }, [_vm._v("\r\n        行情\r\n      ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\r\n        资讯\r\n      ")]), _vm._v(" "), _c('div', {
     staticClass: "tab-list-box",
     class: _vm.currentPage === 1 ? 'tab-active' : '',
     attrs: {
@@ -1489,7 +1489,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.switchPage(1)
       }
     }
-  }, [_vm._v("\r\n        资讯\r\n      ")])]), _vm._v(" "), _c('swiper', {
+  }, [_vm._v("\r\n        行情\r\n      ")])]), _vm._v(" "), _c('swiper', {
     staticClass: "app",
     attrs: {
       "current": _vm.currentPage,
@@ -1504,24 +1504,24 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "mpcomid": '2'
     }
-  }, [_c('Market', {
-    attrs: {
-      "mpcomid": '1'
-    }
-  })], 1), _vm._v(" "), _c('swiper-item', {
-    attrs: {
-      "mpcomid": '4'
-    }
   }, [(_vm.livesList.length > 0) ? _c('Live', {
     attrs: {
       "livesList": _vm.livesList,
       "eventid": '2',
-      "mpcomid": '3'
+      "mpcomid": '1'
     },
     on: {
       "handleLive": _vm.getLives
     }
-  }) : _vm._e()], 1)], 1), _vm._v(" "), _c('div', {
+  }) : _vm._e()], 1), _vm._v(" "), _c('swiper-item', {
+    attrs: {
+      "mpcomid": '4'
+    }
+  }, [_c('Market', {
+    attrs: {
+      "mpcomid": '3'
+    }
+  })], 1)], 1), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",

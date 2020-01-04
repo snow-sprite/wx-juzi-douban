@@ -16,14 +16,14 @@
         }"
         data-current-tab="0"
         @click="switchPage(0)">
-        行情
+        资讯
       </div>
       <div
         class="tab-list-box"
         :class="currentPage === 1 ? 'tab-active' : ''"
         data-current-tab="1"
         @click="switchPage(1)">
-        资讯
+        行情
       </div>
     </div>
     <swiper
@@ -33,12 +33,12 @@
       class="app"
     >
       <swiper-item class="main">
-        <!-- 行情组件 -->
-        <Market />
-      </swiper-item>
-      <swiper-item>
         <!-- 快讯组件 -->
         <Live v-if="livesList.length > 0" :livesList="livesList" @handleLive="getLives" />
+      </swiper-item>
+      <swiper-item>
+        <!-- 行情组件 -->
+        <Market />
       </swiper-item>
     </swiper>
     <!-- 首页刷新按钮 -->

@@ -1,16 +1,16 @@
 <import src="/components/Weather.vue.wxml" />
-<import src="/components/Market.vue.wxml" />
-<import src="/components/Live.vue.wxml" /><template name="7fcf1164">
+<import src="/components/Live.vue.wxml" />
+<import src="/components/Market.vue.wxml" /><template name="7fcf1164">
   <view class="_div data-v-86b97822">
     <view class="_div data-v-86b97822 zl-app {{isNightMode ? 'night' : ''}}">
       <view class="_div data-v-86b97822 zl-refresh-tip" ref="refreshTip" hidden="{{!(refreshLoading && isBtnCommit)}}"><label class="_span data-v-86b97822">{{ refreshText }}</label></view> <template wx:if="{{weatherInfo && weatherInfo.cityCode}}" data="{{...$root[$kk+'0'], $root}}" is="f350eb72"></template>
       <view class="_div data-v-86b97822 swiper-tab {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-line-color' : '']}}">
-        <view class="_div data-v-86b97822 tab-list-box {{[currentPage === 0 ? 'tab-active' : '']}}" data-current-tab="0" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 行情 </view>
-        <view class="_div data-v-86b97822 tab-list-box {{currentPage === 1 ? 'tab-active' : ''}}" data-current-tab="1" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"> 资讯 </view>
+        <view class="_div data-v-86b97822 tab-list-box {{[currentPage === 0 ? 'tab-active' : '']}}" data-current-tab="0" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 资讯 </view>
+        <view class="_div data-v-86b97822 tab-list-box {{currentPage === 1 ? 'tab-active' : ''}}" data-current-tab="1" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"> 行情 </view>
       </view>
       <swiper current="{{currentPage}}" duration="{{300}}" bindchange="handleProxy" class="_swiper data-v-86b97822 app" data-eventid="{{'3'}}" data-comkey="{{$k}}">
-        <swiper-item class="_swiper-item data-v-86b97822 main"><template data="{{...$root[$kk+'1'], $root}}" is="59fd288e"></template></swiper-item>
-        <swiper-item class="_swiper-item data-v-86b97822"><template wx:if="{{livesList.length > 0}}" bindhandleLive="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="6c8f25a9"></template></swiper-item>
+        <swiper-item class="_swiper-item data-v-86b97822 main"><template wx:if="{{livesList.length > 0}}" bindhandleLive="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="6c8f25a9"></template></swiper-item>
+        <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'3'], $root}}" is="59fd288e"></template></swiper-item>
       </swiper>
       <view class="_div data-v-86b97822 zl-refresh" hidden="{{!(isShowRefresh && currentPage === 0)}}" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">
         <image src="/static/img/fresh.svg" alt class="_img data-v-86b97822"></image>
