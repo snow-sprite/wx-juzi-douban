@@ -3,9 +3,10 @@
     <view class="_div data-v-1b2651c6 weather-left">
       <image src="/static/img/weather/qingtian.svg" hidden="{{!(weatherIcon === 'qing')}}" class="_img data-v-1b2651c6"></image>
       <image src="/static/img/weather/yintian.svg" hidden="{{!(weatherIcon === 'ying')}}" class="_img data-v-1b2651c6"></image>
-      <image src="/static/img/weather/shuiwutian.svg" hidden="{{!(weatherIcon === 'wi')}}" class="_img data-v-1b2651c6"></image>
-      <image src="/static/img/weather/yutian.svg" hidden="{{!(weatherIcon === 'yu')}}" class="_img data-v-1b2651c6"></image>
-      <image src="/static/img/weather/xuetian.svg" hidden="{{!(weatherIcon === 'xue')}}" class="_img data-v-1b2651c6"></image>
+      <image src="/static/img/weather/shuiwutian.svg" hidden="{{!(weatherIcon === 'wu')}}" class="_img data-v-1b2651c6"></image>
+      <image src="/static/img/weather/yutian.svg" hidden="{{!(weatherIcon === 'rain')}}" class="_img data-v-1b2651c6"></image>
+      <image src="/static/img/weather/xuetian.svg" hidden="{{!(weatherIcon === 'snow')}}" class="_img data-v-1b2651c6"></image>
+      <image src="/static/img/weather/cloud.svg" hidden="{{!(weatherIcon === 'cloud')}}" class="_img data-v-1b2651c6"></image>
       <image src="/static/img/weather/unknow.svg" hidden="{{!(weatherIcon === 'unknow')}}" class="_img data-v-1b2651c6"></image>
     </view>
     <view class="_div data-v-1b2651c6 weather-right">

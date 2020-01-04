@@ -3,9 +3,10 @@
     <div class="weather-left">
       <img src="../../static/img/weather/qingtian.svg" v-show="weatherIcon === 'qing'">
       <img src="../../static/img/weather/yintian.svg" v-show="weatherIcon === 'ying'">
-      <img src="../../static/img/weather/shuiwutian.svg" v-show="weatherIcon === 'wi'">
-      <img src="../../static/img/weather/yutian.svg" v-show="weatherIcon === 'yu'">
-      <img src="../../static/img/weather/xuetian.svg" v-show="weatherIcon === 'xue'">
+      <img src="../../static/img/weather/shuiwutian.svg" v-show="weatherIcon === 'wu'">
+      <img src="../../static/img/weather/yutian.svg" v-show="weatherIcon === 'rain'">
+      <img src="../../static/img/weather/xuetian.svg" v-show="weatherIcon === 'snow'">
+      <img src="../../static/img/weather/cloud.svg" v-show="weatherIcon === 'cloud'">
       <img src="../../static/img/weather/unknow.svg" v-show="weatherIcon === 'unknow'">
     </div>
     <div class="weather-right">
@@ -53,9 +54,11 @@ export default {
       } else if (weather.indexOf('雾') > -1) {
         this.weatherIcon = 'wu'
       } else if (weather.indexOf('雪') > -1) {
-        this.weatherIcon = 'xue'
+        this.weatherIcon = 'snow'
       } else if (weather.indexOf('雨') > -1) {
-        this.weatherIcon = 'yu'
+        this.weatherIcon = 'rain'
+      } else if (weather.indexOf('云') > -1) {
+        this.weatherIcon = 'cloud'
       } else {
         this.weatherIcon = 'unknow'
       }

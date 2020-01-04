@@ -1278,6 +1278,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'Weather',
@@ -1306,9 +1307,11 @@ if (false) {(function () {
       } else if (weather.indexOf('雾') > -1) {
         this.weatherIcon = 'wu';
       } else if (weather.indexOf('雪') > -1) {
-        this.weatherIcon = 'xue';
+        this.weatherIcon = 'snow';
       } else if (weather.indexOf('雨') > -1) {
-        this.weatherIcon = 'yu';
+        this.weatherIcon = 'rain';
+      } else if (weather.indexOf('云') > -1) {
+        this.weatherIcon = 'cloud';
       } else {
         this.weatherIcon = 'unknow';
       }
@@ -1351,8 +1354,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.weatherIcon === 'wi'),
-      expression: "weatherIcon === 'wi'"
+      value: (_vm.weatherIcon === 'wu'),
+      expression: "weatherIcon === 'wu'"
     }],
     attrs: {
       "src": "../../static/img/weather/shuiwutian.svg"
@@ -1361,8 +1364,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.weatherIcon === 'yu'),
-      expression: "weatherIcon === 'yu'"
+      value: (_vm.weatherIcon === 'rain'),
+      expression: "weatherIcon === 'rain'"
     }],
     attrs: {
       "src": "../../static/img/weather/yutian.svg"
@@ -1371,11 +1374,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.weatherIcon === 'xue'),
-      expression: "weatherIcon === 'xue'"
+      value: (_vm.weatherIcon === 'snow'),
+      expression: "weatherIcon === 'snow'"
     }],
     attrs: {
       "src": "../../static/img/weather/xuetian.svg"
+    }
+  }), _vm._v(" "), _c('img', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.weatherIcon === 'cloud'),
+      expression: "weatherIcon === 'cloud'"
+    }],
+    attrs: {
+      "src": "../../static/img/weather/cloud.svg"
     }
   }), _vm._v(" "), _c('img', {
     directives: [{
