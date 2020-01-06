@@ -4,8 +4,8 @@
       <view class="_li data-v-9c3db918 zl-history__item" wx:key="ind" key="{{ind}}" wx:for="{{historyStoryList}}" wx:for-index="ind" wx:for-item="story">
         <view class="_ul data-v-9c3db918 zl-history__item--info">
           <view class="_li data-v-9c3db918 zl-history__item--title">{{ story.title }}</view>
-          <view class="_li data-v-9c3db918 zl-history__item--publish"><label class="_span data-v-9c3db918">{{ story.year }}.{{ story.month < 10 ? '0'+story.month : story.month }}.{{ story.day < 10 ? '0'+story.day : story.day  }}</label>
-            <image class="_img data-v-9c3db918 zl-history__tag" src="/static/img/history/tag.svg" alt></image> <label class="_span data-v-9c3db918">历史上的今天</label>
+          <view class="_li data-v-9c3db918 zl-history__item--publish"><label class="_span data-v-9c3db918 zl-history__item--time">{{ story.year }}.{{ story.month < 10 ? '0'+story.month : story.month }}.{{ story.day < 10 ? '0'+story.day : story.day  }}</label>
+            <image class="_img data-v-9c3db918 zl-history__tag" src="/static/img/history/tag.svg" alt></image> <label class="_span data-v-9c3db918 zl-history__item--tag">历史上的今天</label>
           </view>
         </view>
         <view class="_div data-v-9c3db918 zl-history__item--thumb">

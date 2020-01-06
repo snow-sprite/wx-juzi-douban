@@ -2196,13 +2196,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "zl-history__item--title"
     }, [_vm._v(_vm._s(story.title))]), _vm._v(" "), _c('li', {
       staticClass: "zl-history__item--publish"
-    }, [_c('span', [_vm._v(_vm._s(story.year) + "." + _vm._s(story.month < 10 ? '0' + story.month : story.month) + "." + _vm._s(story.day < 10 ? '0' + story.day : story.day))]), _vm._v(" "), _c('img', {
+    }, [_c('span', {
+      staticClass: "zl-history__item--time"
+    }, [_vm._v(_vm._s(story.year) + "." + _vm._s(story.month < 10 ? '0' + story.month : story.month) + "." + _vm._s(story.day < 10 ? '0' + story.day : story.day))]), _vm._v(" "), _c('img', {
       staticClass: "zl-history__tag",
       attrs: {
         "src": "../../static/img/history/tag.svg",
         "alt": ""
       }
-    }), _vm._v(" "), _c('span', [_vm._v("历史上的今天")])])], 1), _vm._v(" "), _c('div', {
+    }), _vm._v(" "), _c('span', {
+      staticClass: "zl-history__item--tag"
+    }, [_vm._v("历史上的今天")])])], 1), _vm._v(" "), _c('div', {
       staticClass: "zl-history__item--thumb"
     }, [_c('img', {
       attrs: {

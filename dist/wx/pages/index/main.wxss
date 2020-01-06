@@ -506,16 +506,20 @@
   width: 100%;
   color: #29293b;
   overflow: hidden;
-  line-height: 53.333rpx;
+  line-height: 48rpx;
   text-overflow: ellipsis;
   display: -webkit-box;
   word-break: break-all;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
 }
 .zl-history__item--publish.data-v-9c3db918 {
-  color: #9999a6;
+  color: #666;
   font-size: 32rpx;
+}
+.zl-history__item--tag.data-v-9c3db918 {
+  color: #9999a6;
+  font-size: 26.667rpx;
 }
 .zl-history__tag.data-v-9c3db918 {
   width: 32rpx;

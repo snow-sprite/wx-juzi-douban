@@ -12,9 +12,9 @@
           <li class="zl-history__item--title">{{ story.title }}</li>
           <!-- <li class="zl-history__item--desc">伊朗要打仗了</li> -->
           <li class="zl-history__item--publish">
-            <span>{{ story.year }}.{{  story.month < 10 ? '0'+story.month : story.month }}.{{  story.day < 10 ? '0'+story.day : story.day  }}</span>
+            <span class="zl-history__item--time">{{ story.year }}.{{  story.month < 10 ? '0'+story.month : story.month }}.{{  story.day < 10 ? '0'+story.day : story.day  }}</span>
             <img class="zl-history__tag" src="../../static/img/history/tag.svg" alt="">
-            <span>历史上的今天</span>
+            <span class="zl-history__item--tag">历史上的今天</span>
           </li>
         </ul>
         <!-- <div class="zl-history__item--more">
@@ -98,16 +98,20 @@ export default {
       width: 100%;
       color: #29293b;
       overflow: hidden;
-      line-height: r(20px);
+      line-height: r(18px);
       text-overflow: ellipsis;
       display: -webkit-box;
       word-break: break-all;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 3;
     }
     @include m(publish) {
-      color: #9999a6;
+      color: #666;
       font-size: r(12px);
+    }
+    @include m(tag) {
+      color: #9999a6;
+      font-size: r(10px);
     }
   }
   @include e(tag) {
