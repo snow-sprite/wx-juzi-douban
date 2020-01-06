@@ -1,8 +1,607 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonpMpvue([1],{
+global.webpackJsonpMpvue([1],Array(18).concat([
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/***/ 103:
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__);
+
+
+// import wx from 'wx'
+// const baseUrl = 'https://api.jinse.com/'
+
+// 请求参数 重构
+var paramsSpliceUrl = function paramsSpliceUrl(url, params) {
+  if (params) {
+    var paramsArray = [];
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default()(params).forEach(function (key) {
+      return paramsArray.push(key + '=' + params[key]);
+    });
+    if (url.search(/\?/) === -1) {
+      url += '?' + paramsArray.join('&');
+    } else {
+      url += '&' + paramsArray.join('&');
+    }
+  }
+  return url;
+};
+
+var wxApi = {
+  // get
+  get: function get(url, data) {
+    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+      wx.showLoading({
+        title: 'loading...',
+        mask: true
+      });
+      url = paramsSpliceUrl(url, data);
+      wx.request({
+        url: '' + url,
+        header: {
+          'Content-Type': 'application/json'
+        },
+        method: 'GET',
+        dataType: 'json',
+        success: function success(res) {
+          wx.hideLoading();
+          resolve(res);
+        },
+        fail: function fail(err) {
+          console.warn('err', err);
+          wx.hideLoading();
+          reject(err);
+        },
+        complete: function complete() {
+          wx.hideLoading();
+        }
+      });
+    });
+  },
+
+  // post
+  post: function post(url, data) {
+    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+      wx.showLoading({
+        title: 'loading...',
+        mask: true
+      });
+      wx.request({
+        url: '' + url,
+        data: data,
+        header: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        dataType: 'json',
+        success: function success(res) {
+          resolve(res);
+          wx.hideLoading();
+        },
+        fail: function fail(err) {
+          console.warn('err', err);
+          reject(err);
+          wx.hideLoading();
+        },
+        complete: function complete() {
+          wx.hideLoading();
+        }
+      });
+    });
+  }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (wxApi);
+
+/***/ }),
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BANNER_LIST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return MAIN_NEWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return LIVES_LIST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return COINS_LIST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return POST_WEATHER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return HISTORY_TODAY; });
+// banner图集
+var BANNER_LIST = 'https://api.jinse.com/v4/ad/web/slideList';
+
+// 新闻9点半
+var MAIN_NEWS = 'https://api.jinse.com/v1/topic/by_tag_list';
+
+// 快讯
+var LIVES_LIST = 'https://api.jinse.com/v4/live/list';
+
+/**
+ * 获取币种列表
+ * @param {Object} params 请求参数对象
+ * @Author: @Cid
+ * @Date: 2019-01-21 12:05:49
+ */
+var COINS_LIST = 'https://api.jinse.com/v3/coin';
+
+/*
+ * 获取当前城市天气
+ */
+var POST_WEATHER = 'https://www.mxnzp.com/api/weather/current';
+
+/**
+ * 历史上的今天
+ */
+var HISTORY_TODAY = 'https://www.mxnzp.com/api/history/today';
+
+/***/ }),
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(98);
+
+
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
+app.$mount();
+
+/***/ }),
+/* 98 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(128);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(99)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-86b97822"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/pages/index/index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-86b97822", Component.options)
+  } else {
+    hotAPI.reload("data-v-86b97822", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 100 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Live__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Market__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Weather__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_HistorysToday__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__store__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_request__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__api_apiList__ = __webpack_require__(19);
+
+
+
+var _this = this;
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  name: 'Home',
+  components: {
+    Live: __WEBPACK_IMPORTED_MODULE_2__components_Live__["a" /* default */],
+    Market: __WEBPACK_IMPORTED_MODULE_3__components_Market__["a" /* default */],
+    Weather: __WEBPACK_IMPORTED_MODULE_4__components_Weather__["a" /* default */],
+    HistorysToday: __WEBPACK_IMPORTED_MODULE_5__components_HistorysToday__["a" /* default */]
+  },
+  computed: {
+    isShowRefresh: function isShowRefresh(_) {
+      return __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].getters.isShowRefresh;
+    },
+    isNightMode: function isNightMode(_) {
+      return __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].getters.isNightMode;
+    }, // 夜间模式
+    themeIndex: function themeIndex(_) {
+      return __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].getters.themeIndex;
+    },
+    userLocation: function userLocation(_) {
+      return __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].getters.userLocation;
+    }
+  },
+  data: function data() {
+    return {
+      // 当前页
+      currentPage: 2,
+      tabs: ['快讯', '行情'],
+      circular: true,
+      refreshLoading: true,
+      refreshText: '',
+      timer: null,
+      // 快讯列表
+      livesList: [],
+      isBtnCommit: false,
+      weatherInfo: {}
+    };
+  },
+  mounted: function mounted() {
+    this.getLocation();
+    // 获取快讯
+    this.getLives();
+    this.setNavigationBarStyle();
+    // 当前页可被转发
+    wx.showShareMenu({
+      withShareTicket: true
+    });
+  },
+
+  watch: {
+    'isNightMode': function isNightMode(newVal, oldVal) {
+      if (newVal) {
+        // 顶部导航夜间模式
+        // 2019-11-23 15:33:12
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#232323'
+        });
+      } else {
+        // 顶部导航非夜间
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#ffffff'
+        });
+      }
+    },
+    'themeIndex': function themeIndex(newState) {
+      if (newState) {
+        _this.setTheme(newState);
+      }
+    }
+  },
+  methods: {
+    setNavigationBarStyle: function setNavigationBarStyle() {
+      var that = this;
+      this.timer = setTimeout(function () {
+        if (that.isNightMode) {
+          // 顶部导航夜间模式
+          wx.setNavigationBarColor({
+            frontColor: '#ffffff',
+            backgroundColor: '#232323'
+          });
+        } else {
+          // 非夜间模式可以先设置主题皮肤
+          that.setTheme(that.themeIndex);
+        }
+      }, 0);
+    },
+    getLocation: function getLocation() {
+      var _this2 = this;
+
+      __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].dispatch('getLocation').then(function (data) {
+        _this2.postWeather(data);
+      });
+    },
+
+    // 切换tab选项
+    switchPage: function switchPage(page) {
+      if (this.currentPage === page) return;
+      this.currentPage = page;
+    },
+    getLives: function getLives() {
+      var _this3 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var that, _ref, data;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                that = _this3;
+
+                _this3.refreshText = '正在刷新快讯列表';
+                _context.next = 5;
+                return __WEBPACK_IMPORTED_MODULE_7__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_8__api_apiList__["d" /* LIVES_LIST */], {
+                  reading: false,
+                  limit: 66,
+                  flag: 'down'
+                });
+
+              case 5:
+                _ref = _context.sent;
+                data = _ref.data;
+
+                if (data) {
+                  _this3.refreshText = '快讯刷新完成';
+                }
+                // this.livesList.push(data.data.list)
+                data.list.forEach(function (list) {
+                  _this3.livesList.push(list);
+                });
+                clearTimeout(_this3.timer);
+                _this3.timer = setTimeout(function () {
+                  that.refreshLoading = false;
+                  _this3.isBtnCommit = false;
+                }, 1000);
+                _context.next = 19;
+                break;
+
+              case 13:
+                _context.prev = 13;
+                _context.t0 = _context['catch'](0);
+
+                _this3.livesList = [];
+                _this3.refreshLoading = false;
+                _this3.refreshText = '网络错误';
+                _this3.isBtnCommit = false;
+
+              case 19:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, _this3, [[0, 13]]);
+      }))();
+    },
+
+    // 分享当前页
+    onShareAppMessage: function onShareAppMessage() {
+      return {
+        title: '巴拉巴拉1',
+        imageUrl: '../../../static/img/avatar.png',
+        success: function success(res) {},
+        fail: function fail() {}
+      };
+    },
+    changePage: function changePage(e) {
+      this.currentPage = e.target.current;
+    },
+
+    // click refresh button
+    refreshLiveList: function refreshLiveList() {
+      // 刷新按钮
+      this.livesList = [];
+      this.isBtnCommit = true;
+      this.refreshLoading = true;
+      this.getLives();
+    },
+    setTheme: function setTheme(ind) {
+      /*
+        这里直接使用store.commit('pickerThemeChange', ind)并不会生效
+        可能是因为小程序有限制，禁止了程序的自动触发改变主题皮肤
+        想不到其他的原因了
+        wxsb！！！😡
+      */
+      this.timer = setTimeout(function () {
+        __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].commit('pickerThemeChange', ind);
+      }, 0);
+    },
+    postWeather: function postWeather(info) {
+      var _this4 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var city, _ref2, data;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                city = info.city;
+                _context2.next = 3;
+                return __WEBPACK_IMPORTED_MODULE_7__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_8__api_apiList__["f" /* POST_WEATHER */] + '/' + city);
+
+              case 3:
+                _ref2 = _context2.sent;
+                data = _ref2.data;
+
+                _this4.weatherInfo = data.data;
+
+              case 6:
+              case 'end':
+                return _context2.stop();
+            }
+          }
+        }, _callee2, _this4);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+/* 101 */,
+/* 102 */,
+/* 103 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -55,22 +654,20 @@ if (false) {(function () {
 
 
 /***/ }),
-
-/***/ 104:
+/* 104 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-
-/***/ 105:
+/* 105 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_MoringNews__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__LiveItem__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_request__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_apiList__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_request__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_apiList__ = __webpack_require__(19);
 //
 //
 //
@@ -174,7 +771,7 @@ if (false) {(function () {
     getMorningNews: function getMorningNews() {
       var _this3 = this;
 
-      __WEBPACK_IMPORTED_MODULE_2__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_3__api_apiList__["d" /* MAIN_NEWS */], {
+      __WEBPACK_IMPORTED_MODULE_2__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_3__api_apiList__["e" /* MAIN_NEWS */], {
         tag: '金色9：30',
         limit: 1,
         topic_id: 0,
@@ -196,8 +793,7 @@ if (false) {(function () {
 });
 
 /***/ }),
-
-/***/ 106:
+/* 106 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -250,15 +846,13 @@ if (false) {(function () {
 
 
 /***/ }),
-
-/***/ 107:
+/* 107 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-
-/***/ 108:
+/* 108 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -324,8 +918,7 @@ if (false) {(function () {
 });
 
 /***/ }),
-
-/***/ 109:
+/* 109 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -366,8 +959,7 @@ if (false) {
 }
 
 /***/ }),
-
-/***/ 110:
+/* 110 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -420,15 +1012,13 @@ if (false) {(function () {
 
 
 /***/ }),
-
-/***/ 111:
+/* 111 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-
-/***/ 112:
+/* 112 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -631,8 +1221,7 @@ if (false) {(function () {
 });
 
 /***/ }),
-
-/***/ 113:
+/* 113 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -659,8 +1248,7 @@ var utils = {
 /* harmony default export */ __webpack_exports__["a"] = (utils);
 
 /***/ }),
-
-/***/ 114:
+/* 114 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -808,8 +1396,7 @@ if (false) {
 }
 
 /***/ }),
-
-/***/ 115:
+/* 115 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -853,8 +1440,7 @@ if (false) {
 }
 
 /***/ }),
-
-/***/ 116:
+/* 116 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -907,21 +1493,19 @@ if (false) {(function () {
 
 
 /***/ }),
-
-/***/ 117:
+/* 117 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-
-/***/ 118:
+/* 118 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_request__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_request__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_apiList__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_apiList__ = __webpack_require__(19);
 //
 //
 //
@@ -997,7 +1581,7 @@ if (false) {(function () {
 
 /*
  * @Description: 币种行情
- * @Author: zhoun
+ * @Author: @Cid
  * @Date: 2019-03-24 15:08:20
  * @LastEditTime: 2019-3-24 15:08:20
  */
@@ -1042,7 +1626,7 @@ if (false) {(function () {
       return __WEBPACK_IMPORTED_MODULE_1__store__["a" /* default */].getters.isNightMode;
     } // 夜间模式
   },
-  mounted: function mounted() {
+  created: function created() {
     this.getCurrencyList();
   },
 
@@ -1092,8 +1676,7 @@ if (false) {(function () {
 });
 
 /***/ }),
-
-/***/ 119:
+/* 119 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1184,8 +1767,7 @@ if (false) {
 }
 
 /***/ }),
-
-/***/ 120:
+/* 120 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1238,15 +1820,13 @@ if (false) {(function () {
 
 
 /***/ }),
-
-/***/ 121:
+/* 121 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-
-/***/ 122:
+/* 122 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1320,8 +1900,7 @@ if (false) {(function () {
 });
 
 /***/ }),
-
-/***/ 123:
+/* 123 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1434,8 +2013,219 @@ if (false) {
 }
 
 /***/ }),
+/* 124 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/***/ 124:
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_HistorysToday_vue__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_9c3db918_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_HistorysToday_vue__ = __webpack_require__(127);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(125)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-9c3db918"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_HistorysToday_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_9c3db918_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_HistorysToday_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/components/HistorysToday.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] HistorysToday.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9c3db918", Component.options)
+  } else {
+    hotAPI.reload("data-v-9c3db918", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 126 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_request__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_apiList__ = __webpack_require__(19);
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/**
+ * @Description: 历史上的今天
+ * @Author: Cid
+ */
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  name: 'HistorysToday',
+  data: function data() {
+    return {
+      historyStoryList: [],
+      defaultThumb: 'this.src=../../static/img/history/fail.png'
+    };
+  },
+  created: function created() {
+    this.getHistoryStoryList();
+  },
+
+  methods: {
+    getHistoryStoryList: function getHistoryStoryList() {
+      var _this = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var _ref, data;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return __WEBPACK_IMPORTED_MODULE_2__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_3__api_apiList__["c" /* HISTORY_TODAY */], {
+                  type: 1
+                });
+
+              case 2:
+                _ref = _context.sent;
+                data = _ref.data;
+
+
+                console.log(990, data);
+                if (data.code === 1) {
+                  _this.historyStoryList = data.data;
+                }
+
+              case 6:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, _this);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+/* 127 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('scroll-view', {
+    staticClass: "zl-history-box",
+    attrs: {
+      "scroll-y": "",
+      "upper-threshold": "50",
+      "lower-threshold": "50",
+      "enable-back-to-top": "true"
+    }
+  }, [_c('ul', {
+    staticClass: "zl-history"
+  }, _vm._l((_vm.historyStoryList), function(story, ind) {
+    return _c('li', {
+      key: ind,
+      staticClass: "zl-history__item"
+    }, [_c('ul', {
+      staticClass: "zl-history__item--info"
+    }, [_c('li', {
+      staticClass: "zl-history__item--title"
+    }, [_vm._v(_vm._s(story.title))]), _vm._v(" "), _c('li', {
+      staticClass: "zl-history__item--publish"
+    }, [_c('span', [_vm._v(_vm._s(story.year) + "." + _vm._s(story.month < 10 ? '0' + story.month : story.month) + "." + _vm._s(story.day < 10 ? '0' + story.day : story.day))]), _vm._v(" "), _c('img', {
+      staticClass: "zl-history__tag",
+      attrs: {
+        "src": "../../static/img/history/tag.svg",
+        "alt": ""
+      }
+    }), _vm._v(" "), _c('span', [_vm._v("历史上的今天")])])], 1), _vm._v(" "), _c('div', {
+      staticClass: "zl-history__item--thumb"
+    }, [_c('img', {
+      attrs: {
+        "src": story.picUrl ? story.picUrl : '../../static/img/history/fail.png',
+        "alt": "",
+        "onerror": _vm.defaultThumb
+      }
+    })])], 1)
+  }))], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-9c3db918", esExports)
+  }
+}
+
+/***/ }),
+/* 128 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1489,12 +2279,24 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.switchPage(1)
       }
     }
-  }, [_vm._v("\r\n        行情\r\n      ")])]), _vm._v(" "), _c('swiper', {
+  }, [_vm._v("\r\n        行情\r\n      ")]), _vm._v(" "), _c('div', {
+    staticClass: "tab-list-box",
+    class: _vm.currentPage === 2 ? 'tab-active' : '',
+    attrs: {
+      "data-current-tab": "2",
+      "eventid": '2'
+    },
+    on: {
+      "click": function($event) {
+        _vm.switchPage(2)
+      }
+    }
+  }, [_vm._v("\r\n        冷知识\r\n      ")])]), _vm._v(" "), _c('swiper', {
     staticClass: "app",
     attrs: {
       "current": _vm.currentPage,
       "duration": 300,
-      "eventid": '3'
+      "eventid": '4'
     },
     on: {
       "change": _vm.changePage
@@ -1507,7 +2309,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [(_vm.livesList.length > 0) ? _c('Live', {
     attrs: {
       "livesList": _vm.livesList,
-      "eventid": '2',
+      "eventid": '3',
       "mpcomid": '1'
     },
     on: {
@@ -1521,6 +2323,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "mpcomid": '3'
     }
+  })], 1), _vm._v(" "), _c('swiper-item', {
+    attrs: {
+      "mpcomid": '6'
+    }
+  }, [_c('HistorysToday', {
+    attrs: {
+      "mpcomid": '5'
+    }
   })], 1)], 1), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
@@ -1530,7 +2340,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }],
     staticClass: "zl-refresh",
     attrs: {
-      "eventid": '4'
+      "eventid": '5'
     },
     on: {
       "click": _vm.refreshLiveList
@@ -1553,514 +2363,6 @@ if (false) {
   }
 }
 
-/***/ }),
-
-/***/ 29:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__);
-
-
-// import wx from 'wx'
-// const baseUrl = 'https://api.jinse.com/'
-
-// 请求参数 重构
-var paramsSpliceUrl = function paramsSpliceUrl(url, params) {
-  if (params) {
-    var paramsArray = [];
-    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default()(params).forEach(function (key) {
-      return paramsArray.push(key + '=' + params[key]);
-    });
-    if (url.search(/\?/) === -1) {
-      url += '?' + paramsArray.join('&');
-    } else {
-      url += '&' + paramsArray.join('&');
-    }
-  }
-  return url;
-};
-
-var wxApi = {
-  // get
-  get: function get(url, data) {
-    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-      wx.showLoading({
-        title: 'loading...',
-        mask: true
-      });
-      url = paramsSpliceUrl(url, data);
-      wx.request({
-        url: '' + url,
-        header: {
-          'Content-Type': 'application/json'
-        },
-        method: 'GET',
-        dataType: 'json',
-        success: function success(res) {
-          wx.hideLoading();
-          resolve(res);
-        },
-        fail: function fail(err) {
-          console.warn('err', err);
-          wx.hideLoading();
-          reject(err);
-        },
-        complete: function complete() {
-          wx.hideLoading();
-        }
-      });
-    });
-  },
-
-  // post
-  post: function post(url, data) {
-    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-      wx.showLoading({
-        title: 'loading...',
-        mask: true
-      });
-      wx.request({
-        url: '' + url,
-        data: data,
-        header: {
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        dataType: 'json',
-        success: function success(res) {
-          resolve(res);
-          wx.hideLoading();
-        },
-        fail: function fail(err) {
-          console.warn('err', err);
-          reject(err);
-          wx.hideLoading();
-        },
-        complete: function complete() {
-          wx.hideLoading();
-        }
-      });
-    });
-  }
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (wxApi);
-
-/***/ }),
-
-/***/ 30:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BANNER_LIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return MAIN_NEWS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return LIVES_LIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return COINS_LIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return POST_WEATHER; });
-// banner图集
-var BANNER_LIST = 'https://api.jinse.com/v4/ad/web/slideList';
-
-// 新闻9点半
-var MAIN_NEWS = 'https://api.jinse.com/v1/topic/by_tag_list';
-
-// 快讯
-var LIVES_LIST = 'https://api.jinse.com/v4/live/list';
-
-/**
- * 获取币种列表
- * @param {Object} params 请求参数对象
- * @Author: zhoun
- * @Date: 2019-01-21 12:05:49
- */
-var COINS_LIST = 'https://api.jinse.com/v3/coin';
-
-/*
- * 获取当前城市天气
- */
-var POST_WEATHER = 'https://www.mxnzp.com/api/weather/current';
-
-/***/ }),
-
-/***/ 95:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(96);
-
-
-
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
-app.$mount();
-
-/***/ }),
-
-/***/ 96:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(124);
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(97)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-86b97822"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "src/pages/index/index.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-86b97822", Component.options)
-  } else {
-    hotAPI.reload("data-v-86b97822", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-
-/***/ 97:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 98:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Live__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Market__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Weather__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_request__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__api_apiList__ = __webpack_require__(30);
-
-
-
-var _this = this;
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'Home',
-  components: {
-    Live: __WEBPACK_IMPORTED_MODULE_2__components_Live__["a" /* default */],
-    Market: __WEBPACK_IMPORTED_MODULE_3__components_Market__["a" /* default */],
-    Weather: __WEBPACK_IMPORTED_MODULE_4__components_Weather__["a" /* default */]
-  },
-  computed: {
-    isShowRefresh: function isShowRefresh(_) {
-      return __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].getters.isShowRefresh;
-    },
-    isNightMode: function isNightMode(_) {
-      return __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].getters.isNightMode;
-    }, // 夜间模式
-    themeIndex: function themeIndex(_) {
-      return __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].getters.themeIndex;
-    },
-    userLocation: function userLocation(_) {
-      return __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].getters.userLocation;
-    }
-  },
-  data: function data() {
-    return {
-      // 当前页
-      currentPage: 0,
-      tabs: ['快讯', '行情'],
-      circular: true,
-      refreshLoading: true,
-      refreshText: '',
-      timer: null,
-      // 快讯列表
-      livesList: [],
-      isBtnCommit: false,
-      weatherInfo: {}
-    };
-  },
-  mounted: function mounted() {
-    this.getLocation();
-    // 获取快讯
-    this.getLives();
-    this.setNavigationBarStyle();
-    // 当前页可被转发
-    wx.showShareMenu({
-      withShareTicket: true
-    });
-  },
-
-  watch: {
-    'isNightMode': function isNightMode(newVal, oldVal) {
-      if (newVal) {
-        // 顶部导航夜间模式
-        // 2019-11-23 15:33:12
-        wx.setNavigationBarColor({
-          frontColor: '#ffffff',
-          backgroundColor: '#232323'
-        });
-      } else {
-        // 顶部导航非夜间
-        wx.setNavigationBarColor({
-          frontColor: '#000000',
-          backgroundColor: '#ffffff'
-        });
-      }
-    },
-    'themeIndex': function themeIndex(newState) {
-      if (newState) {
-        _this.setTheme(newState);
-      }
-    }
-  },
-  methods: {
-    setNavigationBarStyle: function setNavigationBarStyle() {
-      var that = this;
-      this.timer = setTimeout(function () {
-        if (that.isNightMode) {
-          // 顶部导航夜间模式
-          wx.setNavigationBarColor({
-            frontColor: '#ffffff',
-            backgroundColor: '#232323'
-          });
-        } else {
-          // 非夜间模式可以先设置主题皮肤
-          that.setTheme(that.themeIndex);
-        }
-      }, 0);
-    },
-    getLocation: function getLocation() {
-      var _this2 = this;
-
-      __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].dispatch('getLocation').then(function (data) {
-        _this2.postWeather(data);
-      });
-    },
-
-    // 切换tab选项
-    switchPage: function switchPage(page) {
-      if (this.currentPage === page) return;
-      this.currentPage = page;
-    },
-    getLives: function getLives() {
-      var _this3 = this;
-
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var that, _ref, data;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.prev = 0;
-                that = _this3;
-
-                _this3.refreshText = '正在刷新快讯列表';
-                _context.next = 5;
-                return __WEBPACK_IMPORTED_MODULE_6__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_7__api_apiList__["c" /* LIVES_LIST */], {
-                  reading: false,
-                  limit: 66,
-                  flag: 'down'
-                });
-
-              case 5:
-                _ref = _context.sent;
-                data = _ref.data;
-
-                if (data) {
-                  _this3.refreshText = '快讯刷新完成';
-                }
-                // this.livesList.push(data.data.list)
-                data.list.forEach(function (list) {
-                  _this3.livesList.push(list);
-                });
-                clearTimeout(_this3.timer);
-                _this3.timer = setTimeout(function () {
-                  that.refreshLoading = false;
-                  _this3.isBtnCommit = false;
-                }, 1000);
-                _context.next = 19;
-                break;
-
-              case 13:
-                _context.prev = 13;
-                _context.t0 = _context['catch'](0);
-
-                _this3.livesList = [];
-                _this3.refreshLoading = false;
-                _this3.refreshText = '网络错误';
-                _this3.isBtnCommit = false;
-
-              case 19:
-              case 'end':
-                return _context.stop();
-            }
-          }
-        }, _callee, _this3, [[0, 13]]);
-      }))();
-    },
-
-    // 分享当前页
-    onShareAppMessage: function onShareAppMessage() {
-      return {
-        title: '巴拉巴拉1',
-        imageUrl: '../../../static/img/avatar.png',
-        success: function success(res) {},
-        fail: function fail() {}
-      };
-    },
-    changePage: function changePage(e) {
-      this.currentPage = e.target.current;
-    },
-
-    // click refresh button
-    refreshLiveList: function refreshLiveList() {
-      // 刷新按钮
-      this.livesList = [];
-      this.isBtnCommit = true;
-      this.refreshLoading = true;
-      this.getLives();
-    },
-    setTheme: function setTheme(ind) {
-      /*
-        这里直接使用store.commit('pickerThemeChange', ind)并不会生效
-        可能是因为小程序有限制，禁止了程序的自动触发改变主题皮肤
-        想不到其他的原因了
-        wxsb！！！😡
-      */
-      this.timer = setTimeout(function () {
-        __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].commit('pickerThemeChange', ind);
-      }, 0);
-    },
-    postWeather: function postWeather(info) {
-      var _this4 = this;
-
-      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-        var city, _ref2, data;
-
-        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                city = info.city;
-                _context2.next = 3;
-                return __WEBPACK_IMPORTED_MODULE_6__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_7__api_apiList__["e" /* POST_WEATHER */] + '/' + city);
-
-              case 3:
-                _ref2 = _context2.sent;
-                data = _ref2.data;
-
-                _this4.weatherInfo = data.data;
-
-              case 6:
-              case 'end':
-                return _context2.stop();
-            }
-          }
-        }, _callee2, _this4);
-      }))();
-    }
-  }
-});
-
 /***/ })
-
-},[95]);
+]),[97]);
 //# sourceMappingURL=main.js.map

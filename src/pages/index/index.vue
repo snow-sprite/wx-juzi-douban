@@ -25,6 +25,13 @@
         @click="switchPage(1)">
         行情
       </div>
+      <div
+        class="tab-list-box"
+        :class="currentPage === 2 ? 'tab-active' : ''"
+        data-current-tab="2"
+        @click="switchPage(2)">
+        冷知识
+      </div>
     </div>
     <swiper
       :current="currentPage"
@@ -40,6 +47,10 @@
         <!-- 行情组件 -->
         <Market />
       </swiper-item>
+      <swiper-item>
+        <!-- 冷知识组件 -->
+        <HistorysToday />
+      </swiper-item>
     </swiper>
     <!-- 首页刷新按钮 -->
     <div class="zl-refresh" v-show="isShowRefresh && currentPage === 0" @click="refreshLiveList">
@@ -53,6 +64,7 @@
 import Live from '@/components/Live'
 import Market from '@/components/Market'
 import Weather from '@/components/Weather'
+import HistorysToday from '@/components/HistorysToday'
 import store from '@/store'
 import wxApi from '@/lib/request'
 import {
@@ -65,7 +77,8 @@ export default {
   components: {
     Live,
     Market,
-    Weather
+    Weather,
+    HistorysToday
   },
   computed: {
     isShowRefresh: _ => store.getters.isShowRefresh,
@@ -76,7 +89,7 @@ export default {
   data () {
     return {
       // 当前页
-      currentPage: 0,
+      currentPage: 2,
       tabs: ['快讯', '行情'],
       circular: true,
       refreshLoading: true,

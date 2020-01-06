@@ -10,7 +10,7 @@ export const LIVES_LIST = 'https://api.jinse.com/v4/live/list'
 /**
  * 获取币种列表
  * @param {Object} params 请求参数对象
- * @Author: zhoun
+ * @Author: @Cid
  * @Date: 2019-01-21 12:05:49
  */
 export const COINS_LIST = 'https://api.jinse.com/v3/coin'
@@ -19,3 +19,8 @@ export const COINS_LIST = 'https://api.jinse.com/v3/coin'
  * 获取当前城市天气
  */
 export const POST_WEATHER = `https://www.mxnzp.com/api/weather/current`
+
+/**
+ * 历史上的今天
+ */
+export const HISTORY_TODAY = `https://www.mxnzp.com/api/history/today`

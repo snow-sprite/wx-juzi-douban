@@ -73,7 +73,7 @@
 <script>
 /*
  * @Description: 币种行情
- * @Author: zhoun
+ * @Author: @Cid
  * @Date: 2019-03-24 15:08:20
  * @LastEditTime: 2019-3-24 15:08:20
  */
@@ -117,7 +117,7 @@ export default {
   computed: {
     isNightMode: _ => store.getters.isNightMode // 夜间模式
   },
-  mounted () {
+  created () {
     this.getCurrencyList()
   },
   methods: {
