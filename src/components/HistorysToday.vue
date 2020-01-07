@@ -7,7 +7,7 @@
     enable-back-to-top="true"
   >
     <ul class="zl-history">
-      <li class="zl-history__item" v-for="(story, ind) in historyStoryList" :key="ind">
+      <li class="zl-history__item" v-for="(story, ind) in historyStoryList" :key="ind" @click="navigateToDetail(story)">
         <ul class="zl-history__item--info">
           <li class="zl-history__item--title">{{ story.title }}</li>
           <!-- <li class="zl-history__item--desc">伊朗要打仗了</li> -->
@@ -33,6 +33,7 @@
  * @Description: 历史上的今天
  * @Author: Cid
  */
+import store from '@/store'
 import wxApi from '@/lib/request'
 import {
   HISTORY_TODAY
@@ -54,10 +55,15 @@ export default {
         type: 1
       })
 
-      console.log(990, data)
       if (data.code === 1) {
         this.historyStoryList = data.data
       }
+    },
+    navigateToDetail (data) {
+      store.commit('setDetailData', data)
+      wx.navigateTo({
+        url: 'detail/main'
+      })
     }
   }
 }
@@ -85,7 +91,7 @@ export default {
       img {
         width: 100%;
         height: 100%;
-      border-radius: r(4px);
+        border-radius: r(4px);
       }
     }
     @include m(info) {

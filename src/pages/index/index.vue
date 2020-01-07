@@ -89,7 +89,7 @@ export default {
   data () {
     return {
       // 当前页
-      currentPage: 2,
+      currentPage: 0,
       tabs: ['快讯', '行情'],
       circular: true,
       refreshLoading: true,

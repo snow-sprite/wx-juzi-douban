@@ -16,7 +16,8 @@ export default new Vuex.Store({
       nickName: '',
       avatarUrl: ''
     },
-    userLocation: {}
+    userLocation: {},
+    detailData: null
   },
   getters: {
     isShowRefresh: state => state.isShowRefresh,
@@ -27,7 +28,8 @@ export default new Vuex.Store({
     globalAutoNightEndTime: state => state.globalAutoNightEndTime,
     isNightMode: state => state.isNightMode,
     userInfo: state => state.userInfo,
-    userLocation: state => state.userLocation
+    userLocation: state => state.userLocation,
+    detailData: state => state.detailData
   },
   mutations: {
     toggleRefresh (state) { // 设置首页是否有刷新
@@ -155,6 +157,9 @@ export default new Vuex.Store({
           selectedColor: '#ffd700'
         })
       }
+    },
+    setDetailData (state, data) {
+      state.detailData = data
     }
   },
   actions: {
