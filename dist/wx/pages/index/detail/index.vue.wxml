@@ -6,7 +6,10 @@
     </view>
     <view class="_section data-v-00fec5f2 zl-detail__publish"></view>
     <view class="_div data-v-00fec5f2 zl-detail__thumb">
-      <image src="{{detailData.picUrl ? detailData.picUrl : '../../../static/img/history/fail.png'}}" onerror="{{defaultThumb}}" class="_img data-v-00fec5f2"></image>
+      <transition name="fade" class="_transition data-v-00fec5f2">
+        <image src="{{detailData.picUrl}}" onerror="{{defaultThumb}}" wx:if="{{detailData.picUrl}}" class="_img data-v-00fec5f2"></image>
+        <image src="/static/img/history/fail.png" wx:else class="_img data-v-00fec5f2"></image>
+      </transition>
     </view>
     <rich-text class="_article data-v-00fec5f2 zl-detail__article" nodes="{{detailData.details}}"></rich-text>
   </view>

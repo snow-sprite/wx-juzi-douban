@@ -31,3 +31,11 @@
   line-height: 53.333rpx;
   color: #29293b;
 }
+.fade-enter-active.data-v-00fec5f2,
+.fade-leave-active.data-v-00fec5f2 {
+  transition: opacity .5s;
+}
+.fade-enter.data-v-00fec5f2,
+.fade-leave-to.data-v-00fec5f2 {
+  opacity: 0;
+}

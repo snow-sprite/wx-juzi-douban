@@ -8,7 +8,10 @@
     </h3>
     <section class="zl-detail__publish"></section>
     <div class="zl-detail__thumb">
-      <img :src="detailData.picUrl ? detailData.picUrl : '../../../static/img/history/fail.png'" :onerror="defaultThumb">
+      <transition name="fade">
+        <img :src="detailData.picUrl" :onerror="defaultThumb" v-if="detailData.picUrl">
+        <img src="../../../../static/img/history/fail.png" v-else>
+      </transition>
     </div>
     <article class="zl-detail__article" v-html="detailData.details"></article>
   </div>
@@ -23,12 +26,14 @@ export default {
   },
   data () {
     return {
-      defaultThumb: `this.src=../../../static/img/history/fail.png`
+      defaultThumb: `this.src=../../../../static/img/history/fail.png`
     }
   },
-  mounted () {
-    // eslint-disable-next-line no-irregular-whitespace
-    this.detailData.details = this.detailData.details.replace(/　　/g, '<br/>')
+  created () {
+    if (this.detailData && this.detailData.details) {
+      // eslint-disable-next-line no-irregular-whitespace
+      this.detailData.details = this.detailData.details.replace(/　　/g, '<br/>')
+    }
   }
 }
 </script>
@@ -66,5 +71,11 @@ export default {
     line-height: r(20px);
     color: #29293b;
   }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

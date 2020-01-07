@@ -23,6 +23,9 @@ global.webpackJsonpMpvue([3],{
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -34,12 +37,14 @@ global.webpackJsonpMpvue([3],{
   },
   data: function data() {
     return {
-      defaultThumb: 'this.src=../../../static/img/history/fail.png'
+      defaultThumb: 'this.src=../../../../static/img/history/fail.png'
     };
   },
-  mounted: function mounted() {
-    // eslint-disable-next-line no-irregular-whitespace
-    this.detailData.details = this.detailData.details.replace(/　　/g, '<br/>');
+  created: function created() {
+    if (this.detailData && this.detailData.details) {
+      // eslint-disable-next-line no-irregular-whitespace
+      this.detailData.details = this.detailData.details.replace(/　　/g, '<br/>');
+    }
   }
 });
 
@@ -60,12 +65,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "zl-detail__publish"
   }), _vm._v(" "), _c('div', {
     staticClass: "zl-detail__thumb"
-  }, [_c('img', {
+  }, [_c('transition', {
     attrs: {
-      "src": _vm.detailData.picUrl ? _vm.detailData.picUrl : '../../../static/img/history/fail.png',
+      "name": "fade",
+      "mpcomid": '0'
+    }
+  }, [(_vm.detailData.picUrl) ? _c('img', {
+    attrs: {
+      "src": _vm.detailData.picUrl,
       "onerror": _vm.defaultThumb
     }
-  })]), _vm._v(" "), _c('article', {
+  }) : _c('img', {
+    attrs: {
+      "src": "../../../../static/img/history/fail.png"
+    }
+  })])], 1), _vm._v(" "), _c('article', {
     staticClass: "zl-detail__article",
     domProps: {
       "innerHTML": _vm._s(_vm.detailData.details)
