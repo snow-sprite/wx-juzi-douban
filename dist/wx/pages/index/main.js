@@ -495,7 +495,7 @@ var _this = this;
                 _context.prev = 0;
                 that = _this3;
 
-                _this3.refreshText = '正在刷新快讯列表';
+                _this3.refreshText = '正在刷新当前页面..';
                 _context.next = 5;
                 return __WEBPACK_IMPORTED_MODULE_7__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_8__api_apiList__["d" /* LIVES_LIST */], {
                   reading: false,
@@ -508,7 +508,7 @@ var _this = this;
                 data = _ref.data;
 
                 if (data) {
-                  _this3.refreshText = '快讯刷新完成';
+                  _this3.refreshText = '刷新完成: )';
                 }
                 // this.livesList.push(data.data.list)
                 data.list.forEach(function (list) {
@@ -528,7 +528,7 @@ var _this = this;
 
                 _this3.livesList = [];
                 _this3.refreshLoading = false;
-                _this3.refreshText = '网络错误';
+                _this3.refreshText = '网络错误: (';
                 _this3.isBtnCommit = false;
 
               case 19:
@@ -539,27 +539,20 @@ var _this = this;
         }, _callee, _this3, [[0, 13]]);
       }))();
     },
-
-    // 分享当前页
-    onShareAppMessage: function onShareAppMessage() {
-      return {
-        title: '巴拉巴拉1',
-        imageUrl: '../../../static/img/avatar.png',
-        success: function success(res) {},
-        fail: function fail() {}
-      };
-    },
     changePage: function changePage(e) {
       this.currentPage = e.target.current;
     },
 
     // click refresh button
-    refreshLiveList: function refreshLiveList() {
+    refreshPage: function refreshPage() {
       // 刷新按钮
       this.livesList = [];
       this.isBtnCommit = true;
       this.refreshLoading = true;
       this.getLives();
+
+      this.weatherInfo = {};
+      this.getLocation();
     },
     setTheme: function setTheme(ind) {
       /*
@@ -590,7 +583,9 @@ var _this = this;
                 _ref2 = _context2.sent;
                 data = _ref2.data;
 
-                _this4.weatherInfo = data.data;
+                if (data) {
+                  _this4.weatherInfo = data.data;
+                }
 
               case 6:
               case 'end':
@@ -601,6 +596,14 @@ var _this = this;
       }))();
     }
   }
+  // 分享当前页
+  // onShareAppMessage () {
+  //   return {
+  //     title: '分享给你一个好玩的小程序😄',
+  //     success (res) {},
+  //     fail () {}
+  //   }
+  // }
 });
 
 /***/ }),
@@ -2175,8 +2178,9 @@ if (false) {(function () {
     },
     navigateToDetail: function navigateToDetail(data) {
       __WEBPACK_IMPORTED_MODULE_2__store__["a" /* default */].commit('setDetailData', data);
+      // url相对pages页面来设置
       wx.navigateTo({
-        url: 'detail/main'
+        url: '../detail/main'
       });
     }
   }
@@ -2367,7 +2371,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "eventid": '5'
     },
     on: {
-      "click": _vm.refreshLiveList
+      "click": _vm.refreshPage
     }
   }, [_c('img', {
     attrs: {

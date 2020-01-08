@@ -61,8 +61,9 @@ export default {
     },
     navigateToDetail (data) {
       store.commit('setDetailData', data)
+      // url相对pages页面来设置
       wx.navigateTo({
-        url: 'detail/main'
+        url: '../detail/main'
       })
     }
   }

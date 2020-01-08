@@ -1,0 +1,12 @@
+<template name="66e33325">
+  <view class="_div data-v-00ebcec6 weatherLoading-box">
+    <view class="_div data-v-00ebcec6 weatherLoading-left">
+      <view class="_p data-v-00ebcec6"></view>
+    </view>
+    <view class="_div data-v-00ebcec6 weatherLoading-right">
+      <view class="_div data-v-00ebcec6 weatherLoading-address"></view>
+      <view class="_div data-v-00ebcec6 weatherLoading-temp-box"><label class="_span data-v-00ebcec6 weatherLoading-temp"></label></view>
+      <view class="_div data-v-00ebcec6 weatherLoading-detail-box"></view>
+    </view>
+  </view>
+</template>

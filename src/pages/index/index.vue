@@ -53,7 +53,7 @@
       </swiper-item>
     </swiper>
     <!-- 首页刷新按钮 -->
-    <div class="zl-refresh" v-show="isShowRefresh && currentPage === 0" @click="refreshLiveList">
+    <div class="zl-refresh" v-show="isShowRefresh && currentPage === 0" @click="refreshPage">
       <img src="../../../static/img/fresh.svg" alt="">
     </div>
   </div>
@@ -164,14 +164,14 @@ export default {
     async getLives () {
       try {
         let that = this
-        this.refreshText = '正在刷新快讯列表'
+        this.refreshText = '正在刷新当前页面..'
         let { data } = await wxApi.get(LIVES_LIST, {
           reading: false,
           limit: 66,
           flag: 'down'
         })
         if (data) {
-          this.refreshText = '快讯刷新完成'
+          this.refreshText = '刷新完成: )'
         }
         // this.livesList.push(data.data.list)
         data.list.forEach(list => {
@@ -185,29 +185,23 @@ export default {
       } catch (e) {
         this.livesList = []
         this.refreshLoading = false
-        this.refreshText = '网络错误'
+        this.refreshText = '网络错误: ('
         this.isBtnCommit = false
-      }
-    },
-    // 分享当前页
-    onShareAppMessage () {
-      return {
-        title: '巴拉巴拉1',
-        imageUrl: '../../../static/img/avatar.png',
-        success (res) {},
-        fail () {}
       }
     },
     changePage (e) {
       this.currentPage = e.target.current
     },
     // click refresh button
-    refreshLiveList () {
+    refreshPage () {
       // 刷新按钮
       this.livesList = []
       this.isBtnCommit = true
       this.refreshLoading = true
       this.getLives()
+
+      this.weatherInfo = {}
+      this.getLocation()
     },
     setTheme (ind) {
       /*
@@ -223,9 +217,19 @@ export default {
     async postWeather (info) {
       let city = info.city
       let { data } = await wxApi.get(`${POST_WEATHER}/${city}`)
-      this.weatherInfo = data.data
+      if (data) {
+        this.weatherInfo = data.data
+      }
     }
   }
+  // 分享当前页
+  // onShareAppMessage () {
+  //   return {
+  //     title: '分享给你一个好玩的小程序😄',
+  //     success (res) {},
+  //     fail () {}
+  //   }
+  // }
 }
 </script>
 

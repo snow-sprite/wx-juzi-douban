@@ -173,14 +173,6 @@ export default {
     getUserInfo (code) {
       store.dispatch('getUserInfo')
     },
-    onShareAppMessage () { // 我的页的转发
-      return {
-        title: '我的2',
-        imageUrl: '../../../static/img/avatar.png',
-        success (res) {},
-        fail () {}
-      }
-    },
     toggleRefresh (e) { // 切换首页刷新按钮
       store.commit('toggleRefresh')
       if (this.isShowRefresh) { // 本地存储
@@ -319,6 +311,14 @@ export default {
       this.timer2 = clearInterval(this.timer2)
     }
   },
+  // onShareAppMessage () { // 我的页的转发
+  //   return {
+  //     title: '分享给你一个好玩的小程序😄',
+  //     // imageUrl: '../../../static/img/avatar.png',
+  //     success (res) {},
+  //     fail () {}
+  //   }
+  // },
   beforeDestroy () {
     this.timer = clearTimeout(this.timer)
     this.timer2 = clearInterval(this.timer2)

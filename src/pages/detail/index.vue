@@ -6,14 +6,15 @@
       </span> |
       {{ detailData.title }}
     </h3>
+    <div class="zl-detail__share"><button class="zl-detail__share--button" open-type="share"></button></div>
     <section class="zl-detail__publish"></section>
     <div class="zl-detail__thumb">
       <transition name="fade">
         <img :src="detailData.picUrl" :onerror="defaultThumb" v-if="detailData.picUrl">
-        <img src="../../../../static/img/history/fail.png" v-else>
+        <img src="../../../static/img/history/fail.png" v-else>
       </transition>
     </div>
-    <article class="zl-detail__article" v-html="detailData.details"></article>
+    <article class="zl-detail__article" v-html="myDetail"></article>
   </div>
 </template>
 
@@ -26,20 +27,30 @@ export default {
   },
   data () {
     return {
-      defaultThumb: `this.src=../../../../static/img/history/fail.png`
+      defaultThumb: `this.src=../../../static/img/history/fail.png`,
+      myDetail: ''
     }
   },
-  created () {
+  mounted () {
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
-      this.detailData.details = this.detailData.details.replace(/　　/g, '<br/>')
+      this.myDetail = this.detailData.details.replace(/　　/g, '<br/>')
+    }
+  },
+  // 分享当前页
+  onShareAppMessage () {
+    return {
+      title: '「历史上的今天」',
+      path: './main',
+      success (res) {},
+      fail () {}
     }
   }
 }
 </script>
 
 <style lang=scss scoped>
-@import '../../../assets/mixins';
+@import '../../assets/mixins';
 
 @include b(detail) {
   padding: r(12px);
@@ -57,7 +68,25 @@ export default {
     background: #ddd;
     margin-bottom: r(10px);
   }
+  @include e(share) {
+    height: r(16px);
+    margin-bottom: r(4px);
+    box-sizing: border-box;
+    padding-right: r(5px);
+    @include m(button) {
+      width: r(16px);
+      height: r(16px);
+      background: url(../../../static/img/share.svg) no-repeat center;
+      background-size: r(16px) r(16px);
+      float: right;
+      &::after {
+        border: 0;
+        outline: 0;
+      }
+    }
+  }
   @include e(thumb) {
+    clear: both;
     width: 100%;
     height: r(140px);
     margin-bottom: r(10px);

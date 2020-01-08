@@ -268,15 +268,6 @@ if (false) {(function () {
     getUserInfo: function getUserInfo(code) {
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].dispatch('getUserInfo');
     },
-    onShareAppMessage: function onShareAppMessage() {
-      // 我的页的转发
-      return {
-        title: '我的2',
-        imageUrl: '../../../static/img/avatar.png',
-        success: function success(res) {},
-        fail: function fail() {}
-      };
-    },
     toggleRefresh: function toggleRefresh(e) {
       // 切换首页刷新按钮
       __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('toggleRefresh');
@@ -426,6 +417,14 @@ if (false) {(function () {
       this.timer2 = clearInterval(this.timer2);
     }
   },
+  // onShareAppMessage () { // 我的页的转发
+  //   return {
+  //     title: '分享给你一个好玩的小程序😄',
+  //     // imageUrl: '../../../static/img/avatar.png',
+  //     success (res) {},
+  //     fail () {}
+  //   }
+  // },
   beforeDestroy: function beforeDestroy() {
     this.timer = clearTimeout(this.timer);
     this.timer2 = clearInterval(this.timer2);
