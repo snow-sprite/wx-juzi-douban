@@ -12,13 +12,13 @@
     <div class="weather-right">
       <div class="weather-address">
         <img src="../../static/img/weather/address.svg">
-        <span>{{ weatherInfo.address }}</span>
+        <span :class="{'night-text' : isNightMode}">{{ weatherInfo.address }}</span>
       </div>
-      <div class="weather-temp-box">
+      <div class="weather-temp-box" :class="{'night-text' : isNightMode}">
         <span class="weather-temp">{{ weatherInfo.temp }}</span>
         <span class="weather-content">{{ weatherInfo.weather }}</span>
       </div>
-      <div class="weather-detail-box">
+      <div class="weather-detail-box" :class="{'night-text' : isNightMode}">
         <span style="margin-right: 10px;">{{weatherInfo.windDirection}}风{{ weatherInfo.windPower }}</span>
         <span>湿度{{ weatherInfo.humidity }}</span>
       </div>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import store from '@/store'
 export default {
   name: 'Weather',
   props: {
@@ -36,6 +37,9 @@ export default {
       default: {},
       required: true
     }
+  },
+  computed: {
+    isNightMode: _ => store.getters.isNightMode // 夜间模式
   },
   data () {
     return {
@@ -111,5 +115,9 @@ export default {
     display: flex;
     color: #666;
   }
+}
+/* dark theme */
+.night-text {
+  color: #666 !important;
 }
 </style>

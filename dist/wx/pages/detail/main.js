@@ -2,19 +2,13 @@ require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonpMpvue([3],{
 
-/***/ 100:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
 /***/ 101:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(4);
 
 //
 //
@@ -36,9 +30,18 @@ global.webpackJsonpMpvue([3],{
 //
 //
 //
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'HistoryDetail',
+  computed: {
+    fontsize: function fontsize(_) {
+      return Number(__WEBPACK_IMPORTED_MODULE_1__store__["a" /* default */].getters.textIndex);
+    },
+    isNightMode: function isNightMode(_) {
+      return __WEBPACK_IMPORTED_MODULE_1__store__["a" /* default */].getters.isNightMode;
+    } // 夜间模式
+  },
   data: function data() {
     return {
       detailData: {},
@@ -46,7 +49,22 @@ global.webpackJsonpMpvue([3],{
       myDetail: ''
     };
   },
-  mounted: function mounted(opt) {
+  created: function created() {
+    if (this.isNightMode) {
+      __WEBPACK_IMPORTED_MODULE_1__store__["a" /* default */].commit('toggleNightMode', true);
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#232323'
+      });
+    } else {
+      __WEBPACK_IMPORTED_MODULE_1__store__["a" /* default */].commit('toggleNightMode', false);
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '#ffffff'
+      });
+    }
+  },
+  mounted: function mounted() {
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.myDetail = this.detailData.details.replace(/　　/g, '<br/>');
@@ -54,7 +72,6 @@ global.webpackJsonpMpvue([3],{
   },
   onLoad: function onLoad(option) {
     this.detailData = JSON.parse(option.story);
-    console.log(123, this.detailData);
   },
 
   // 分享当前页
@@ -76,9 +93,15 @@ global.webpackJsonpMpvue([3],{
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "zl-detail"
+    staticClass: "zl-detail",
+    class: {
+      'night-theme': _vm.isNightMode
+    }
   }, [_c('h3', {
-    staticClass: "zl-detail__title"
+    staticClass: "zl-detail__title",
+    class: {
+      'night-text': _vm.isNightMode
+    }
   }, [_c('span', {
     staticClass: "zl-detail__title--tag"
   }, [_vm._v("\n      " + _vm._s(_vm.detailData.year) + "." + _vm._s(_vm.detailData.month < 10 ? '0' + _vm.detailData.month : _vm.detailData.month) + "." + _vm._s(_vm.detailData.day < 10 ? '0' + _vm.detailData.day : _vm.story.day) + "\n    ")]), _vm._v(" |\n    " + _vm._s(_vm.detailData.title) + "\n  ")]), _vm._v(" "), _c('div', {
@@ -89,7 +112,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "open-type": "share"
     }
   })], 1), _vm._v(" "), _c('section', {
-    staticClass: "zl-detail__publish"
+    staticClass: "zl-detail__publish",
+    class: {
+      'night-bg': _vm.isNightMode
+    }
   }), _vm._v(" "), _c('div', {
     staticClass: "zl-detail__thumb"
   }, [_c('transition', {
@@ -108,6 +134,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })])], 1), _vm._v(" "), _c('article', {
     staticClass: "zl-detail__article",
+    class: {
+      'night-text': _vm.isNightMode
+    },
     domProps: {
       "innerHTML": _vm._s(_vm.myDetail)
     }
@@ -126,14 +155,14 @@ if (false) {
 
 /***/ }),
 
-/***/ 98:
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(98);
 
 
 
@@ -142,7 +171,7 @@ app.$mount();
 
 /***/ }),
 
-/***/ 99:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -151,7 +180,7 @@ app.$mount();
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(100)
+  __webpack_require__(99)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -194,7 +223,14 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = (Component.exports);
 
 
+/***/ }),
+
+/***/ 99:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
 /***/ })
 
-},[98]);
+},[97]);
 //# sourceMappingURL=main.js.map

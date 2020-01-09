@@ -57,3 +57,12 @@
 .fade-leave-to.data-v-318d4bea {
   opacity: 0;
 }
+.night-theme.data-v-318d4bea {
+  background: #232323 !important;
+}
+.night-bg.data-v-318d4bea {
+  background: #2c2c2c !important;
+}
+.night-text.data-v-318d4bea {
+  color: #666 !important;
+}

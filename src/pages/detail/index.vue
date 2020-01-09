@@ -1,26 +1,31 @@
 <template>
-  <div class="zl-detail">
-    <h3 class="zl-detail__title">
+  <div class="zl-detail" :class="{'night-theme': isNightMode}">
+    <h3 class="zl-detail__title" :class="{'night-text': isNightMode}">
       <span class="zl-detail__title--tag">
         {{ detailData.year }}.{{  detailData.month < 10 ? '0'+detailData.month : detailData.month }}.{{  detailData.day < 10 ? '0'+detailData.day : story.day  }}
       </span> |
       {{ detailData.title }}
     </h3>
     <div class="zl-detail__share"><button class="zl-detail__share--button" open-type="share"></button></div>
-    <section class="zl-detail__publish"></section>
+    <section class="zl-detail__publish" :class="{'night-bg': isNightMode}"></section>
     <div class="zl-detail__thumb">
       <transition name="fade">
         <img :src="detailData.picUrl" :onerror="defaultThumb" v-if="detailData.picUrl">
         <img src="../../../static/img/history/fail.png" v-else>
       </transition>
     </div>
-    <article class="zl-detail__article" v-html="myDetail"></article>
+    <article class="zl-detail__article" :class="{'night-text': isNightMode}" v-html="myDetail"></article>
   </div>
 </template>
 
 <script>
+import store from '@/store'
 export default {
   name: 'HistoryDetail',
+  computed: {
+    fontsize: _ => Number(store.getters.textIndex),
+    isNightMode: _ => store.getters.isNightMode // 夜间模式
+  },
   data () {
     return {
       detailData: {},
@@ -28,7 +33,22 @@ export default {
       myDetail: ''
     }
   },
-  mounted (opt) {
+  created () {
+    if (this.isNightMode) {
+      store.commit('toggleNightMode', true)
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#232323'
+      })
+    } else {
+      store.commit('toggleNightMode', false)
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '#ffffff'
+      })
+    }
+  },
+  mounted () {
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.myDetail = this.detailData.details.replace(/　　/g, '<br/>')
@@ -36,7 +56,6 @@ export default {
   },
   onLoad (option) {
     this.detailData = JSON.parse(option.story)
-    console.log(123, this.detailData)
   },
   // 分享当前页
   onShareAppMessage () {
@@ -107,5 +126,15 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+/* dark theme */
+.night-theme {
+  background: #232323 !important;
+}
+.night-bg {
+  background: #2c2c2c !important;
+}
+.night-text {
+  color: #666 !important;
 }
 </style>

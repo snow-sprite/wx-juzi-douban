@@ -1840,6 +1840,7 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(4);
 //
 //
 //
@@ -1870,6 +1871,7 @@ if (false) {(function () {
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'Weather',
   props: {
@@ -1878,6 +1880,11 @@ if (false) {(function () {
       default: {},
       required: true
     }
+  },
+  computed: {
+    isNightMode: function isNightMode(_) {
+      return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.isNightMode;
+    } // 夜间模式
   },
   data: function data() {
     return {
@@ -1997,14 +2004,24 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "src": "../../static/img/weather/address.svg"
     }
-  }), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.weatherInfo.address))])]), _vm._v(" "), _c('div', {
-    staticClass: "weather-temp-box"
+  }), _vm._v(" "), _c('span', {
+    class: {
+      'night-text': _vm.isNightMode
+    }
+  }, [_vm._v(_vm._s(_vm.weatherInfo.address))])]), _vm._v(" "), _c('div', {
+    staticClass: "weather-temp-box",
+    class: {
+      'night-text': _vm.isNightMode
+    }
   }, [_c('span', {
     staticClass: "weather-temp"
   }, [_vm._v(_vm._s(_vm.weatherInfo.temp))]), _vm._v(" "), _c('span', {
     staticClass: "weather-content"
   }, [_vm._v(_vm._s(_vm.weatherInfo.weather))])]), _vm._v(" "), _c('div', {
-    staticClass: "weather-detail-box"
+    staticClass: "weather-detail-box",
+    class: {
+      'night-text': _vm.isNightMode
+    }
   }, [_c('span', {
     staticStyle: {
       "margin-right": "10px"
@@ -2134,6 +2151,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 /**
  * @Description: 历史上的今天
@@ -2144,6 +2162,14 @@ if (false) {(function () {
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'HistorysToday',
+  computed: {
+    fontsize: function fontsize(_) {
+      return Number(__WEBPACK_IMPORTED_MODULE_3__store__["a" /* default */].getters.textIndex);
+    },
+    isNightMode: function isNightMode(_) {
+      return __WEBPACK_IMPORTED_MODULE_3__store__["a" /* default */].getters.isNightMode;
+    } // 夜间模式
+  },
   data: function data() {
     return {
       historyStoryList: [],
@@ -2231,6 +2257,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('li', {
       key: ind,
       staticClass: "zl-history__item",
+      class: {
+        'night-border': _vm.isNightMode
+      },
       attrs: {
         "eventid": '0-' + ind
       },
@@ -2242,19 +2271,44 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('ul', {
       staticClass: "zl-history__item--info"
     }, [_c('li', {
-      staticClass: "zl-history__item--title"
+      staticClass: "zl-history__item--title",
+      class: {
+        'night-text': _vm.isNightMode
+      }
     }, [_vm._v(_vm._s(story.title))]), _vm._v(" "), _c('li', {
       staticClass: "zl-history__item--publish"
     }, [_c('span', {
-      staticClass: "zl-history__item--time"
+      staticClass: "zl-history__item--time",
+      class: {
+        'night-text': _vm.isNightMode
+      }
     }, [_vm._v(_vm._s(story.year) + "." + _vm._s(story.month < 10 ? '0' + story.month : story.month) + "." + _vm._s(story.day < 10 ? '0' + story.day : story.day))]), _vm._v(" "), _c('img', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (!_vm.isNightMode),
+        expression: "!isNightMode"
+      }],
       staticClass: "zl-history__tag",
       attrs: {
-        "src": "../../static/img/history/tag.svg",
-        "alt": ""
+        "src": "../../static/img/history/tag.svg"
+      }
+    }), _vm._v(" "), _c('img', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (_vm.isNightMode),
+        expression: "isNightMode"
+      }],
+      staticClass: "zl-history__tag",
+      attrs: {
+        "src": "../../static/img/history/tag-night.svg"
       }
     }), _vm._v(" "), _c('span', {
-      staticClass: "zl-history__item--tag"
+      staticClass: "zl-history__item--tag",
+      class: {
+        'night-text': _vm.isNightMode
+      }
     }, [_vm._v("历史上的今天")])])], 1), _vm._v(" "), _c('div', {
       staticClass: "zl-history__item--thumb"
     }, [_c('img', {
@@ -2265,9 +2319,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     })])], 1)
   })) : _c('div', {
-    staticClass: "zl-history__error"
+    staticClass: "zl-history__error",
+    class: {
+      'night-text': _vm.isNightMode
+    }
   }, [_vm._v("\n    " + _vm._s(_vm.errText) + "\n    "), _c('div', [_c('button', {
     staticClass: "zl-history__error--try",
+    class: {
+      'night-text': _vm.isNightMode
+    },
     attrs: {
       "eventid": '1'
     },

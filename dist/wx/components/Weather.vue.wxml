@@ -11,10 +11,10 @@
     </view>
     <view class="_div data-v-1b2651c6 weather-right">
       <view class="_div data-v-1b2651c6 weather-address">
-        <image src="/static/img/weather/address.svg" class="_img data-v-1b2651c6"></image> <label class="_span data-v-1b2651c6">{{ weatherInfo.address }}</label>
+        <image src="/static/img/weather/address.svg" class="_img data-v-1b2651c6"></image> <label class="_span data-v-1b2651c6 {{[isNightMode ? 'night-text' : '']}}">{{ weatherInfo.address }}</label>
       </view>
-      <view class="_div data-v-1b2651c6 weather-temp-box"><label class="_span data-v-1b2651c6 weather-temp">{{ weatherInfo.temp }}</label> <label class="_span data-v-1b2651c6 weather-content">{{ weatherInfo.weather }}</label></view>
-      <view class="_div data-v-1b2651c6 weather-detail-box"><label style="margin-right: 10px;" class="_span data-v-1b2651c6">{{weatherInfo.windDirection}}风{{ weatherInfo.windPower }}</label> <label class="_span data-v-1b2651c6">湿度{{ weatherInfo.humidity }}</label></view>
+      <view class="_div data-v-1b2651c6 weather-temp-box {{[isNightMode ? 'night-text' : '']}}"><label class="_span data-v-1b2651c6 weather-temp">{{ weatherInfo.temp }}</label> <label class="_span data-v-1b2651c6 weather-content">{{ weatherInfo.weather }}</label></view>
+      <view class="_div data-v-1b2651c6 weather-detail-box {{[isNightMode ? 'night-text' : '']}}"><label style="margin-right: 10px;" class="_span data-v-1b2651c6">{{weatherInfo.windDirection}}风{{ weatherInfo.windPower }}</label> <label class="_span data-v-1b2651c6">湿度{{ weatherInfo.humidity }}</label></view>
     </view>
   </view>
 </template>
