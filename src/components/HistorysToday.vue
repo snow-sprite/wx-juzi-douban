@@ -6,8 +6,8 @@
     lower-threshold="50"
     enable-back-to-top="true"
   >
-    <ul class="zl-history">
-      <li class="zl-history__item" v-for="(story, ind) in historyStoryList" :key="ind" @click="navigateToDetail(story)">
+    <ul class="zl-history" v-if="!isShowErrorBox">
+      <li class="zl-history__item" v-for="(story, ind) in historyStoryList" :key="ind" @click="navigateToDetail(story, ind)">
         <ul class="zl-history__item--info">
           <li class="zl-history__item--title">{{ story.title }}</li>
           <!-- <li class="zl-history__item--desc">伊朗要打仗了</li> -->
@@ -25,6 +25,12 @@
         </div>
       </li>
     </ul>
+    <div class="zl-history__error" v-else>
+      {{ errText }}
+      <div>
+        <button class="zl-history__error--try" @click="getHistoryStoryList">刷新重试</button>
+      </div>
+    </div>
   </scroll-view>
 </template>
 
@@ -43,7 +49,9 @@ export default {
   data () {
     return {
       historyStoryList: [],
-      defaultThumb: `this.src=../../static/img/history/fail.png`
+      defaultThumb: `this.src=../../static/img/history/fail.png`,
+      errText: '',
+      isShowErrorBox: false
     }
   },
   created () {
@@ -51,19 +59,26 @@ export default {
   },
   methods: {
     async getHistoryStoryList () {
-      let { data } = await wxApi.get(HISTORY_TODAY, {
-        type: 1
-      })
+      this.errText = ' '
+      try {
+        let { data } = await wxApi.get(HISTORY_TODAY, {
+          type: 1
+        })
 
-      if (data.code === 1) {
-        this.historyStoryList = data.data
+        if (data.code === 1) {
+          this.historyStoryList = data.data
+          this.isShowErrorBox = false
+        }
+      } catch (error) {
+        this.isShowErrorBox = true
+        this.errText = error.errMsg
       }
     },
-    navigateToDetail (data) {
+    navigateToDetail (data, ind) {
       store.commit('setDetailData', data)
       // url相对pages页面来设置
       wx.navigateTo({
-        url: '../detail/main'
+        url: `../detail/main?story=${JSON.stringify(data)}`
       })
     }
   }
@@ -126,6 +141,23 @@ export default {
     height: r(12px);
     vertical-align: middle;
     margin-left: r(6px);
+  }
+  @include e(error) {
+    width: 100%;
+    margin-top: r(20px);
+    text-align: center;
+    color: #999;
+    @include m(try) {
+      margin-top: r(100px);
+      width: r(100px);
+      height: r(40px);
+      line-height: r(40px);
+      color: #666;
+      font-size: r(14px);
+      &::after {
+        border: 0;
+      }
+    }
   }
 }
 .zl-history__item:last-of-type {

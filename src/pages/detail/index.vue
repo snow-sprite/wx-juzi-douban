@@ -19,29 +19,30 @@
 </template>
 
 <script>
-import store from '@/store'
 export default {
   name: 'HistoryDetail',
-  computed: {
-    detailData: _ => store.getters.detailData
-  },
   data () {
     return {
+      detailData: {},
       defaultThumb: `this.src=../../../static/img/history/fail.png`,
       myDetail: ''
     }
   },
-  mounted () {
+  mounted (opt) {
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.myDetail = this.detailData.details.replace(/　　/g, '<br/>')
     }
   },
+  onLoad (option) {
+    this.detailData = JSON.parse(option.story)
+    console.log(123, this.detailData)
+  },
   // 分享当前页
   onShareAppMessage () {
     return {
       title: '「历史上的今天」',
-      path: './main',
+      path: `/pages/detail/main?story=${JSON.stringify(this.detailData)}`,
       success (res) {},
       fail () {}
     }

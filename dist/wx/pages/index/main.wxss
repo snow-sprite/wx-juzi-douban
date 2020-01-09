@@ -527,6 +527,23 @@
   vertical-align: middle;
   margin-left: 16rpx;
 }
+.zl-history__error.data-v-9c3db918 {
+  width: 100%;
+  margin-top: 53.333rpx;
+  text-align: center;
+  color: #999;
+}
+.zl-history__error--try.data-v-9c3db918 {
+  margin-top: 266.667rpx;
+  width: 266.667rpx;
+  height: 106.667rpx;
+  line-height: 106.667rpx;
+  color: #666;
+  font-size: 37.333rpx;
+}
+.zl-history__error--try.data-v-9c3db918::after {
+  border: 0;
+}
 .zl-history__item.data-v-9c3db918:last-of-type {
   border-bottom: 0;
 }
