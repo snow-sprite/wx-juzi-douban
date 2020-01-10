@@ -73,6 +73,7 @@ global.webpackJsonpMpvue([3],{
   },
   onLoad: function onLoad(option) {
     this.detailData = JSON.parse(option.story);
+    console.log(12345, this.detailData);
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.myDetail = this.detailData.details.replace(/　　/g, '<br/>');
@@ -109,7 +110,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('span', {
     staticClass: "zl-detail__title--tag"
-  }, [_vm._v("\n      " + _vm._s(_vm.detailData.year) + "." + _vm._s(_vm.detailData.month < 10 ? '0' + _vm.detailData.month : _vm.detailData.month) + "." + _vm._s(_vm.detailData.day < 10 ? '0' + _vm.detailData.day : _vm.story.day) + "\n    ")]), _vm._v(" |\n    " + _vm._s(_vm.detailData.title) + "\n  ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n      " + _vm._s(_vm.detailData.year) + "." + _vm._s(_vm.detailData.month < 10 ? '0' + _vm.detailData.month : _vm.detailData.month) + "." + _vm._s(_vm.detailData.day < 10 ? '0' + _vm.detailData.day : _vm.detailData.day) + "\n    ")]), _vm._v(" |\n    " + _vm._s(_vm.detailData.title) + "\n  ")]), _vm._v(" "), _c('div', {
     staticClass: "zl-detail__share"
   }, [_c('button', {
     staticClass: "zl-detail__share--button",

@@ -1,7 +1,7 @@
 <template name="c682f72a">
   <view class="_div data-v-318d4bea zl-detail {{[isNightMode ? 'night-theme' : '']}}">
     <view class="_h3 data-v-318d4bea zl-detail__title {{[isNightMode ? 'night-text' : '']}}"><label class="_span data-v-318d4bea zl-detail__title--tag">
-        {{ detailData.year }}.{{ detailData.month < 10 ? '0'+detailData.month : detailData.month }}.{{ detailData.day < 10 ? '0'+detailData.day : story.day  }}
+        {{ detailData.year }}.{{ detailData.month < 10 ? '0'+detailData.month : detailData.month }}.{{ detailData.day < 10 ? '0'+detailData.day : detailData.day  }}
       </label> | {{ detailData.title }}
     </view>
     <view class="_div data-v-318d4bea zl-detail__share"><button class="_button data-v-318d4bea zl-detail__share--button" open-type="share"></button></view>

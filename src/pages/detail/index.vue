@@ -2,7 +2,7 @@
   <div class="zl-detail" :class="{'night-theme': isNightMode}">
     <h3 class="zl-detail__title" :class="{'night-text': isNightMode}">
       <span class="zl-detail__title--tag">
-        {{ detailData.year }}.{{  detailData.month < 10 ? '0'+detailData.month : detailData.month }}.{{  detailData.day < 10 ? '0'+detailData.day : story.day  }}
+        {{ detailData.year }}.{{  detailData.month < 10 ? '0'+detailData.month : detailData.month }}.{{  detailData.day < 10 ? '0'+detailData.day : detailData.day  }}
       </span> |
       {{ detailData.title }}
     </h3>
@@ -50,6 +50,7 @@ export default {
   },
   onLoad (option) {
     this.detailData = JSON.parse(option.story)
+    console.log(12345, this.detailData)
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.myDetail = this.detailData.details.replace(/　　/g, '<br/>')
