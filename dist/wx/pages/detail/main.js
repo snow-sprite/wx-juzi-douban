@@ -2,6 +2,13 @@ require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonpMpvue([3],{
 
+/***/ 100:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 101:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -64,14 +71,12 @@ global.webpackJsonpMpvue([3],{
       });
     }
   },
-  mounted: function mounted() {
+  onLoad: function onLoad(option) {
+    this.detailData = JSON.parse(option.story);
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.myDetail = this.detailData.details.replace(/　　/g, '<br/>');
     }
-  },
-  onLoad: function onLoad(option) {
-    this.detailData = JSON.parse(option.story);
   },
 
   // 分享当前页
@@ -155,14 +160,14 @@ if (false) {
 
 /***/ }),
 
-/***/ 97:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(99);
 
 
 
@@ -171,7 +176,7 @@ app.$mount();
 
 /***/ }),
 
-/***/ 98:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -180,7 +185,7 @@ app.$mount();
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(99)
+  __webpack_require__(100)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -223,14 +228,7 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = (Component.exports);
 
 
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
 /***/ })
 
-},[97]);
+},[98]);
 //# sourceMappingURL=main.js.map

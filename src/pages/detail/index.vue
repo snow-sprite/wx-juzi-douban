@@ -48,14 +48,12 @@ export default {
       })
     }
   },
-  mounted () {
+  onLoad (option) {
+    this.detailData = JSON.parse(option.story)
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.myDetail = this.detailData.details.replace(/　　/g, '<br/>')
     }
-  },
-  onLoad (option) {
-    this.detailData = JSON.parse(option.story)
   },
   // 分享当前页
   onShareAppMessage () {
