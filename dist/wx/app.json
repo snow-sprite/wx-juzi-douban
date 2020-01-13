@@ -18,20 +18,16 @@
   "tabBar": {
     "backgroundColor": "#fff",
     "selectedColor": "#ffd700",
-    "list": [
-      {
-        "pagePath": "pages/index/main",
-        "text": "资讯",
-        "iconPath": "static/img/market_inactive.png",
-        "selectedIconPath": "static/img/market_active.png"
-      },
-      {
-        "pagePath": "pages/me/main",
-        "text": "我",
-        "iconPath": "static/img/me_inactive.png",
-        "selectedIconPath": "static/img/me_active.png"
-      }
-    ]
-  },
-  "sitemapLocation": "sitemap31.json"
+    "list": [{
+      "pagePath": "pages/index/main",
+      "text": "资讯",
+      "iconPath": "static/img/market_inactive.png",
+      "selectedIconPath": "static/img/market_active.png"
+    },{
+      "pagePath": "pages/me/main",
+      "text": "我",
+      "iconPath": "static/img/me_inactive.png",
+      "selectedIconPath": "static/img/me_active.png"
+    }]
+  }
 }

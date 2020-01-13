@@ -73,7 +73,6 @@ global.webpackJsonpMpvue([3],{
   },
   onLoad: function onLoad(option) {
     this.detailData = JSON.parse(option.story);
-    console.log(12345, this.detailData);
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.myDetail = this.detailData.details.replace(/　　/g, '<br/>');
@@ -188,7 +187,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(100)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 
 /* template */

@@ -10,35 +10,25 @@
       'night-line-color': isNightMode  
     }">
       <div
+        v-for="(item, ind) in secondTabs"
+        :key="ind"
         class="tab-list-box"
-        :class="{
-          'tab-active': currentPage === 0
-        }"
-        data-current-tab="0"
-        @click="switchPage(0)">
-        资讯
-      </div>
-      <div
-        class="tab-list-box"
-        :class="currentPage === 1 ? 'tab-active' : ''"
-        data-current-tab="1"
-        @click="switchPage(1)">
-        行情
-      </div>
-      <div
-        class="tab-list-box"
-        :class="currentPage === 2 ? 'tab-active' : ''"
-        data-current-tab="2"
-        @click="switchPage(2)">
-        冷知识
+        :class="{'tab-active': currentPage === ind}"
+        :data-current-tab="ind"
+        @click="switchPage(ind)">
+        {{ item }}
       </div>
     </div>
-    <swiper
+    <Swiper
       :current="currentPage"
       :duration="300"
       @change="changePage"
       class="app"
     >
+      <swiper-item>
+        <!-- 冷知识组件 -->
+        <DoubanMovie />
+      </swiper-item>
       <swiper-item class="main">
         <!-- 快讯组件 -->
         <Live v-if="livesList.length > 0" :livesList="livesList" @handleLive="getLives" />
@@ -51,9 +41,9 @@
         <!-- 冷知识组件 -->
         <HistorysToday />
       </swiper-item>
-    </swiper>
+    </Swiper>
     <!-- 首页刷新按钮 -->
-    <div class="zl-refresh" v-show="isShowRefresh && currentPage === 0" @click="refreshPage">
+    <div class="zl-refresh" v-show="isShowRefresh && currentPage === 1" @click="refreshPage">
       <img src="../../../static/img/fresh.svg" alt="">
     </div>
   </div>
@@ -61,6 +51,7 @@
 </template>
 
 <script>
+import DoubanMovie from '@/components/DoubanMovie'
 import Live from '@/components/Live'
 import Market from '@/components/Market'
 import Weather from '@/components/Weather'
@@ -75,6 +66,7 @@ import {
 export default {
   name: 'Home',
   components: {
+    DoubanMovie,
     Live,
     Market,
     Weather,
@@ -91,6 +83,12 @@ export default {
       // 当前页
       currentPage: 0,
       tabs: ['快讯', '行情'],
+      secondTabs: [
+        '电影',
+        '资讯',
+        '行情',
+        '冷知识'
+      ],
       circular: true,
       refreshLoading: true,
       refreshText: '',

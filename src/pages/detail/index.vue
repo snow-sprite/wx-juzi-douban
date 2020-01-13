@@ -50,7 +50,6 @@ export default {
   },
   onLoad (option) {
     this.detailData = JSON.parse(option.story)
-    console.log(12345, this.detailData)
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.myDetail = this.detailData.details.replace(/　　/g, '<br/>')

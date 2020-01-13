@@ -1,4 +1,5 @@
 <import src="/components/Weather.vue.wxml" />
+<import src="/components/DoubanMovie.vue.wxml" />
 <import src="/components/Live.vue.wxml" />
 <import src="/components/Market.vue.wxml" />
 <import src="/components/HistorysToday.vue.wxml" />
