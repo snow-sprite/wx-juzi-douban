@@ -24,3 +24,8 @@ export const POST_WEATHER = `https://www.mxnzp.com/api/weather/current`
  * 历史上的今天
  */
 export const HISTORY_TODAY = `https://www.mxnzp.com/api/history/today`
+
+/**
+ * 正在上映的电影列表
+ */
+export const IN_THEATERS = `https://douban.uieee.com/v2/movie/in_theaters`

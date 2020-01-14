@@ -1,0 +1,12 @@
+<template name="a31562e8">
+  <view class="_div data-v-a9ffc9a6">
+    <scroll-view class="_scroll-view data-v-a9ffc9a6 zl-movie-box" scroll-y lower-threshold="50" enable-back-to-top="true">
+      <view class="_main data-v-a9ffc9a6 zl-movie">
+        <view class="_p data-v-a9ffc9a6 zl-movie__title">正在上映</view>
+        <view class="_ul data-v-a9ffc9a6 zl-movie__list">
+          <view class="_p data-v-a9ffc9a6 zl-movie__clear"></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

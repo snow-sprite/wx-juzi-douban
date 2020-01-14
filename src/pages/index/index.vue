@@ -27,7 +27,7 @@
     >
       <swiper-item>
         <!-- 冷知识组件 -->
-        <DoubanMovie />
+        <Movies />
       </swiper-item>
       <swiper-item class="main">
         <!-- 快讯组件 -->
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import DoubanMovie from '@/components/DoubanMovie'
+import Movies from '@/pages/index/Movies'
 import Live from '@/components/Live'
 import Market from '@/components/Market'
 import Weather from '@/components/Weather'
@@ -62,11 +62,10 @@ import {
   LIVES_LIST,
   POST_WEATHER
 } from '@/api/apiList'
-
 export default {
   name: 'Home',
   components: {
-    DoubanMovie,
+    Movies,
     Live,
     Market,
     Weather,

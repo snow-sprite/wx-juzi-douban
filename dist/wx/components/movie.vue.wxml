@@ -1,3 +1,8 @@
 <template name="329ac643">
-  <view class="_div data-v-71b93cfc">666666666</view>
+  <view class="_li data-v-71b93cfc zl-movie__item">
+    <image src="https://img9.doubanio.com/view/photo/m_ratio_poster/public/p2578045524.jpg" class="_img data-v-71b93cfc zl-movie__item--thumb"></image> <label class="_span data-v-71b93cfc zl-movie__item--title">假如爱有天意</label>
+    <view class="_p data-v-71b93cfc">
+      <image src="/static/img/live/livedown.svg" class="_img data-v-71b93cfc zl-movie__item--star"></image> <label class="_span data-v-71b93cfc zl-movie__item--score">8.6</label>
+    </view>
+  </view>
 </template>

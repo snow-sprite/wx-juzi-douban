@@ -1,5 +1,5 @@
 <import src="/components/Weather.vue.wxml" />
-<import src="/components/DoubanMovie.vue.wxml" />
+<import src="/pages/index/Movies.vue.wxml" />
 <import src="/components/Live.vue.wxml" />
 <import src="/components/Market.vue.wxml" />
 <import src="/components/HistorysToday.vue.wxml" /><template name="7fcf1164">
@@ -12,7 +12,7 @@
         </view>
       </view>
       <swiper current="{{currentPage}}" duration="{{300}}" bindchange="handleProxy" class="_swiper data-v-86b97822 app" data-eventid="{{'2'}}" data-comkey="{{$k}}">
-        <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'1'], $root}}" is="7e782e04"></template></swiper-item>
+        <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'1'], $root}}" is="23e02417"></template></swiper-item>
         <swiper-item class="_swiper-item data-v-86b97822 main"><template wx:if="{{livesList.length > 0}}" bindhandleLive="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="6c8f25a9"></template></swiper-item>
         <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'5'], $root}}" is="59fd288e"></template></swiper-item>
         <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'7'], $root}}" is="394c3735"></template></swiper-item>
