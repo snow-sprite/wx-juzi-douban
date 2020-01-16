@@ -1,14 +1,3 @@
-<template name="73bee57c">
-  <view class="_div data-v-9d7bbd3a">
-    <view wx:key="item.id" key="{{item.id}}" class="_div data-v-9d7bbd3a moring-news-box" wx:for="{{newsData}}" wx:for-index="index" wx:for-item="item">
-      <view class="_header data-v-9d7bbd3a">
-        <image src="/static/img/morning.png" alt="logo" class="_img data-v-9d7bbd3a logo"></image> <label class="_span data-v-9d7bbd3a {{[  fontsize === 0 ? 'zl-mini-info' : '',  fontsize === 1 ? 'zl-default-info' : '',  fontsize === 2 ? 'zl-large-info' : '',  isNightMode ? 'night-text' : '']}}">区块链早讯</label>
-      </view>
-      <view class="_article data-v-9d7bbd3a">
-        <view class="_section data-v-9d7bbd3a {{[  fontsize === 0 ? 'zl-mini-title' : '',  fontsize === 1 ? 'zl-default-title' : '',  fontsize === 2 ? 'zl-large-title' : '']}}">
-          {{ item.title }}
-        </view>
-      </view>
-    </view>
-  </view>
-</template>
+<template name="73bee57c"><view class="_div data-v-9d7bbd3a"><view wx:key="item.id" key="{{item.id}}" class="_div data-v-9d7bbd3a moring-news-box" wx:for="{{newsData}}" wx:for-index="index" wx:for-item="item"><view class="_header data-v-9d7bbd3a"><image src="/static/img/morning.png" alt="logo" class="_img data-v-9d7bbd3a logo"></image> <label class="_span data-v-9d7bbd3a {{[  fontsize === 0 ? 'zl-mini-info' : '',  fontsize === 1 ? 'zl-default-info' : '',  fontsize === 2 ? 'zl-large-info' : '',  isNightMode ? 'night-text' : '']}}">区块链早讯</label></view> <view class="_article data-v-9d7bbd3a"><view class="_section data-v-9d7bbd3a {{[  fontsize === 0 ? 'zl-mini-title' : '',  fontsize === 1 ? 'zl-default-title' : '',  fontsize === 2 ? 'zl-large-title' : '']}}">
+        {{ item.title }}
+      </view></view></view></view></template>
