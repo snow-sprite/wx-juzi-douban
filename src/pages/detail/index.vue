@@ -68,7 +68,7 @@ export default {
     return {
       title: '「历史上的今天」',
       // path: `/pages/detail/main?story=${JSON.stringify(this.detailData)}`,
-      path: `/pages/detail/main?year=${this.detailData.year}&month=${this.detailData.month}&day=${this.detailData.day}&title=${this.detailData.title}&picurl=${this.detailData.picUrl}&details=${this.detailData.details}`,
+      path: `/pages/detail/main?year=${this.detailData.year}&month=${this.detailData.month}&day=${this.detailData.day}&title=${this.detailData.title}&picUrl=${this.detailData.picUrl}&details=${this.detailData.details}`,
       success (res) {},
       fail () {}
     }

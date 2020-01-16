@@ -1,3 +1,25 @@
-<import src="/components/Weather.vue.wxml" /><import src="/pages/index/Movies.vue.wxml" /><import src="/components/Live.vue.wxml" /><import src="/components/Market.vue.wxml" /><import src="/components/HistorysToday.vue.wxml" /><template name="7fcf1164"><view class="_div data-v-86b97822"><view class="_div data-v-86b97822 zl-app {{isNightMode ? 'night' : ''}}"><view class="_div data-v-86b97822 zl-refresh-tip" ref="refreshTip" hidden="{{!(refreshLoading && isBtnCommit)}}"><label class="_span data-v-86b97822">{{ refreshText }}</label></view> <template wx:if="{{weatherInfo && weatherInfo.cityCode}}" data="{{...$root[$kk+'0'], $root}}" is="f350eb72"></template> <view class="_div data-v-86b97822 swiper-tab {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-line-color' : '']}}"><view wx:key="ind" key="{{ind}}" class="_div data-v-86b97822 tab-list-box {{[currentPage === ind ? 'tab-active' : '']}}" data-current-tab="{{ind}}" bindtap="handleProxy" data-eventid="{{'0-'+ind}}" data-comkey="{{$k}}" wx:for="{{secondTabs}}" wx:for-index="ind" wx:for-item="item">
-        {{ item }}
-      </view></view> <swiper current="{{currentPage}}" duration="{{300}}" bindchange="handleProxy" class="_swiper data-v-86b97822 app" data-eventid="{{'2'}}" data-comkey="{{$k}}"><swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'1'], $root}}" is="23e02417"></template></swiper-item> <swiper-item class="_swiper-item data-v-86b97822 main"><template wx:if="{{livesList.length > 0}}" bindhandleLive="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="6c8f25a9"></template></swiper-item> <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'5'], $root}}" is="59fd288e"></template></swiper-item> <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'7'], $root}}" is="394c3735"></template></swiper-item></swiper> <view class="_div data-v-86b97822 zl-refresh" hidden="{{!(isShowRefresh && currentPage === 1)}}" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"><image src="/static/img/fresh.svg" alt class="_img data-v-86b97822"></image></view></view></view></template>
+<import src="/components/Weather.vue.wxml" />
+<import src="/pages/index/Movies.vue.wxml" />
+<import src="/components/Live.vue.wxml" />
+<import src="/components/Market.vue.wxml" />
+<import src="/components/HistorysToday.vue.wxml" /><template name="7fcf1164">
+  <view class="_div data-v-86b97822">
+    <view class="_div data-v-86b97822 zl-app {{isNightMode ? 'night' : ''}}">
+      <view class="_div data-v-86b97822 zl-refresh-tip" ref="refreshTip" hidden="{{!(refreshLoading && isBtnCommit)}}"><label class="_span data-v-86b97822">{{ refreshText }}</label></view> <template wx:if="{{weatherInfo && weatherInfo.cityCode}}" data="{{...$root[$kk+'0'], $root}}" is="f350eb72"></template>
+      <view class="_div data-v-86b97822 swiper-tab {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-line-color' : '']}}">
+        <view wx:key="ind" key="{{ind}}" class="_div data-v-86b97822 tab-list-box {{[currentPage === ind ? 'tab-active' : '']}}" data-current-tab="{{ind}}" bindtap="handleProxy" data-eventid="{{'0-'+ind}}" data-comkey="{{$k}}" wx:for="{{secondTabs}}" wx:for-index="ind" wx:for-item="item">
+          {{ item }}
+        </view>
+      </view>
+      <swiper current="{{currentPage}}" duration="{{300}}" bindchange="handleProxy" class="_swiper data-v-86b97822 app" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+        <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'1'], $root}}" is="23e02417"></template></swiper-item>
+        <swiper-item class="_swiper-item data-v-86b97822 main"><template wx:if="{{livesList.length > 0}}" bindhandleLive="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="6c8f25a9"></template></swiper-item>
+        <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'5'], $root}}" is="59fd288e"></template></swiper-item>
+        <swiper-item class="_swiper-item data-v-86b97822"><template data="{{...$root[$kk+'7'], $root}}" is="394c3735"></template></swiper-item>
+      </swiper>
+      <view class="_div data-v-86b97822 zl-refresh" hidden="{{!(isShowRefresh && currentPage === 1)}}" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+        <image src="/static/img/fresh.svg" alt class="_img data-v-86b97822"></image>
+      </view>
+    </view>
+  </view>
+</template>

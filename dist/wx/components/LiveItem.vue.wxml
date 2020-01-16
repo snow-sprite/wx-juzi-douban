@@ -1,11 +1,41 @@
-<template name="0fef52dc"><view class="_article data-v-14f97b3d zl-live"><view wx:key="ind" key="{{ind}}" wx:for="{{liveData}}" wx:for-index="ind" wx:for-item="val" class="_div data-v-14f97b3d"><view class="_aside data-v-14f97b3d zl-live__time {{[isNightMode ? 'night-bg' : '']}}"><view class="_ul data-v-14f97b3d zl-live__time--calendar"><view class="_li data-v-14f97b3d month {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  fontsize === 0 ? 'zl-mini-date' : '',  fontsize === 1 ? 'zl-default-date' : '',  fontsize === 2 ? 'zl-large-date' : '',  isNightMode ? 'night-text' : '',  isNightMode ? 'night-text-date' : '']}}">
-          {{ val.date }}
-        </view></view></view> <view wx:key="index" key="{{index}}" class="_div data-v-14f97b3d zl-live__content {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-border-left' : '']}}" wx:for="{{val.lives}}" wx:for-index="index" wx:for-item="value"><view wx:if="{{value.grade ==5}}" class="_p data-v-14f97b3d zl-important"></view> <view wx:if="{{value.grade ==4 || value.grade ==3}}" class="_p data-v-14f97b3d zl-normal"></view> <view wx:if="{{value.grade ==1 || value.grade ==2}}" class="_p data-v-14f97b3d zl-default"></view> <view class="_aside data-v-14f97b3d zl-live__publishtime {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  isNightMode ? 'night-text' : '']}}">
-        {{ value.created_at_new }}
-      </view> <view class="_aside data-v-14f97b3d zl-live__title {{[  fontsize === 0 ? 'zl-mini-title-gaps' : '',  fontsize === 1 ? 'zl-default-title-gaps' : '',  fontsize === 2 ? 'zl-large-title-gaps' : '',  isNightMode ? 'night-text' : '']}}"><label class="_span data-v-14f97b3d zl-live__title--tag"></label> <label wx:if="{{value.grade ==5}}" style="color: #ea3e3e;" class="_span data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-title' : '',  fontsize === 1 ? 'zl-default-title' : '',  fontsize === 2 ? 'zl-large-title' : '']}}">{{ value.title }}</label><label wx:else class="_span data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-title' : '',  fontsize === 1 ? 'zl-default-title' : '',  fontsize === 2 ? 'zl-large-title' : '',  isNightMode ? 'night-text' : '']}}">{{ value.title }}</label></view> <view class="_section data-v-14f97b3d zl-live__contents {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  isNightMode ? 'night-text' : '']}}">
-        {{ value.content }}
-      </view> <view class="_div data-v-14f97b3d zl-live__operate {{[  fontsize === 0 ? 'zl-mini-operate' : '',  fontsize === 1 ? 'zl-default-operate' : '',  fontsize === 2 ? 'zl-large-operate' : '']}}"><view class="_ul data-v-14f97b3d"><view class="_li data-v-14f97b3d"><image wx:if="{{value.up_counts > value.down_counts}}" src="/static/img/live/liveup.svg" class="_img data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-up-img' : '',  fontsize === 1 ? 'zl-default-up-img' : '',  fontsize === 2 ? 'zl-large-up-img' : '']}}"></image> <image wx:if="{{value.up_counts < value.down_counts || value.up_counts == value.down_counts}}" src="/static/img/live/noliveup.svg" class="_img data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-up-img' : '',  fontsize === 1 ? 'zl-default-up-img' : '',  fontsize === 2 ? 'zl-large-up-img' : '']}}"></image> <label class="_span data-v-14f97b3d zl-bull_num {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  isNightMode ? 'night-text' : '']}}">
-              {{ value.up_counts }}
-            </label></view> <view class="_li data-v-14f97b3d"><image wx:if="{{value.up_counts < value.down_counts}}" src="/static/img/live/livedown.svg" class="_img data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-down-img' : '',  fontsize === 1 ? 'zl-default-down-img' : '',  fontsize === 2 ? 'zl-large-down-img' : '']}}"></image> <image wx:if="{{value.up_counts > value.down_counts || value.up_counts == value.down_counts}}" src="/static/img/live/nolivedown.svg" class="_img data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-down-img' : '',  fontsize === 1 ? 'zl-default-down-img' : '',  fontsize === 2 ? 'zl-large-down-img' : '']}}"></image> <label class="_span data-v-14f97b3d zl-bull_num {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  isNightMode ? 'night-text' : '']}}">
-              {{ value.down_counts }}
-            </label></view></view></view></view></view></view></template>
+<template name="0fef52dc">
+  <view class="_article data-v-14f97b3d zl-live">
+    <view wx:key="ind" key="{{ind}}" wx:for="{{liveData}}" wx:for-index="ind" wx:for-item="val" class="_div data-v-14f97b3d">
+      <view class="_aside data-v-14f97b3d zl-live__time {{[isNightMode ? 'night-bg' : '']}}">
+        <view class="_ul data-v-14f97b3d zl-live__time--calendar">
+          <view class="_li data-v-14f97b3d month {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  fontsize === 0 ? 'zl-mini-date' : '',  fontsize === 1 ? 'zl-default-date' : '',  fontsize === 2 ? 'zl-large-date' : '',  isNightMode ? 'night-text' : '',  isNightMode ? 'night-text-date' : '']}}">
+            {{ val.date }}
+          </view>
+        </view>
+      </view>
+      <view wx:key="index" key="{{index}}" class="_div data-v-14f97b3d zl-live__content {{[isNightMode ? 'night-text' : '', isNightMode ? 'night-border-left' : '']}}" wx:for="{{val.lives}}" wx:for-index="index" wx:for-item="value">
+        <view wx:if="{{value.grade ==5}}" class="_p data-v-14f97b3d zl-important"></view>
+        <view wx:if="{{value.grade ==4 || value.grade ==3}}" class="_p data-v-14f97b3d zl-normal"></view>
+        <view wx:if="{{value.grade ==1 || value.grade ==2}}" class="_p data-v-14f97b3d zl-default"></view>
+        <view class="_aside data-v-14f97b3d zl-live__publishtime {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  isNightMode ? 'night-text' : '']}}">
+          {{ value.created_at_new }}
+        </view>
+        <view class="_aside data-v-14f97b3d zl-live__title {{[  fontsize === 0 ? 'zl-mini-title-gaps' : '',  fontsize === 1 ? 'zl-default-title-gaps' : '',  fontsize === 2 ? 'zl-large-title-gaps' : '',  isNightMode ? 'night-text' : '']}}"><label class="_span data-v-14f97b3d zl-live__title--tag"></label> <label wx:if="{{value.grade ==5}}" style="color: #ea3e3e;" class="_span data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-title' : '',  fontsize === 1 ? 'zl-default-title' : '',  fontsize === 2 ? 'zl-large-title' : '']}}">{{ value.title }}</label><label wx:else class="_span data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-title' : '',  fontsize === 1 ? 'zl-default-title' : '',  fontsize === 2 ? 'zl-large-title' : '',  isNightMode ? 'night-text' : '']}}">{{ value.title }}</label></view>
+        <view class="_section data-v-14f97b3d zl-live__contents {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  isNightMode ? 'night-text' : '']}}">
+          {{ value.content }}
+        </view>
+        <view class="_div data-v-14f97b3d zl-live__operate {{[  fontsize === 0 ? 'zl-mini-operate' : '',  fontsize === 1 ? 'zl-default-operate' : '',  fontsize === 2 ? 'zl-large-operate' : '']}}">
+          <view class="_ul data-v-14f97b3d">
+            <view class="_li data-v-14f97b3d">
+              <image wx:if="{{value.up_counts > value.down_counts}}" src="/static/img/live/liveup.svg" class="_img data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-up-img' : '',  fontsize === 1 ? 'zl-default-up-img' : '',  fontsize === 2 ? 'zl-large-up-img' : '']}}"></image>
+              <image wx:if="{{value.up_counts < value.down_counts || value.up_counts == value.down_counts}}" src="/static/img/live/noliveup.svg" class="_img data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-up-img' : '',  fontsize === 1 ? 'zl-default-up-img' : '',  fontsize === 2 ? 'zl-large-up-img' : '']}}"></image> <label class="_span data-v-14f97b3d zl-bull_num {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  isNightMode ? 'night-text' : '']}}">
+                {{ value.up_counts }}
+              </label>
+            </view>
+            <view class="_li data-v-14f97b3d">
+              <image wx:if="{{value.up_counts < value.down_counts}}" src="/static/img/live/livedown.svg" class="_img data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-down-img' : '',  fontsize === 1 ? 'zl-default-down-img' : '',  fontsize === 2 ? 'zl-large-down-img' : '']}}"></image>
+              <image wx:if="{{value.up_counts > value.down_counts || value.up_counts == value.down_counts}}" src="/static/img/live/nolivedown.svg" class="_img data-v-14f97b3d {{[  fontsize === 0 ? 'zl-mini-down-img' : '',  fontsize === 1 ? 'zl-default-down-img' : '',  fontsize === 2 ? 'zl-large-down-img' : '']}}"></image> <label class="_span data-v-14f97b3d zl-bull_num {{[  fontsize === 0 ? 'zl-mini-fontsize' : '',  fontsize === 1 ? 'zl-default-fontsize' : '',  fontsize === 2 ? 'zl-large-fontsize' : '',  isNightMode ? 'night-text' : '']}}">
+                {{ value.down_counts }}
+              </label>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

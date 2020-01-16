@@ -1,3 +1,22 @@
-<template name="394c3735"><scroll-view class="_scroll-view data-v-9c3db918 zl-history-box" scroll-y upper-threshold="50" lower-threshold="50" enable-back-to-top="true"><view class="_ul data-v-9c3db918 zl-history" wx:if="{{!isShowErrorBox}}"><view class="_li data-v-9c3db918 zl-history__item {{[isNightMode ? 'night-border' : '']}}" wx:key="ind" key="{{ind}}" bindtap="handleProxy" data-eventid="{{'0-'+ind}}" data-comkey="{{$k}}" wx:for="{{historyStoryList}}" wx:for-index="ind" wx:for-item="story"><view class="_ul data-v-9c3db918 zl-history__item--info"><view class="_li data-v-9c3db918 zl-history__item--title {{[isNightMode ? 'night-text' : '']}}">{{ story.title }}</view> <view class="_li data-v-9c3db918 zl-history__item--publish"><label class="_span data-v-9c3db918 zl-history__item--time {{[isNightMode ? 'night-text' : '']}}">{{ story.year }}.{{  story.month < 10 ? '0'+story.month : story.month }}.{{  story.day < 10 ? '0'+story.day : story.day  }}</label> <image hidden="{{!(!isNightMode)}}" class="_img data-v-9c3db918 zl-history__tag" src="/static/img/history/tag.svg"></image> <image hidden="{{!(isNightMode)}}" class="_img data-v-9c3db918 zl-history__tag" src="/static/img/history/tag-night.svg"></image> <label class="_span data-v-9c3db918 zl-history__item--tag {{[isNightMode ? 'night-text' : '']}}">历史上的今天</label></view></view> <view class="_div data-v-9c3db918 zl-history__item--thumb"><image src="{{story.picUrl ? story.picUrl : '../../static/img/history/fail.png'}}" alt onerror="{{defaultThumb}}" class="_img data-v-9c3db918"></image></view></view></view><view class="_div data-v-9c3db918 zl-history__error {{[isNightMode ? 'night-text' : '']}}" wx:else>
-    {{ errText }}
-    <view class="_div data-v-9c3db918"><button class="_button data-v-9c3db918 zl-history__error--try {{[isNightMode ? 'night-text' : '']}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">刷新重试</button></view></view></scroll-view></template>
+<template name="394c3735">
+  <scroll-view class="_scroll-view data-v-9c3db918 zl-history-box" scroll-y upper-threshold="50" lower-threshold="50" enable-back-to-top="true">
+    <view class="_ul data-v-9c3db918 zl-history" wx:if="{{!isShowErrorBox}}">
+      <view class="_li data-v-9c3db918 zl-history__item {{[isNightMode ? 'night-border' : '']}}" wx:key="ind" key="{{ind}}" bindtap="handleProxy" data-eventid="{{'0-'+ind}}" data-comkey="{{$k}}" wx:for="{{historyStoryList}}" wx:for-index="ind" wx:for-item="story">
+        <view class="_ul data-v-9c3db918 zl-history__item--info">
+          <view class="_li data-v-9c3db918 zl-history__item--title {{[isNightMode ? 'night-text' : '']}}">{{ story.title }}</view>
+          <view class="_li data-v-9c3db918 zl-history__item--publish"><label class="_span data-v-9c3db918 zl-history__item--time {{[isNightMode ? 'night-text' : '']}}">{{ story.year }}.{{ story.month < 10 ? '0'+story.month : story.month }}.{{ story.day < 10 ? '0'+story.day : story.day  }}</label>
+            <image hidden="{{!(!isNightMode)}}" class="_img data-v-9c3db918 zl-history__tag" src="/static/img/history/tag.svg"></image>
+            <image hidden="{{!(isNightMode)}}" class="_img data-v-9c3db918 zl-history__tag" src="/static/img/history/tag-night.svg"></image> <label class="_span data-v-9c3db918 zl-history__item--tag {{[isNightMode ? 'night-text' : '']}}">历史上的今天</label>
+          </view>
+        </view>
+        <view class="_div data-v-9c3db918 zl-history__item--thumb">
+          <image src="{{story.picUrl ? story.picUrl : '../../static/img/history/fail.png'}}" alt onerror="{{defaultThumb}}" class="_img data-v-9c3db918"></image>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-9c3db918 zl-history__error {{[isNightMode ? 'night-text' : '']}}" wx:else>
+      {{ errText }}
+      <view class="_div data-v-9c3db918"><button class="_button data-v-9c3db918 zl-history__error--try {{[isNightMode ? 'night-text' : '']}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">刷新重试</button></view>
+    </view>
+  </scroll-view>
+</template>
