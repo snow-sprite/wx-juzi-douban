@@ -29,10 +29,10 @@
         <!-- 冷知识组件 -->
         <Movies />
       </swiper-item>
-      <swiper-item class="main">
+      <!-- <swiper-item class="main"> -->
         <!-- 快讯组件 -->
-        <Live v-if="livesList.length > 0" :livesList="livesList" @handleLive="getLives" />
-      </swiper-item>
+        <!-- <Live v-if="livesList.length > 0" :livesList="livesList" @handleLive="getLives" /> -->
+      <!-- </swiper-item> -->
       <swiper-item>
         <!-- 行情组件 -->
         <Market />
@@ -43,7 +43,7 @@
       </swiper-item>
     </Swiper>
     <!-- 首页刷新按钮 -->
-    <div class="zl-refresh" v-show="isShowRefresh && currentPage === 1" @click="refreshPage">
+    <div class="zl-refresh" v-show="isShowRefresh" @click="refreshPage">
       <img src="../../../static/img/fresh.svg" alt="">
     </div>
   </div>
@@ -52,21 +52,21 @@
 
 <script>
 import Movies from '@/pages/index/Movies'
-import Live from '@/components/Live'
+// import Live from '@/components/Live'
 import Market from '@/components/Market'
 import Weather from '@/components/Weather'
 import HistorysToday from '@/components/HistorysToday'
 import store from '@/store'
 import wxApi from '@/lib/request'
 import {
-  LIVES_LIST,
+  // LIVES_LIST,
   POST_WEATHER
 } from '@/api/apiList'
 export default {
   name: 'Home',
   components: {
     Movies,
-    Live,
+    // Live,
     Market,
     Weather,
     HistorysToday
@@ -84,7 +84,7 @@ export default {
       tabs: ['快讯', '行情'],
       secondTabs: [
         '电影',
-        '资讯',
+        // '资讯',
         '行情',
         '冷知识'
       ],
@@ -93,7 +93,7 @@ export default {
       refreshText: '',
       timer: null,
       // 快讯列表
-      livesList: [],
+      // livesList: [],
       isBtnCommit: false,
       weatherInfo: {}
     }
@@ -101,7 +101,7 @@ export default {
   mounted () {
     this.getLocation()
     // 获取快讯
-    this.getLives()
+    // this.getLives()
     this.setNavigationBarStyle()
     // 当前页可被转发
     wx.showShareMenu({
@@ -158,44 +158,44 @@ export default {
       if (this.currentPage === page) return
       this.currentPage = page
     },
-    async getLives () {
-      try {
-        let that = this
-        this.refreshText = '正在刷新当前页面..'
-        let { data } = await wxApi.get(LIVES_LIST, {
-          reading: false,
-          limit: 66,
-          flag: 'down'
-        })
-        if (data) {
-          this.refreshText = '刷新完成: )'
-        }
-        // this.livesList.push(data.data.list)
-        data.list.forEach(list => {
-          this.livesList.push(list)
-        })
-        clearTimeout(this.timer)
-        this.timer = setTimeout(() => {
-          that.refreshLoading = false
-          this.isBtnCommit = false
-        }, 1000)
-      } catch (e) {
-        this.livesList = []
-        this.refreshLoading = false
-        this.refreshText = '网络错误: ('
-        this.isBtnCommit = false
-      }
-    },
+    // async getLives () {
+    //   try {
+    //     let that = this
+    //     this.refreshText = '正在刷新当前页面..'
+    //     let { data } = await wxApi.get(LIVES_LIST, {
+    //       reading: false,
+    //       limit: 66,
+    //       flag: 'down'
+    //     })
+    //     if (data) {
+    //       this.refreshText = '刷新完成: )'
+    //     }
+    //     // this.livesList.push(data.data.list)
+    //     data.list.forEach(list => {
+    //       this.livesList.push(list)
+    //     })
+    //     clearTimeout(this.timer)
+    //     this.timer = setTimeout(() => {
+    //       that.refreshLoading = false
+    //       this.isBtnCommit = false
+    //     }, 1000)
+    //   } catch (e) {
+    //     this.livesList = []
+    //     this.refreshLoading = false
+    //     this.refreshText = '网络错误: ('
+    //     this.isBtnCommit = false
+    //   }
+    // },
     changePage (e) {
       this.currentPage = e.target.current
     },
     // click refresh button
     refreshPage () {
       // 刷新按钮
-      this.livesList = []
+      // this.livesList = []
       this.isBtnCommit = true
       this.refreshLoading = true
-      this.getLives()
+      // this.getLives()
 
       this.weatherInfo = {}
       this.getLocation()

@@ -1,19 +1,11 @@
-<template name="23e02417">
+<import src="/components/Movie.vue.wxml" /><template name="23e02417">
   <view class="_div data-v-8ea228d4">
-    <scroll-view class="_scroll-view data-v-8ea228d4 zl-movie-box" scroll-y lower-threshold="50" enable-back-to-top="true">
-      <view class="_main data-v-8ea228d4 zl-movie" hidden="{{!(movieList.length > 0)}}">
-        <view class="_p data-v-8ea228d4 zl-movie__title">影院热映</view>
-        <view class="_ul data-v-8ea228d4 zl-movie__list">
-          <view class="_li data-v-8ea228d4 zl-movie__item" wx:key="index" key="{{index}}" wx:for="{{movieList}}" wx:for-index="index" wx:for-item="item">
-            <image src="{{item.images.small}}" class="_img data-v-8ea228d4 zl-movie__item--thumb"></image> <label class="_span data-v-8ea228d4 zl-movie__item--title">{{ item.title }}</label>
-            <view class="_p data-v-8ea228d4">
-              <image src="/static/img/movie/star_active.svg" class="_img data-v-8ea228d4 zl-movie__item--star" wx:key="ind" key="{{ind}}" wx:for="{{item.activeStar}}" wx:for-index="ind" wx:for-item="star"></image>
-              <image src="/static/img/movie/star_half.svg" class="_img data-v-8ea228d4 zl-movie__item--star" hidden="{{!(item.halfActiveStar)}}"></image>
-              <image src="/static/img/movie/star_inactive.svg" class="_img data-v-8ea228d4 zl-movie__item--star" wx:key="ind" key="{{ind}}" wx:for="{{item.inactiveStar}}" wx:for-index="ind" wx:for-item="star"></image> <label class="_span data-v-8ea228d4 zl-movie__item--score">{{ item.rating.average }}</label>
-            </view>
-          </view>
-          <view class="_p data-v-8ea228d4 zl-movie__clear"></view>
-        </view>
+    <scroll-view class="_scroll-view data-v-8ea228d4 zl-movie-box {{[isNightMode ? 'night-bg' : '']}}" scroll-y lower-threshold="50" enable-back-to-top="true">
+      <view class="_main data-v-8ea228d4 zl-movie">
+        <view class="_p data-v-8ea228d4 zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(inTheaters.length > 0)}}">影院热映</view> <template data="{{...$root[$kk+'0'], $root}}" is="329ac643"></template>
+        <view class="_p data-v-8ea228d4 zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(comingSoon.length > 0)}}">即将上映</view> <template data="{{...$root[$kk+'1'], $root}}" is="329ac643"></template>
+        <view class="_p data-v-8ea228d4 zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(topList.length > 0)}}">Top250</view> <template data="{{...$root[$kk+'2'], $root}}" is="329ac643"></template>
+        <view class="_p data-v-8ea228d4 zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(topList.length > 0)}}"> 北美票房榜<label class="_span data-v-8ea228d4 zl-movie__title--time">（{{ northTopData && northTopData.date }}）</label></view> <template data="{{...$root[$kk+'3'], $root}}" is="329ac643"></template>
       </view>
     </scroll-view>
   </view>

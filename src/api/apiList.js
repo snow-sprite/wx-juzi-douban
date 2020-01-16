@@ -29,3 +29,18 @@ export const HISTORY_TODAY = `https://www.mxnzp.com/api/history/today`
  * 正在上映的电影列表
  */
 export const IN_THEATERS = `https://douban.uieee.com/v2/movie/in_theaters`
+
+/**
+ * 正在上映的电影列表
+ */
+export const COMMING_SOON = `https://douban.uieee.com/v2/movie/coming_soon`
+
+/**
+ * 正在上映的电影列表
+ */
+export const TOP250 = `https://douban.uieee.com/v2/movie/top250`
+
+/**
+ * 北美票房榜
+ */
+export const NORTHTOP = `https://douban.uieee.com/v2/movie/us_box`
