@@ -83,7 +83,6 @@ global.webpackJsonpMpvue([3],{
     __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default()(this.detailData).forEach(function (key) {
       _this.detailData[key] = option[key];
     });
-    // this.detailData = JSON.parse(option.story)
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.detailData.details = this.detailData.details.replace(/　　/g, '<br/>');

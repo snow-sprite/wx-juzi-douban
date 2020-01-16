@@ -2524,7 +2524,6 @@ if (false) {(function () {
                 _ref = _context.sent;
                 data = _ref.data;
 
-
                 if (data.code === 1) {
                   _this.historyStoryList = data.data;
                   _this.isShowErrorBox = false;
@@ -2550,9 +2549,9 @@ if (false) {(function () {
     navigateToDetail: function navigateToDetail(data, ind) {
       __WEBPACK_IMPORTED_MODULE_2__store__["a" /* default */].commit('setDetailData', data);
       // url相对pages页面来设置
-      // 没有详情接口， 直接传数据过去- -
+      // 没有详情接口，直接传吧- -
       wx.navigateTo({
-        // url: `../detail/main?story=${JSON.stringify(data)}`
+        // url: `../detail/main?story=${JSON.stringify(Object.assign({}, data))}`
         url: '../detail/main?year=' + data.year + '&month=' + data.month + '&day=' + data.day + '&title=' + data.title + '&picUrl=' + data.picUrl + '&details=' + data.details
       });
     }

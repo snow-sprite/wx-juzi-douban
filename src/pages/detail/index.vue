@@ -58,7 +58,6 @@ export default {
     Object.keys(this.detailData).forEach(key => {
       this.detailData[key] = option[key]
     })
-    // this.detailData = JSON.parse(option.story)
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.detailData.details = this.detailData.details.replace(/　　/g, '<br/>')

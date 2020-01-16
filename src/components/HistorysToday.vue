@@ -69,7 +69,6 @@ export default {
         let { data } = await wxApi.get(HISTORY_TODAY, {
           type: 1
         })
-
         if (data.code === 1) {
           this.historyStoryList = data.data
           this.isShowErrorBox = false
@@ -82,10 +81,10 @@ export default {
     navigateToDetail (data, ind) {
       store.commit('setDetailData', data)
       // url相对pages页面来设置
-      // 没有详情接口， 直接传数据过去- -
+      // 没有详情接口，直接传吧- -
       wx.navigateTo({
-        // url: `../detail/main?story=${JSON.stringify(data)}`
-        url: '../detail/main?year=' + data.year + '&month=' + data.month + '&day=' + data.day + '&title=' + data.title + '&picUrl=' + data.picUrl + '&details=' + data.details
+        // url: `../detail/main?story=${JSON.stringify(Object.assign({}, data))}`
+        url: `../detail/main?year=${data.year}&month=${data.month}&day=${data.day}&title=${data.title}&picUrl=${data.picUrl}&details=${data.details}`
       })
     }
   }
