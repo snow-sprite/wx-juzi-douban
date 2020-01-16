@@ -12,6 +12,6 @@
         <image src="/static/img/history/fail.png" wx:else class="_img data-v-318d4bea"></image>
       </transition>
     </view>
-    <rich-text class="_article data-v-318d4bea zl-detail__article {{[isNightMode ? 'night-text' : '']}}" nodes="{{myDetail}}"></rich-text>
+    <rich-text class="_article data-v-318d4bea zl-detail__article {{[isNightMode ? 'night-text' : '']}}" nodes="{{detailData.details}}"></rich-text>
   </view>
 </template>

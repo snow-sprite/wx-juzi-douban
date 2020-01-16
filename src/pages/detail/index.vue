@@ -14,7 +14,7 @@
         <img src="../../../static/img/history/fail.png" v-else>
       </transition>
     </div>
-    <article class="zl-detail__article" :class="{'night-text': isNightMode}" v-html="myDetail"></article>
+    <article class="zl-detail__article" :class="{'night-text': isNightMode}" v-html="detailData.details"></article>
   </div>
 </template>
 
@@ -28,9 +28,15 @@ export default {
   },
   data () {
     return {
-      detailData: {},
-      defaultThumb: `this.src=../../../static/img/history/fail.png`,
-      myDetail: ''
+      detailData: {
+        year: '',
+        month: '',
+        day: '',
+        title: '',
+        picUrl: '',
+        details: ''
+      },
+      defaultThumb: `this.src=../../../static/img/history/fail.png`
     }
   },
   created () {
@@ -49,17 +55,20 @@ export default {
     }
   },
   onLoad (option) {
-    this.detailData = JSON.parse(option.story)
+    Object.keys(this.detailData).forEach(key => {
+      this.detailData[key] = option[key]
+    })
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
-      this.myDetail = this.detailData.details.replace(/　　/g, '<br/>')
+      this.detailData.details = this.detailData.details.replace(/　　/g, '<br/>')
     }
   },
   // 分享当前页
   onShareAppMessage () {
     return {
       title: '「历史上的今天」',
-      path: `/pages/detail/main?story=${JSON.stringify(this.detailData)}`,
+      // path: `/pages/detail/main?story=${JSON.stringify(this.detailData)}`,
+      path: `?year=${this.detailData.year}&month=${this.detailData.month}&day=${this.detailData.day}&title=${this.detailData.title}&picurl=${this.detailData.picUrl}&details=${this.detailData.details}`,
       success (res) {},
       fail () {}
     }
@@ -74,7 +83,7 @@ export default {
   padding: r(12px);
   padding-top: 0;
   @include e(title) {
-    margin-bottom: r(12px);
+    margin-bottom: r(6px);
     font-size: r(20px);
     font-weight: 500;
     @include m(tag) {

@@ -5,7 +5,7 @@
   padding-top: 0;
 }
 .zl-detail__title.data-v-318d4bea {
-  margin-bottom: 32rpx;
+  margin-bottom: 16rpx;
   font-size: 53.333rpx;
   font-weight: 500;
 }
