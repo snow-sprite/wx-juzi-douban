@@ -1,6 +1,9 @@
 <template>
   <li class="zl-movie__item">
-    <img :src="movie.images.small" class="zl-movie__item--thumb">
+    <div class="zl-movie__item--thumb" :style="{backgroundImage: 'url(' + movie.images.small + ')'}">
+      <p class="zl-movie__item--mask" v-show="isNightMode"></p>
+      <!-- <img :src="movie.images.small" class="zl-movie__item--thumb"> -->
+    </div>
     <span class="zl-movie__item--title" :class="{'night-text': isNightMode}">{{ movie.title }}</span>
     <p>
       <img 

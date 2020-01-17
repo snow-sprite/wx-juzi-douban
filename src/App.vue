@@ -81,6 +81,13 @@ export default {
     @include m(thumb) {
       height: r(130px);
       width: 100%;
+      background-size: 100% 100%;
+    }
+    @include m(mask) {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: 0.4;
     }
     @include m(title) {
       overflow: hidden;
