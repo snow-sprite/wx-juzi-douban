@@ -1,15 +1,10 @@
 <template name="329ac643">
-  <view class="_div data-v-71b93cfc">
-    <view class="_ul data-v-71b93cfc zl-movie__list">
-      <view class="_li data-v-71b93cfc zl-movie__item" wx:key="ind" key="{{ind}}" wx:for="{{movie}}" wx:for-index="ind" wx:for-item="item">
-        <image src="{{item.images.small}}" class="_img data-v-71b93cfc zl-movie__item--thumb"></image> <label class="_span data-v-71b93cfc zl-movie__item--title {{[isNightMode ? 'night-text' : '']}}">{{ item.title }}</label>
-        <view class="_p data-v-71b93cfc">
-          <image src="/static/img/movie/star_active.svg" class="_img data-v-71b93cfc zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{item.activeStar}}" wx:for-index="i" wx:for-item="star"></image>
-          <image src="/static/img/movie/star_half.svg" class="_img data-v-71b93cfc zl-movie__item--star" hidden="{{!(item.halfActiveStar)}}"></image>
-          <image src="/static/img/movie/star_inactive.svg" class="_img data-v-71b93cfc zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{item.inactiveStar}}" wx:for-index="i" wx:for-item="star"></image> <label class="_span data-v-71b93cfc zl-movie__item--score {{[isNightMode ? 'night-text' : '']}}">{{ item.rating.average }}</label>
-        </view>
-      </view>
-      <view class="_p data-v-71b93cfc zl-movie__clear"></view>
+  <view class="_li data-v-71b93cfc zl-movie__item">
+    <image src="{{movie.images.small}}" class="_img data-v-71b93cfc zl-movie__item--thumb"></image> <label class="_span data-v-71b93cfc zl-movie__item--title {{[isNightMode ? 'night-text' : '']}}">{{ movie.title }}</label>
+    <view class="_p data-v-71b93cfc">
+      <image src="/static/img/movie/star_active.svg" class="_img data-v-71b93cfc zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{movie.activeStar}}" wx:for-index="i" wx:for-item="star"></image>
+      <image src="/static/img/movie/star_half.svg" class="_img data-v-71b93cfc zl-movie__item--star" hidden="{{!(movie.halfActiveStar)}}"></image>
+      <image src="/static/img/movie/star_inactive.svg" class="_img data-v-71b93cfc zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{movie.inactiveStar}}" wx:for-index="i" wx:for-item="star"></image> <label class="_span data-v-71b93cfc zl-movie__item--score {{[isNightMode ? 'night-text' : '']}}">{{ movie.rating.average }}</label>
     </view>
   </view>
 </template>

@@ -39,6 +39,31 @@ export default {
       defaultThumb: `this.src=../../../static/img/history/fail.png`
     }
   },
+  // 分享当前页
+  onShareAppMessage () {
+    return {
+      title: '「历史上的今天」',
+      // path: `/pages/detail/main?story=${JSON.stringify(this.detailData)}`,
+      path: `/pages/historyDetail/main?year=${this.detailData.year}&month=${this.detailData.month}&day=${this.detailData.day}&title=${this.detailData.title}&picUrl=${this.detailData.picUrl}&details=${this.detailData.details}`,
+      success (res) {},
+      fail () {}
+    }
+  },
+  watch: {
+    'isNightMode': (n, o) => {
+      if (n) {
+        wx.setNavigationBarColor({
+          frontColor: '#ffffff',
+          backgroundColor: '#232323'
+        })
+      } else {
+        wx.setNavigationBarColor({
+          frontColor: '#000000',
+          backgroundColor: '#ffffff'
+        })
+      }
+    }
+  },
   created () {
     if (this.isNightMode) {
       store.commit('toggleNightMode', true)
@@ -61,16 +86,6 @@ export default {
     if (this.detailData && this.detailData.details) {
       // eslint-disable-next-line no-irregular-whitespace
       this.detailData.details = this.detailData.details.replace(/　　/g, '<br/>')
-    }
-  },
-  // 分享当前页
-  onShareAppMessage () {
-    return {
-      title: '「历史上的今天」',
-      // path: `/pages/detail/main?story=${JSON.stringify(this.detailData)}`,
-      path: `/pages/detail/main?year=${this.detailData.year}&month=${this.detailData.month}&day=${this.detailData.day}&title=${this.detailData.title}&picUrl=${this.detailData.picUrl}&details=${this.detailData.details}`,
-      success (res) {},
-      fail () {}
     }
   }
 }

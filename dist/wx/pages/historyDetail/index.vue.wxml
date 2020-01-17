@@ -1,0 +1,17 @@
+<template name="6ade63c1">
+  <view class="_div data-v-04e6ff62 zl-detail {{[isNightMode ? 'night-theme' : '']}}">
+    <view class="_h3 data-v-04e6ff62 zl-detail__title {{[isNightMode ? 'night-text' : '']}}"><label class="_span data-v-04e6ff62 zl-detail__title--tag">
+        {{ detailData.year }}.{{ detailData.month < 10 ? '0'+detailData.month : detailData.month }}.{{ detailData.day < 10 ? '0'+detailData.day : detailData.day  }}
+      </label> | {{ detailData.title }}
+    </view>
+    <view class="_div data-v-04e6ff62 zl-detail__share"><button class="_button data-v-04e6ff62 zl-detail__share--button" open-type="share"></button></view>
+    <view class="_section data-v-04e6ff62 zl-detail__publish {{[isNightMode ? 'night-bg' : '']}}"></view>
+    <view class="_div data-v-04e6ff62 zl-detail__thumb">
+      <transition name="fade" class="_transition data-v-04e6ff62">
+        <image src="{{detailData.picUrl}}" onerror="{{defaultThumb}}" wx:if="{{detailData.picUrl}}" class="_img data-v-04e6ff62"></image>
+        <image src="/static/img/history/fail.png" wx:else class="_img data-v-04e6ff62"></image>
+      </transition>
+    </view>
+    <rich-text class="_article data-v-04e6ff62 zl-detail__article {{[isNightMode ? 'night-text' : '']}}" nodes="{{detailData.details}}"></rich-text>
+  </view>
+</template>

@@ -2,14 +2,14 @@ require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonpMpvue([1],{
 
-/***/ 102:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(104);
 
 
 
@@ -18,16 +18,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 103:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(126);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(104)
+  __webpack_require__(105)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -72,27 +72,27 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 104:
+/***/ 105:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 105:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_index_Movies__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Weather__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_HistorysToday__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_index_Movies__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Weather__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_HistorysToday__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_request__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__api_apiList__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_request__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__api_apiList__ = __webpack_require__(22);
 
 
 
@@ -362,16 +362,16 @@ var _this = this;
 
 /***/ }),
 
-/***/ 108:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Movies_vue__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_8ea228d4_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Movies_vue__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Movies_vue__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_8ea228d4_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Movies_vue__ = __webpack_require__(117);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(109)
+  __webpack_require__(110)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -416,33 +416,45 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 109:
+/***/ 110:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_get_iterator__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_get_iterator__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_get_iterator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_request__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__api_apiList__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Movie__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_request__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__api_apiList__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Movie__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__store__ = __webpack_require__(4);
 
 
 
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -513,13 +525,15 @@ if (false) {(function () {
   },
   data: function data() {
     return {
-      inTheaters: [],
-      comingSoon: [],
-      topList: [],
+      inTheaters: [], // 正在热映数据
+      comingSoon: [], // 即将上映数据
+      topList: [], // top250列表
       northTopData: {
         date: '',
-        subjects: []
-      }
+        subjects: [] // 北美票房榜
+      },
+      pageMorePayload: '', // 传给查看更多的判断请求uri的值
+      pageMoreTitle: '' // 查看更多电影页面的标题
     };
   },
   created: function created() {
@@ -770,199 +784,20 @@ if (false) {(function () {
           }
         }, _callee2, _this2, [[0, 48], [9, 13, 17, 25], [18,, 20, 24], [30, 34, 38, 46], [39,, 41, 45]]);
       }))();
+    },
+    showMore: function showMore(payload, title) {
+      this.pageMorePayload = payload;
+      this.pageMoreTitle = title;
+      wx.navigateTo({
+        url: '../moviesList/main?payload=' + this.pageMorePayload + '&title=' + this.pageMoreTitle
+      });
     }
-  }
-});
-
-/***/ }),
-
-/***/ 114:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Movie_vue__ = __webpack_require__(116);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_71b93cfc_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Movie_vue__ = __webpack_require__(117);
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(115)
-}
-var normalizeComponent = __webpack_require__(3)
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Movie_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_71b93cfc_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Movie_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "src/components/Movie.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Movie.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-71b93cfc", Component.options)
-  } else {
-    hotAPI.reload("data-v-71b93cfc", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-
-/***/ 115:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 116:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(4);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'Movie',
-  props: {
-    movie: {
-      type: Array,
-      default: [],
-      required: true
-    }
-  },
-  computed: {
-    isNightMode: function isNightMode(_) {
-      return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.isNightMode;
-    } // 夜间模式
   }
 });
 
 /***/ }),
 
 /***/ 117:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('ul', {
-    staticClass: "zl-movie__list"
-  }, [_vm._l((_vm.movie), function(item, ind) {
-    return _c('li', {
-      key: ind,
-      staticClass: "zl-movie__item"
-    }, [_c('img', {
-      staticClass: "zl-movie__item--thumb",
-      attrs: {
-        "src": item.images.small
-      }
-    }), _vm._v(" "), _c('span', {
-      staticClass: "zl-movie__item--title",
-      class: {
-        'night-text': _vm.isNightMode
-      }
-    }, [_vm._v(_vm._s(item.title))]), _vm._v(" "), _c('p', [_vm._l((item.activeStar), function(star, i) {
-      return _c('img', {
-        key: i,
-        staticClass: "zl-movie__item--star",
-        attrs: {
-          "src": "../../static/img/movie/star_active.svg"
-        }
-      })
-    }), _vm._v(" "), _c('img', {
-      directives: [{
-        name: "show",
-        rawName: "v-show",
-        value: (item.halfActiveStar),
-        expression: "item.halfActiveStar"
-      }],
-      staticClass: "zl-movie__item--star",
-      attrs: {
-        "src": "../../static/img/movie/star_half.svg"
-      }
-    }), _vm._v(" "), _vm._l((item.inactiveStar), function(star, i) {
-      return _c('img', {
-        key: i,
-        staticClass: "zl-movie__item--star",
-        attrs: {
-          "src": "../../static/img/movie/star_inactive.svg"
-        }
-      })
-    }), _vm._v(" "), _c('span', {
-      staticClass: "zl-movie__item--score",
-      class: {
-        'night-text': _vm.isNightMode
-      }
-    }, [_vm._v(_vm._s(item.rating.average))])], 2)], 1)
-  }), _vm._v(" "), _c('p', {
-    staticClass: "zl-movie__clear"
-  })], 2)], 1)
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-71b93cfc", esExports)
-  }
-}
-
-/***/ }),
-
-/***/ 118:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -991,17 +826,32 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       'night-text': _vm.isNightMode
     }
   }, [_c('span', [_vm._v("影院热映")]), _vm._v(" "), _c('p', {
-    staticClass: "zl-movie__title--more"
+    staticClass: "zl-movie__title--more",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": function($event) {
+        _vm.showMore('inTheaters', '影院热映')
+      }
+    }
   }, [_c('span', [_vm._v("查看更多")]), _vm._v(" "), _c('img', {
     attrs: {
       "src": "../../../static/img/movie/right.svg"
     }
-  })])], 1), _vm._v(" "), _c('Movie', {
-    attrs: {
-      "movie": _vm.inTheaters,
-      "mpcomid": '0'
-    }
-  }), _vm._v(" "), _c('div', {
+  })])], 1), _vm._v(" "), _c('ul', {
+    staticClass: "zl-movie__list"
+  }, [_vm._l((_vm.inTheaters), function(item, index) {
+    return _c('Movie', {
+      key: index,
+      attrs: {
+        "movie": item,
+        "mpcomid": '0-' + index
+      }
+    })
+  }), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__clear"
+  })], 2), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -1013,17 +863,32 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       'night-text': _vm.isNightMode
     }
   }, [_c('span', [_vm._v("即将上映")]), _vm._v(" "), _c('p', {
-    staticClass: "zl-movie__title--more"
+    staticClass: "zl-movie__title--more",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.showMore('comingSoon', '即将上映')
+      }
+    }
   }, [_c('span', [_vm._v("查看更多")]), _vm._v(" "), _c('img', {
     attrs: {
       "src": "../../../static/img/movie/right.svg"
     }
-  })])], 1), _vm._v(" "), _c('Movie', {
-    attrs: {
-      "movie": _vm.comingSoon,
-      "mpcomid": '1'
-    }
-  }), _vm._v(" "), _c('div', {
+  })])], 1), _vm._v(" "), _c('ul', {
+    staticClass: "zl-movie__list"
+  }, [_vm._l((_vm.comingSoon), function(item, index) {
+    return _c('Movie', {
+      key: index,
+      attrs: {
+        "movie": item,
+        "mpcomid": '1-' + index
+      }
+    })
+  }), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__clear"
+  })], 2), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -1035,17 +900,32 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       'night-text': _vm.isNightMode
     }
   }, [_c('span', [_vm._v("Top250")]), _vm._v(" "), _c('p', {
-    staticClass: "zl-movie__title--more"
+    staticClass: "zl-movie__title--more",
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": function($event) {
+        _vm.showMore('topList', 'Top250')
+      }
+    }
   }, [_c('span', [_vm._v("查看更多")]), _vm._v(" "), _c('img', {
     attrs: {
       "src": "../../../static/img/movie/right.svg"
     }
-  })])], 1), _vm._v(" "), _c('Movie', {
-    attrs: {
-      "movie": _vm.topList,
-      "mpcomid": '2'
-    }
-  }), _vm._v(" "), _c('div', {
+  })])], 1), _vm._v(" "), _c('ul', {
+    staticClass: "zl-movie__list"
+  }, [_vm._l((_vm.topList), function(item, index) {
+    return _c('Movie', {
+      key: index,
+      attrs: {
+        "movie": item,
+        "mpcomid": '2-' + index
+      }
+    })
+  }), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__clear"
+  })], 2), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -1059,17 +939,32 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('span', [_vm._v("北美票房榜")]), _vm._v(" "), _c('span', {
     staticClass: "zl-movie__title--time"
   }, [_vm._v("（" + _vm._s(_vm.northTopData.date) + "）")]), _vm._v(" "), _c('p', {
-    staticClass: "zl-movie__title--more"
+    staticClass: "zl-movie__title--more",
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": function($event) {
+        _vm.showMore('northTop', '北美票房榜')
+      }
+    }
   }, [_c('span', [_vm._v("查看更多")]), _vm._v(" "), _c('img', {
     attrs: {
       "src": "../../../static/img/movie/right.svg"
     }
-  })])], 1), _vm._v(" "), _c('Movie', {
-    attrs: {
-      "movie": _vm.northTopData.subjects,
-      "mpcomid": '3'
-    }
-  })], 1)], 1)], 1)
+  })])], 1), _vm._v(" "), _c('ul', {
+    staticClass: "zl-movie__list"
+  }, [_vm._l((_vm.northTopData.subjects), function(item, index) {
+    return _c('Movie', {
+      key: index,
+      attrs: {
+        "movie": item,
+        "mpcomid": '3-' + index
+      }
+    })
+  }), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__clear"
+  })], 2)], 1)], 1)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1084,16 +979,16 @@ if (false) {
 
 /***/ }),
 
-/***/ 123:
+/***/ 118:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Weather_vue__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_1b2651c6_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Weather_vue__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Weather_vue__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_1b2651c6_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Weather_vue__ = __webpack_require__(121);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(124)
+  __webpack_require__(119)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -1138,14 +1033,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 124:
+/***/ 119:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 125:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1227,7 +1122,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 126:
+/***/ 121:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1351,16 +1246,16 @@ if (false) {
 
 /***/ }),
 
-/***/ 127:
+/***/ 122:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_HistorysToday_vue__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_9c3db918_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_HistorysToday_vue__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_HistorysToday_vue__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_9c3db918_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_HistorysToday_vue__ = __webpack_require__(125);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(128)
+  __webpack_require__(123)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -1405,24 +1300,24 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 128:
+/***/ 123:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 129:
+/***/ 124:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_request__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_apiList__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_request__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_apiList__ = __webpack_require__(22);
 
 
 //
@@ -1542,7 +1437,7 @@ if (false) {(function () {
       // 没有详情接口，直接传吧- -
       wx.navigateTo({
         // url: `../detail/main?story=${JSON.stringify(Object.assign({}, data))}`
-        url: '../detail/main?year=' + data.year + '&month=' + data.month + '&day=' + data.day + '&title=' + data.title + '&picUrl=' + data.picUrl + '&details=' + data.details
+        url: '../historyDetail/main?year=' + data.year + '&month=' + data.month + '&day=' + data.day + '&title=' + data.title + '&picUrl=' + data.picUrl + '&details=' + data.details
       });
     }
   }
@@ -1550,7 +1445,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 130:
+/***/ 125:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1661,7 +1556,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 131:
+/***/ 126:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1765,167 +1660,7 @@ if (false) {
   }
 }
 
-/***/ }),
-
-/***/ 19:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__);
-
-
-// import wx from 'wx'
-// const baseUrl = 'https://api.jinse.com/'
-
-// 请求参数 重构
-var paramsSpliceUrl = function paramsSpliceUrl(url, params) {
-  if (params) {
-    var paramsArray = [];
-    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default()(params).forEach(function (key) {
-      return paramsArray.push(key + '=' + params[key]);
-    });
-    if (url.search(/\?/) === -1) {
-      url += '?' + paramsArray.join('&');
-    } else {
-      url += '&' + paramsArray.join('&');
-    }
-  }
-  return url;
-};
-
-var wxApi = {
-  // get
-  get: function get(url, data) {
-    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-      wx.showLoading({
-        title: 'loading...',
-        mask: true
-      });
-      url = paramsSpliceUrl(url, data);
-      wx.request({
-        url: '' + url,
-        header: {
-          'Content-Type': 'application/json'
-        },
-        method: 'GET',
-        dataType: 'json',
-        success: function success(res) {
-          wx.hideLoading();
-          resolve(res);
-        },
-        fail: function fail(err) {
-          console.warn('err', err);
-          wx.hideLoading();
-          reject(err);
-        },
-        complete: function complete() {
-          wx.hideLoading();
-        }
-      });
-    });
-  },
-
-  // post
-  post: function post(url, data) {
-    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-      wx.showLoading({
-        title: 'loading...',
-        mask: true
-      });
-      wx.request({
-        url: '' + url,
-        data: data,
-        header: {
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        dataType: 'json',
-        success: function success(res) {
-          resolve(res);
-          wx.hideLoading();
-        },
-        fail: function fail(err) {
-          console.warn('err', err);
-          reject(err);
-          wx.hideLoading();
-        },
-        complete: function complete() {
-          wx.hideLoading();
-        }
-      });
-    });
-  }
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (wxApi);
-
-/***/ }),
-
-/***/ 20:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export BANNER_LIST */
-/* unused harmony export MAIN_NEWS */
-/* unused harmony export LIVES_LIST */
-/* unused harmony export COINS_LIST */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return POST_WEATHER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return HISTORY_TODAY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return IN_THEATERS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return COMMING_SOON; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return TOP250; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return NORTHTOP; });
-// banner图集
-var BANNER_LIST = 'https://api.jinse.com/v4/ad/web/slideList';
-
-// 新闻9点半
-var MAIN_NEWS = 'https://api.jinse.com/v1/topic/by_tag_list';
-
-// 快讯
-var LIVES_LIST = 'https://api.jinse.com/v4/live/list';
-
-/**
- * 获取币种列表
- * @param {Object} params 请求参数对象
- * @Author: @Cid
- * @Date: 2019-01-21 12:05:49
- */
-var COINS_LIST = 'https://api.jinse.com/v3/coin';
-
-/*
- * 获取当前城市天气
- */
-var POST_WEATHER = 'https://www.mxnzp.com/api/weather/current';
-
-/**
- * 历史上的今天
- */
-var HISTORY_TODAY = 'https://www.mxnzp.com/api/history/today';
-
-/**
- * 正在上映的电影列表
- */
-var IN_THEATERS = 'https://douban.uieee.com/v2/movie/in_theaters';
-
-/**
- * 正在上映的电影列表
- */
-var COMMING_SOON = 'https://douban.uieee.com/v2/movie/coming_soon';
-
-/**
- * 正在上映的电影列表
- */
-var TOP250 = 'https://douban.uieee.com/v2/movie/top250';
-
-/**
- * 北美票房榜
- */
-var NORTHTOP = 'https://douban.uieee.com/v2/movie/us_box';
-
 /***/ })
 
-},[102]);
+},[103]);
 //# sourceMappingURL=main.js.map

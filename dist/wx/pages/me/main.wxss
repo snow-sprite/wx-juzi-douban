@@ -1,3 +1,4 @@
+@import "../../common/vendor.wxss";
 
 @charset "UTF-8";
 .me-setting.data-v-fc19b91e {

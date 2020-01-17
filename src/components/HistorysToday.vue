@@ -84,7 +84,7 @@ export default {
       // 没有详情接口，直接传吧- -
       wx.navigateTo({
         // url: `../detail/main?story=${JSON.stringify(Object.assign({}, data))}`
-        url: `../detail/main?year=${data.year}&month=${data.month}&day=${data.day}&title=${data.title}&picUrl=${data.picUrl}&details=${data.details}`
+        url: `../historyDetail/main?year=${data.year}&month=${data.month}&day=${data.day}&title=${data.title}&picUrl=${data.picUrl}&details=${data.details}`
       })
     }
   }

@@ -1,8 +1,4 @@
 <import src="/components/Weather.vue.wxml" />
 <import src="/pages/index/Movies.vue.wxml" />
-<import src="/components/Market.vue.wxml" />
 <import src="/components/HistorysToday.vue.wxml" />
 <import src="/components/Movie.vue.wxml" />
-<import src="/components/Weather.vue.wxml" />
-<import src="/pages/index/Movies.vue.wxml" />
-<import src="/components/HistorysToday.vue.wxml" />

@@ -12,40 +12,52 @@
         <!-- 影院热映 -->
         <div class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="inTheaters.length > 0">
           <span>影院热映</span>
-          <p class="zl-movie__title--more">
+          <p class="zl-movie__title--more" @click="showMore('inTheaters', '影院热映')">
             <span>查看更多</span>
             <img src="../../../static/img/movie/right.svg">
           </p>
         </div>
-        <Movie :movie="inTheaters"></Movie>
+        <ul class="zl-movie__list">
+          <Movie v-for="(item, index) in inTheaters" :key="index" :movie="item"></Movie>
+          <p class="zl-movie__clear"></p>
+        </ul>
         <!-- 即将上映 -->
         <div class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="comingSoon.length > 0">
           <span>即将上映</span>
-          <p class="zl-movie__title--more">
+          <p class="zl-movie__title--more" @click="showMore('comingSoon', '即将上映')">
             <span>查看更多</span>
             <img src="../../../static/img/movie/right.svg">
           </p>  
         </div>
-        <Movie :movie="comingSoon"></Movie>
+        <ul class="zl-movie__list">
+          <Movie v-for="(item, index) in comingSoon" :key="index" :movie="item"></Movie>
+          <p class="zl-movie__clear"></p>
+        </ul>
         <!-- 口碑榜 -->
         <div class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="topList.length > 0">
           <span>Top250</span>
-          <p class="zl-movie__title--more">
+          <p class="zl-movie__title--more" @click="showMore('topList', 'Top250')">
             <span>查看更多</span>
             <img src="../../../static/img/movie/right.svg">
           </p>
         </div>
-        <Movie :movie="topList"></Movie>
+        <ul class="zl-movie__list">
+          <Movie v-for="(item, index) in topList" :key="index" :movie="item"></Movie>
+          <p class="zl-movie__clear"></p>
+        </ul>
         <!-- 北美票房榜 -->
         <div class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="topList.length > 0">
           <span>北美票房榜</span>
           <span class="zl-movie__title--time">（{{ northTopData.date }}）</span>
-          <p class="zl-movie__title--more">
+          <p class="zl-movie__title--more" @click="showMore('northTop', '北美票房榜')">
             <span>查看更多</span>
             <img src="../../../static/img/movie/right.svg">
           </p>
         </div>
-        <Movie :movie="northTopData.subjects"></Movie>
+        <ul class="zl-movie__list">
+          <Movie v-for="(item, index) in northTopData.subjects" :key="index" :movie="item"></Movie>
+          <p class="zl-movie__clear"></p>
+        </ul>
       </main>
     </scroll-view>
   </div>
@@ -66,13 +78,15 @@ export default {
   },
   data () {
     return {
-      inTheaters: [],
-      comingSoon: [],
-      topList: [],
+      inTheaters: [], // 正在热映数据
+      comingSoon: [], // 即将上映数据
+      topList: [], // top250列表
       northTopData: {
         date: '',
-        subjects: []
-      }
+        subjects: [] // 北美票房榜
+      },
+      pageMorePayload: '', // 传给查看更多的判断请求uri的值
+      pageMoreTitle: '' // 查看更多电影页面的标题
     }
   },
   created () {
@@ -136,82 +150,14 @@ export default {
         this.northTopData.date = ''
         this.northTopData.subjects = []
       }
+    },
+    showMore (payload, title) {
+      this.pageMorePayload = payload
+      this.pageMoreTitle = title
+      wx.navigateTo({
+        url: `../moviesList/main?payload=${this.pageMorePayload}&title=${this.pageMoreTitle}`
+      })
     }
   }
 }
 </script>
-
-<style lang=scss>
-@import '../../assets/mixins';
-@include b(movie-box) {
-  height: 100vh;
-}
-@include b(movie) {
-  padding: 0 r(8px);
-  padding-top: r(8px);
-  @include e(title) {
-    font-size: r(16px);
-    font-weight: 450;
-    margin-bottom: r(8px);
-    @include m(time) {
-      font-size: r(12px);
-    }
-    @include m(more) {
-      float: right;
-      &>span {
-        font-size: r(12px);
-        font-style: normal;
-        color: #808080;
-        display: inline-block;
-        vertical-align: middle;
-      }
-      &>img {
-        width: r(10px);
-        height: r(10px);
-        margin-left: r(5px);
-        display: inline-block;
-        vertical-align: middle;
-      }
-    }
-  }
-  @include e(list) {
-    box-sizing: border-box;
-    margin-bottom: r(8px);
-  }
-  @include e(item) {
-    width: calc((100% - 20px) / 3);
-    margin-right: 10px;
-    display: flex;
-    float: left;
-    flex-direction: column;
-    justify-content: space-between;
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
-    @include m(thumb) {
-      height: r(130px);
-      width: 100%;
-    }
-    @include m(title) {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      font-size: r(12px);
-    }
-    @include m(star) {
-      width: r(8px);
-      height: r(8px);
-    }
-    @include m(score) {
-      color: #666;
-      font-size: r(10px);
-      margin-left: r(3px);
-    }
-  }
-  @include e(clear) {
-    width: 0;
-    height: 0;
-    clear: both;
-  }
-}
-</style>

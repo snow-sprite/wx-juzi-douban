@@ -1,3 +1,4 @@
+@import "../../common/vendor.wxss";
 
 @charset "UTF-8";
 .zl-coin-box.data-v-86b97822 {
@@ -64,78 +65,6 @@
 }
 .night-line-color.data-v-86b97822 {
   border-bottom: 2rpx solid #2c2c2c !important;
-}
-@charset "UTF-8";
-.zl-movie-box {
-  height: 100vh;
-}
-.zl-movie {
-  padding: 0 21.333rpx;
-  padding-top: 21.333rpx;
-}
-.zl-movie__title {
-  font-size: 42.667rpx;
-  font-weight: 450;
-  margin-bottom: 21.333rpx;
-}
-.zl-movie__title--time {
-  font-size: 32rpx;
-}
-.zl-movie__title--more {
-  float: right;
-}
-.zl-movie__title--more > ._span {
-  font-size: 32rpx;
-  font-style: normal;
-  color: #808080;
-  display: inline-block;
-  vertical-align: middle;
-}
-.zl-movie__title--more > ._img {
-  width: 26.667rpx;
-  height: 26.667rpx;
-  margin-left: 13.333rpx;
-  display: inline-block;
-  vertical-align: middle;
-}
-.zl-movie__list {
-  box-sizing: border-box;
-  margin-bottom: 21.333rpx;
-}
-.zl-movie__item {
-  width: calc((100% - 40rpx) / 3);
-  margin-right: 20rpx;
-  display: flex;
-  float: left;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.zl-movie__item:nth-child(3n) {
-  margin-right: 0;
-}
-.zl-movie__item--thumb {
-  height: 346.66700000000003rpx;
-  width: 100%;
-}
-.zl-movie__item--title {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 32rpx;
-}
-.zl-movie__item--star {
-  width: 21.333rpx;
-  height: 21.333rpx;
-}
-.zl-movie__item--score {
-  color: #666;
-  font-size: 26.667rpx;
-  margin-left: 8rpx;
-}
-.zl-movie__clear {
-  width: 0;
-  height: 0;
-  clear: both;
 }
 @charset "UTF-8";
 .weather-box.data-v-1b2651c6 {

@@ -1,30 +1,25 @@
 <template>
-  <div>
-    <ul class="zl-movie__list">
-      <li class="zl-movie__item" v-for="(item, ind) in movie" :key="ind">
-        <img :src="item.images.small" class="zl-movie__item--thumb">
-        <span class="zl-movie__item--title" :class="{'night-text': isNightMode}">{{ item.title }}</span>
-        <p>
-          <img 
-            src="../../static/img/movie/star_active.svg"
-            class="zl-movie__item--star"
-            v-for="(star, i) in item.activeStar"
-            :key="i">
-          <img 
-            src="../../static/img/movie/star_half.svg"
-            class="zl-movie__item--star"
-            v-show="item.halfActiveStar">
-          <img 
-            src="../../static/img/movie/star_inactive.svg"
-            class="zl-movie__item--star"
-            v-for="(star, i) in item.inactiveStar"
-            :key="i">
-          <span class="zl-movie__item--score" :class="{'night-text': isNightMode}">{{ item.rating.average }}</span>
-        </p>
-      </li>
-      <p class="zl-movie__clear"></p>
-    </ul>
-  </div>
+  <li class="zl-movie__item">
+    <img :src="movie.images.small" class="zl-movie__item--thumb">
+    <span class="zl-movie__item--title" :class="{'night-text': isNightMode}">{{ movie.title }}</span>
+    <p>
+      <img 
+        src="../../static/img/movie/star_active.svg"
+        class="zl-movie__item--star"
+        v-for="(star, i) in movie.activeStar"
+        :key="i">
+      <img 
+        src="../../static/img/movie/star_half.svg"
+        class="zl-movie__item--star"
+        v-show="movie.halfActiveStar">
+      <img 
+        src="../../static/img/movie/star_inactive.svg"
+        class="zl-movie__item--star"
+        v-for="(star, i) in movie.inactiveStar"
+        :key="i">
+      <span class="zl-movie__item--score" :class="{'night-text': isNightMode}">{{ movie.rating.average }}</span>
+    </p>
+  </li>
 </template>
 
 <script>
@@ -33,8 +28,8 @@ export default {
   name: 'Movie',
   props: {
     movie: {
-      type: Array,
-      default: [],
+      type: Object,
+      default: {},
       required: true
     }
   },
