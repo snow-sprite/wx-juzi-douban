@@ -33,10 +33,10 @@
         <!-- 快讯组件 -->
         <!-- <Live v-if="livesList.length > 0" :livesList="livesList" @handleLive="getLives" /> -->
       <!-- </swiper-item> -->
-      <swiper-item>
+      <!-- <swiper-item> -->
         <!-- 行情组件 -->
-        <Market />
-      </swiper-item>
+        <!-- <Market /> -->
+      <!-- </swiper-item> -->
       <swiper-item>
         <!-- 冷知识组件 -->
         <HistorysToday />
@@ -53,7 +53,7 @@
 <script>
 import Movies from '@/pages/index/Movies'
 // import Live from '@/components/Live'
-import Market from '@/components/Market'
+// import Market from '@/components/Market'
 import Weather from '@/components/Weather'
 import HistorysToday from '@/components/HistorysToday'
 import store from '@/store'
@@ -67,7 +67,7 @@ export default {
   components: {
     Movies,
     // Live,
-    Market,
+    // Market,
     Weather,
     HistorysToday
   },
@@ -85,7 +85,7 @@ export default {
       secondTabs: [
         '电影',
         // '资讯',
-        '行情',
+        // '行情',
         '冷知识'
       ],
       circular: true,

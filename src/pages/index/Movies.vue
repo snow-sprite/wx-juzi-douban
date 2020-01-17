@@ -10,19 +10,42 @@
       <main class="zl-movie">
         <!-- 分开写，保证影院热映在首页 -->
         <!-- 影院热映 -->
-        <p class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="inTheaters.length > 0">影院热映</p>
+        <div class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="inTheaters.length > 0">
+          <span>影院热映</span>
+          <p class="zl-movie__title--more">
+            <span>查看更多</span>
+            <img src="../../../static/img/movie/right.svg">
+          </p>
+        </div>
         <Movie :movie="inTheaters"></Movie>
         <!-- 即将上映 -->
-        <p class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="comingSoon.length > 0">即将上映</p>
+        <div class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="comingSoon.length > 0">
+          <span>即将上映</span>
+          <p class="zl-movie__title--more">
+            <span>查看更多</span>
+            <img src="../../../static/img/movie/right.svg">
+          </p>  
+        </div>
         <Movie :movie="comingSoon"></Movie>
         <!-- 口碑榜 -->
-        <p class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="topList.length > 0">Top250</p>
+        <div class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="topList.length > 0">
+          <span>Top250</span>
+          <p class="zl-movie__title--more">
+            <span>查看更多</span>
+            <img src="../../../static/img/movie/right.svg">
+          </p>
+        </div>
         <Movie :movie="topList"></Movie>
         <!-- 北美票房榜 -->
-        <p class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="topList.length > 0">
-          北美票房榜<span class="zl-movie__title--time">（{{ northTopData && northTopData.date }}）</span>
-        </p>
-        <Movie :movie="northTopData.subjects" :northUs="true"></Movie>
+        <div class="zl-movie__title" :class="{'night-text': isNightMode}" v-show="topList.length > 0">
+          <span>北美票房榜</span>
+          <span class="zl-movie__title--time">（{{ northTopData.date }}）</span>
+          <p class="zl-movie__title--more">
+            <span>查看更多</span>
+            <img src="../../../static/img/movie/right.svg">
+          </p>
+        </div>
+        <Movie :movie="northTopData.subjects"></Movie>
       </main>
     </scroll-view>
   </div>
@@ -99,9 +122,15 @@ export default {
           movieItem.subject.inactiveStar = Math.floor(5 - movieItem.subject.rating.stars / 10)
           movieItem.subject.halfActiveStar = movieItem.subject.rating.stars % 10 > 0
         }
-        Object.keys(this.northTopData).forEach(key => {
+        Object.keys(data).forEach(key => {
           this.northTopData[key] = data[key]
         })
+        // 将northTopData.subjects.subject下的数据映射到northTopData.sujects下一份，跟之前数据格式保持一致
+        for (let sub of this.northTopData.subjects) {
+          Object.keys(sub.subject).forEach(key => {
+            sub[key] = sub.subject[key]
+          })
+        }
       } catch (error) {
         console.log(error)
         this.northTopData.date = ''
@@ -121,11 +150,28 @@ export default {
   padding: 0 r(8px);
   padding-top: r(8px);
   @include e(title) {
-    font-size: r(18px);
+    font-size: r(16px);
     font-weight: 450;
     margin-bottom: r(8px);
     @include m(time) {
       font-size: r(12px);
+    }
+    @include m(more) {
+      float: right;
+      &>span {
+        font-size: r(12px);
+        font-style: normal;
+        color: #808080;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      &>img {
+        width: r(10px);
+        height: r(10px);
+        margin-left: r(5px);
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
   }
   @include e(list) {

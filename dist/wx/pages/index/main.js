@@ -23,13 +23,13 @@ app.$mount();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_86b97822_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(131);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(104)
 }
-var normalizeComponent = __webpack_require__(0)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 
 /* template */
@@ -88,12 +88,11 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_index_Movies__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Market__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Weather__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_HistorysToday__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__store__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_request__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__api_apiList__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Weather__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_HistorysToday__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_request__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__api_apiList__ = __webpack_require__(20);
 
 
 
@@ -154,7 +153,7 @@ var _this = this;
 
 
 // import Live from '@/components/Live'
-
+// import Market from '@/components/Market'
 
 
 
@@ -165,22 +164,22 @@ var _this = this;
   components: {
     Movies: __WEBPACK_IMPORTED_MODULE_2__pages_index_Movies__["a" /* default */],
     // Live,
-    Market: __WEBPACK_IMPORTED_MODULE_3__components_Market__["a" /* default */],
-    Weather: __WEBPACK_IMPORTED_MODULE_4__components_Weather__["a" /* default */],
-    HistorysToday: __WEBPACK_IMPORTED_MODULE_5__components_HistorysToday__["a" /* default */]
+    // Market,
+    Weather: __WEBPACK_IMPORTED_MODULE_3__components_Weather__["a" /* default */],
+    HistorysToday: __WEBPACK_IMPORTED_MODULE_4__components_HistorysToday__["a" /* default */]
   },
   computed: {
     isShowRefresh: function isShowRefresh(_) {
-      return __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].getters.isShowRefresh;
+      return __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].getters.isShowRefresh;
     },
     isNightMode: function isNightMode(_) {
-      return __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].getters.isNightMode;
+      return __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].getters.isNightMode;
     }, // 夜间模式
     themeIndex: function themeIndex(_) {
-      return __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].getters.themeIndex;
+      return __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].getters.themeIndex;
     },
     userLocation: function userLocation(_) {
-      return __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].getters.userLocation;
+      return __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].getters.userLocation;
     }
   },
   data: function data() {
@@ -190,7 +189,8 @@ var _this = this;
       tabs: ['快讯', '行情'],
       secondTabs: ['电影',
       // '资讯',
-      '行情', '冷知识'],
+      // '行情',
+      '冷知识'],
       circular: true,
       refreshLoading: true,
       refreshText: '',
@@ -254,7 +254,7 @@ var _this = this;
     getLocation: function getLocation() {
       var _this2 = this;
 
-      __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].dispatch('getLocation').then(function (data) {
+      __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].dispatch('getLocation').then(function (data) {
         _this2.postWeather(data);
       });
     },
@@ -316,7 +316,7 @@ var _this = this;
         wxsb！！！😡
       */
       this.timer = setTimeout(function () {
-        __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */].commit('pickerThemeChange', ind);
+        __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */].commit('pickerThemeChange', ind);
       }, 0);
     },
     postWeather: function postWeather(info) {
@@ -331,7 +331,7 @@ var _this = this;
               case 0:
                 city = info.city;
                 _context.next = 3;
-                return __WEBPACK_IMPORTED_MODULE_7__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_8__api_apiList__["f" /* POST_WEATHER */] + '/' + city);
+                return __WEBPACK_IMPORTED_MODULE_6__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_7__api_apiList__["e" /* POST_WEATHER */] + '/' + city);
 
               case 3:
                 _ref = _context.sent;
@@ -373,7 +373,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(109)
 }
-var normalizeComponent = __webpack_require__(0)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 
 /* template */
@@ -427,7 +427,7 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator__);
@@ -435,14 +435,37 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_get_iterator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_get_iterator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_request__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__api_apiList__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_request__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__api_apiList__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Movie__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__store__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__store__ = __webpack_require__(4);
 
 
 
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -500,9 +523,9 @@ if (false) {(function () {
     };
   },
   created: function created() {
-    this.getMovies(__WEBPACK_IMPORTED_MODULE_5__api_apiList__["d" /* IN_THEATERS */], 'in_theaters');
-    this.getMovies(__WEBPACK_IMPORTED_MODULE_5__api_apiList__["b" /* COMMING_SOON */], 'coming_soon');
-    this.getMovies(__WEBPACK_IMPORTED_MODULE_5__api_apiList__["g" /* TOP250 */], 'top250');
+    this.getMovies(__WEBPACK_IMPORTED_MODULE_5__api_apiList__["c" /* IN_THEATERS */], 'in_theaters');
+    this.getMovies(__WEBPACK_IMPORTED_MODULE_5__api_apiList__["a" /* COMMING_SOON */], 'coming_soon');
+    this.getMovies(__WEBPACK_IMPORTED_MODULE_5__api_apiList__["f" /* TOP250 */], 'top250');
     this.getNorthTopList();
   },
 
@@ -612,7 +635,7 @@ if (false) {(function () {
       var _this2 = this;
 
       return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.mark(function _callee2() {
-        var _ref2, data, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, movieItem;
+        var _ref2, data, _iteratorNormalCompletion2, _didIteratorError2, _iteratorError2, _iterator2, _step2, movieItem, _loop, _iteratorNormalCompletion3, _didIteratorError3, _iteratorError3, _iterator3, _step3, sub;
 
         return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
           while (1) {
@@ -620,7 +643,7 @@ if (false) {(function () {
               case 0:
                 _context2.prev = 0;
                 _context2.next = 3;
-                return __WEBPACK_IMPORTED_MODULE_4__lib_request__["a" /* default */].post(__WEBPACK_IMPORTED_MODULE_5__api_apiList__["e" /* NORTHTOP */], {
+                return __WEBPACK_IMPORTED_MODULE_4__lib_request__["a" /* default */].post(__WEBPACK_IMPORTED_MODULE_5__api_apiList__["d" /* NORTHTOP */], {
                   apikey: '0b2bdeda43b5688921839c8ecb20399b'
                 });
 
@@ -675,26 +698,77 @@ if (false) {(function () {
                 return _context2.finish(17);
 
               case 25:
-                __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default()(_this2.northTopData).forEach(function (key) {
+                __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default()(data).forEach(function (key) {
                   _this2.northTopData[key] = data[key];
                 });
-                _context2.next = 33;
+                // 将northTopData.subjects.subject下的数据映射到northTopData.sujects下一份，跟之前数据格式保持一致
+
+                _loop = function _loop(sub) {
+                  __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_keys___default()(sub.subject).forEach(function (key) {
+                    sub[key] = sub.subject[key];
+                  });
+                };
+
+                _iteratorNormalCompletion3 = true;
+                _didIteratorError3 = false;
+                _iteratorError3 = undefined;
+                _context2.prev = 30;
+                for (_iterator3 = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_get_iterator___default()(_this2.northTopData.subjects); !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                  sub = _step3.value;
+
+                  _loop(sub);
+                }
+                _context2.next = 38;
                 break;
 
-              case 28:
-                _context2.prev = 28;
-                _context2.t1 = _context2['catch'](0);
+              case 34:
+                _context2.prev = 34;
+                _context2.t1 = _context2['catch'](30);
+                _didIteratorError3 = true;
+                _iteratorError3 = _context2.t1;
 
-                console.log(_context2.t1);
+              case 38:
+                _context2.prev = 38;
+                _context2.prev = 39;
+
+                if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                  _iterator3.return();
+                }
+
+              case 41:
+                _context2.prev = 41;
+
+                if (!_didIteratorError3) {
+                  _context2.next = 44;
+                  break;
+                }
+
+                throw _iteratorError3;
+
+              case 44:
+                return _context2.finish(41);
+
+              case 45:
+                return _context2.finish(38);
+
+              case 46:
+                _context2.next = 53;
+                break;
+
+              case 48:
+                _context2.prev = 48;
+                _context2.t2 = _context2['catch'](0);
+
+                console.log(_context2.t2);
                 _this2.northTopData.date = '';
                 _this2.northTopData.subjects = [];
 
-              case 33:
+              case 53:
               case 'end':
                 return _context2.stop();
             }
           }
-        }, _callee2, _this2, [[0, 28], [9, 13, 17, 25], [18,, 20, 24]]);
+        }, _callee2, _this2, [[0, 48], [9, 13, 17, 25], [18,, 20, 24], [30, 34, 38, 46], [39,, 41, 45]]);
       }))();
     }
   }
@@ -713,7 +787,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(115)
 }
-var normalizeComponent = __webpack_require__(0)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 
 /* template */
@@ -767,31 +841,7 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(2);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(4);
 //
 //
 //
@@ -830,11 +880,6 @@ if (false) {(function () {
       type: Array,
       default: [],
       required: true
-    },
-    northUs: {
-      type: Boolean,
-      default: false,
-      required: false
     }
   },
   computed: {
@@ -851,7 +896,7 @@ if (false) {(function () {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [(!_vm.northUs) ? _c('ul', {
+  return _c('div', [_c('ul', {
     staticClass: "zl-movie__list"
   }, [_vm._l((_vm.movie), function(item, ind) {
     return _c('li', {
@@ -902,57 +947,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v(_vm._s(item.rating.average))])], 2)], 1)
   }), _vm._v(" "), _c('p', {
     staticClass: "zl-movie__clear"
-  })], 2) : _c('ul', {
-    staticClass: "zl-movie__list"
-  }, [_vm._l((_vm.movie), function(item, ind) {
-    return _c('li', {
-      key: ind,
-      staticClass: "zl-movie__item"
-    }, [_c('img', {
-      staticClass: "zl-movie__item--thumb",
-      attrs: {
-        "src": item.subject.images.small
-      }
-    }), _vm._v(" "), _c('span', {
-      staticClass: "zl-movie__item--title",
-      class: {
-        'night-text': _vm.isNightMode
-      }
-    }, [_vm._v(_vm._s(item.subject.title))]), _vm._v(" "), _c('p', [_vm._l((item.subject.activeStar), function(star, i) {
-      return _c('img', {
-        key: i,
-        staticClass: "zl-movie__item--star",
-        attrs: {
-          "src": "../../static/img/movie/star_active.svg"
-        }
-      })
-    }), _vm._v(" "), _c('img', {
-      directives: [{
-        name: "show",
-        rawName: "v-show",
-        value: (item.subject.halfActiveStar),
-        expression: "item.subject.halfActiveStar"
-      }],
-      staticClass: "zl-movie__item--star",
-      attrs: {
-        "src": "../../static/img/movie/star_half.svg"
-      }
-    }), _vm._v(" "), _vm._l((item.subject.inactiveStar), function(star, i) {
-      return _c('img', {
-        key: i,
-        staticClass: "zl-movie__item--star",
-        attrs: {
-          "src": "../../static/img/movie/star_inactive.svg"
-        }
-      })
-    }), _vm._v(" "), _c('span', {
-      staticClass: "zl-movie__item--score",
-      class: {
-        'night-text': _vm.isNightMode
-      }
-    }, [_vm._v(_vm._s(item.subject.rating.average))])], 2)], 1)
-  }), _vm._v(" "), _c('p', {
-    staticClass: "zl-movie__clear"
   })], 2)], 1)
 }
 var staticRenderFns = []
@@ -985,7 +979,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('main', {
     staticClass: "zl-movie"
-  }, [_c('p', {
+  }, [_c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -996,12 +990,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     class: {
       'night-text': _vm.isNightMode
     }
-  }, [_vm._v("影院热映")]), _vm._v(" "), _c('Movie', {
+  }, [_c('span', [_vm._v("影院热映")]), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__title--more"
+  }, [_c('span', [_vm._v("查看更多")]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": "../../../static/img/movie/right.svg"
+    }
+  })])], 1), _vm._v(" "), _c('Movie', {
     attrs: {
       "movie": _vm.inTheaters,
       "mpcomid": '0'
     }
-  }), _vm._v(" "), _c('p', {
+  }), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -1012,12 +1012,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     class: {
       'night-text': _vm.isNightMode
     }
-  }, [_vm._v("即将上映")]), _vm._v(" "), _c('Movie', {
+  }, [_c('span', [_vm._v("即将上映")]), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__title--more"
+  }, [_c('span', [_vm._v("查看更多")]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": "../../../static/img/movie/right.svg"
+    }
+  })])], 1), _vm._v(" "), _c('Movie', {
     attrs: {
       "movie": _vm.comingSoon,
       "mpcomid": '1'
     }
-  }), _vm._v(" "), _c('p', {
+  }), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -1028,12 +1034,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     class: {
       'night-text': _vm.isNightMode
     }
-  }, [_vm._v("Top250")]), _vm._v(" "), _c('Movie', {
+  }, [_c('span', [_vm._v("Top250")]), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__title--more"
+  }, [_c('span', [_vm._v("查看更多")]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": "../../../static/img/movie/right.svg"
+    }
+  })])], 1), _vm._v(" "), _c('Movie', {
     attrs: {
       "movie": _vm.topList,
       "mpcomid": '2'
     }
-  }), _vm._v(" "), _c('p', {
+  }), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -1044,12 +1056,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     class: {
       'night-text': _vm.isNightMode
     }
-  }, [_vm._v("\n        北美票房榜"), _c('span', {
+  }, [_c('span', [_vm._v("北美票房榜")]), _vm._v(" "), _c('span', {
     staticClass: "zl-movie__title--time"
-  }, [_vm._v("（" + _vm._s(_vm.northTopData && _vm.northTopData.date) + "）")])]), _vm._v(" "), _c('Movie', {
+  }, [_vm._v("（" + _vm._s(_vm.northTopData.date) + "）")]), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__title--more"
+  }, [_c('span', [_vm._v("查看更多")]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": "../../../static/img/movie/right.svg"
+    }
+  })])], 1), _vm._v(" "), _c('Movie', {
     attrs: {
       "movie": _vm.northTopData.subjects,
-      "northUs": true,
       "mpcomid": '3'
     }
   })], 1)], 1)], 1)
@@ -1067,509 +1084,18 @@ if (false) {
 
 /***/ }),
 
-/***/ 12:
+/***/ 123:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__);
-
-
-// import wx from 'wx'
-// const baseUrl = 'https://api.jinse.com/'
-
-// 请求参数 重构
-var paramsSpliceUrl = function paramsSpliceUrl(url, params) {
-  if (params) {
-    var paramsArray = [];
-    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default()(params).forEach(function (key) {
-      return paramsArray.push(key + '=' + params[key]);
-    });
-    if (url.search(/\?/) === -1) {
-      url += '?' + paramsArray.join('&');
-    } else {
-      url += '&' + paramsArray.join('&');
-    }
-  }
-  return url;
-};
-
-var wxApi = {
-  // get
-  get: function get(url, data) {
-    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-      wx.showLoading({
-        title: 'loading...',
-        mask: true
-      });
-      url = paramsSpliceUrl(url, data);
-      wx.request({
-        url: '' + url,
-        header: {
-          'Content-Type': 'application/json'
-        },
-        method: 'GET',
-        dataType: 'json',
-        success: function success(res) {
-          wx.hideLoading();
-          resolve(res);
-        },
-        fail: function fail(err) {
-          console.warn('err', err);
-          wx.hideLoading();
-          reject(err);
-        },
-        complete: function complete() {
-          wx.hideLoading();
-        }
-      });
-    });
-  },
-
-  // post
-  post: function post(url, data) {
-    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-      wx.showLoading({
-        title: 'loading...',
-        mask: true
-      });
-      wx.request({
-        url: '' + url,
-        data: data,
-        header: {
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        dataType: 'json',
-        success: function success(res) {
-          resolve(res);
-          wx.hideLoading();
-        },
-        fail: function fail(err) {
-          console.warn('err', err);
-          reject(err);
-          wx.hideLoading();
-        },
-        complete: function complete() {
-          wx.hideLoading();
-        }
-      });
-    });
-  }
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (wxApi);
-
-/***/ }),
-
-/***/ 13:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export BANNER_LIST */
-/* unused harmony export MAIN_NEWS */
-/* unused harmony export LIVES_LIST */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return COINS_LIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return POST_WEATHER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return HISTORY_TODAY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return IN_THEATERS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return COMMING_SOON; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return TOP250; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return NORTHTOP; });
-// banner图集
-var BANNER_LIST = 'https://api.jinse.com/v4/ad/web/slideList';
-
-// 新闻9点半
-var MAIN_NEWS = 'https://api.jinse.com/v1/topic/by_tag_list';
-
-// 快讯
-var LIVES_LIST = 'https://api.jinse.com/v4/live/list';
-
-/**
- * 获取币种列表
- * @param {Object} params 请求参数对象
- * @Author: @Cid
- * @Date: 2019-01-21 12:05:49
- */
-var COINS_LIST = 'https://api.jinse.com/v3/coin';
-
-/*
- * 获取当前城市天气
- */
-var POST_WEATHER = 'https://www.mxnzp.com/api/weather/current';
-
-/**
- * 历史上的今天
- */
-var HISTORY_TODAY = 'https://www.mxnzp.com/api/history/today';
-
-/**
- * 正在上映的电影列表
- */
-var IN_THEATERS = 'https://douban.uieee.com/v2/movie/in_theaters';
-
-/**
- * 正在上映的电影列表
- */
-var COMMING_SOON = 'https://douban.uieee.com/v2/movie/coming_soon';
-
-/**
- * 正在上映的电影列表
- */
-var TOP250 = 'https://douban.uieee.com/v2/movie/top250';
-
-/**
- * 北美票房榜
- */
-var NORTHTOP = 'https://douban.uieee.com/v2/movie/us_box';
-
-/***/ }),
-
-/***/ 132:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Market_vue__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_60e78f4c_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Market_vue__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Weather_vue__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_1b2651c6_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Weather_vue__ = __webpack_require__(126);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(133)
+  __webpack_require__(124)
 }
-var normalizeComponent = __webpack_require__(0)
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-60e78f4c"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Market_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_60e78f4c_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Market_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "src/components/Market.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Market.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-60e78f4c", Component.options)
-  } else {
-    hotAPI.reload("data-v-60e78f4c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-
-/***/ 133:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 134:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_request__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_apiList__ = __webpack_require__(13);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/*
- * @Description: 币种行情
- * @Author: @Cid
- * @Date: 2019-03-24 15:08:20
- * @LastEditTime: 2019-3-24 15:08:20
- */
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'Coin',
-  filters: {
-    formatPoint: function formatPoint(value) {
-      var num = parseFloat(value);
-      return num.toFixed(2);
-    }
-  },
-  data: function data() {
-    return {
-      param: {
-        page: 1,
-        limit: 15,
-        offset: 0,
-        currency: '',
-        sortby: 'market_cap',
-        order: 'desc'
-      },
-      list: [],
-      isShowInfo: false,
-      currentSymbol: '',
-      coinDetail: {
-        // 流通量
-        supply: '',
-        vol: '',
-        market_cap: ''
-      },
-      isLoading: true,
-      busy: true,
-      state: 1
-    };
-  },
-
-  computed: {
-    isNightMode: function isNightMode(_) {
-      return __WEBPACK_IMPORTED_MODULE_1__store__["a" /* default */].getters.isNightMode;
-    } // 夜间模式
-  },
-  created: function created() {
-    this.getCurrencyList();
-  },
-
-  methods: {
-    // 显示详情
-    switchInfo: function switchInfo(item) {
-      if (this.currentSymbol === item.symbol && this.isShowInfo) {
-        this.isShowInfo = false;
-        return false;
-      }
-      this.isShowInfo = true;
-      this.currentSymbol = item.symbol;
-      this.coinDetail.supply = item.supply;
-      this.coinDetail.vol = item.vol;
-      this.coinDetail.market_cap = item.market_cap;
-    },
-
-    // 获取列表
-    getCurrencyList: function getCurrencyList() {
-      var _this = this;
-
-      this.isLoading = true;
-      this.busy = true;
-      __WEBPACK_IMPORTED_MODULE_0__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_2__api_apiList__["a" /* COINS_LIST */], this.param).then(function (res) {
-        if (res.statusCode === 200) {
-          // this.list = res.data
-          _this.list = _this.list.concat(res.data);
-          _this.busy = false;
-          _this.isLoading = false;
-          if (_this.param.page >= 50) {
-            _this.busy = true;
-            _this.state = 2;
-            _this.isLoading = true;
-          }
-        }
-      }).catch(function () {
-        _this.isLoading = false;
-        _this.busy = true;
-      });
-    },
-    loadMore: function loadMore() {
-      this.param.page++;
-      this.param.offset += this.param.limit;
-      this.getCurrencyList();
-    }
-  }
-});
-
-/***/ }),
-
-/***/ 135:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('scroll-view', {
-    staticClass: "zl-coin-box",
-    attrs: {
-      "scroll-y": "",
-      "upper-threshold": "50",
-      "lower-threshold": "50",
-      "enable-back-to-top": "true",
-      "eventid": '1'
-    },
-    on: {
-      "scrolltolower": _vm.loadMore,
-      "scrolltoupper": _vm.getCurrencyList
-    }
-  }, [_c('div', _vm._l((_vm.list), function(item, ind) {
-    return _c('div', {
-      key: ind,
-      staticClass: "zl-coin",
-      class: {
-        'night-line-color': _vm.isNightMode
-      }
-    }, [_c('ul', {
-      staticClass: "zl-coin__simp",
-      attrs: {
-        "eventid": '0-' + ind
-      },
-      on: {
-        "click": function($event) {
-          _vm.switchInfo(item)
-        }
-      }
-    }, [_c('li', {
-      staticClass: "zl-coin__name",
-      class: {
-        'night-text': _vm.isNightMode
-      }
-    }, [_c('img', {
-      attrs: {
-        "src": item.icon_url,
-        "alt": item.symbol
-      }
-    }), _vm._v("\n            " + _vm._s(item.symbol) + "\n          ")]), _vm._v(" "), _c('li', {
-      staticClass: "zl-coin__price",
-      class: {
-        'night-text': _vm.isNightMode
-      }
-    }, [_vm._v(_vm._s(item.price))]), _vm._v(" "), _c('li', {
-      staticClass: "zl-coin__gd"
-    }, [(item.change > 0) ? _c('span', {
-      staticClass: "zl-coin__gd--gorw"
-    }, [_vm._v("+" + _vm._s(_vm._f("formatPoint")(item.change)) + "%")]) : (item.change < 0) ? _c('span', {
-      staticClass: "zl-coin__gd--fall"
-    }, [_vm._v(_vm._s(_vm._f("formatPoint")(item.change)) + "%")]) : _c('span', [_vm._v("+0.00%")])])], 1), _vm._v(" "), (_vm.isShowInfo && _vm.currentSymbol == item.symbol) ? _c('ul', {
-      staticClass: "zl-coin__info",
-      class: {
-        'night-bg': _vm.isNightMode
-      }
-    }, [_c('li', {
-      staticClass: "zl-coin__info--box",
-      class: {
-        'night-text': _vm.isNightMode
-      }
-    }, [_c('span', [_vm._v("流通量：")]), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.coinDetail.supply))])]), _vm._v(" "), _c('li', {
-      staticClass: "zl-coin__info--box",
-      class: {
-        'night-text': _vm.isNightMode
-      }
-    }, [_c('span', [_vm._v("24小时成交额：")]), _vm._v(" "), _c('span', [_vm._v("¥ " + _vm._s(_vm.coinDetail.vol))])]), _vm._v(" "), _c('li', {
-      staticClass: "zl-coin__info--box",
-      class: {
-        'night-text': _vm.isNightMode
-      }
-    }, [_c('span', [_vm._v("市值：")]), _vm._v(" "), _c('span', [_vm._v("¥ " + _vm._s(_vm.coinDetail.market_cap))])])], 1) : _vm._e()], 1)
-  }))])], 1)
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-60e78f4c", esExports)
-  }
-}
-
-/***/ }),
-
-/***/ 136:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_Weather_vue__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_1b2651c6_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_Weather_vue__ = __webpack_require__(139);
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(137)
-}
-var normalizeComponent = __webpack_require__(0)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 
 /* template */
@@ -1612,18 +1138,18 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 137:
+/***/ 124:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 138:
+/***/ 125:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(4);
 //
 //
 //
@@ -1701,7 +1227,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 139:
+/***/ 126:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1825,18 +1351,18 @@ if (false) {
 
 /***/ }),
 
-/***/ 140:
+/***/ 127:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_HistorysToday_vue__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_9c3db918_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_HistorysToday_vue__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_HistorysToday_vue__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_9c3db918_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_HistorysToday_vue__ = __webpack_require__(130);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(141)
+  __webpack_require__(128)
 }
-var normalizeComponent = __webpack_require__(0)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 
 /* template */
@@ -1879,14 +1405,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 141:
+/***/ 128:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 142:
+/***/ 129:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1894,9 +1420,9 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_request__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_apiList__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_request__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__api_apiList__ = __webpack_require__(20);
 
 
 //
@@ -1980,7 +1506,7 @@ if (false) {(function () {
                 _this.errText = ' ';
                 _context.prev = 1;
                 _context.next = 4;
-                return __WEBPACK_IMPORTED_MODULE_3__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_4__api_apiList__["c" /* HISTORY_TODAY */], {
+                return __WEBPACK_IMPORTED_MODULE_3__lib_request__["a" /* default */].get(__WEBPACK_IMPORTED_MODULE_4__api_apiList__["b" /* HISTORY_TODAY */], {
                   type: 1
                 });
 
@@ -2024,7 +1550,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 143:
+/***/ 130:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2135,7 +1661,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 144:
+/***/ 131:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2186,7 +1712,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "current": _vm.currentPage,
       "duration": 300,
       "eventid": '1',
-      "mpcomid": '7'
+      "mpcomid": '5'
     },
     on: {
       "change": _vm.changePage
@@ -2203,17 +1729,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "mpcomid": '4'
     }
-  }, [_c('Market', {
-    attrs: {
-      "mpcomid": '3'
-    }
-  })], 1), _vm._v(" "), _c('swiper-item', {
-    attrs: {
-      "mpcomid": '6'
-    }
   }, [_c('HistorysToday', {
     attrs: {
-      "mpcomid": '5'
+      "mpcomid": '3'
     }
   })], 1)], 1), _vm._v(" "), _c('div', {
     directives: [{
@@ -2246,6 +1764,166 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-86b97822", esExports)
   }
 }
+
+/***/ }),
+
+/***/ 19:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys__);
+
+
+// import wx from 'wx'
+// const baseUrl = 'https://api.jinse.com/'
+
+// 请求参数 重构
+var paramsSpliceUrl = function paramsSpliceUrl(url, params) {
+  if (params) {
+    var paramsArray = [];
+    __WEBPACK_IMPORTED_MODULE_1_babel_runtime_core_js_object_keys___default()(params).forEach(function (key) {
+      return paramsArray.push(key + '=' + params[key]);
+    });
+    if (url.search(/\?/) === -1) {
+      url += '?' + paramsArray.join('&');
+    } else {
+      url += '&' + paramsArray.join('&');
+    }
+  }
+  return url;
+};
+
+var wxApi = {
+  // get
+  get: function get(url, data) {
+    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+      wx.showLoading({
+        title: 'loading...',
+        mask: true
+      });
+      url = paramsSpliceUrl(url, data);
+      wx.request({
+        url: '' + url,
+        header: {
+          'Content-Type': 'application/json'
+        },
+        method: 'GET',
+        dataType: 'json',
+        success: function success(res) {
+          wx.hideLoading();
+          resolve(res);
+        },
+        fail: function fail(err) {
+          console.warn('err', err);
+          wx.hideLoading();
+          reject(err);
+        },
+        complete: function complete() {
+          wx.hideLoading();
+        }
+      });
+    });
+  },
+
+  // post
+  post: function post(url, data) {
+    return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
+      wx.showLoading({
+        title: 'loading...',
+        mask: true
+      });
+      wx.request({
+        url: '' + url,
+        data: data,
+        header: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        dataType: 'json',
+        success: function success(res) {
+          resolve(res);
+          wx.hideLoading();
+        },
+        fail: function fail(err) {
+          console.warn('err', err);
+          reject(err);
+          wx.hideLoading();
+        },
+        complete: function complete() {
+          wx.hideLoading();
+        }
+      });
+    });
+  }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (wxApi);
+
+/***/ }),
+
+/***/ 20:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export BANNER_LIST */
+/* unused harmony export MAIN_NEWS */
+/* unused harmony export LIVES_LIST */
+/* unused harmony export COINS_LIST */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return POST_WEATHER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return HISTORY_TODAY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return IN_THEATERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return COMMING_SOON; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return TOP250; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return NORTHTOP; });
+// banner图集
+var BANNER_LIST = 'https://api.jinse.com/v4/ad/web/slideList';
+
+// 新闻9点半
+var MAIN_NEWS = 'https://api.jinse.com/v1/topic/by_tag_list';
+
+// 快讯
+var LIVES_LIST = 'https://api.jinse.com/v4/live/list';
+
+/**
+ * 获取币种列表
+ * @param {Object} params 请求参数对象
+ * @Author: @Cid
+ * @Date: 2019-01-21 12:05:49
+ */
+var COINS_LIST = 'https://api.jinse.com/v3/coin';
+
+/*
+ * 获取当前城市天气
+ */
+var POST_WEATHER = 'https://www.mxnzp.com/api/weather/current';
+
+/**
+ * 历史上的今天
+ */
+var HISTORY_TODAY = 'https://www.mxnzp.com/api/history/today';
+
+/**
+ * 正在上映的电影列表
+ */
+var IN_THEATERS = 'https://douban.uieee.com/v2/movie/in_theaters';
+
+/**
+ * 正在上映的电影列表
+ */
+var COMMING_SOON = 'https://douban.uieee.com/v2/movie/coming_soon';
+
+/**
+ * 正在上映的电影列表
+ */
+var TOP250 = 'https://douban.uieee.com/v2/movie/top250';
+
+/**
+ * 北美票房榜
+ */
+var NORTHTOP = 'https://douban.uieee.com/v2/movie/us_box';
 
 /***/ })
 
