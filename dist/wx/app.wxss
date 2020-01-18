@@ -84,6 +84,19 @@
   font-size: 26.667rpx;
   margin-left: 8rpx;
 }
+.zl-movie__item--genres {
+  color: #0a0505;
+  font-size: 26.667rpx;
+}
+.zl-movie__item--pubdate {
+  font-size: 21.333rpx;
+  color: #ff4055;
+  display: inline-block;
+  border: 2rpx solid #f67;
+  padding: 0 10.667rpx;
+  border-radius: 2rpx;
+  margin-left: 16rpx;
+}
 .zl-movie__clear {
   width: 0;
   height: 0;

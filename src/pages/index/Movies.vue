@@ -105,16 +105,30 @@ export default {
         })
         if (data && data.count > 0) {
           // data.subjects = data.subjects.slice(0, 6)
-          for (let movieItem of data.subjects) {
-            // star总分50， 这里以5为最大评分
-            movieItem.activeStar = Math.floor(movieItem.rating.stars / 10)
-            movieItem.inactiveStar = Math.floor(5 - movieItem.rating.stars / 10)
-            movieItem.halfActiveStar = movieItem.rating.stars % 10 > 0
+          if (data.title !== '即将上映的电影') {
+            // 即将上映的电影暂无评分
+            for (let movieItem of data.subjects) {
+              // star总分50， 这里以5为最大评分
+              movieItem.activeStar = Math.floor(movieItem.rating.stars / 10)
+              movieItem.inactiveStar = Math.floor(5 - movieItem.rating.stars / 10)
+              movieItem.halfActiveStar = movieItem.rating.stars % 10 > 0
+              // 不是即将上映的去掉「上映时期」和「类型」
+              movieItem.genres = []
+              movieItem.mainland_pubdate = ''
+            }
           }
           if (data.title === '正在上映的电影-北京') {
             this.inTheaters = data.subjects
           } else if (data.title === '即将上映的电影') {
             this.comingSoon = data.subjects
+            //  没有评分这里不显示评分了 重设上映日期
+            this.comingSoon.forEach(coming => {
+              coming.rating = {}
+              let month = new Date(coming.mainland_pubdate).getMonth() + 1
+              month = month < 10 ? `0${month}` : month
+              let day = new Date(coming.mainland_pubdate).getDate()
+              coming.mainland_pubdate = `${month}-${day}`
+            })
           } else if (data.title === '豆瓣电影Top250') {
             this.topList = data.subjects
           }
@@ -135,6 +149,9 @@ export default {
           movieItem.subject.activeStar = Math.floor(movieItem.subject.rating.stars / 10)
           movieItem.subject.inactiveStar = Math.floor(5 - movieItem.subject.rating.stars / 10)
           movieItem.subject.halfActiveStar = movieItem.subject.rating.stars % 10 > 0
+          // 不是即将上映的去掉「上映时期」和「类型」
+          movieItem.subject.genres = []
+          movieItem.subject.mainland_pubdate = ''
         }
         Object.keys(data).forEach(key => {
           this.northTopData[key] = data[key]

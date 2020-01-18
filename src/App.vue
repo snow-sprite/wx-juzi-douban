@@ -104,6 +104,19 @@ export default {
       font-size: r(10px);
       margin-left: r(3px);
     }
+    @include m(genres) {
+      color: rgb(10, 5, 5);
+      font-size: r(10px);
+    }
+    @include m(pubdate) {
+      font-size: r(8px);
+      color: #ff4055;
+      display: inline-block;
+      border: 1px solid #f67;
+      padding: 0 r(4px);
+      border-radius: 1px;
+      margin-left: r(6px);
+    }
   }
   @include e(clear) {
     width: 0;

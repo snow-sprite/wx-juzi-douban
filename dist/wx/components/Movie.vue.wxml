@@ -1,12 +1,12 @@
 <template name="329ac643">
-  <view class="_li data-v-71b93cfc zl-movie__item">
+  <view class="_li data-v-71b93cfc zl-movie__item" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
     <view class="_div data-v-71b93cfc zl-movie__item--thumb" style=" {{('background-image:' + ('url(' + movie.images.small + ')') + ';')}}">
       <view class="_p data-v-71b93cfc zl-movie__item--mask" hidden="{{!(isNightMode)}}"></view>
     </view> <label class="_span data-v-71b93cfc zl-movie__item--title {{[isNightMode ? 'night-text' : '']}}">{{ movie.title }}</label>
     <view class="_p data-v-71b93cfc">
       <image src="/static/img/movie/star_active.svg" class="_img data-v-71b93cfc zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{movie.activeStar}}" wx:for-index="i" wx:for-item="star"></image>
       <image src="/static/img/movie/star_half.svg" class="_img data-v-71b93cfc zl-movie__item--star" hidden="{{!(movie.halfActiveStar)}}"></image>
-      <image src="/static/img/movie/star_inactive.svg" class="_img data-v-71b93cfc zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{movie.inactiveStar}}" wx:for-index="i" wx:for-item="star"></image> <label class="_span data-v-71b93cfc zl-movie__item--score {{[isNightMode ? 'night-text' : '']}}">{{ movie.rating.average }}</label>
+      <image src="/static/img/movie/star_inactive.svg" class="_img data-v-71b93cfc zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{movie.inactiveStar}}" wx:for-index="i" wx:for-item="star"></image> <label class="_span data-v-71b93cfc zl-movie__item--score {{[isNightMode ? 'night-text' : '']}}" wx:if="{{movie.rating && movie.rating.average}}">{{ movie.rating.average }}</label> <label wx:key="ind" key="{{ind}}" class="_span data-v-71b93cfc zl-movie__item--genres {{[isNightMode ? 'night-text' : '']}}" wx:for="{{movie.genres}}" wx:for-index="ind" wx:for-item="genre">{{ genre }}</label> <label class="_span data-v-71b93cfc zl-movie__item--pubdate" wx:if="{{movie.mainland_pubdate}}">{{ movie.mainland_pubdate }}</label>
     </view>
   </view>
 </template>

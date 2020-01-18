@@ -2,14 +2,14 @@ require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonpMpvue([2],{
 
-/***/ 132:
+/***/ 137:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(138);
 
 
 
@@ -18,16 +18,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 133:
+/***/ 138:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_16b0c9cc_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_16b0c9cc_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(141);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(134)
+  __webpack_require__(139)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
@@ -72,14 +72,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 134:
+/***/ 139:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 135:
+/***/ 140:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -184,15 +184,20 @@ if (false) {(function () {
                 data = _ref.data;
 
                 if (!(data && data.count > 0)) {
+                  _context.next = 28;
+                  break;
+                }
+
+                if (!(_this.requestUri !== __WEBPACK_IMPORTED_MODULE_5__api_apiList__["a" /* COMMING_SOON */])) {
                   _context.next = 26;
                   break;
                 }
 
-                // data.subjects = data.subjects.slice(0, 6)
                 _iteratorNormalCompletion = true;
                 _didIteratorError = false;
                 _iteratorError = undefined;
-                _context.prev = 9;
+                _context.prev = 10;
+
                 for (_iterator = __WEBPACK_IMPORTED_MODULE_2_babel_runtime_core_js_get_iterator___default()(data.subjects); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                   movieItem = _step.value;
 
@@ -200,60 +205,73 @@ if (false) {(function () {
                   movieItem.activeStar = Math.floor(movieItem.rating.stars / 10);
                   movieItem.inactiveStar = Math.floor(5 - movieItem.rating.stars / 10);
                   movieItem.halfActiveStar = movieItem.rating.stars % 10 > 0;
+                  // 不是即将上映的去掉「上映时期」和「类型」
+                  movieItem.genres = [];
+                  movieItem.mainland_pubdate = '';
                 }
-                _context.next = 17;
+                _context.next = 18;
                 break;
 
-              case 13:
-                _context.prev = 13;
-                _context.t0 = _context['catch'](9);
+              case 14:
+                _context.prev = 14;
+                _context.t0 = _context['catch'](10);
                 _didIteratorError = true;
                 _iteratorError = _context.t0;
 
-              case 17:
-                _context.prev = 17;
+              case 18:
                 _context.prev = 18;
+                _context.prev = 19;
 
                 if (!_iteratorNormalCompletion && _iterator.return) {
                   _iterator.return();
                 }
 
-              case 20:
-                _context.prev = 20;
+              case 21:
+                _context.prev = 21;
 
                 if (!_didIteratorError) {
-                  _context.next = 23;
+                  _context.next = 24;
                   break;
                 }
 
                 throw _iteratorError;
 
-              case 23:
-                return _context.finish(20);
-
               case 24:
-                return _context.finish(17);
+                return _context.finish(21);
 
               case 25:
-                _this.MoviesList = data.subjects;
+                return _context.finish(18);
 
               case 26:
-                _context.next = 32;
-                break;
+                //  没有评分这里不显示评分了 重设上映日期
+                if (_this.requestUri === __WEBPACK_IMPORTED_MODULE_5__api_apiList__["a" /* COMMING_SOON */]) {
+                  data.subjects.forEach(function (coming) {
+                    coming.rating = {};
+                    var month = new Date(coming.mainland_pubdate).getMonth() + 1;
+                    month = month < 10 ? '0' + month : month;
+                    var day = new Date(coming.mainland_pubdate).getDate();
+                    coming.mainland_pubdate = month + '-' + day;
+                  });
+                }
+                _this.MoviesList = data.subjects;
 
               case 28:
-                _context.prev = 28;
+                _context.next = 34;
+                break;
+
+              case 30:
+                _context.prev = 30;
                 _context.t1 = _context['catch'](0);
 
                 console.log(_context.t1);
                 _this.hotMovieList = [];
 
-              case 32:
+              case 34:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, _this, [[0, 28], [9, 13, 17, 25], [18,, 20, 24]]);
+        }, _callee, _this, [[0, 30], [10, 14, 18, 26], [19,, 21, 25]]);
       }))();
     },
     getNorthTopList: function getNorthTopList() {
@@ -287,6 +305,9 @@ if (false) {(function () {
                   movieItem.subject.activeStar = Math.floor(movieItem.subject.rating.stars / 10);
                   movieItem.subject.inactiveStar = Math.floor(5 - movieItem.subject.rating.stars / 10);
                   movieItem.subject.halfActiveStar = movieItem.subject.rating.stars % 10 > 0;
+                  // 不是即将上映的去掉「上映时期」和「类型」
+                  movieItem.subject.genres = [];
+                  movieItem.subject.mainland_pubdate = '';
                 }
                 // 将northTopData.subjects.subject下的数据映射到northTopData.sujects下一份，跟之前数据格式保持一致
                 _context2.next = 16;
@@ -402,7 +423,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 136:
+/***/ 141:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -446,5 +467,5 @@ if (false) {
 
 /***/ })
 
-},[132]);
+},[137]);
 //# sourceMappingURL=main.js.map

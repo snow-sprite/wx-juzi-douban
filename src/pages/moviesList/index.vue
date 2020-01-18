@@ -66,11 +66,26 @@ export default {
         })
         if (data && data.count > 0) {
           // data.subjects = data.subjects.slice(0, 6)
-          for (let movieItem of data.subjects) {
+          if (this.requestUri !== COMMING_SOON) {
+            for (let movieItem of data.subjects) {
             // star总分50， 这里以5为最大评分
-            movieItem.activeStar = Math.floor(movieItem.rating.stars / 10)
-            movieItem.inactiveStar = Math.floor(5 - movieItem.rating.stars / 10)
-            movieItem.halfActiveStar = movieItem.rating.stars % 10 > 0
+              movieItem.activeStar = Math.floor(movieItem.rating.stars / 10)
+              movieItem.inactiveStar = Math.floor(5 - movieItem.rating.stars / 10)
+              movieItem.halfActiveStar = movieItem.rating.stars % 10 > 0
+              // 不是即将上映的去掉「上映时期」和「类型」
+              movieItem.genres = []
+              movieItem.mainland_pubdate = ''
+            }
+          }
+          //  没有评分这里不显示评分了 重设上映日期
+          if (this.requestUri === COMMING_SOON) {
+            data.subjects.forEach(coming => {
+              coming.rating = {}
+              let month = new Date(coming.mainland_pubdate).getMonth() + 1
+              month = month < 10 ? `0${month}` : month
+              let day = new Date(coming.mainland_pubdate).getDate()
+              coming.mainland_pubdate = `${month}-${day}`
+            })
           }
           this.MoviesList = data.subjects
         }
@@ -89,6 +104,9 @@ export default {
           movieItem.subject.activeStar = Math.floor(movieItem.subject.rating.stars / 10)
           movieItem.subject.inactiveStar = Math.floor(5 - movieItem.subject.rating.stars / 10)
           movieItem.subject.halfActiveStar = movieItem.subject.rating.stars % 10 > 0
+          // 不是即将上映的去掉「上映时期」和「类型」
+          movieItem.subject.genres = []
+          movieItem.subject.mainland_pubdate = ''
         }
         // 将northTopData.subjects.subject下的数据映射到northTopData.sujects下一份，跟之前数据格式保持一致
         for (let sub of data.subjects) {

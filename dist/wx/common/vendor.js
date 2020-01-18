@@ -11174,6 +11174,13 @@ module.exports = __webpack_require__(1).getIterator = function (it) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -11189,6 +11196,13 @@ module.exports = __webpack_require__(1).getIterator = function (it) {
     isNightMode: function isNightMode(_) {
       return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].getters.isNightMode;
     } // 夜间模式
+  },
+  methods: {
+    showDetail: function showDetail() {
+      wx.navigateTo({
+        url: '../movieDetail/main'
+      });
+    }
   }
 });
 
@@ -11199,7 +11213,15 @@ module.exports = __webpack_require__(1).getIterator = function (it) {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('li', {
-    staticClass: "zl-movie__item"
+    staticClass: "zl-movie__item",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": function($event) {
+        _vm.showDetail()
+      }
+    }
   }, [_c('div', {
     staticClass: "zl-movie__item--thumb",
     style: ({
@@ -11245,12 +11267,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "src": "../../static/img/movie/star_inactive.svg"
       }
     })
-  }), _vm._v(" "), _c('span', {
+  }), _vm._v(" "), (_vm.movie.rating && _vm.movie.rating.average) ? _c('span', {
     staticClass: "zl-movie__item--score",
     class: {
       'night-text': _vm.isNightMode
     }
-  }, [_vm._v(_vm._s(_vm.movie.rating.average))])], 2)], 1)
+  }, [_vm._v(_vm._s(_vm.movie.rating.average))]) : _vm._e(), _vm._v(" "), _vm._l((_vm.movie.genres), function(genre, ind) {
+    return _c('span', {
+      key: ind,
+      staticClass: "zl-movie__item--genres",
+      class: {
+        'night-text': _vm.isNightMode
+      }
+    }, [_vm._v(_vm._s(genre))])
+  }), _vm._v(" "), (_vm.movie.mainland_pubdate) ? _c('span', {
+    staticClass: "zl-movie__item--pubdate"
+  }, [_vm._v(_vm._s(_vm.movie.mainland_pubdate))]) : _vm._e()], 2)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11262,6 +11294,53 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-71b93cfc", esExports)
   }
 }
+
+/***/ }),
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
+}
+
 
 /***/ })
 ]);
