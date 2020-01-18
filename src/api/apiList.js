@@ -44,3 +44,8 @@ export const TOP250 = `https://douban.uieee.com/v2/movie/top250`
  * 北美票房榜
  */
 export const NORTHTOP = `https://douban.uieee.com/v2/movie/us_box`
+
+/**
+ * 电影详情
+ */
+export const MOVIE_DETAIL = `https://douban-api.uieee.com/v2/movie/subject`

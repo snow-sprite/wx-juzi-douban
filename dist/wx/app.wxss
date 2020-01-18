@@ -45,11 +45,12 @@
 }
 .zl-movie__list {
   box-sizing: border-box;
-  margin-bottom: 21.333rpx;
+  margin-bottom: 5.333rpx;
 }
 .zl-movie__item {
   width: calc((100% - 40rpx) / 3);
   margin-right: 20rpx;
+  margin-bottom: 20rpx;
   display: flex;
   float: left;
   flex-direction: column;
@@ -88,14 +89,19 @@
   color: #0a0505;
   font-size: 26.667rpx;
 }
+.zl-movie__item--pubtip {
+  font-size: 26.667rpx;
+  font-weight: normal;
+}
+.zl-movie__item--genresbox {
+  line-height: 32rpx;
+}
 .zl-movie__item--pubdate {
   font-size: 21.333rpx;
   color: #ff4055;
-  display: inline-block;
   border: 2rpx solid #f67;
   padding: 0 10.667rpx;
   border-radius: 2rpx;
-  margin-left: 16rpx;
 }
 .zl-movie__clear {
   width: 0;

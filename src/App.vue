@@ -66,11 +66,12 @@ export default {
   }
   @include e(list) {
     box-sizing: border-box;
-    margin-bottom: r(8px);
+    margin-bottom: r(2px);
   }
   @include e(item) {
     width: calc((100% - 20px) / 3);
     margin-right: 10px;
+    margin-bottom: 10px;
     display: flex;
     float: left;
     flex-direction: column;
@@ -108,14 +109,21 @@ export default {
       color: rgb(10, 5, 5);
       font-size: r(10px);
     }
+    @include m(pubtip) {
+      font-size: r(10px);
+      font-weight: normal;
+    }
+    @include m(genresbox) {
+      line-height: r(12px);
+    }
     @include m(pubdate) {
       font-size: r(8px);
       color: #ff4055;
-      display: inline-block;
+      /* display: inline-block; */
       border: 1px solid #f67;
       padding: 0 r(4px);
       border-radius: 1px;
-      margin-left: r(6px);
+      /* margin-left: r(1px); */
     }
   }
   @include e(clear) {

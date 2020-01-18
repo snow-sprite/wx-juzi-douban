@@ -83,13 +83,81 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_request__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_apiList__ = __webpack_require__(16);
+
+
 //
 //
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'movieDetail'
+  name: 'movieDetail',
+  data: function data() {
+    return {
+      id: '',
+      title: '',
+      movieDetail: {}
+    };
+  },
+
+  methods: {
+    getMovieDetail: function getMovieDetail() {
+      var _this = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var _ref, data;
+
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return __WEBPACK_IMPORTED_MODULE_2__lib_request__["a" /* default */].post(__WEBPACK_IMPORTED_MODULE_3__api_apiList__["d" /* MOVIE_DETAIL */] + '/' + _this.id, {
+                  apikey: '0b2bdeda43b5688921839c8ecb20399b'
+                });
+
+              case 3:
+                _ref = _context.sent;
+                data = _ref.data;
+
+                _this.movieDetail = data;
+                _context.next = 11;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context['catch'](0);
+
+                console.error(_context.t0);
+
+              case 11:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, _this, [[0, 8]]);
+      }))();
+    }
+  },
+  onLoad: function onLoad(option) {
+    this.title = option.title;
+    this.id = option.id;
+    this.getMovieDetail();
+  },
+  mounted: function mounted() {
+    wx.setNavigationBarTitle({
+      title: this.title
+    });
+  }
 });
 
 /***/ }),
