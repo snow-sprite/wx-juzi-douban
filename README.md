@@ -1,4 +1,4 @@
-# wx-live-market
+# wx-juzi-douban
 
 > A Mpvue project
 
