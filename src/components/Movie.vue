@@ -22,7 +22,7 @@
         :key="i">
       <span class="zl-movie__item--score" :class="{'night-text': isNightMode}" v-if="movie.rating && movie.rating.average">{{ movie.rating.average }}</span>
       <p class="zl-movie__item--genresbox" v-if="movie.mainland_pubdate">
-        <span class="zl-movie__item--pubtip">题材：</span>
+        <!-- <span class="zl-movie__item--pubtip">题材：</span> -->
         <span 
           v-for="(genre, ind) in movie.genres"
           :key="ind"

@@ -1,20 +1,20 @@
-<template name="f350eb72">
-  <view class="_div data-v-1b2651c6 weather-box">
-    <view class="_div data-v-1b2651c6 weather-left">
-      <image src="/static/img/weather/qingtian.svg" hidden="{{!(weatherIcon === 'qing')}}" class="_img data-v-1b2651c6"></image>
-      <image src="/static/img/weather/yintian.svg" hidden="{{!(weatherIcon === 'ying')}}" class="_img data-v-1b2651c6"></image>
-      <image src="/static/img/weather/shuiwutian.svg" hidden="{{!(weatherIcon === 'wu')}}" class="_img data-v-1b2651c6"></image>
-      <image src="/static/img/weather/yutian.svg" hidden="{{!(weatherIcon === 'rain')}}" class="_img data-v-1b2651c6"></image>
-      <image src="/static/img/weather/xuetian.svg" hidden="{{!(weatherIcon === 'snow')}}" class="_img data-v-1b2651c6"></image>
-      <image src="/static/img/weather/cloud.svg" hidden="{{!(weatherIcon === 'cloud')}}" class="_img data-v-1b2651c6"></image>
-      <image src="/static/img/weather/unknow.svg" hidden="{{!(weatherIcon === 'unknow')}}" class="_img data-v-1b2651c6"></image>
+<template name="6de23ea8">
+  <view class="_div data-v-b56151aa weather-box">
+    <view class="_div data-v-b56151aa weather-left">
+      <image src="/static/img/weather/qingtian.svg" hidden="{{!(weatherIcon === 'qing')}}" class="_img data-v-b56151aa"></image>
+      <image src="/static/img/weather/yintian.svg" hidden="{{!(weatherIcon === 'ying')}}" class="_img data-v-b56151aa"></image>
+      <image src="/static/img/weather/shuiwutian.svg" hidden="{{!(weatherIcon === 'wu')}}" class="_img data-v-b56151aa"></image>
+      <image src="/static/img/weather/yutian.svg" hidden="{{!(weatherIcon === 'rain')}}" class="_img data-v-b56151aa"></image>
+      <image src="/static/img/weather/xuetian.svg" hidden="{{!(weatherIcon === 'snow')}}" class="_img data-v-b56151aa"></image>
+      <image src="/static/img/weather/cloud.svg" hidden="{{!(weatherIcon === 'cloud')}}" class="_img data-v-b56151aa"></image>
+      <image src="/static/img/weather/unknow.svg" hidden="{{!(weatherIcon === 'unknow')}}" class="_img data-v-b56151aa"></image>
     </view>
-    <view class="_div data-v-1b2651c6 weather-right">
-      <view class="_div data-v-1b2651c6 weather-address">
-        <image src="/static/img/weather/address.svg" class="_img data-v-1b2651c6"></image> <label class="_span data-v-1b2651c6 {{[isNightMode ? 'night-text' : '']}}">{{ weatherInfo.address }}</label>
+    <view class="_div data-v-b56151aa weather-right">
+      <view class="_div data-v-b56151aa weather-address">
+        <image src="/static/img/weather/address.svg" class="_img data-v-b56151aa"></image> <label class="_span data-v-b56151aa {{[isNightMode ? 'night-text' : '']}}">{{ weatherInfo.address }}</label>
       </view>
-      <view class="_div data-v-1b2651c6 weather-temp-box {{[isNightMode ? 'night-text' : '']}}"><label class="_span data-v-1b2651c6 weather-temp">{{ weatherInfo.temp }}</label> <label class="_span data-v-1b2651c6 weather-content">{{ weatherInfo.weather }}</label></view>
-      <view class="_div data-v-1b2651c6 weather-detail-box {{[isNightMode ? 'night-text' : '']}}"><label style="margin-right: 10px;" class="_span data-v-1b2651c6">{{weatherInfo.windDirection}}风{{ weatherInfo.windPower }}</label> <label class="_span data-v-1b2651c6">湿度{{ weatherInfo.humidity }}</label></view>
+      <view class="_div data-v-b56151aa weather-temp-box {{[isNightMode ? 'night-text' : '']}}"><label class="_span data-v-b56151aa weather-temp">{{ weatherInfo.temp }}</label> <label class="_span data-v-b56151aa weather-content">{{ weatherInfo.weather }}</label></view>
+      <view class="_div data-v-b56151aa weather-detail-box {{[isNightMode ? 'night-text' : '']}}"><label style="margin-right: 10px;" class="_span data-v-b56151aa">{{weatherInfo.windDirection}}风{{ weatherInfo.windPower }}</label> <label class="_span data-v-b56151aa">湿度{{ weatherInfo.humidity }}</label></view>
     </view>
   </view>
 </template>

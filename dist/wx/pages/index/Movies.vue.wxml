@@ -1,38 +1,38 @@
-<import src="/components/Movie.vue.wxml" /><template name="23e02417">
-  <view class="_div data-v-8ea228d4">
-    <scroll-view class="_scroll-view data-v-8ea228d4 zl-movie-box {{[isNightMode ? 'night-bg' : '']}}" scroll-y lower-threshold="50" enable-back-to-top="true">
-      <view class="_main data-v-8ea228d4 zl-movie">
-        <view class="_div data-v-8ea228d4 zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(inTheaters.length > 0)}}"><label class="_span data-v-8ea228d4">影院热映</label>
-          <view class="_p data-v-8ea228d4 zl-movie__title--more" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"><label class="_span data-v-8ea228d4">查看更多</label>
-            <image src="/static/img/movie/right.svg" class="_img data-v-8ea228d4"></image>
+<import src="/components/Movie.vue.wxml" /><template name="0b6ad878">
+  <view class="_div data-v-42d7f0fb">
+    <scroll-view class="_scroll-view data-v-42d7f0fb zl-movie-box {{[isNightMode ? 'night-bg' : '']}}" scroll-y lower-threshold="50" enable-back-to-top="true">
+      <view class="_main data-v-42d7f0fb zl-movie">
+        <view class="_div data-v-42d7f0fb zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(inTheaters.length > 0)}}"><label class="_span data-v-42d7f0fb">影院热映</label>
+          <view class="_p data-v-42d7f0fb zl-movie__title--more" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"><label class="_span data-v-42d7f0fb">查看更多</label>
+            <image src="/static/img/movie/right.svg" class="_img data-v-42d7f0fb"></image>
           </view>
         </view>
-        <view class="_ul data-v-8ea228d4 zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'0-'+index], $root}}" is="329ac643" wx:for="{{inTheaters}}" wx:for-index="index" wx:for-item="item"></template>
-          <view class="_p data-v-8ea228d4 zl-movie__clear"></view>
+        <view class="_ul data-v-42d7f0fb zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'0-'+index], $root}}" is="df4dc238" wx:for="{{inTheaters}}" wx:for-index="index" wx:for-item="item"></template>
+          <view class="_p data-v-42d7f0fb zl-movie__clear"></view>
         </view>
-        <view class="_div data-v-8ea228d4 zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(comingSoon.length > 0)}}"><label class="_span data-v-8ea228d4">即将上映</label>
-          <view class="_p data-v-8ea228d4 zl-movie__title--more" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"><label class="_span data-v-8ea228d4">查看更多</label>
-            <image src="/static/img/movie/right.svg" class="_img data-v-8ea228d4"></image>
+        <view class="_div data-v-42d7f0fb zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(comingSoon.length > 0)}}"><label class="_span data-v-42d7f0fb">即将上映</label>
+          <view class="_p data-v-42d7f0fb zl-movie__title--more" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"><label class="_span data-v-42d7f0fb">查看更多</label>
+            <image src="/static/img/movie/right.svg" class="_img data-v-42d7f0fb"></image>
           </view>
         </view>
-        <view class="_ul data-v-8ea228d4 zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'1-'+index], $root}}" is="329ac643" wx:for="{{comingSoon}}" wx:for-index="index" wx:for-item="item"></template>
-          <view class="_p data-v-8ea228d4 zl-movie__clear"></view>
+        <view class="_ul data-v-42d7f0fb zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'1-'+index], $root}}" is="df4dc238" wx:for="{{comingSoon}}" wx:for-index="index" wx:for-item="item"></template>
+          <view class="_p data-v-42d7f0fb zl-movie__clear"></view>
         </view>
-        <view class="_div data-v-8ea228d4 zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(topList.length > 0)}}"><label class="_span data-v-8ea228d4">Top250</label>
-          <view class="_p data-v-8ea228d4 zl-movie__title--more" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"><label class="_span data-v-8ea228d4">查看更多</label>
-            <image src="/static/img/movie/right.svg" class="_img data-v-8ea228d4"></image>
+        <view class="_div data-v-42d7f0fb zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(topList.length > 0)}}"><label class="_span data-v-42d7f0fb">Top250</label>
+          <view class="_p data-v-42d7f0fb zl-movie__title--more" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"><label class="_span data-v-42d7f0fb">查看更多</label>
+            <image src="/static/img/movie/right.svg" class="_img data-v-42d7f0fb"></image>
           </view>
         </view>
-        <view class="_ul data-v-8ea228d4 zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'2-'+index], $root}}" is="329ac643" wx:for="{{topList}}" wx:for-index="index" wx:for-item="item"></template>
-          <view class="_p data-v-8ea228d4 zl-movie__clear"></view>
+        <view class="_ul data-v-42d7f0fb zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'2-'+index], $root}}" is="df4dc238" wx:for="{{topList}}" wx:for-index="index" wx:for-item="item"></template>
+          <view class="_p data-v-42d7f0fb zl-movie__clear"></view>
         </view>
-        <view class="_div data-v-8ea228d4 zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(topList.length > 0)}}"><label class="_span data-v-8ea228d4">北美票房榜</label> <label class="_span data-v-8ea228d4 zl-movie__title--time">（{{ northTopData.date }}）</label>
-          <view class="_p data-v-8ea228d4 zl-movie__title--more" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"><label class="_span data-v-8ea228d4">查看更多</label>
-            <image src="/static/img/movie/right.svg" class="_img data-v-8ea228d4"></image>
+        <view class="_div data-v-42d7f0fb zl-movie__title {{[isNightMode ? 'night-text' : '']}}" hidden="{{!(topList.length > 0)}}"><label class="_span data-v-42d7f0fb">北美票房榜</label> <label class="_span data-v-42d7f0fb zl-movie__title--time">（{{ northTopData.date }}）</label>
+          <view class="_p data-v-42d7f0fb zl-movie__title--more" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"><label class="_span data-v-42d7f0fb">查看更多</label>
+            <image src="/static/img/movie/right.svg" class="_img data-v-42d7f0fb"></image>
           </view>
         </view>
-        <view class="_ul data-v-8ea228d4 zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'3-'+index], $root}}" is="329ac643" wx:for="{{northTopData.subjects}}" wx:for-index="index" wx:for-item="item"></template>
-          <view class="_p data-v-8ea228d4 zl-movie__clear"></view>
+        <view class="_ul data-v-42d7f0fb zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'3-'+index], $root}}" is="df4dc238" wx:for="{{northTopData.subjects}}" wx:for-index="index" wx:for-item="item"></template>
+          <view class="_p data-v-42d7f0fb zl-movie__clear"></view>
         </view>
       </view>
     </scroll-view>

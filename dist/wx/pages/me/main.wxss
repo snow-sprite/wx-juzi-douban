@@ -1,31 +1,31 @@
 @import "../../common/vendor.wxss";
 
 @charset "UTF-8";
-.me-setting.data-v-fc19b91e {
+.me-setting.data-v-874eb954 {
   display: flex;
   flex-direction: column;
 }
-.single-setting.data-v-fc19b91e {
+.single-setting.data-v-874eb954 {
   padding: 0 10rpx 0 10rpx;
   height: 100rpx;
   line-height: 100rpx;
   font-size: 36rpx;
   border-bottom: 2rpx solid #eee;
 }
-.fr.data-v-fc19b91e {
+.fr.data-v-874eb954 {
   float: right;
 }
-.pr10.data-v-fc19b91e {
+.pr10.data-v-874eb954 {
   padding-right: 10rpx;
 }
-.auto-timer.data-v-fc19b91e {
+.auto-timer.data-v-874eb954 {
   height: 100rpx;
   display: flex;
   justify-content: flex-start;
   padding: 20rpx 0 0 10rpx;
   box-sizing: border-box;
 }
-.auto-time.data-v-fc19b91e {
+.auto-time.data-v-874eb954 {
   width: 110rpx;
   height: 70rpx;
   display: block;
@@ -33,14 +33,14 @@
   text-align: center;
   line-height: 70rpx;
 }
-.auto-end-time.data-v-fc19b91e {
+.auto-end-time.data-v-874eb954 {
   margin-left: 30rpx;
 }
-.avatar-box.data-v-fc19b91e {
+.avatar-box.data-v-874eb954 {
   width: 100%;
   height: 240rpx;
 }
-.avatar.data-v-fc19b91e {
+.avatar.data-v-874eb954 {
   width: 170rpx;
   height: 170rpx;
   border-radius: 50%;
@@ -50,7 +50,7 @@
   transform: translateY(-50%);
   padding: 0;
 }
-.avatar .default-avatar-box.data-v-fc19b91e {
+.avatar .default-avatar-box.data-v-874eb954 {
   width: 100%;
   height: 100%;
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyBjbGFzcz0iaWNvbiIgd2lkdGg9IjIwMHB4IiBoZWlnaHQ9IjIwMC4wMHB4IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGw9IiM5OTk5OTkiIGQ9Ik0xMDA5LjgwMjM3OCA1MDMuOTE4NzAzYzAgMjc3LjUwNC0yMjYuMzg3MDI3IDUwMy45MTg3MDMtNTAzLjkxODcwMiA1MDMuOTE4NzAyQzIyOC4zNzk2NzYgMTAxNS4xNDM3ODQgMS45NjQ5NzMgNzgxLjQ1MDM3OCAxLjk2NDk3MyA1MDMuOTE4NzAzYzAtMjExLjgwMTk0NiAxMzEuNDU5NDU5LTQwMS42ODQ3NTcgMzIxLjM0MjI3LTQ3NC42OTMxODlDMzgxLjczMDU5NSA3LjMwNjM3OCA0NDAuMTUzOTQ2IDAgNTA1LjkxMTM1MSAwczEyNC4xNTMwODEgMTQuNjEyNzU3IDE4Mi41NzY0MzMgMzYuNTMxODkyYzE4OS44ODI4MTEgNzMuMDA4NDMyIDMyMS4zNDIyNyAyNTUuNTg0ODY1IDMyMS4zNDIyNyA0NjcuMzg2ODExek0zMDguNzIyMTYyIDM5NC4zNzgzNzhjMCA4Ny42MjExODkgNDMuODEwNTk1IDE2MC42NTcyOTcgMTA5LjU0MDMyNCAxOTcuMTg5MTkgMjkuMTk3ODM4IDE0LjU4NTA4MSA1OC4zOTU2NzYgMjkuMTk3ODM4IDg3LjYyMTE5IDI5LjE5NzgzN3M1OC40MjMzNTEtNy4zMDYzNzggODcuNjQ4ODY1LTIxLjkxOTEzNWM2NS43Mjk3My0zNi41MDQyMTYgMTA5LjU0MDMyNC0xMDkuNTQwMzI0IDEwOS41NDAzMjQtMTk3LjE2MTUxMyAwLTEyNC4xNTMwODEtODcuNjIxMTg5LTIxOS4xMDgzMjQtMTk3LjE4OTE4OS0yMTkuMTA4MzI1LTEwOS41NDAzMjQtNy4zMDYzNzgtMTk3LjE2MTUxNCA5NC45Mjc1NjgtMTk3LjE2MTUxNCAyMTEuODAxOTQ2eiBtMTk3LjE2MTUxNCA1ODQuMjMzNTE0YzE0Ni4wNzIyMTYgMCAyNzcuNTMxNjc2LTY1LjcyOTczIDM2NS4xODA1NC0xNzUuMjcwMDU0LTcuMzA2Mzc4LTg3LjYyMTE4OS05NC45NTUyNDMtMTUzLjM1MDkxOS0yMTEuODAxOTQ2LTE4OS44NTUxMzUtMzYuNTMxODkyIDM2LjUwNDIxNi05NC45Mjc1NjggNjUuNzAyMDU0LTE1My4zNzg1OTQgNjUuNzAyMDU0LTY1LjcyOTczIDAtMTE2Ljg0NjcwMy0yMS45MTkxMzUtMTYwLjY1NzI5OC02NS43Mjk3My0xMDkuNTQwMzI0IDI5LjIyNTUxNC0xOTcuMTg5MTg5IDk0LjkyNzU2OC0yMTEuODAxOTQ2IDE3NS4yNzAwNTQgODAuMzQyNDg2IDExNi44NDY3MDMgMjE5LjEwODMyNCAxODkuODgyODExIDM3Mi40NTkyNDQgMTg5Ljg4MjgxMXoiIC8+PC9zdmc+) no-repeat;
@@ -59,13 +59,13 @@
   position: relative;
   overflow: hidden;
 }
-.avatar .default-avatar-box .default-avatar-login.data-v-fc19b91e {
+.avatar .default-avatar-box .default-avatar-login.data-v-874eb954 {
   font-size: 32rpx;
   line-height: 260rpx;
   color: #333;
   display: inline-block;
 }
-.avatar .default-avatar-box.data-v-fc19b91e::after {
+.avatar .default-avatar-box.data-v-874eb954::after {
   content: '';
   display: block;
   width: 170rpx;
@@ -75,28 +75,28 @@
   left: 0;
   bottom: 0;
 }
-.avatar ._img.data-v-fc19b91e {
+.avatar ._img.data-v-874eb954 {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.nickname-top.data-v-fc19b91e {
+.nickname-top.data-v-874eb954 {
   margin-top: 50rpx;
 }
-.nickname-box.data-v-fc19b91e {
+.nickname-box.data-v-874eb954 {
   margin-top: 50rpx;
   text-align: center;
 }
-.night.data-v-fc19b91e {
+.night.data-v-874eb954 {
   background: #232323;
   color: #666;
 }
-.line-color.data-v-fc19b91e {
+.line-color.data-v-874eb954 {
   border-bottom: 2rpx solid #2c2c2c !important;
 }
-.night-text.data-v-fc19b91e {
+.night-text.data-v-874eb954 {
   color: #666 !important;
 }
-.night-border.data-v-fc19b91e {
+.night-border.data-v-874eb954 {
   border: 2rpx solid #999;
 }

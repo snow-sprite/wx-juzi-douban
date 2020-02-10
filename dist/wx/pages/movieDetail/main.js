@@ -23,7 +23,7 @@ app.$mount();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_dcde4b04_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_2d9c6c39_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(136);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -37,12 +37,12 @@ var normalizeComponent = __webpack_require__(3)
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-dcde4b04"
+var __vue_scopeId__ = "data-v-2d9c6c39"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_dcde4b04_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_2d9c6c39_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -58,9 +58,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-dcde4b04", Component.options)
+    hotAPI.createRecord("data-v-2d9c6c39", Component.options)
   } else {
-    hotAPI.reload("data-v-dcde4b04", Component.options)
+    hotAPI.reload("data-v-2d9c6c39", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -95,6 +95,61 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -119,44 +174,46 @@ if (false) {(function () {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
+                _this.movieDetail = {};
+                _context.prev = 1;
+                _context.next = 4;
                 return __WEBPACK_IMPORTED_MODULE_2__lib_request__["a" /* default */].post(__WEBPACK_IMPORTED_MODULE_3__api_apiList__["d" /* MOVIE_DETAIL */] + '/' + _this.id, {
                   apikey: '0b2bdeda43b5688921839c8ecb20399b'
                 });
 
-              case 3:
+              case 4:
                 _ref = _context.sent;
                 data = _ref.data;
 
                 _this.movieDetail = data;
-                _context.next = 11;
+                console.log('dd', _this.movieDetail);
+                _context.next = 13;
                 break;
 
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context['catch'](0);
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context['catch'](1);
 
-                console.error(_context.t0);
+                console.error('bad', _context.t0);
 
-              case 11:
+              case 13:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, _this, [[0, 8]]);
+        }, _callee, _this, [[1, 10]]);
       }))();
     }
   },
   onLoad: function onLoad(option) {
     this.title = option.title;
     this.id = option.id;
-    this.getMovieDetail();
   },
   mounted: function mounted() {
     wx.setNavigationBarTitle({
       title: this.title
     });
+    this.getMovieDetail();
   }
 });
 
@@ -167,7 +224,50 @@ if (false) {(function () {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("电影详情")])
+  return _c('div', [(_vm.movieDetail.id) ? _c('div', [_c('dl', {
+    staticClass: "zl-movie"
+  }, [_c('dt', {
+    staticClass: "zl-movie__thumb"
+  }, [_c('img', {
+    attrs: {
+      "src": _vm.movieDetail.images.small,
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('dd', {
+    staticClass: "zl-movie__info"
+  }, [_c('h2', {
+    staticClass: "zl-movie__info--title"
+  }, [_c('span', [_vm._v(_vm._s(_vm.movieDetail.title))]), _vm._v(" "), (_vm.movieDetail.year) ? _c('span', [_vm._v("（" + _vm._s(_vm.movieDetail.year) + "）")]) : _vm._e()]), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__info--sourcename"
+  }, [_c('span', [_vm._v(_vm._s(_vm.movieDetail.original_title))]), _vm._v(" "), (_vm.movieDetail.year) ? _c('span', [_vm._v("(" + _vm._s(_vm.movieDetail.year) + ")")]) : _vm._e()]), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__info--language"
+  }, [_c('span', [_vm._v("语言：")]), _vm._v(" "), _vm._l((_vm.movieDetail.languages), function(language, index) {
+    return _c('span', {
+      key: language
+    }, [_vm._v(_vm._s(language) + " ")])
+  })], 2), _vm._v(" "), _c('p', {
+    staticClass: "zl-movie__info--details"
+  }, [_vm._l((_vm.movieDetail.genres), function(tag, ind) {
+    return _c('span', {
+      key: ind
+    }, [_vm._v("\n            " + _vm._s(tag) + "\n          ")])
+  }), _vm._v(" "), (_vm.movieDetail.countries[0]) ? _c('span', [_vm._v("/ " + _vm._s(_vm.movieDetail.countries[0]))]) : _vm._e(), _vm._v(" "), (_vm.movieDetail.durations[0]) ? _c('span', [_vm._v("/ 片长" + _vm._s(_vm.movieDetail.durations[0]))]) : _vm._e()], 2), _vm._v(" "), _c('ul', {
+    staticClass: "zl-movie__info--watchbox"
+  }, [_c('li', {
+    staticClass: "zl-movie__info--see"
+  }, [_vm._v("\n            想看" + _vm._s(_vm.movieDetail.wish_count) + "\n          ")]), _vm._v(" "), _c('li', {
+    staticClass: "zl-movie__info--see"
+  }, [_vm._v("\n            看过" + _vm._s(_vm.movieDetail.reviews_count) + "\n          ")])], 1)], 1)], 1), _vm._v(" "), _c('div', [_c('dl', [_c('dt', [_c('span', [_vm._v("7.6")]), _vm._v(" "), _c('div', [_c('img', {
+    attrs: {
+      "src": "../../../static/img/movie/star_active.svg",
+      "alt": ""
+    }
+  })])]), _vm._v(" "), _c('dd', [_c('ul', [_c('li', [_c('img', {
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span')])], 1)], 1)], 1)], 1)], 1) : _vm._e()])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -176,7 +276,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-dcde4b04", esExports)
+     require("vue-hot-reload-api").rerender("data-v-2d9c6c39", esExports)
   }
 }
 

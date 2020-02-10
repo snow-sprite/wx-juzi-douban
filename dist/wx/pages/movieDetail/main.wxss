@@ -1,1 +1,53 @@
 @import "../../common/vendor.wxss";
+
+@charset "UTF-8";
+.zl-movie.data-v-2d9c6c39 {
+  display: flex;
+  justify-content: space-between;
+  padding: 21.333rpx;
+}
+.zl-movie__thumb.data-v-2d9c6c39 {
+  width: 35%;
+  height: 346.66700000000003rpx;
+}
+.zl-movie__thumb > ._img.data-v-2d9c6c39 {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+  box-shadow: 0 2rpx 4rpx #999;
+}
+.zl-movie__info.data-v-2d9c6c39 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-left: 21.333rpx;
+  width: 65%;
+}
+.zl-movie__info--title.data-v-2d9c6c39 {
+  font-size: 48rpx;
+}
+.zl-movie__info--sourcename.data-v-2d9c6c39 {
+  color: #666;
+  font-size: 34.666999999999994rpx;
+  line-height: 37.333rpx;
+}
+.zl-movie__info--language.data-v-2d9c6c39 {
+  color: #666;
+  font-size: 32rpx;
+}
+.zl-movie__info--details.data-v-2d9c6c39 {
+  color: #666;
+  font-size: 26.667rpx;
+}
+.zl-movie__info--watchbox.data-v-2d9c6c39 {
+  display: flex;
+  justify-content: space-between;
+}
+.zl-movie__info--see.data-v-2d9c6c39 {
+  display: inline-block;
+  padding: 10.667rpx 42.667rpx;
+  font-size: 26.667rpx;
+  font-weight: 400;
+  background: #f4f2f2;
+}

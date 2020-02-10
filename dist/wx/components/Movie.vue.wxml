@@ -1,14 +1,14 @@
-<template name="329ac643">
-  <view class="_li data-v-71b93cfc zl-movie__item" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
-    <view class="_div data-v-71b93cfc zl-movie__item--thumb" style=" {{('background-image:' + ('url(' + movie.images.small + ')') + ';')}}">
-      <view class="_p data-v-71b93cfc zl-movie__item--mask" hidden="{{!(isNightMode)}}"></view>
-    </view> <label class="_span data-v-71b93cfc zl-movie__item--title {{[isNightMode ? 'night-text' : '']}}">{{ movie.title }}</label>
-    <view class="_div data-v-71b93cfc zl-movie__item--genresbox">
-      <image src="/static/img/movie/star_active.svg" class="_img data-v-71b93cfc zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{movie.activeStar}}" wx:for-index="i" wx:for-item="star"></image>
-      <image src="/static/img/movie/star_half.svg" class="_img data-v-71b93cfc zl-movie__item--star" hidden="{{!(movie.halfActiveStar)}}"></image>
-      <image src="/static/img/movie/star_inactive.svg" class="_img data-v-71b93cfc zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{movie.inactiveStar}}" wx:for-index="i" wx:for-item="star"></image> <label class="_span data-v-71b93cfc zl-movie__item--score {{[isNightMode ? 'night-text' : '']}}" wx:if="{{movie.rating && movie.rating.average}}">{{ movie.rating.average }}</label>
-      <view class="_p data-v-71b93cfc zl-movie__item--genresbox" wx:if="{{movie.mainland_pubdate}}"><label class="_span data-v-71b93cfc zl-movie__item--pubtip">题材：</label> <label wx:key="ind" key="{{ind}}" class="_span data-v-71b93cfc zl-movie__item--genres {{[isNightMode ? 'night-text' : '']}}" wx:for="{{movie.genres}}" wx:for-index="ind" wx:for-item="genre">{{ genre }} </label></view>
+<template name="df4dc238">
+  <view class="_li data-v-03af07b2 zl-movie__item" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-03af07b2 zl-movie__item--thumb" style=" {{('background-image:' + ('url(' + movie.images.small + ')') + ';')}}">
+      <view class="_p data-v-03af07b2 zl-movie__item--mask" hidden="{{!(isNightMode)}}"></view>
+    </view> <label class="_span data-v-03af07b2 zl-movie__item--title {{[isNightMode ? 'night-text' : '']}}">{{ movie.title }}</label>
+    <view class="_div data-v-03af07b2 zl-movie__item--genresbox">
+      <image src="/static/img/movie/star_active.svg" class="_img data-v-03af07b2 zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{movie.activeStar}}" wx:for-index="i" wx:for-item="star"></image>
+      <image src="/static/img/movie/star_half.svg" class="_img data-v-03af07b2 zl-movie__item--star" hidden="{{!(movie.halfActiveStar)}}"></image>
+      <image src="/static/img/movie/star_inactive.svg" class="_img data-v-03af07b2 zl-movie__item--star" wx:key="i" key="{{i}}" wx:for="{{movie.inactiveStar}}" wx:for-index="i" wx:for-item="star"></image> <label class="_span data-v-03af07b2 zl-movie__item--score {{[isNightMode ? 'night-text' : '']}}" wx:if="{{movie.rating && movie.rating.average}}">{{ movie.rating.average }}</label>
+      <view class="_p data-v-03af07b2 zl-movie__item--genresbox" wx:if="{{movie.mainland_pubdate}}"><label wx:key="ind" key="{{ind}}" class="_span data-v-03af07b2 zl-movie__item--genres {{[isNightMode ? 'night-text' : '']}}" wx:for="{{movie.genres}}" wx:for-index="ind" wx:for-item="genre">{{ genre }} </label></view>
     </view>
-    <view wx:if="{{movie.mainland_pubdate}}" class="_p data-v-71b93cfc zl-movie__item--genresbox"><label class="_span data-v-71b93cfc zl-movie__item--pubtip">上映日期：</label> <label class="_span data-v-71b93cfc zl-movie__item--pubdate">{{ movie.mainland_pubdate }}</label></view>
+    <view wx:if="{{movie.mainland_pubdate}}" class="_p data-v-03af07b2 zl-movie__item--genresbox"><label class="_span data-v-03af07b2 zl-movie__item--pubtip">上映日期：</label> <label class="_span data-v-03af07b2 zl-movie__item--pubdate">{{ movie.mainland_pubdate }}</label></view>
   </view>
 </template>

@@ -1,3 +1,41 @@
-<template name="2ef86ac6">
-  <view class="_div data-v-dcde4b04">电影详情</view>
+<template name="15e0aa48">
+  <view class="_div data-v-2d9c6c39">
+    <view wx:if="{{movieDetail.id}}" class="_div data-v-2d9c6c39">
+      <view class="_dl data-v-2d9c6c39 zl-movie">
+        <view class="_dt data-v-2d9c6c39 zl-movie__thumb">
+          <image src="{{movieDetail.images.small}}" alt class="_img data-v-2d9c6c39"></image>
+        </view>
+        <view class="_dd data-v-2d9c6c39 zl-movie__info">
+          <view class="_h2 data-v-2d9c6c39 zl-movie__info--title"><label class="_span data-v-2d9c6c39">{{ movieDetail.title }}</label> <label wx:if="{{movieDetail.year}}" class="_span data-v-2d9c6c39">（{{ movieDetail.year }}）</label></view>
+          <view class="_p data-v-2d9c6c39 zl-movie__info--sourcename"><label class="_span data-v-2d9c6c39">{{ movieDetail.original_title }}</label> <label wx:if="{{movieDetail.year}}" class="_span data-v-2d9c6c39">({{ movieDetail.year }})</label></view>
+          <view class="_p data-v-2d9c6c39 zl-movie__info--language"><label class="_span data-v-2d9c6c39">语言：</label> <label wx:key="language" key="{{language}}" wx:for="{{movieDetail.languages}}" wx:for-index="index" wx:for-item="language" class="_span data-v-2d9c6c39">{{ language }} </label></view>
+          <view class="_p data-v-2d9c6c39 zl-movie__info--details"><label wx:key="ind" key="{{ind}}" wx:for="{{movieDetail.genres}}" wx:for-index="ind" wx:for-item="tag" class="_span data-v-2d9c6c39">
+              {{ tag }}
+            </label> <label wx:if="{{movieDetail.countries[0]}}" class="_span data-v-2d9c6c39">/ {{ movieDetail.countries[0] }}</label> <label wx:if="{{movieDetail.durations[0]}}" class="_span data-v-2d9c6c39">/ 片长{{ movieDetail.durations[0] }}</label></view>
+          <view class="_ul data-v-2d9c6c39 zl-movie__info--watchbox">
+            <view class="_li data-v-2d9c6c39 zl-movie__info--see"> 想看{{ movieDetail.wish_count }}
+            </view>
+            <view class="_li data-v-2d9c6c39 zl-movie__info--see"> 看过{{ movieDetail.reviews_count }}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-2d9c6c39">
+        <view class="_dl data-v-2d9c6c39">
+          <view class="_dt data-v-2d9c6c39"><label class="_span data-v-2d9c6c39">7.6</label>
+            <view class="_div data-v-2d9c6c39">
+              <image src="/static/img/movie/star_active.svg" alt class="_img data-v-2d9c6c39"></image>
+            </view>
+          </view>
+          <view class="_dd data-v-2d9c6c39">
+            <view class="_ul data-v-2d9c6c39">
+              <view class="_li data-v-2d9c6c39">
+                <image src="/static/img/movie/star_inactive.svg" alt class="_img data-v-2d9c6c39"></image> <label class="_span data-v-2d9c6c39"></label>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </template>

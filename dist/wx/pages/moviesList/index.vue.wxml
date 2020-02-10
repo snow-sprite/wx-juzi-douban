@@ -1,8 +1,8 @@
-<import src="/components/Movie.vue.wxml" /><template name="7b96ab1b">
-  <scroll-view class="_scroll-view data-v-16b0c9cc zl-movie-box {{[isNightMode ? 'night-bg' : '']}}" scroll-y lower-threshold="50" enable-back-to-top="true">
-    <view class="_main data-v-16b0c9cc zl-movie">
-      <view class="_ul data-v-16b0c9cc zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'0-'+index], $root}}" is="329ac643" wx:for="{{MoviesList}}" wx:for-index="index" wx:for-item="item"></template>
-        <view class="_p data-v-16b0c9cc zl-movie__clear"></view>
+<import src="/components/Movie.vue.wxml" /><template name="7bfe46fc">
+  <scroll-view class="_scroll-view data-v-e3553402 zl-movie-box {{[isNightMode ? 'night-bg' : '']}}" scroll-y lower-threshold="50" enable-back-to-top="true">
+    <view class="_main data-v-e3553402 zl-movie">
+      <view class="_ul data-v-e3553402 zl-movie__list"><template wx:key="index" data="{{...$root[$kk+'0-'+index], $root}}" is="df4dc238" wx:for="{{MoviesList}}" wx:for-index="index" wx:for-item="item"></template>
+        <view class="_p data-v-e3553402 zl-movie__clear"></view>
       </view>
     </view>
   </scroll-view>
