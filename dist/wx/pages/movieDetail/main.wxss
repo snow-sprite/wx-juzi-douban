@@ -1,17 +1,21 @@
 @import "../../common/vendor.wxss";
 
 @charset "UTF-8";
+.zl-movie-detailbox.data-v-2d9c6c39 {
+  box-sizing: border-box;
+  padding: 0 21.333rpx;
+}
 .zl-movie.data-v-2d9c6c39 {
   display: flex;
   justify-content: space-between;
-  padding: 21.333rpx;
+  padding: 21.333rpx 0;
 }
 .zl-movie__thumb.data-v-2d9c6c39 {
   width: 35%;
   height: 346.66700000000003rpx;
 }
 .zl-movie__thumb > ._img.data-v-2d9c6c39 {
-  width: 100%;
+  width: 95%;
   height: 100%;
   border-radius: 8rpx;
   box-shadow: 0 2rpx 4rpx #999;
@@ -50,4 +54,89 @@
   font-size: 26.667rpx;
   font-weight: 400;
   background: #f4f2f2;
+  color: #eab15d;
+}
+.zl-rate-leftbox.data-v-2d9c6c39 {
+  display: flex;
+}
+.zl-rate-box.data-v-2d9c6c39 {
+  box-sizing: border-box;
+  padding: 21.333rpx 0;
+  font-size: 26.667rpx;
+  color: #666;
+  background: #fafafa;
+}
+.zl-rate-box__title.data-v-2d9c6c39 {
+  font-weight: 500;
+}
+.zl-rate-box__totalrate.data-v-2d9c6c39 {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.zl-rate-box__score.data-v-2d9c6c39 {
+  font-size: 64rpx;
+  display: inline-block;
+  color: #000;
+  text-align: right;
+}
+.zl-rate-box__trate.data-v-2d9c6c39 {
+  text-align: right;
+}
+.zl-rate-box__totalrate ._img.data-v-2d9c6c39 {
+  width: 26.667rpx;
+  height: 26.667rpx;
+}
+.zl-rate-box__totalrate.data-v-2d9c6c39::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  clear: both;
+}
+.zl-rate-box__details.data-v-2d9c6c39 {
+  position: relative;
+  width: 60%;
+  padding-top: 16rpx;
+  box-sizing: border-box;
+  line-height: 21.333rpx;
+}
+.zl-rate-box__details--star.data-v-2d9c6c39 {
+  width: 16rpx;
+  height: 16rpx;
+  display: inline-block;
+  float: right;
+}
+.zl-rate-box__details--propotion.data-v-2d9c6c39 {
+  position: relative;
+  display: inline-block;
+  width: 213.333rpx;
+  height: 16rpx;
+  background: #eee;
+}
+.zl-rate-box__details--activepropotion.data-v-2d9c6c39 {
+  position: absolute;
+  height: 16rpx;
+  left: 0;
+  top: 0;
+  background: pink;
+}
+.zl-rate-box__details--people.data-v-2d9c6c39 {
+  position: absolute;
+  right: 102.333rpx;
+  bottom: -16rpx;
+  color: #ddd;
+  font-size: 21.333rpx;
+}
+.zl-rate-box__leftdetails.data-v-2d9c6c39 {
+  width: 106.667rpx;
+  display: inline-block;
+}
+.zl-rate-box__leftdetails.data-v-2d9c6c39::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  clear: both;
 }

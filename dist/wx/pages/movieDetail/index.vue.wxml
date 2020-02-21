@@ -1,5 +1,5 @@
 <template name="15e0aa48">
-  <view class="_div data-v-2d9c6c39">
+  <view class="_div data-v-2d9c6c39 zl-movie-detailbox">
     <view wx:if="{{movieDetail.id}}" class="_div data-v-2d9c6c39">
       <view class="_dl data-v-2d9c6c39 zl-movie">
         <view class="_dt data-v-2d9c6c39 zl-movie__thumb">
@@ -13,26 +13,65 @@
               {{ tag }}
             </label> <label wx:if="{{movieDetail.countries[0]}}" class="_span data-v-2d9c6c39">/ {{ movieDetail.countries[0] }}</label> <label wx:if="{{movieDetail.durations[0]}}" class="_span data-v-2d9c6c39">/ 片长{{ movieDetail.durations[0] }}</label></view>
           <view class="_ul data-v-2d9c6c39 zl-movie__info--watchbox">
-            <view class="_li data-v-2d9c6c39 zl-movie__info--see"> 想看{{ movieDetail.wish_count }}
+            <view class="_li data-v-2d9c6c39 zl-movie__info--see"> 想看 {{ movieDetail.wish_count }}
             </view>
-            <view class="_li data-v-2d9c6c39 zl-movie__info--see"> 看过{{ movieDetail.reviews_count }}
+            <view class="_li data-v-2d9c6c39 zl-movie__info--see"> 看过 {{ movieDetail.reviews_count }}
             </view>
           </view>
         </view>
       </view>
-      <view class="_div data-v-2d9c6c39">
-        <view class="_dl data-v-2d9c6c39">
-          <view class="_dt data-v-2d9c6c39"><label class="_span data-v-2d9c6c39">7.6</label>
-            <view class="_div data-v-2d9c6c39">
-              <image src="/static/img/movie/star_active.svg" alt class="_img data-v-2d9c6c39"></image>
-            </view>
+    </view>
+    <view class="_div data-v-2d9c6c39 zl-rate-box"><label class="_span data-v-2d9c6c39 zl-rate-box__title">豆瓣评分©</label>
+      <view class="_dl data-v-2d9c6c39 zl-rate-leftbox">
+        <view class="_dt data-v-2d9c6c39 zl-rate-box__totalrate"><label class="_span data-v-2d9c6c39 zl-rate-box__score">7.6</label>
+          <view class="_div data-v-2d9c6c39 zl-rate-box__trate">
+            <image class="_img data-v-2d9c6c39 zl-rate-box__trate--active" src="/static/img/movie/star_active.svg" alt></image>
+            <image class="_img data-v-2d9c6c39 zl-rate-box__trate--inactive" src="/static/img/movie/star_inactive.svg" alt></image>
+            <image class="_img data-v-2d9c6c39 zl-rate-box__trate--inactive" src="/static/img/movie/star_inactive.svg" alt></image>
+            <image class="_img data-v-2d9c6c39 zl-rate-box__trate--inactive" src="/static/img/movie/star_inactive.svg" alt></image>
+            <image class="_img data-v-2d9c6c39 zl-rate-box__trate--inactive" src="/static/img/movie/star_inactive.svg" alt></image>
           </view>
-          <view class="_dd data-v-2d9c6c39">
-            <view class="_ul data-v-2d9c6c39">
-              <view class="_li data-v-2d9c6c39">
-                <image src="/static/img/movie/star_inactive.svg" alt class="_img data-v-2d9c6c39"></image> <label class="_span data-v-2d9c6c39"></label>
+        </view>
+        <view class="_dd data-v-2d9c6c39 zl-rate-box__details">
+          <view class="_ul data-v-2d9c6c39">
+            <view class="_li data-v-2d9c6c39">
+              <view class="_div data-v-2d9c6c39 zl-rate-box__leftdetails">
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
               </view>
+              <view class="_div data-v-2d9c6c39 zl-rate-box__details--propotion"><label class="_span data-v-2d9c6c39 zl-rate-box__details--activepropotion" style="width: 50%;"></label></view>
             </view>
+            <view class="_li data-v-2d9c6c39">
+              <view class="_div data-v-2d9c6c39 zl-rate-box__leftdetails">
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+              </view>
+              <view class="_div data-v-2d9c6c39 zl-rate-box__details--propotion"><label class="_span data-v-2d9c6c39 zl-rate-box__details--activepropotion" style="width: 50%;"></label></view>
+            </view>
+            <view class="_li data-v-2d9c6c39">
+              <view class="_div data-v-2d9c6c39 zl-rate-box__leftdetails">
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+              </view>
+              <view class="_div data-v-2d9c6c39 zl-rate-box__details--propotion"><label class="_span data-v-2d9c6c39 zl-rate-box__details--activepropotion" style="width: 50%;"></label></view>
+            </view>
+            <view class="_li data-v-2d9c6c39">
+              <view class="_div data-v-2d9c6c39 zl-rate-box__leftdetails">
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+              </view>
+              <view class="_div data-v-2d9c6c39 zl-rate-box__details--propotion"><label class="_span data-v-2d9c6c39 zl-rate-box__details--activepropotion" style="width: 50%;"></label></view>
+            </view>
+            <view class="_li data-v-2d9c6c39">
+              <view class="_div data-v-2d9c6c39 zl-rate-box__leftdetails">
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+                <image class="_img data-v-2d9c6c39 zl-rate-box__details--star" src="/static/img/movie/star_inactive.svg" alt></image>
+              </view>
+              <view class="_div data-v-2d9c6c39 zl-rate-box__details--propotion"><label class="_span data-v-2d9c6c39 zl-rate-box__details--activepropotion" style="width: 50%;"></label></view>
+            </view> <label class="_span data-v-2d9c6c39 zl-rate-box__details--people">123456人评分</label>
           </view>
         </view>
       </view>

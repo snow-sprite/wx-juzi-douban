@@ -150,6 +150,56 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -224,7 +274,9 @@ if (false) {(function () {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [(_vm.movieDetail.id) ? _c('div', [_c('dl', {
+  return _c('div', {
+    staticClass: "zl-movie-detailbox"
+  }, [(_vm.movieDetail.id) ? _c('div', [_c('dl', {
     staticClass: "zl-movie"
   }, [_c('dt', {
     staticClass: "zl-movie__thumb"
@@ -255,19 +307,178 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "zl-movie__info--watchbox"
   }, [_c('li', {
     staticClass: "zl-movie__info--see"
-  }, [_vm._v("\n            想看" + _vm._s(_vm.movieDetail.wish_count) + "\n          ")]), _vm._v(" "), _c('li', {
+  }, [_vm._v("\n            想看 " + _vm._s(_vm.movieDetail.wish_count) + "\n          ")]), _vm._v(" "), _c('li', {
     staticClass: "zl-movie__info--see"
-  }, [_vm._v("\n            看过" + _vm._s(_vm.movieDetail.reviews_count) + "\n          ")])], 1)], 1)], 1), _vm._v(" "), _c('div', [_c('dl', [_c('dt', [_c('span', [_vm._v("7.6")]), _vm._v(" "), _c('div', [_c('img', {
+  }, [_vm._v("\n            看过 " + _vm._s(_vm.movieDetail.reviews_count) + "\n          ")])], 1)], 1)], 1)], 1) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "zl-rate-box"
+  }, [_c('span', {
+    staticClass: "zl-rate-box__title"
+  }, [_vm._v("豆瓣评分©")]), _vm._v(" "), _c('dl', {
+    staticClass: "zl-rate-leftbox"
+  }, [_c('dt', {
+    staticClass: "zl-rate-box__totalrate"
+  }, [_c('span', {
+    staticClass: "zl-rate-box__score"
+  }, [_vm._v("7.6")]), _vm._v(" "), _c('div', {
+    staticClass: "zl-rate-box__trate"
+  }, [_c('img', {
+    staticClass: "zl-rate-box__trate--active",
     attrs: {
       "src": "../../../static/img/movie/star_active.svg",
       "alt": ""
     }
-  })])]), _vm._v(" "), _c('dd', [_c('ul', [_c('li', [_c('img', {
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__trate--inactive",
     attrs: {
       "src": "../../../static/img/movie/star_inactive.svg",
       "alt": ""
     }
-  }), _vm._v(" "), _c('span')])], 1)], 1)], 1)], 1)], 1) : _vm._e()])
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__trate--inactive",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__trate--inactive",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__trate--inactive",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  })])]), _vm._v(" "), _c('dd', {
+    staticClass: "zl-rate-box__details"
+  }, [_c('ul', [_c('li', [_c('div', {
+    staticClass: "zl-rate-box__leftdetails"
+  }, [_c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "zl-rate-box__details--propotion"
+  }, [_c('span', {
+    staticClass: "zl-rate-box__details--activepropotion",
+    staticStyle: {
+      "width": "50%"
+    }
+  })])]), _vm._v(" "), _c('li', [_c('div', {
+    staticClass: "zl-rate-box__leftdetails"
+  }, [_c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "zl-rate-box__details--propotion"
+  }, [_c('span', {
+    staticClass: "zl-rate-box__details--activepropotion",
+    staticStyle: {
+      "width": "50%"
+    }
+  })])]), _vm._v(" "), _c('li', [_c('div', {
+    staticClass: "zl-rate-box__leftdetails"
+  }, [_c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "zl-rate-box__details--propotion"
+  }, [_c('span', {
+    staticClass: "zl-rate-box__details--activepropotion",
+    staticStyle: {
+      "width": "50%"
+    }
+  })])]), _vm._v(" "), _c('li', [_c('div', {
+    staticClass: "zl-rate-box__leftdetails"
+  }, [_c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "zl-rate-box__details--propotion"
+  }, [_c('span', {
+    staticClass: "zl-rate-box__details--activepropotion",
+    staticStyle: {
+      "width": "50%"
+    }
+  })])]), _vm._v(" "), _c('li', [_c('div', {
+    staticClass: "zl-rate-box__leftdetails"
+  }, [_c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    staticClass: "zl-rate-box__details--star",
+    attrs: {
+      "src": "../../../static/img/movie/star_inactive.svg",
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "zl-rate-box__details--propotion"
+  }, [_c('span', {
+    staticClass: "zl-rate-box__details--activepropotion",
+    staticStyle: {
+      "width": "50%"
+    }
+  })])]), _vm._v(" "), _c('span', {
+    staticClass: "zl-rate-box__details--people"
+  }, [_vm._v("123456人评分")])], 1)], 1)], 1)], 1)])
 }
 var staticRenderFns = []
 render._withStripped = true
